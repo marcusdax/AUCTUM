@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Auctum Ledger",
+      "hasCanvas": false,
+      "bodyTextLen": 2174,
+      "bodyTextHash": "95134777835da3b8a5d7dbf417e16be7ade0e19ef498a17469f2a1498dc1c225",
+      "bodyTextPrefix": "Skip to content Auctum Ledger VERIFIED, FROM ORIGIN COMPASS MARK",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Auctum Ledger",
+      "hasCanvas": false,
+      "bodyTextLen": 2032,
+      "bodyTextHash": "709dbac59cddd16a9fb21d464ebe35b70259c8a4ecea55b782093ffa385d64b7",
+      "bodyTextPrefix": "Skip to content Auctum Ledger LOTSPACE · COMPASS Every farm gets",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}

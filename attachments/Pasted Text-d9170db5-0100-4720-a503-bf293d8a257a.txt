@@ -1,0 +1,1567 @@
+Auctum Ledger — Education Module
+
+Masterclass SaaS UI Specification
+
+The Readiness Surface: A Design System for Competence-as-Authority
+
+---
+
+0. Foundational Thesis
+
+The Education tab is not a course catalog. It is the credential authority surface for a platform where competence gates action. The UI must embody this inversion: learning is summoned at the point of work, not browsed in a library.
+
+This specification defines a design system where:
+
+· Credentials are first-class objects with states, not completion badges
+· Blocked actions explain themselves and state their remedy inline
+· Calibration is continuous, visualized as drift over time, not a pass/fail moment
+· Content versions create staleness, surfaced with the same visual weight as Trust score modelVersion changes
+· Vietnamese-first is a design constraint, not a translation afterthought
+
+---
+
+1. Design Philosophy: Five Principles
+
+1.1 Authority as Interface
+
+Every credential display answers three questions in one glance:
+
+1. What can I do? (authority scope)
+2. Until when? (expiry state)
+3. Against what? (content version)
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  CUPPER_TIER_2                                          ● ACTIVE │
+│  ───────────────────────────────────────────────────────────────│
+│  Authority: Independent standard checks · Tier 1 exceptions     │
+│  Issued: 2024-03-15 · Expires: 2025-03-15 · 172 days remaining  │
+│  Content: cupping-sop v4.2 · Reference: SOP §1.2, §5.1–5.2      │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+Anti-pattern: A progress bar showing "80% complete" for a credential. Completion is not the metric—authority is.
+
+1.2 Evidence Before Economy
+
+Every economic claim renders after its evidence. In practice:
+
+```html
+<!-- Correct: proof precedes price -->
+<article class="lot-record">
+  <header class="lot-verification">
+    <VerificationBadge tier="audit-verified" />
+    <SourceTimestamp value="2024-11-28T09:14:00+07:00" />
+    <LedgerRef id="lot-2847-v3" />
+  </header>
+  <div class="lot-economics">
+    <FarmgatePrice amount="3.20" currency="USD" basis="ledger-entry-48291" />
+    <PriceWaterfall />
+  </div>
+</article>
+```
+
+CSS enforcement: .lot-economics cannot render without a preceding .lot-verification sibling. This is a design-system constraint, not a style preference.
+
+1.3 Blocks Explain Themselves
+
+The cardinal rule from Trust, applied to competence:
+
+Every block states its cause and its remedy in the same breath.
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  ⚠ TIER 2 DISPOSITION BLOCKED                                   │
+│  ───────────────────────────────────────────────────────────────│
+│                                                                  │
+│  You cannot sign a Tier 2 disposition without an active         │
+│  EXCEPTION_ADJUDICATOR credential.                              │
+│                                                                  │
+│  Your credential lapsed 14 days ago (2024-11-14).               │
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │ SHORTEST PATH TO UNBLOCKED                                  ││
+│  │ ─────────────────────────────────────────────────────────── ││
+│  │ 1. Complete C7: Producer-Side Asymmetry      ~12 min        ││
+│  │ 2. Complete C8: Counter-Evidence and Appeal  ~15 min        ││
+│  │ 3. Pass 3 adjudication scenarios             ~45 min        ││
+│  │ ─────────────────────────────────────────────────────────── ││
+│  │ Total: ~72 minutes · Renewal, not re-enrolment              ││
+│  │                                                             ││
+│  │ [ Begin Renewal Path ]              [ View Full Credential ]││
+│  └─────────────────────────────────────────────────────────────┘│
+└─────────────────────────────────────────────────────────────────┘
+```
+
+1.4 Calibration Over Completion
+
+The cupper dashboard is not a course list. It is a drift visualization:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  CALIBRATION · Cupper Tier 2                         [ 90 days ]│
+│  ───────────────────────────────────────────────────────────────│
+│                                                                  │
+│  Your variance vs. panel average                                │
+│                                                                  │
+│    +3 ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─  │
+│         ╭──╮                                                     │
+│    +2 ──│  │──╮                    ╭──╮                          │
+│         │  │  │  ╭──╮              │  │                          │
+│    +1 ──│  │  │──│  │──╮  ╭──╮  ╭──│  │──╮                       │
+│         │  │  │  │  │  │──│  │──│  │  │  │                       │
+│     0 ──│  │  │  │  │  │  │  │  │  │  │  │──╮                    │
+│         ╰──╯  ╰──╯  ╰──╯  ╰──╯  ╰──╯  ╰──╯  │                    │
+│    -1 ───────────────────────────────────────│──╮                 │
+│                                              ╰──╯                 │
+│    -2 ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─  │
+│                                                                  │
+│  ─────────────────────────────────────────────────────────────  │
+│  Session: 2024-11-28 · 12 panel cups · Variance: +1.2 pts       │
+│  Reference baseline: +0.3 pts · Status: Within tolerance        │
+│                                                                  │
+│  ⓘ This data is private to you and your QC manager.             │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+Visual language: The tolerance band is a subtle horizontal fill, not a hard line. Drift is a trajectory, not a verdict.
+
+1.5 Staleness Is Visible
+
+When content versions supersede, credentials enter a distinct visual state:
+
+State Visual Treatment Semantic
+Active Solid border, full saturation Full authority
+Expiring Amber left-edge accent Renewal window open
+Stale Dashed border, muted saturation Valid but superseded
+Lapsed Gray, strikethrough on authority text Suspended
+
+```css
+.credential[data-state="stale"] {
+  border-style: dashed;
+  border-color: var(--color-ink-muted);
+  opacity: 0.85;
+}
+
+.credential[data-state="stale"]::after {
+  content: "Content v4.2 superseded by v4.3";
+  font: var(--font-mono-xs);
+  color: var(--color-warning);
+}
+```
+
+---
+
+2. Visual System: Tokens & Primitives
+
+2.1 Color Tokens
+
+Inheriting the 170-token Auctum system:
+
+```css
+:root {
+  /* Ground */
+  --color-parchment: hsl(38 42% 96%);
+  --color-parchment-raised: hsl(38 38% 98%);
+  
+  /* Ink */
+  --color-ink: hsl(222 47% 14%);           /* Compass Navy */
+  --color-ink-secondary: hsl(222 30% 32%);
+  --color-ink-muted: hsl(222 18% 52%);
+  
+  /* Authority states */
+  --color-authority-active: hsl(152 58% 36%);   /* Verified green */
+  --color-authority-expiring: hsl(38 92% 50%);  /* Attention amber */
+  --color-authority-stale: hsl(222 18% 52%);    /* Superseded gray */
+  --color-authority-lapsed: hsl(0 0% 45%);      /* Suspended */
+  --color-authority-drift: hsl(350 72% 48%);    /* Drift flag red */
+  
+  /* Earned accent */
+  --color-gold: hsl(42 78% 52%);           /* Reserved for proven claims */
+  
+  /* Semantic */
+  --color-blocked: hsl(350 65% 42%);
+  --color-remedy: hsl(210 72% 48%);
+}
+```
+
+Rule: --color-gold appears only where a claim is ledger-verified. Never decorative.
+
+2.2 Typography Scale
+
+```css
+:root {
+  /* Families */
+  --font-editorial: 'Fraunces', 'Noto Serif Vietnamese', serif;
+  --font-ui: 'Archivo', 'Be Vietnam Pro', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'JetBrains Mono', monospace;
+  
+  /* Scale — Major Third (1.25) */
+  --text-xs: 0.64rem;      /* 10.24px — metadata, timestamps */
+  --text-sm: 0.8rem;       /* 12.8px — captions, helper text */
+  --text-base: 1rem;       /* 16px — body */
+  --text-md: 1.25rem;      /* 20px — subheadings */
+  --text-lg: 1.563rem;     /* 25px — section titles */
+  --text-xl: 1.953rem;     /* 31.25px — page titles */
+  --text-2xl: 2.441rem;    /* 39px — hero */
+  
+  /* Line heights */
+  --leading-tight: 1.15;
+  --leading-snug: 1.35;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+  
+  /* Tracking */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;
+  --tracking-mono: 0.06em;
+}
+```
+
+Vietnamese accommodation: Noto Serif Vietnamese and Be Vietnam Pro as fallbacks ensure diacritic clarity. Line-height minimum is 1.5 for Vietnamese text due to stacked diacritics.
+
+2.3 Spacing System (4px base)
+
+```css
+:root {
+  --space-1: 0.25rem;   /*  4px */
+  --space-2: 0.5rem;    /*  8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+}
+```
+
+2.4 Motion Tokens
+
+```css
+:root {
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  --duration-instant: 80ms;
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+```
+
+Motion principle: Motion reveals hierarchy and state change. It never decorates. The spring ease is reserved for credential state transitions.
+
+---
+
+3. Component Library
+
+3.1 Credential Card
+
+The atomic unit of authority display.
+
+```tsx
+interface CredentialCardProps {
+  type: CredentialType;
+  state: 'active' | 'expiring' | 'stale' | 'lapsed' | 'probationary';
+  issuedAt: Date;
+  expiresAt: Date;
+  contentVersion: string;
+  sourceRef: string;
+  authorityScope: string[];
+  driftData?: CalibrationPoint[];
+  onRenew?: () => void;
+  onViewDetail?: () => void;
+}
+```
+
+Anatomy:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│ ┌─────────────────────────────────────────────────────────────┐ │
+│ │  CUPPER_TIER_2                                    ● ACTIVE  │ │ ← Header
+│ └─────────────────────────────────────────────────────────────┘ │
+│                                                                  │
+│  Independent standard checks · Tier 1 exception cupping         │ ← Authority scope
+│                                                                  │
+│ ┌─────────────────────────────────────────────────────────────┐ │
+│ │ Issued      2024-03-15                                      │ │ ← Metadata grid
+│ │ Expires     2025-03-15  ·  172 days remaining               │ │
+│ │ Content     cupping-sop v4.2                                │ │
+│ │ Source      SOP §1.2, §5.1–5.2                              │ │
+│ └─────────────────────────────────────────────────────────────┘ │
+│                                                                  │
+│ ┌─────────────────────────────────────────────────────────────┐ │
+│ │ DRIFT · Last 90 days                            +1.2 pts    │ │ ← Calibration (if applicable)
+│ │ ▁▂▂▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃ │ │
+│ │ Within tolerance (±3.0)                                     │ │
+│ └─────────────────────────────────────────────────────────────┘ │
+│                                                                  │
+│  [ Renew ]                                      [ Full Detail ] │ ← Actions
+└─────────────────────────────────────────────────────────────────┘
+```
+
+State variations:
+
+```css
+.credential-card {
+  --card-border: 1px solid var(--color-ink-muted);
+  --card-accent: transparent;
+  
+  border: var(--card-border);
+  border-left: 3px solid var(--card-accent);
+  background: var(--color-parchment-raised);
+  border-radius: 4px;
+}
+
+.credential-card[data-state="active"] {
+  --card-border: 1px solid var(--color-authority-active);
+  --card-accent: var(--color-authority-active);
+}
+
+.credential-card[data-state="expiring"] {
+  --card-border: 1px solid var(--color-authority-expiring);
+  --card-accent: var(--color-authority-expiring);
+}
+
+.credential-card[data-state="stale"] {
+  --card-border: 1px dashed var(--color-authority-stale);
+  --card-accent: var(--color-authority-stale);
+  opacity: 0.9;
+}
+
+.credential-card[data-state="lapsed"] {
+  --card-border: 1px solid var(--color-authority-lapsed);
+  --card-accent: var(--color-authority-lapsed);
+  opacity: 0.7;
+}
+
+.credential-card[data-state="lapsed"] .credential-authority {
+  text-decoration: line-through;
+  text-decoration-color: var(--color-authority-lapsed);
+}
+```
+
+3.2 Blocked Action Panel
+
+The remedy-first block display.
+
+```tsx
+interface BlockedActionPanelProps {
+  action: string;
+  blockReason: 'credential_missing' | 'credential_lapsed' | 'credential_stale' | 'drift_suspended';
+  credentialType: string;
+  remedyPath: RemedyStep[];
+  estimatedDuration: number; // minutes
+  onBeginRemedy: () => void;
+  onDismiss: () => void;
+}
+```
+
+Full anatomy:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  ⛔ TIER 2 DISPOSITION BLOCKED                                  │
+│  ───────────────────────────────────────────────────────────────│
+│                                                                  │
+│  You cannot sign a Tier 2 disposition without an active         │
+│  EXCEPTION_ADJUDICATOR credential.                              │
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │ CURRENT STATUS                                              ││
+│  │ ─────────────────────────────────────────────────────────── ││
+│  │ Credential state:  LAPSED                                   ││
+│  │ Lapsed on:         2024-11-14 (14 days ago)                 ││
+│  │ Reason:            Annual renewal not completed             ││
+│  └─────────────────────────────────────────────────────────────┘│
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │ SHORTEST PATH TO UNBLOCKED                    ~72 minutes   ││
+│  │ ─────────────────────────────────────────────────────────── ││
+│  │                                                             ││
+│  │ ①  C7: Producer-Side Asymmetry                  ~12 min    ││
+│  │    └─ Knowledge check · 3 questions                         ││
+│  │                                                             ││
+│  │ ②  C8: Counter-Evidence and Appeal              ~15 min    ││
+│  │    └─ Knowledge check · 4 questions                         ││
+│  │                                                             ││
+│  │ ③  Adjudication Scenarios                       ~45 min    ││
+│  │    └─ 3 scenarios · graded against key                      ││
+│  │    └─ Pass threshold: 3/3 disposition + price ±$0.01        ││
+│  │                                                             ││
+│  │ ─────────────────────────────────────────────────────────── ││
+│  │ This is a renewal path. Your prior progress is preserved.   ││
+│  └─────────────────────────────────────────────────────────────┘│
+│                                                                  │
+│  ┌──────────────────────┐  ┌─────────────────────────────────┐  │
+│  │  Begin Renewal Path  │  │  View Full Credential Record    │  │
+│  └──────────────────────┘  └─────────────────────────────────┘  │
+│                                                                  │
+│  [ Request Override ]  ← Requires manager approval + audit log  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+Override flow (when blocking would stop a shipment):
+
+The override is not hidden. It is available but carries weight:
+
+```tsx
+interface OverrideRequestProps {
+  blockedAction: string;
+  reason: string; // Required free text, min 50 chars
+  approver: User; // Must hold relevant credential
+  expiresIn: '4h' | '8h' | '24h';
+  auditTrail: AuditEntry[]; // Visible, immutable
+}
+```
+
+3.3 Calibration Chart
+
+The drift visualization for cupper credentials.
+
+```tsx
+interface CalibrationChartProps {
+  data: CalibrationPoint[];
+  toleranceBand: { min: number; max: number };
+  referenceBaseline: number;
+  currentVariance: number;
+  period: '30d' | '90d' | '365d';
+  privacyLevel: 'self' | 'manager' | 'admin';
+}
+```
+
+Visual specification:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  CALIBRATION · Cupper Tier 2                     [ 30d ] [ 90d ]│
+│  ───────────────────────────────────────────────────────────────│
+│                                                                  │
+│  +3.0 ─────────────────────────────────────────── SOP threshold │
+│         ╭──╮                                                     │
+│  +2.0 ──│  │──╮                    ╭──╮                          │
+│         │  │  │  ╭──╮              │  │                          │
+│  +1.0 ──│  │  │──│  │──╮  ╭──╮  ╭──│  │──╮                       │
+│         │  │  │  │  │  │──│  │──│  │  │  │                       │
+│   0.0 ──│  │  │  │  │  │  │  │  │  │  │  │──╮                    │
+│         ╰──╯  ╰──╯  ╰──╯  ╰──╯  ╰──╯  ╰──╯  │                    │
+│  -1.0 ───────────────────────────────────────│──╮                 │
+│                                              ╰──╯                 │
+│  -2.0 ─────────────────────────────────────────── SOP threshold  │
+│                                                                  │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │ Current variance      +1.2 pts                              ││
+│  │ Reference baseline    +0.3 pts                              ││
+│  │ Sessions recorded     24                                    ││
+│  │ Panel cups            287                                   ││
+│  │ Status                Within tolerance                      ││
+│  └─────────────────────────────────────────────────────────────┘│
+│                                                                  │
+│  ⓘ This data is private to you and your QC manager.             │
+│    It is never displayed on your public profile and never       │
+│    feeds into any Trust computation.                            │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+Rendering notes:
+
+· The tolerance band is a subtle gradient fill, not hard lines
+· The current session is marked with a pulse animation (respecting reduced-motion)
+· Hover on any point shows: date, expected value, observed value, delta, session ID
+· The privacy notice is not dismissible
+
+3.4 Lesson Card (Inline Summons)
+
+When a lesson is summoned at the point of work, it appears as an overlay, not a navigation.
+
+```tsx
+interface InlineLessonProps {
+  lessonId: string;
+  moduleId: string;
+  courseId: string;
+  estimatedMinutes: number;
+  contentVersion: string;
+  sourceRef: string;
+  onComplete: (idempotencyKey: string) => void;
+  onDismiss: () => void;
+}
+```
+
+Inline rendering (in the work context, e.g., doc review pane):
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │  BEFORE YOU CAN ACCEPT THIS DOCUMENT                        ││
+│  │  ─────────────────────────────────────────────────────────── ││
+│  │                                                             ││
+│  │  You need DOC_OPERATOR. This takes about 8 minutes.         ││
+│  │                                                             ││
+│  │  ┌─────────────────────────────────────────────────────────┐││
+│  │  │ E1 · Queue Discipline                                   │││
+│  │  │ ─────────────────────────────────────────────────────── │││
+│  │  │                                                         │││
+│  │  │ The queue is sorted by confidence, highest first.      │││
+│  │  │ You work top-down. Cherry-picking low-confidence       │││
+│  │  │ documents makes the correction-rate metric lie.        │││
+│  │  │                                                         │││
+│  │  │ ┌─────────────────────────────────────────────────────┐ │││
+│  │  │ │ ○  I will work the queue in confidence order        │ │││
+│  │  │ │ ○  I will cherry-pick documents I recognize         │ │││
+│  │  │ │ ○  I will skip documents below 50% confidence       │ │││
+│  │  │ └─────────────────────────────────────────────────────┘ │││
+│  │  │                                                         │││
+│  │  │ Source: scanner-sop §E1                                 │││
+│  │  └─────────────────────────────────────────────────────────┘││
+│  │                                                             ││
+│  │  [ Submit Answer ]                          [ Skip for now ]││
+│  └─────────────────────────────────────────────────────────────┘│
+│                                                                  │
+│  ⓘ Skipping means you cannot accept documents until this        │
+│    lesson is completed.                                         │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+Key UX decisions:
+
+· The lesson is contextual, not modal-fullscreen
+· The work context remains visible behind
+· "Skip for now" is available but states the consequence
+· Progress is saved; re-entry resumes at the same point
+
+3.5 Assessment Interface
+
+For graded scenarios (C-track adjudications, A-track practicals).
+
+```tsx
+interface AssessmentInterfaceProps {
+  assessmentId: string;
+  kind: 'knowledge_check' | 'scenario' | 'practical' | 'calibration';
+  items: AssessmentItem[];
+  timeLimit?: number;
+  onSubmit: (responses: Response[], idempotencyKey: string) => void;
+}
+```
+
+Scenario assessment layout:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  EXCEPTION ADJUDICATION · Scenario 2 of 3                       │
+│  ───────────────────────────────────────────────────────────────│
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │ LOT RECORD                                                  ││
+│  │ ─────────────────────────────────────────────────────────── ││
+│  │ Lot ID:        VN-2024-DLK-0847                             ││
+│  │ Origin:        Dak Lak, Vietnam                             ││
+│  │ Producer:      Nguyen Van Thanh                             ││
+│  │ Varietal:      Robusta                                       ││
+│  │ Process:       Natural                                       ││
+│  │                                                             ││
+│  │ Initial cupping:  82.5 (Tier 0, self-reported)              ││
+│  │ Retained sample:  Available · Pulled 2024-11-15             ││
+│  │ Re-cup result:    79.0 (Tier 2 cupper, blind)               ││
+│  │                                                             ││
+│  │ Moisture:         13.2%  (spec: 10.5–12.5%)                 ││
+│  │ Water activity:   0.68                                       ││
+│  │                                                             ││
+│  │ Exception raised: Quality-identity risk                     ││
+│  │ Evidence:         Retained sample re-cup variance > 3 pts   ││
+│  └─────────────────────────────────────────────────────────────┘│
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │ YOUR ADJUDICATION                                           ││
+│  │ ─────────────────────────────────────────────────────────── ││
+│  │                                                             ││
+│  │ 1. Tier classification                                      ││
+│  │    ○ Tier 1 — Minor variance                                ││
+│  │    ● Tier 2 — Quality-identity risk                         ││
+│  │    ○ Tier 3 — Chain compromise                              ││
+│  │                                                             ││
+│  │ 2. Disposition                                              ││
+│  │    ○ Release                                                ││
+│  │    ○ Downgrade                                              ││
+│  │    ● Reject & Claim                                         ││
+│  │    ○ Re-verify & Partition                                  ││
+│  │                                                             ││
+│  │ 3. Adjusted price (if applicable)                           ││
+│  │    Farmgate reference:  $2.80/lb                            ││
+│  │    Degradation factor:  [ 0.85 ]                            ││
+│  │    Operational cost:    [ $0.12 ]/lb                        ││
+│  │    ─────────────────────────────────────                    ││
+│  │    Adjusted price:      $2.26/lb                            ││
+│  │                                                             ││
+│  │ 4. Fault attribution                                        ││
+│  │    ● Producer (moisture deviation at farm)                  ││
+│  │    ○ Collector (storage/transport)                          ││
+│  │    ○ Platform (verification failure)                        ││
+│  │                                                             ││
+│  └─────────────────────────────────────────────────────────────┘│
+│                                                                  │
+│  [ Submit Adjudication ]                    [ Flag for Review ] │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+Grading logic:
+
+```typescript
+interface AdjudicationKey {
+  correctTier: 'TIER_1' | 'TIER_2' | 'TIER_3';
+  correctDisposition: 'RELEASE' | 'DOWNGRADE' | 'REJECT_CLAIM' | 'RE_VERIFY';
+  adjustedPriceTolerance: 0.01; // USD
+  correctFault: 'PRODUCER' | 'COLLECTOR' | 'PLATFORM';
+}
+
+function gradeAdjudication(
+  response: AdjudicationResponse,
+  key: AdjudicationKey
+): AdjudicationResult {
+  const tierCorrect = response.tier === key.correctTier;
+  const dispositionCorrect = response.disposition === key.correctDisposition;
+  const priceCorrect = Math.abs(response.adjustedPrice - key.adjustedPrice) 
+    <= key.adjustedPriceTolerance;
+  const faultCorrect = response.fault === key.correctFault;
+  
+  return {
+    passed: tierCorrect && dispositionCorrect && priceCorrect,
+    breakdown: { tierCorrect, dispositionCorrect, priceCorrect, faultCorrect },
+    // Fault attribution is feedback, not pass/fail
+  };
+}
+```
+
+The 50% cap guardrail:
+
+The re-pricing model includes a hard cap. This must be visible in the UI:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  ⚠ PRICING GUARDRAIL                                            │
+│  ───────────────────────────────────────────────────────────────│
+│                                                                  │
+│  The degradation factor cannot reduce the adjusted price below  │
+│  50% of the farmgate reference. This cap exists to prevent      │
+│  predatory re-pricing.                                          │
+│                                                                  │
+│  Your adjustment: $2.26/lb                                      │
+│  Floor (50% of $2.80): $1.40/lb                                 │
+│  Status: Within bounds                                          │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+3.6 Readiness Surface (The Tab Home)
+
+The Education tab is a readiness surface, not a catalog.
+
+```tsx
+interface ReadinessSurfaceProps {
+  credentials: Credential[];
+  blockedActions: BlockedAction[];
+  expiringCredentials: Credential[];
+  staleCredentials: Credential[];
+  recommendedNext: RemedyPath | null;
+}
+```
+
+Full layout:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  READINESS                                                       │
+│  ───────────────────────────────────────────────────────────────│
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │  ⛔ 1 ACTION BLOCKED                                        ││
+│  │                                                             ││
+│  │  Tier 2 Disposition sign-off                                ││
+│  │  Reason: EXCEPTION_ADJUDICATOR lapsed 14 days ago           ││
+│  │  Remedy: ~72 min renewal path                               ││
+│  │                                                             ││
+│  │  [ Begin Renewal ]                                          ││
+│  └─────────────────────────────────────────────────────────────┘│
+│                                                                  │
+│  ───────────────────────────────────────────────────────────────│
+│                                                                  │
+│  CREDENTIALS                                                     │
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │  CUPPER_TIER_2                                    ● ACTIVE  ││
+│  │  Expires 2025-03-15 · 172 days                              ││
+│  │  Drift +1.2 pts · Within tolerance                          ││
+│  └─────────────────────────────────────────────────────────────┘│
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │  SAMPLE_CUSTODY                                   ● ACTIVE  ││
+│  │  Expires 2025-01-08 · 41 days                               ││
+│  └─────────────────────────────────────────────────────────────┘│
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │  DOC_OPERATOR                                     ⚠ EXPIRING││
+│  │  Monthly calibration due in 6 days                          ││
+│  │  [ Complete Calibration ]                                   ││
+│  └─────────────────────────────────────────────────────────────┘│
+│                                                                  │
+│  ───────────────────────────────────────────────────────────────│
+│                                                                  │
+│  STALE (CONTENT VERSION SUPERSEDED)                              │
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │  SAMPLE_CUSTODY                                    ◌ STALE  ││
+│  │  Earned against retained-sample-sop v2.1                    ││
+│  │  Current version: v2.3 · 2 sections changed                 ││
+│  │  [ View Delta Module · ~15 min ]                            ││
+│  └─────────────────────────────────────────────────────────────┘│
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+Empty state (new user):
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  READINESS                                                       │
+│  ───────────────────────────────────────────────────────────────│
+│                                                                  │
+│  You do not hold any credentials yet.                           │
+│                                                                  │
+│  Credentials gate specific actions in the platform. Your role   │
+│  determines which credentials you need.                          │
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │  RECOMMENDED FOR YOUR ROLE (QC / CUPPER)                    ││
+│  │                                                             ││
+│  │  CUPPER_TIER_2                                              ││
+│  │  Independent standard checks · Tier 1 exceptions            ││
+│  │  Prerequisite: CUPPER_TIER_1 (external Q-Grader licence)    ││
+│  │  Duration: 7 weeks                                          ││
+│  │                                                             ││
+│  │  [ View Track A Curriculum ]                                ││
+│  └─────────────────────────────────────────────────────────────┘│
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │  SAMPLE_CUSTODY                                             ││
+│  │  Sample pull · Cabinet access · Destruction witness         ││
+│  │  Duration: ~4 hours                                         ││
+│  │                                                             ││
+│  │  [ View Track B Curriculum ]                                ││
+│  └─────────────────────────────────────────────────────────────┘│
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+4. Critical Flows
+
+4.1 The Summoned Lesson Flow
+
+Teaching happens at the point of work. The flow:
+
+```
+User attempts gated action
+        │
+        ▼
+┌───────────────────┐
+│ Server checks     │
+│ credential        │
+└───────────────────┘
+        │
+   ┌────┴────┐
+   │         │
+   ▼         ▼
+ Has       Lacks
+ credential credential
+   │         │
+   ▼         ▼
+Action    ┌─────────────────────────────────────┐
+proceeds  │ Return 403 with:                    │
+          │ - credential_type required          │
+          │ - remedy_path (shortest)            │
+          │ - estimated_duration                │
+          │ - inline_lesson_available: true     │
+          └─────────────────────────────────────┘
+                    │
+                    ▼
+          ┌─────────────────────────────────────┐
+          │ UI renders BlockedActionPanel       │
+          │ with inline lesson option           │
+          └─────────────────────────────────────┘
+                    │
+                    ▼
+          ┌─────────────────────────────────────┐
+          │ User completes lesson(s) inline     │
+          │ Progress idempotent on client key   │
+          └─────────────────────────────────────┘
+                    │
+                    ▼
+          ┌─────────────────────────────────────┐
+          │ Credential issued                   │
+          │ User returned to original context   │
+          │ Action now unblocked                │
+          └─────────────────────────────────────┘
+```
+
+API contract for the summon:
+
+```typescript
+// Server response when action is blocked
+interface ActionBlockedResponse {
+  error: 'CREDENTIAL_REQUIRED';
+  credentialType: string;
+  remedyPath: {
+    steps: RemedyStep[];
+    estimatedMinutes: number;
+    isRenewal: boolean;
+    preservedProgress?: number; // percentage
+  };
+  inlineLessonAvailable: boolean;
+  overrideAvailable: boolean;
+  overrideRequires: 'manager' | 'admin';
+}
+```
+
+4.2 The Calibration Session Flow
+
+Monthly calibration for DOC_OPERATOR, annual for cuppers.
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  CALIBRATION SESSION · DOC_OPERATOR                             │
+│  ───────────────────────────────────────────────────────────────│
+│                                                                  │
+│  Every operator reviews the same 20 documents. Your responses   │
+│  are compared against the cohort. Target: >90% agreement.       │
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │ Document 7 of 20                                            ││
+│  │ ─────────────────────────────────────────────────────────── ││
+│  │                                                             ││
+│  │ ┌─────────────────────────────────────────────────────────┐ ││
+│  │ │                                                         │ ││
+│  │ │              [Document Image]                           │ ││
+│  │ │                                                         │ ││
+│  │ │              INVOICE                                    │ ││
+│  │ │              ─────────────────                          │ ││
+│  │ │              Supplier: Cong Ty Ca Phe Dak Lak           │ ││
+│  │ │              Date: 15/11/2024                           │ ││
+│  │ │              Total: 45,000,000 VND                      │ ││
+│  │ │                                                         │ ││
+│  │ └─────────────────────────────────────────────────────────┘ ││
+│  │                                                             ││
+│  │ Extracted fields:                                           ││
+│  │                                                             ││
+│  │ Supplier name:    Cong Ty Ca Phe Dak Lak    [ Confirm ]    ││
+│  │                   Confidence: 94%            [ Override ]   ││
+│  │                                                             ││
+│  │ Date:             15/11/2024                [ Confirm ]    ││
+│  │                   Confidence: 98%            [ Override ]   ││
+│  │                                                             ││
+│  │ Total:            45,000,000 VND            [ Confirm ]    ││
+│  │                   Confidence: 72%            [ Override ]   ││
+│  │                   ⚠ Below threshold — verify against image ││
+│  │                                                             ││
+│  │ Issuer class:                                               ││
+│  │ ○ Self-issued                                               ││
+│  │ ● Counterparty                                              ││
+│  │ ○ Independent third party                                   ││
+│  │ ○ Government                                                ││
+│  │                                                             ││
+│  └─────────────────────────────────────────────────────────────┘│
+│                                                                  │
+│  [ Submit Response ]                                            │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+Calibration results (after cohort completes):
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  CALIBRATION RESULTS · November 2024                            │
+│  ───────────────────────────────────────────────────────────────│
+│                                                                  │
+│  Your agreement with cohort: 92%                                │
+│  Target: >90%                                                   │
+│  Status: ✓ Passed                                               │
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │ Item-level analysis                                         ││
+│  │ ─────────────────────────────────────────────────────────── ││
+│  │                                                             ││
+│  │ Document 7 (Total field)                                    ││
+│  │   Your response:    45,000,000 VND                          ││
+│  │   Cohort consensus: 45,000,000 VND                          ││
+│  │   Agreement:        ✓                                       ││
+│  │                                                             ││
+│  │ Document 14 (Issuer class)                                  ││
+│  │   Your response:    Counterparty                            ││
+│  │   Cohort consensus: Independent third party                 ││
+│  │   Agreement:        ✗                                       ││
+│  │   Note: This was a notarized document. See E6.              ││
+│  │                                                             ││
+│  └─────────────────────────────────────────────────────────────┘│
+│                                                                  │
+│  Next calibration: 2024-12-28                                   │
+│                                                                  │
+│  [ Review E6: Issuer Class ]                                    │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+4.3 The Drift Suspension Flow
+
+Automatic, evidenced, private.
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  ⚠ CALIBRATION ALERT                                            │
+│  ───────────────────────────────────────────────────────────────│
+│                                                                  │
+│  Your cupping variance has exceeded the SOP threshold.          │
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │ Current variance:    +3.4 pts                               ││
+│  │ SOP threshold:       ±3.0 pts                               ││
+│  │ Sessions affected:   Last 4 sessions                        ││
+│  └─────────────────────────────────────────────────────────────┘│
+│                                                                  │
+│  Your CUPPER_TIER_2 credential has been moved to               │
+│  PROBATIONARY status.                                           │
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │ WHAT THIS MEANS                                             ││
+│  │ ─────────────────────────────────────────────────────────── ││
+│  │                                                             ││
+│  │ You can still participate in panel cupping under           ││
+│  │ Tier 1 supervision.                                         ││
+│  │                                                             ││
+│  │ You cannot sign independent standard checks or             ││
+│  │ Tier 1 exception cupping until variance returns            ││
+│  │ within tolerance.                                           ││
+│  │                                                             ││
+│  └─────────────────────────────────────────────────────────────┘│
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │ RECOVERY PATH                                               ││
+│  │ ─────────────────────────────────────────────────────────── ││
+│  │                                                             ││
+│  │ 1. Complete 3 supervised calibration sessions               ││
+│  │ 2. Achieve variance ≤1.5 pts across all 3                   ││
+│  │ 3. Reference coffee within ±1 pt of baseline                ││
+│  │                                                             ││
+│  │ Your QC manager has been notified.                          ││
+│  │                                                             ││
+│  └─────────────────────────────────────────────────────────────┘│
+│                                                                  │
+│  ⓘ This data is private. It is never displayed on your         │
+│    public profile and never feeds into any Trust computation.   │
+│                                                                  │
+│  [ Schedule Supervised Session ]                                │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+Privacy enforcement in code:
+
+```typescript
+// Drift data access control
+const DRIFT_DATA_ACCESS = {
+  self: ['read', 'export'],
+  qc_manager: ['read', 'annotate'],
+  admin: ['read'],
+  // Explicitly excluded roles
+  counterparty: [],
+  public: [],
+  trust_computation: [], // Never
+};
+
+function canAccessDriftData(
+  viewer: User,
+  subject: User,
+  action: 'read' | 'annotate' | 'export'
+): boolean {
+  if (viewer.id === subject.id) {
+    return DRIFT_DATA_ACCESS.self.includes(action);
+  }
+  if (viewer.roles.includes('QC_MANAGER') && 
+      viewer.managedUsers.includes(subject.id)) {
+    return DRIFT_DATA_ACCESS.qc_manager.includes(action);
+  }
+  if (viewer.roles.includes('ADMIN')) {
+    return DRIFT_DATA_ACCESS.admin.includes(action);
+  }
+  return false;
+}
+```
+
+---
+
+5. Vietnamese-First Design (Track D)
+
+5.1 Typography Accommodation
+
+Vietnamese diacritics require vertical space. The design system accommodates:
+
+```css
+:lang(vi) {
+  --leading-tight: 1.25;    /* Increased from 1.15 */
+  --leading-snug: 1.45;     /* Increased from 1.35 */
+  --leading-normal: 1.6;    /* Increased from 1.5 */
+  --leading-relaxed: 1.75;  /* Increased from 1.65 */
+}
+
+.lesson-body:lang(vi) {
+  font-family: 'Noto Serif Vietnamese', 'Fraunces', serif;
+  font-size: calc(var(--text-base) * 1.05); /* Slight increase for legibility */
+}
+```
+
+5.2 Audio-First Lesson Design
+
+Track D is audio-first. The design reflects this:
+
+```tsx
+interface ProducerLessonProps {
+  lessonId: string;
+  audioSrc: string;
+  transcriptSrc: string;
+  illustrations: Illustration[];
+  comprehensionChecks: Check[];
+  locale: 'vi' | 'en';
+}
+```
+
+Layout:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  BÀI 2 · ĐỌC BIÊN NHẬN GIÁ THỰC (Reading Your True Price Receipt)│
+│  ───────────────────────────────────────────────────────────────│
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │                                                             ││
+│  │                    ▶  NGHE BÀI HỌC                          ││
+│  │                       (Listen to lesson)                    ││
+│  │                                                             ││
+│  │                    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━           ││
+│  │                    0:00                          4:32       ││
+│  │                                                             ││
+│  │                    [ ⏪ 15s ]  [ ⏸ ]  [ 15s ⏩ ]            ││
+│  │                                                             ││
+│  └─────────────────────────────────────────────────────────────┘│
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │                                                             ││
+│  │   [Illustration: A True Price Receipt with callout arrows]  ││
+│  │                                                             ││
+│  │   ① Tên nông dân (Farmer name)                              ││
+│  │   ② Trọng lượng thực (Net weight)                           ││
+│  │   ③ Điểm cupping (Cup score)                                ││
+│  │   ④ Giá sàn (Floor price)                                   ││
+│  │   ⑤ Giá bán cuối (Final sale price)                         ││
+│  │   ⑥ Khấu trừ (Deductions)                                   ││
+│  │   ⑦ Tỷ lệ chia sẻ (Share %)                                 ││
+│  │   ⑧ Số tiền nhận (Amount received)                          ││
+│  │                                                             ││
+│  └─────────────────────────────────────────────────────────────┘│
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │  BẠN ĐÃ HIỂU CHƯA? (Did you understand?)                    ││
+│  │  ─────────────────────────────────────────────────────────── ││
+│  │                                                             ││
+│  │  Câu 1: Số tiền nhận được ghi ở đâu trên biên nhận?         ││
+│  │  (Question 1: Where is the amount received shown on the     ││
+│  │   receipt?)                                                 ││
+│  │                                                             ││
+│  │  ○ Ở đầu biên nhận (At the top)                             ││
+│  │  ● Ở cuối biên nhận (At the bottom)                         ││
+│  │  ○ Ở giữa biên nhận (In the middle)                         ││
+│  │                                                             ││
+│  │  [ Trả lời (Submit) ]                                       ││
+│  └─────────────────────────────────────────────────────────────┘│
+│                                                                  │
+│  ⓘ Bài học này không ảnh hưởng đến thanh toán của bạn.          │
+│    (This lesson does not affect your payment.)                  │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+5.3 Offline-First Architecture
+
+Track D lessons must be pre-cacheable. The design reflects sync state:
+
+```typescript
+interface OfflineLessonState {
+  lessonId: string;
+  cachedAt: Date | null;
+  syncState: 'synced' | 'pending' | 'conflict';
+  localProgress: number;
+  serverProgress: number | null;
+}
+
+// UI treatment
+const SYNC_STATE_DISPLAY = {
+  synced: { icon: '✓', label: 'Đã đồng bộ', color: 'success' },
+  pending: { icon: '◌', label: 'Đang chờ', color: 'muted' },
+  conflict: { icon: '⚠', label: 'Cần giải quyết', color: 'warning' },
+};
+```
+
+Offline indicator:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  ◌ BÀI HỌC ĐÃ LƯU NGOẠI TUYẾN                                  │
+│    (Lesson saved offline)                                        │
+│                                                                  │
+│  Tiến độ sẽ được đồng bộ khi có kết nối.                        │
+│  (Progress will sync when connected.)                           │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+5.4 Comprehension Check Design
+
+Not a graded exam. Two questions per lesson, immediate feedback.
+
+```tsx
+interface ComprehensionCheckProps {
+  questions: Question[];
+  passingScore: 2; // Both correct
+  onComplete: (passed: boolean) => void;
+  retryAllowed: true;
+  affectsPayment: false; // Hard-coded false for D-track
+}
+```
+
+Hard constraint in code:
+
+```typescript
+// D-track lessons can never gate payment
+function canGatePayment(lesson: Lesson): boolean {
+  if (lesson.track === 'D') {
+    return false; // Always false, no exceptions
+  }
+  return lesson.isGating;
+}
+
+// Server-side enforcement
+app.post('/api/education/lesson/complete', (req, res) => {
+  const { lessonId } = req.body;
+  const lesson = getLesson(lessonId);
+  
+  if (lesson.track === 'D' && lesson.gatesPayment) {
+    throw new Error('D-track lessons cannot gate payment');
+  }
+  
+  // ... proceed
+});
+```
+
+---
+
+6. Data Model (UI-Facing Projections)
+
+6.1 Credential Projection
+
+```typescript
+interface CredentialProjection {
+  id: string;
+  type: CredentialType;
+  state: 'active' | 'expiring' | 'stale' | 'lapsed' | 'probationary';
+  
+  issuedAt: string; // ISO 8601
+  expiresAt: string;
+  issuedBy: {
+    userId: string;
+    displayName: string;
+    credentialType: string; // What qualified them to issue
+  };
+  
+  contentVersion: string;
+  sourceRef: string;
+  authorityScope: string[];
+  
+  // Calibration (if applicable)
+  calibration?: {
+    currentVariance: number;
+    referenceBaseline: number;
+    sessionCount: number;
+    lastSessionAt: string;
+    privacyLevel: 'self' | 'manager';
+  };
+  
+  // Staleness
+  staleness?: {
+    supersededBy: string; // New content version
+    changedSections: string[];
+    deltaModuleId: string;
+    deltaDuration: number; // minutes
+  };
+  
+  // Actions
+  actions: {
+    canRenew: boolean;
+    canViewDetail: boolean;
+    canExport: boolean;
+  };
+}
+```
+
+6.2 Readiness Projection
+
+```typescript
+interface ReadinessProjection {
+  userId: string;
+  generatedAt: string;
+  
+  credentials: CredentialProjection[];
+  
+  blockedActions: {
+    action: string;
+    actionContext: string; // Where in the UI this is blocked
+    reason: 'missing' | 'lapsed' | 'stale' | 'drift';
+    credentialType: string;
+    remedyPath: {
+      steps: RemedyStep[];
+      estimatedMinutes: number;
+      isRenewal: boolean;
+    };
+  }[];
+  
+  recommendedNext: {
+    credentialType: string;
+    reason: string;
+    estimatedMinutes: number;
+  } | null;
+  
+  // Privacy notice for drift data
+  driftDataNotice: string;
+}
+
+interface RemedyStep {
+  id: string;
+  type: 'lesson' | 'assessment' | 'practical' | 'calibration';
+  title: string;
+  estimatedMinutes: number;
+  completed: boolean;
+}
+```
+
+6.3 Calibration Point Projection
+
+```typescript
+interface CalibrationPointProjection {
+  id: string;
+  userId: string;
+  subjectType: 'cupping_session' | 'document_review';
+  
+  expected: number; // decimal(5,2)
+  observed: number; // decimal(5,2)
+  delta: number;    // decimal(5,2)
+  
+  sessionId: string;
+  recordedAt: string;
+  
+  // Never exposed to counterparty or Trust computation
+  _accessControl: 'self_and_manager_only';
+}
+```
+
+---
+
+7. Implementation Roadmap
+
+Phase 1: Foundation (Track E)
+
+Rationale: Smallest scope, closes existing G-10, validates credential-gating machinery.
+
+Deliverables:
+
+· CredentialCard component with all states
+· BlockedActionPanel with remedy path
+· ReadinessSurface tab home
+· DOC_OPERATOR credential type
+· Monthly calibration session flow
+· Server-side gate on documents.acceptOcr
+
+Success criteria:
+
+· Operator can complete calibration inline
+· Credential state visible in readiness surface
+· Blocked action explains itself and states remedy
+· No hardcoded thresholds in lesson content
+
+Phase 2: Cupper Certification (Track A)
+
+Deliverables:
+
+· Calibration chart component
+· Drift suspension flow
+· Practical assessment recording (assessor UI)
+· CUPPER_TIER_2 credential type
+· Staleness handling for content version changes
+
+Success criteria:
+
+· Cupper can view 90-day drift
+· Drift suspension is automatic and evidenced
+· Content version change marks credentials stale
+· Delta modules available for remediation
+
+Phase 3: Producer & Collector (Track D)
+
+Deliverables:
+
+· Vietnamese-first lesson layout
+· Audio-first player component
+· Offline lesson caching
+· Comprehension check component
+· COLLECTOR_PASSTHROUGH_ATTESTED attestation flow
+
+Success criteria:
+
+· Lessons work offline on cheap Android
+· Audio is primary modality
+· No lesson gates payment (enforced in code)
+· Vietnamese typography accommodates diacritics
+
+Phase 4: Exception Handling (Track C)
+
+Deliverables:
+
+· Scenario assessment interface
+· Adjudication form with grading
+· EXCEPTION_ADJUDICATOR credential type
+· Override request flow with audit
+
+Success criteria:
+
+· 3/3 disposition + price ±$0.01 grading
+· 50% cap visible in UI
+· Override requires reason and audit trail
+
+---
+
+8. Design System Governance
+
+8.1 The Hard Rules
+
+These are non-negotiable in the design system:
+
+1. No credential display without state. Every credential shows: type, state, expiry, content version.
+2. No block without remedy. Every blocked action states its cause and shortest path to unblock.
+3. No drift data in Trust. The _accessControl field on calibration points is enforced server-side.
+4. No hardcoded thresholds in content. Lesson content references policy modules; CI fails on hardcoded numbers.
+5. No D-track payment gating. Enforced in code, not policy.
+6. No ad-hoc navigation. Teaching is summoned inline; the Education tab is a readiness surface.
+7. No integer variance. All calibration values are decimal(5,2).
+
+8.2 The CI Checks
+
+```yaml
+# .github/workflows/design-system.yml
+checks:
+  - name: No hardcoded thresholds in lesson content
+    script: |
+      if grep -rE '\d+\.?\d*\s*(pts?|points?|%)' src/content/lessons/; then
+        echo "ERROR: Hardcoded threshold in lesson content"
+        exit 1
+      fi
+  
+  - name: No D-track payment gating
+    script: |
+      if grep -rE 'track.*D.*gatesPayment.*true' src/; then
+        echo "ERROR: D-track lesson gates payment"
+        exit 1
+      fi
+  
+  - name: All calibration values are decimal
+    script: |
+      if grep -rE 'variance.*:.*number' src/types/ | grep -v 'decimal'; then
+        echo "ERROR: Variance not stored as decimal"
+        exit 1
+      fi
+  
+  - name: Credential cards have state
+    script: |
+      # AST check that CredentialCard always receives state prop
+      ...
+```
+
+8.3 The Component Contract
+
+Every component that displays credential-gated content must:
+
+1. Accept a credentialState prop
+2. Render differently for each state
+3. Provide an onBlocked callback when action is gated
+4. Never silently fail
+
+```tsx
+// Example contract
+interface GatedActionProps {
+  credentialType: string;
+  credentialState: 'active' | 'expiring' | 'stale' | 'lapsed' | 'missing';
+  onAction: () => void;
+  onBlocked: (remedy: RemedyPath) => void;
+  children: React.ReactNode;
+}
+
+function GatedAction({ credentialState, onAction, onBlocked, children }: GatedActionProps) {
+  if (credentialState === 'active') {
+    return <div onClick={onAction}>{children}</div>;
+  }
+  
+  return (
+    <BlockedActionPanel
+      credentialType={credentialType}
+      state={credentialState}
+      onBeginRemedy={() => onBlocked(remedyPath)}
+    />
+  );
+}
+```
+
+---
+
+9. Summary: The Design Doctrine
+
+The Education module UI is built on a single inversion:
+
+The platform does not have an education feature. The platform has authority rules, and education is how you earn them.
+
+This means:
+
+· The tab is a readiness surface, not a catalog
+· Teaching is summoned at the point of work, not browsed
+· Credentials have states (active, expiring, stale, lapsed, probationary), not completion badges
+· Calibration is continuous drift measurement, not a one-time pass
+· Blocks explain themselves and state their remedy in the same breath
+· Vietnamese is first, not translated
+· Offline is assumed, not accommodated
+· Drift data is private, never Trust, never counterparty
+
+The visual system inherits the Auctum Ledger's 170 tokens: parchment, Compass Navy, Fraunces/Archivo/IBM Plex Mono, gold reserved for proven claims. The motion system uses the spring ease for credential state transitions, revealing hierarchy and state change. The spacing system is 4px base. The typography scale is Major Third, with Vietnamese accommodation.
+
+Every component answers three questions: What can I do? Until when? Against what?
+
+---
+
+Appendix A: Component Inventory
+
+Component Track State Dependency Privacy Level
+CredentialCard All state, contentVersion role-scoped
+BlockedActionPanel All credential state user-only
+CalibrationChart A, E variance, tolerance self + manager
+InlineLesson All credential state user-only
+AssessmentInterface A, C, E attempt state user-only
+ReadinessSurface All aggregate user-only
+DriftSuspensionAlert A variance > threshold self + manager
+RemedyPathDisplay All remedy steps user-only
+ContentStalenessBadge All content version delta user-only
+AttestationForm D signature state user + admin
+
+Appendix B: State Machine Definitions
+
+Credential Lifecycle
+
+```
+                    ┌──────────┐
+                    │  DRAFT   │
+                    └────┬─────┘
+                         │ issue
+                         ▼
+┌─────────┐         ┌──────────┐         ┌──────────┐
+│ LAPSED  │◄────────│  ACTIVE  │────────►│ EXPIRING │
+└────┬────┘  expire └────┬─────┘  window └────┬─────┘
+     │                   │                     │
+     │                   │ content             │ renew
+     │                   │ version             │
+     │                   │ change              │
+     │                   ▼                     │
+     │              ┌──────────┐               │
+     │              │  STALE   │               │
+     │              └────┬─────┘               │
+     │                   │                     │
+     │                   │ delta               │
+     │                   │ module              │
+     │                   ▼                     │
+     │              ┌──────────┐               │
+     └─────────────►│  ACTIVE  │◄──────────────┘
+         renew      └──────────┘
+                         │
+                         │ drift > threshold
+                         ▼
+                   ┌──────────────┐
+                   │ PROBATIONARY │
+                   └──────┬───────┘
+                          │
+              ┌───────────┴───────────┐
+              │                       │
+              ▼                       ▼
+        ┌──────────┐            ┌──────────┐
+        │  ACTIVE  │            │  LAPSED  │
+        └──────────┘            └──────────┘
+         recovery                sustained
+         achieved                breach
+```
+
+Assessment Attempt States
+
+```
+┌──────────┐
+│  START   │
+└────┬─────┘
+     │
+     ▼
+┌──────────┐
+│IN_PROGRESS│◄──── resume
+└────┬─────┘
+     │
+     ├──► submit ──► ┌──────────┐
+     │               │ SUBMITTED│
+     │               └────┬─────┘
+     │                    │
+     │                    ▼
+     │               ┌──────────┐
+     │               │ GRADING  │
+     │               └────┬─────┘
+     │                    │
+     │         ┌──────────┴──────────┐
+     │         │                     │
+     │         ▼                     ▼
+     │    ┌──────────┐          ┌──────────┐
+     │    │ PASSED   │          │ FAILED   │
+     │    └────┬─────┘          └────┬─────┘
+     │         │                     │
+     │         │ credential          │ retry
+     │         │ issued              │ allowed
+     │         ▼                     │
+     │    ┌──────────┐               │
+     │    │ COMPLETE │◄──────────────┘
+     │    └──────────┘
+     │
+     └──► abandon ──► ┌──────────┐
+                      │ ABANDONED│
+                      └──────────┘
+```
+
+---
+
+This specification is the design system foundation for the Auctum Ledger Education Module. It is implementation-ready: tokens are defined, components are specified, flows are mapped, and constraints are enforceable in CI. The next step is to build the component library against this spec, starting with Track E's credential-gating machinery.
+
+Canonical location: docs/education/curriculum-v1-ui-spec.md

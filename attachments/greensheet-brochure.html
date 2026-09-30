@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Greensheet — Verified Green Coffee Distribution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --raw:#D5DAC6;        /* pale raw-bean sage — outer ground */
+    --parchment:#F1F2EA;  /* sheet ground */
+    --ink:#17231D;        /* spruce-black text */
+    --slate:#5B6A5F;      /* meta / secondary */
+    --stamp:#8C2F22;      /* ledger-stamp oxblood */
+    --hair:rgba(23,35,29,.16);
+    --display:"Zilla Slab",Georgia,serif;
+    --body:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+    --data:"IBM Plex Mono",ui-monospace,monospace;
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--raw);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:15px;
+    line-height:1.6;
+    padding:28px 16px 64px;
+  }
+
+  /* ---------- sheet shell ---------- */
+  .sheet{
+    max-width:820px;
+    margin:0 auto 28px;
+    background:var(--parchment);
+    border:1px solid var(--hair);
+    padding:34px 40px 30px;
+    position:relative;
+  }
+  .runhead,.runfoot{
+    font-family:var(--data);
+    font-size:9.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--slate);
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .runhead{border-bottom:1px solid var(--hair);padding-bottom:8px;margin-bottom:26px}
+  .runfoot{border-top:1px solid var(--hair);padding-top:8px;margin-top:30px}
+
+  /* ---------- type scale ---------- */
+  .eyebrow{
+    font-family:var(--data);
+    font-size:10px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--stamp);
+    margin:0 0 14px;
+  }
+  h1{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:clamp(44px,9vw,86px);
+    line-height:.92;
+    letter-spacing:-.02em;
+    margin:0;
+  }
+  h2{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:clamp(26px,4.4vw,38px);
+    line-height:1.08;
+    letter-spacing:-.01em;
+    margin:0 0 18px;
+  }
+  h3{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:20px;
+    line-height:1.2;
+    margin:0 0 6px;
+  }
+  .lede{
+    font-family:var(--display);
+    font-size:clamp(19px,2.6vw,24px);
+    line-height:1.38;
+    font-weight:400;
+    margin:0 0 22px;
+  }
+  p{margin:0 0 14px;max-width:62ch}
+  .dbl-rule{border-top:3px double var(--ink);opacity:.5;margin:22px 0 24px}
+
+  /* ---------- cover ---------- */
+  .cover-top{display:flex;align-items:flex-start;gap:22px;flex-wrap:wrap}
+  .mark{flex:0 0 auto}
+  .masthead{flex:1 1 320px;min-width:260px}
+  .masthead .sub{
+    font-family:var(--data);
+    font-size:11.5px;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    margin-top:12px;
+    color:var(--slate);
+  }
+  .thesis{margin:38px 0 0}
+  .thesis .line{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:clamp(24px,4.4vw,40px);
+    line-height:1.16;
+    letter-spacing:-.01em;
+    margin:0 0 4px;
+    max-width:24ch;
+  }
+  .thesis .line em{font-style:italic}
+  .thesis .line.accent{color:var(--stamp);font-weight:600}
+  .stamp{
+    display:inline-block;
+    font-family:var(--data);
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:var(--stamp);
+    border:2px solid var(--stamp);
+    padding:7px 14px 6px;
+    transform:rotate(-6deg);
+    opacity:.9;
+  }
+  .cover-close{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    flex-wrap:wrap;
+    margin-top:46px;
+  }
+  .cover-close .endorse{
+    font-family:var(--data);
+    font-size:10.5px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--slate);
+    line-height:1.9;
+  }
+  .cover-close .endorse strong{color:var(--ink);font-weight:500}
+
+  /* ---------- spec rows (the recurring device) ---------- */
+  .spec{border-top:1px solid var(--hair)}
+  .spec-row{
+    display:grid;
+    grid-template-columns:88px 1fr;
+    gap:20px;
+    padding:16px 0;
+    border-bottom:1px solid var(--hair);
+  }
+  .spec-row .code{
+    font-family:var(--data);
+    font-size:10.5px;
+    letter-spacing:.1em;
+    color:var(--stamp);
+    padding-top:5px;
+  }
+  .spec-row p{margin:0 0 10px}
+  .spec-row p:last-child{margin-bottom:0}
+  .field{
+    font-family:var(--data);
+    font-size:10px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--slate);
+    display:block;
+    margin-bottom:3px;
+  }
+  .onsheet{
+    border-left:2px solid var(--stamp);
+    padding:2px 0 2px 12px;
+    margin-top:12px;
+  }
+  .onsheet p{font-size:14px;margin:0}
+
+  /* ---------- compare block ---------- */
+  .compare{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+    border:1px solid var(--hair);
+    margin:6px 0 24px;
+  }
+  .compare > div{padding:18px 20px}
+  .compare > div + div{border-left:1px solid var(--hair)}
+  .compare .head{
+    font-family:var(--data);
+    font-size:10px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+  }
+  .compare .asserted .head{color:var(--slate)}
+  .compare .verified .head{color:var(--stamp)}
+  .compare .quote{
+    font-family:var(--display);
+    font-style:italic;
+    font-size:17px;
+    line-height:1.4;
+    color:var(--slate);
+    margin:0;
+  }
+  .datalist{list-style:none;margin:0;padding:0;font-family:var(--data);font-size:12.5px;line-height:1.85}
+  .datalist span{color:var(--slate)}
+
+  /* ---------- path ---------- */
+  .path{list-style:none;margin:0;padding:0;counter-reset:none}
+  .path li{
+    display:grid;
+    grid-template-columns:74px 1fr;
+    gap:20px;
+    padding:14px 0;
+    border-bottom:1px solid var(--hair);
+  }
+  .path li:first-child{border-top:1px solid var(--hair)}
+  .path .tag{
+    font-family:var(--data);
+    font-size:10.5px;
+    letter-spacing:.08em;
+    color:var(--stamp);
+    padding-top:4px;
+  }
+  .path h3{font-size:17px;margin-bottom:3px}
+  .path p{font-size:14px;margin:0}
+
+  /* ---------- two-up ---------- */
+  .twoup{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:24px 0 0}
+  .twoup h3{font-size:17px}
+  .twoup ul{margin:8px 0 0;padding-left:0;list-style:none}
+  .twoup li{
+    font-size:14px;
+    padding:6px 0;
+    border-bottom:1px solid var(--hair);
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+  }
+  .twoup li .price{font-family:var(--data);font-size:12.5px;color:var(--slate);white-space:nowrap}
+
+  .callout{
+    background:rgba(23,35,29,.045);
+    border-left:3px solid var(--stamp);
+    padding:18px 22px;
+    margin:26px 0 0;
+  }
+  .callout p{margin:0;max-width:70ch}
+  .callout .field{margin-bottom:6px}
+
+  .cta{
+    margin-top:30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .cta .ask{
+    font-family:var(--display);
+    font-size:clamp(21px,3.2vw,29px);
+    line-height:1.22;
+    max-width:30ch;
+    margin:0;
+  }
+  .btn{
+    font-family:var(--data);
+    font-size:11.5px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--parchment);
+    background:var(--ink);
+    padding:14px 22px;
+    text-decoration:none;
+    display:inline-block;
+    border:1px solid var(--ink);
+  }
+  .btn:hover,.btn:focus-visible{background:var(--stamp);border-color:var(--stamp)}
+  a:focus-visible,.btn:focus-visible{outline:2px solid var(--stamp);outline-offset:3px}
+
+  .fine{
+    font-family:var(--data);
+    font-size:10.5px;
+    line-height:1.9;
+    letter-spacing:.04em;
+    color:var(--slate);
+    margin:24px 0 0;
+    max-width:none;
+  }
+
+  /* ---------- reveal (restrained) ---------- */
+  .r{opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease}
+  .r.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.r{opacity:1;transform:none;transition:none}}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:700px){
+    body{padding:14px 10px 40px}
+    .sheet{padding:24px 20px 22px}
+    .compare{grid-template-columns:1fr}
+    .compare > div + div{border-left:0;border-top:1px solid var(--hair)}
+    .twoup{grid-template-columns:1fr;gap:22px}
+    .spec-row,.path li{grid-template-columns:1fr;gap:8px}
+    .spec-row .code,.path .tag{padding-top:0}
+  }
+
+  /* ---------- print ---------- */
+  @page{size:letter portrait;margin:0.5in}
+  @media print{
+    body{background:#fff;padding:0}
+    .sheet{
+      max-width:none;margin:0;border:0;padding:0;
+      background:#fff;
+      page-break-after:always;
+      break-after:page;
+    }
+    .sheet:last-child{page-break-after:auto;break-after:auto}
+    .r{opacity:1;transform:none}
+    .btn{color:var(--ink);background:transparent}
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ SHEET 1 — COVER ══════════════ -->
+<section class="sheet">
+  <div class="runhead">
+    <span>Greensheet · Offer Sheet No. 001</span>
+    <span>Rev 2026.07</span>
+    <span>Sheet 1 of 5</span>
+  </div>
+
+  <div class="cover-top">
+    <div class="mark" aria-hidden="true">
+      <svg width="86" height="86" viewBox="0 0 100 100" role="presentation">
+        <circle cx="50" cy="50" r="47" fill="none" stroke="#17231D" stroke-width="1.2" opacity=".55"/>
+        <g fill="#17231D" opacity=".8">
+          <path d="M50 1 L54 16 L50 21 L46 16 Z"/>
+          <path d="M50 99 L54 84 L50 79 L46 84 Z"/>
+          <path d="M1 50 L16 46 L21 50 L16 54 Z"/>
+          <path d="M99 50 L84 46 L79 50 L84 54 Z"/>
+        </g>
+        <ellipse cx="50" cy="50" rx="21" ry="30" fill="none" stroke="#8C2F22" stroke-width="2.4"/>
+        <path d="M50 21 C39 33 61 45 50 50 C39 55 61 67 50 79" fill="none" stroke="#8C2F22" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="masthead">
+      <h1>Greensheet</h1>
+      <div class="sub">Verified green coffee distribution</div>
+    </div>
+  </div>
+
+  <div class="dbl-rule"></div>
+
+  <div class="thesis">
+    <p class="line">Price is what a lot sells for.</p>
+    <p class="line accent">Value is everything that made it possible.</p>
+    <p class="line" style="font-size:clamp(18px,2.4vw,22px);color:var(--slate);max-width:46ch;margin-top:18px">
+      Greensheet is the record that holds both — and can be checked.
+    </p>
+  </div>
+
+  <div class="cover-close">
+    <div class="endorse">
+      Endorsed by<br>
+      <strong>ODASI Technologies, Inc.</strong><br>
+      Navigate your reality. Own your journey.
+    </div>
+    <div class="stamp">Verified</div>
+  </div>
+
+  <div class="runfoot">
+    <span>For importers, exporters &amp; roasters</span>
+    <span>en-US · es-MX · pt-BR · zh-CN</span>
+  </div>
+</section>
+
+<!-- ══════════════ SHEET 2 — WHY ══════════════ -->
+<section class="sheet r">
+  <div class="runhead">
+    <span>Greensheet · Offer Sheet No. 001</span>
+    <span>Section 01 — Position</span>
+    <span>Sheet 2 of 5</span>
+  </div>
+
+  <p class="eyebrow">Section 01 — Position</p>
+  <h2>Sourcing green coffee has looked more like gambling than strategy.</h2>
+
+  <p class="lede">Paper ledgers, forked spreadsheets, and offers that live and die inside a messaging thread. Roasters commit real capital against claims nobody can check.</p>
+
+  <div class="compare">
+    <div class="asserted">
+      <div class="head">Asserted</div>
+      <p class="quote">“Exceptional micro-lot. Jasmine, stone fruit, silky body. Limited availability.”</p>
+    </div>
+    <div class="verified">
+      <div class="head">Verified</div>
+      <ul class="datalist">
+        <li><span>cup score</span> 86.25 SCA</li>
+        <li><span>moisture</span> 10.8%</li>
+        <li><span>screen</span> 15/16</li>
+        <li><span>process</span> washed, 36h ferment</li>
+        <li><span>safra</span> 2026 · <span>lot</span> 340 × 69kg</li>
+      </ul>
+    </div>
+  </div>
+
+  <p>The offer sheet has been the trade's working instrument for a century. We didn't replace it — we raised its standard of proof. Sensory detail, quality claims, and logistics become strict, comparable, checkable data points, held in one system of record.</p>
+
+  <p>That single change has a consequence the industry has been circling for years: once you can verify what is <em>in</em> a lot, you can also verify what <em>went into</em> it. The four positions on the next sheet are what Greensheet is built to hold accountable.</p>
+
+  <div class="runfoot">
+    <span>Greensheet is a category, not a feature</span>
+    <span>Verified Green Coffee Distribution</span>
+  </div>
+</section>
+
+<!-- ══════════════ SHEET 3 — THE FOUR POSITIONS ══════════════ -->
+<section class="sheet r">
+  <div class="runhead">
+    <span>Greensheet · Offer Sheet No. 001</span>
+    <span>Section 02 — Positions</span>
+    <span>Sheet 3 of 5</span>
+  </div>
+
+  <p class="eyebrow">Section 02 — Positions, entered as line items</p>
+  <h2>Four claims we're willing to be held to.</h2>
+
+  <div class="spec">
+
+    <div class="spec-row">
+      <div class="code">POS-01</div>
+      <div>
+        <span class="field">Position</span>
+        <h3>Value is created before it is tasted.</h3>
+        <p>Farmers, workers, ecosystems, and institutions generate value along the entire chain — not the final palate at the end of it. A Robusta block in Vietnam with planned irrigation, disciplined pruning, and cared-for soil has already produced the conditions for specialty quality. That work holds value before a single bean is roasted or scored.</p>
+        <div class="onsheet">
+          <span class="field">On the sheet</span>
+          <p>Lot records carry the productive history — practice, input, and stewardship at origin — not only the outcome in the cup.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="spec-row">
+      <div class="code">POS-02</div>
+      <div>
+        <span class="field">Position</span>
+        <h3>Price is a signal, not a verdict.</h3>
+        <p>The C-market and the specialty premium both routinely fail to describe what production actually cost or contributed. Treating price as the whole account is a habit, not a finding. It can be tested.</p>
+        <div class="onsheet">
+          <span class="field">On the sheet</span>
+          <p>Support for self-verification, true-cost accounting, and social value accounting — so a number can be read against the work that produced it.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="spec-row">
+      <div class="code">POS-03</div>
+      <div>
+        <span class="field">Position</span>
+        <h3>Coffee is a system, not a commodity.</h3>
+        <p>Roads. Drying beds. Fermentation labs. Research stations. Cooperative structures. A cup is the visible tip of an iceberg whose mass is investment made by farmers, governments, and collectives — and almost none of it appears on a conventional offer.</p>
+        <div class="onsheet">
+          <span class="field">On the sheet</span>
+          <p>Infrastructure and institutional context are part of the lot record, because they are part of the lot.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="spec-row">
+      <div class="code">POS-04</div>
+      <div>
+        <span class="field">Position</span>
+        <h3>Trade should reinvest, not extract.</h3>
+        <p>Conventional models move surplus away from the people who made it and toward roasters and brands. The useful question isn't what premium was paid — it's how much came back. Profit-sharing structures and origin reinvestment funds answer it in a way a premium never has to.</p>
+        <div class="onsheet">
+          <span class="field">On the sheet</span>
+          <p>Reinvestment is a reportable field, not a press release. What returns to origin is recorded and auditable.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="runfoot">
+    <span>A claim entered on the sheet is a claim that can be checked</span>
+    <span>POS-01 – POS-04</span>
+  </div>
+</section>
+
+<!-- ══════════════ SHEET 4 — HOW IT WORKS ══════════════ -->
+<section class="sheet r">
+  <div class="runhead">
+    <span>Greensheet · Offer Sheet No. 001</span>
+    <span>Section 03 — Method</span>
+    <span>Sheet 4 of 5</span>
+  </div>
+
+  <p class="eyebrow">Section 03 — Method</p>
+  <h2>From published lot to standing relationship.</h2>
+
+  <p>Verification is the beginning, not the product. What follows is the part most sourcing tools leave to memory and goodwill: getting coffee into a roaster's hands, capturing what they actually tasted, and acting on it while it's still fresh.</p>
+
+  <ol class="path">
+    <li>
+      <div class="tag">01 · Publish</div>
+      <div>
+        <h3>The lot goes on record</h3>
+        <p>Importers and exporters publish lots with verified metrics instead of adjectives. Roasters browse, filter, and compare on like-for-like terms.</p>
+      </div>
+    </li>
+    <li>
+      <div class="tag">02 · Sample</div>
+      <div>
+        <h3>Sample kits ship on their own</h3>
+        <p>Qualified interest triggers fulfillment and routing automatically. No chasing, no spreadsheet of who received what.</p>
+      </div>
+    </li>
+    <li>
+      <div class="tag">03 · Cup</div>
+      <div>
+        <h3>Feedback arrives structured</h3>
+        <p>Guided evaluation four days after delivery, once the coffee has rested. What comes back is comparable data, not a thumbs-up in a text message.</p>
+      </div>
+    </li>
+    <li>
+      <div class="tag">04 · Match</div>
+      <div>
+        <h3>The shortlist lands while the palate is warm</h3>
+        <p>Within two hours of feedback, the roaster sees lots matched to what they just described liking. Sensory recency is the whole advantage.</p>
+      </div>
+    </li>
+    <li>
+      <div class="tag">05 · Return</div>
+      <div>
+        <h3>Reorder rhythm and peer referral</h3>
+        <p>Reorder timing follows actual consumption. Roasters who are having a good year introduce the ones who should be.</p>
+      </div>
+    </li>
+  </ol>
+
+  <div class="callout">
+    <span class="field">The same ledger, pointed at origin</span>
+    <p>Greensheet keeps a tamper-evident, hash-chained log of every consequential action — price changes, data revisions, consent events — exported nightly to immutable storage. That machinery exists for audit readiness. It works just as well as proof that a reinvestment commitment was honored, which is the difference between a value and a claim about one.</p>
+  </div>
+
+  <div class="runfoot">
+    <span>Verified data · programmatic samples · auditable trail</span>
+    <span>Section 03</span>
+  </div>
+</section>
+
+<!-- ══════════════ SHEET 5 — ACCESS ══════════════ -->
+<section class="sheet r">
+  <div class="runhead">
+    <span>Greensheet · Offer Sheet No. 001</span>
+    <span>Section 04 — Access</span>
+    <span>Sheet 5 of 5</span>
+  </div>
+
+  <p class="eyebrow">Section 04 — Access</p>
+  <h2>Roasters aren't the ones who should pay to be found.</h2>
+
+  <p>Discovery is free on the demand side by design. Density of good roasters is what makes the supply side worth subscribing to — so we don't tax it.</p>
+
+  <div class="twoup">
+    <div>
+      <h3>For roasters</h3>
+      <ul>
+        <li>Cupper — browse all verified lots, alerts, a quarterly kit at cost <span class="price">Free</span></li>
+        <li>Roaster Pro — unlimited alerts, price locks, peer benchmarking <span class="price">$49/mo</span></li>
+        <li>Roaster Business — multi-site, API read, exportable ESG audits <span class="price">$149/mo</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>For importers &amp; exporters</h3>
+      <ul>
+        <li>Exporter — 40 active lots, nurture suite, sample routing <span class="price">$499/mo</span></li>
+        <li>Import House — unlimited lots, lead scoring, retention alerts <span class="price">$1,499/mo</span></li>
+        <li>Enterprise Trading Co. — pricing engines, API federation, CSM <span class="price">$4,000+/mo</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cta">
+    <p class="ask">Bring the spreadsheets and the PDF price lists. We'll turn them into a record.</p>
+    <a class="btn" href="#request">Request a sheet review</a>
+  </div>
+
+  <p class="fine">
+    Built for cross-border trade: GDPR, CCPA, PIPL, and LGPD compliant, with SOC 2 Type II controls and a tamper-evident audit ledger. Available in English, Spanish (MX), Portuguese (BR), and Chinese (CN), with market-appropriate register and advertising-law compliance. · Prices in USD, subject to change. Figures describing platform performance reflect internal targets and historical platform data; ask for current cohort reporting.
+  </p>
+
+  <div class="runfoot">
+    <span>Greensheet · A platform of ODASI Technologies, Inc.</span>
+    <span>Navigate your reality. Own your journey.</span>
+  </div>
+</section>
+
+<script>
+  (function(){
+    var els = document.querySelectorAll('.r');
+    if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      els.forEach(function(el){ el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    },{threshold:.08});
+    els.forEach(function(el){ io.observe(el); });
+  })();
+</script>
+</body>
+</html>
