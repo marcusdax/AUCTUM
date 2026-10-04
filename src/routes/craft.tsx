@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AuctumSeal } from "@/components/auctum-mark";
+import { FoundryMenu } from "@/components/foundry-menu";
 import { DoubleRule, Eyebrow, Sheet, buttonClass } from "@/components/ui";
 
 export const Route = createFileRoute("/craft")({ component: CraftPage });
@@ -10,30 +11,38 @@ function CraftPage() {
       <Sheet>
         <div className="flex items-start justify-between gap-4">
           <div>
-            <Eyebrow>The Craft</Eyebrow>
+            <Eyebrow>Flavor Foundry by Auctum</Eyebrow>
             <h1 className="mt-2 max-w-[16ch] font-display text-4xl sm:text-5xl">
-              Museum quality is a way of looking.
+              Two doors. One catalog. No recipe on the sheet.
             </h1>
           </div>
           <AuctumSeal size={64} />
         </div>
         <p className="mt-6 max-w-[46ch] font-display text-2xl leading-snug">
+          Point at a method, or point at a cup. <em className="text-stamp">The packet is what you pay for.</em>
+        </p>
+        <DoubleRule className="my-8" />
+        <FoundryMenu />
+      </Sheet>
+      <Sheet>
+        <Eyebrow>Still the craft</Eyebrow>
+        <p className="mt-3 max-w-[46ch] font-display text-2xl leading-snug">
           Price is what a lot sells for. <em className="text-stamp">Value is everything that made it possible.</em>
         </p>
         <DoubleRule className="my-8" />
         <div className="grid gap-8 lg:grid-cols-2">
           <article className="space-y-4 text-[15px] leading-relaxed">
             <p>
-              LotSpace should be designed as a social ledger rather than a conventional social network.
-              Auctum Ledger remains the verified data spine. Karmic Circle is the flagship verified seller
-              and Vietnam origin operator. The product must connect social identity to actual transactions,
-              not advertising-driven attention.
+              LotSpace is a social ledger, not a network that rents attention. The Ledger is the spine.
+              Auctum Trading is the origin house. The operating name on this desk stays until the rebrand
+              gate clears. Identity has to end in a transaction.
             </p>
             <p>
-              The governing move is dual-purpose primitives. A profile is also a trading instrument. A
-              story is also provenance. A follow is also a relationship signal. A cupping result is also
-              reputation telemetry. A QR scan is also a demand bridge. A tip is also a trust event. A
-              collector is also a field agent.
+              A profile is a trading instrument. A story is provenance only when it opens a lot. A follow
+              is a relationship signal. A cup score is reputation only after a credentialed accept. A mark
+              on the bag is a demand bridge only when it opens the autopsy. A tip is a payment. A buyer
+              note describes a handoff. Neither one edits Trust. A collector is a field agent when the
+              name and the commission are both visible.
             </p>
             <p>
               This is the mechanism that makes the network economically coherent. No social object may

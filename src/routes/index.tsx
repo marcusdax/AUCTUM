@@ -1,11 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
-import { AuctumSeal } from "@/components/auctum-mark";
+import { Landing } from "@/components/landing";
+import { LiveTape } from "@/components/live-tape";
 import { LotCard } from "@/components/lot-card";
 import { TrustBadge } from "@/components/trust-badge";
-import { DoubleRule, Eyebrow, Sheet, Stamp, Stat, buttonClass } from "@/components/ui";
-import { marketPulse } from "@/lib/data";
-import { formatCents, formatDate, roleLabel } from "@/lib/format";
+import { Eyebrow, Sheet, buttonClass } from "@/components/ui";
+import { roleLabel } from "@/lib/format";
+import { useT } from "@/lib/locale-store";
 import { accountById, useLedger } from "@/lib/store";
 import { cn } from "@/lib/utils";
 
@@ -18,43 +18,41 @@ function Compass() {
   const stories = useLedger((s) => s.stories);
   const featured = lots.filter((l) => l.availability === "available" || l.availability === "sample").slice(0, 3);
   const karmic = accountById(accounts, "acc-karmic");
+  const t = useT();
 
   return (
     <div className="space-y-8">
-      <Sheet className="overflow-hidden">
-        <div className="flex flex-wrap items-start justify-between gap-6">
-          <div className="flex items-start gap-4">
-            <AuctumSeal size={72} />
-            <div>
-              <Eyebrow>LotSpace · Compass</Eyebrow>
-              <h1 className="mt-2 max-w-[14ch] font-display text-[clamp(2.4rem,6vw,4.6rem)] leading-[0.92]">
-                Every farm gets a Space.
-              </h1>
-            </div>
+      <Landing />
+
+      <LiveTape />
+
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        {(
+          [
+            { to: "/market", title: "Ledger", body: "The name, the cup, and the price. A lock is the desk." },
+            { to: "/spaces", title: "LotSpace", body: "The person who grew it. The story opens the lot." },
+            { to: "/education", title: "Learn", body: "What you may do, until when, and the remedy." },
+            { to: "/scan", title: "Scan", body: "A page becomes a proposal. A person accepts." },
+            { to: "/craft", title: "Craft", body: "A method or a cup. The recipe stays in the packet." },
+          ] as const
+        ).map((door) => (
+          <Link key={door.to} to={door.to} className="bg-paper p-4 shadow-[var(--shadow-sheet)] hover:shadow-[var(--shadow-lift)]">
+            <h2 className="font-display text-2xl">{door.title}</h2>
+            <p className="mt-2 text-sm text-slate">{door.body}</p>
+          </Link>
+        ))}
+      </div>
+
+      <Sheet>
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <Eyebrow>{t("home.exEye")}</Eyebrow>
+            <h2 className="mt-1 font-display text-3xl">{t("home.exH")}</h2>
+            <p className="mt-2 max-w-xl text-slate">{t("home.exBody")}</p>
           </div>
-          <Stamp className="-rotate-6">Verified origin</Stamp>
-        </div>
-        <p className="mt-6 max-w-[34ch] font-display text-[clamp(1.35rem,2.4vw,2rem)] leading-snug">
-          Every lot gets a ledger. Every relationship becomes durable.
-        </p>
-        <p className="mt-4 max-w-xl text-slate">
-          Auctum Ledger is the verified spine. LotSpace is the social face. Karmic Circle operates Vietnam
-          origin. A profile is also a trading instrument. A cupping result is also reputation.
-        </p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Link to="/market" className={buttonClass("stamp")}>
-            Open the market <ArrowRight size={16} />
+          <Link to="/exchange" className={buttonClass("stamp")}>
+            {t("home.enter")}
           </Link>
-          <Link to="/scan" className={buttonClass("ghost")}>
-            Scan a document
-          </Link>
-        </div>
-        <DoubleRule className="mt-10 mb-8" />
-        <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
-          <Stat label="C-market" value={formatCents(marketPulse.cMarketCents)} hint="Reference, not the whole account" />
-          <Stat label="Lots on offer" value={marketPulse.lotsOnOffer} hint="Verified availability" />
-          <Stat label="Farms verified" value={marketPulse.farmersVerified} hint="Cooperative coverage" />
-          <Stat label="Locks this month" value={marketPulse.locksThisMonth} hint="Immutable snapshots" />
         </div>
       </Sheet>
 
@@ -91,13 +89,11 @@ function Compass() {
           ) : null}
           <Sheet>
             <Eyebrow>Ledger pulse</Eyebrow>
-            <h2 className="mt-2 font-display text-2xl">What just happened</h2>
+            <h2 className="mt-2 font-display text-2xl">Newest on the file</h2>
             <ol className="mt-5 space-y-4">
-              {events.slice(0, 5).map((ev) => (
+              {events.slice(0, 4).map((ev) => (
                 <li key={ev.id} className="border-t border-hair pt-3 first:border-0 first:pt-0">
-                  <p className="font-mono text-[10px] tracking-[0.14em] text-slate uppercase">
-                    {formatDate(ev.at)} · {ev.kind}
-                  </p>
+                  <p className="font-mono text-[10px] tracking-[0.14em] text-slate uppercase">{ev.kind}</p>
                   <p className="mt-1 text-sm">{ev.summary}</p>
                 </li>
               ))}

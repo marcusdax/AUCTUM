@@ -1,8 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { EconomicAutopsy } from "@/components/autopsy";
+import { EudrPanel } from "@/components/eudr-panel";
+import { LotDesk } from "@/components/lot-desk";
 import { TrustBadge } from "@/components/trust-badge";
-import { Button, Eyebrow, FieldRow, Sheet } from "@/components/ui";
+import { Button, Eyebrow, FieldRow, Sheet, buttonClass } from "@/components/ui";
 import { formatCents, formatKg, roleLabel, stateLabel } from "@/lib/format";
+import { useSeat } from "@/lib/seat";
 import { accountById, useLedger } from "@/lib/store";
 
 export const Route = createFileRoute("/market_/$lotId")({ component: LotPage });
@@ -17,6 +21,8 @@ function LotPage() {
   const lockPrice = useLedger((s) => s.lockPrice);
   const follow = useLedger((s) => s.follow);
   const following = useLedger((s) => s.following);
+  const tier = useSeat((s) => s.tier);
+  const [held, setHeld] = useState(false);
   const lot = lots.find((l) => l.id === lotId);
   if (!lot) {
     return (
@@ -66,21 +72,29 @@ function LotPage() {
                 <Button
                   tone="stamp"
                   disabled={!lot.sampleReady || lot.availability === "locked"}
-                  onClick={() => requestSample(lot.id)}
+                  onClick={() => (tier === "open" ? setHeld(true) : requestSample(lot.id))}
                 >
                   Request sample
                 </Button>
-                <Button tone="ghost" onClick={() => expressInterest(lot.id)}>
+                <Button tone="ghost" onClick={() => (tier === "open" ? setHeld(true) : expressInterest(lot.id))}>
                   Open offer
                 </Button>
                 <Button
                   tone="ghost"
                   disabled={lot.availability === "locked"}
-                  onClick={() => lockPrice(lot.id)}
+                  onClick={() => (tier === "open" ? setHeld(true) : lockPrice(lot.id))}
                 >
                   Price lock
                 </Button>
+                <Link to="/autopsy/$lotId" params={{ lotId: lot.id }} className={buttonClass("quiet")}>
+                  Autopsy
+                </Link>
               </div>
+              {held ? (
+                <p className="mt-3 text-sm text-stamp">
+                  Open can read this lot. A sample, an offer, and a lock open on the desk. Switch to Desk above. Nothing is billed.
+                </p>
+              ) : null}
             </div>
           </div>
         </div>
@@ -134,6 +148,13 @@ function LotPage() {
           </dl>
         </Sheet>
       </div>
+
+      <Sheet>
+        <LotDesk lot={lot} />
+      </Sheet>
+      <Sheet>
+        <EudrPanel lot={lot} />
+      </Sheet>
 
       {related.length ? (
         <Sheet>

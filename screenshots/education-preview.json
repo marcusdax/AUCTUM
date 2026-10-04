@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/education",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Auctum Ledger",
+      "hasCanvas": false,
+      "bodyTextLen": 3846,
+      "bodyTextHash": "1390d4f2460d6b2e87f20329a036b0134ec90b5bcab8bc87b83d555d4387be1b",
+      "bodyTextPrefix": "Skip to content Auctum Ledger VERIFIED, FROM ORIGIN COMPASS MARK",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/education-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Auctum Ledger",
+      "hasCanvas": false,
+      "bodyTextLen": 3694,
+      "bodyTextHash": "556099800f07452847ab6b69dc195e55bb883f324cdc1ad9e051c2093d684b7f",
+      "bodyTextPrefix": "Skip to content Auctum Ledger EDUCATION · READINESS What you can",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/education-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/education-preview.json"
+}

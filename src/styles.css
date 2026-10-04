@@ -48,7 +48,10 @@
   body {
     margin: 0;
     min-height: 100dvh;
-    background: var(--color-raw);
+    background-color: var(--color-raw);
+    background-image:
+      radial-gradient(900px 420px at 0% 0%, color-mix(in oklab, var(--color-paper) 70%, transparent), transparent 70%),
+      linear-gradient(180deg, color-mix(in oklab, var(--color-paper) 28%, var(--color-raw)), var(--color-raw) 28rem);
     font-family: var(--font-sans);
     font-size: 15px;
     line-height: 1.55;
@@ -72,6 +75,10 @@
 
   p {
     text-wrap: pretty;
+  }
+
+  :lang(vi) {
+    line-height: 1.65;
   }
 
   a {
@@ -129,5 +136,27 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+  }
+
+  #content {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  .one-pager {
+    box-shadow: none !important;
+    min-height: 100vh;
   }
 }

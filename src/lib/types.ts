@@ -126,6 +126,14 @@ export type Story = {
   image: string;
   publishedAt: string;
   lotId?: string;
+  kind?: "filed" | "note" | "lot";
+};
+
+export type FieldMeta = {
+  key: string;
+  confidence: number;
+  critical: boolean;
+  touched: boolean;
 };
 
 export type DocumentRecord = {
@@ -138,6 +146,8 @@ export type DocumentRecord = {
   confidence: number;
   capturedAt: string;
   fields: Record<string, string>;
+  fieldMeta?: FieldMeta[];
+  previewUrl?: string;
   notes?: string;
 };
 

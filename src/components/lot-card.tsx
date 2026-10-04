@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { assessEudr } from "@/lib/eudr";
 import { formatCents, formatKg, stateLabel } from "@/lib/format";
 import { accountById, useLedger } from "@/lib/store";
 import type { Lot } from "@/lib/types";
@@ -6,7 +7,9 @@ import { TrustBadge } from "./trust-badge";
 
 export function LotCard({ lot }: { lot: Lot }) {
   const accounts = useLedger((s) => s.accounts);
+  const docs = useLedger((s) => s.documents);
   const producer = accountById(accounts, lot.producerId);
+  const eudr = assessEudr(lot, docs);
   return (
     <Link
       to="/market/$lotId"
@@ -21,6 +24,9 @@ export function LotCard({ lot }: { lot: Lot }) {
         />
         <span className="absolute top-3 left-3 bg-paper/92 px-2 py-1 font-mono text-[10px] tracking-[0.16em] text-ink uppercase">
           {stateLabel(lot.availability)}
+        </span>
+        <span className="absolute right-3 bottom-3 bg-paper/92 px-2 py-1 font-mono text-[10px] tracking-[0.14em] text-stamp uppercase">
+          {eudr.mark}
         </span>
       </div>
       <div className="flex flex-col gap-3 px-4 py-4">

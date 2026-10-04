@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import {
   accounts as seedAccounts,
+  AGENT_ID,
   agentTasks as seedTasks,
   documents as seedDocs,
   events as seedEvents,
@@ -11,6 +12,7 @@ import {
   stories as seedStories,
   threads as seedThreads,
 } from "./data";
+import { nextLotStep } from "./crm";
 import { bumpComponent, computeTrust } from "./trust";
 import type {
   Account,
@@ -29,6 +31,8 @@ type ScanDraft = {
   accountId: string;
   lotId?: string;
   fields: Record<string, string>;
+  fieldMeta?: DocumentRecord["fieldMeta"];
+  previewUrl?: string;
   confidence: number;
 };
 
@@ -49,9 +53,14 @@ type LedgerState = {
   expressInterest: (lotId: string) => void;
   lockPrice: (lotId: string) => void;
   setDocStatus: (id: string, status: DocumentRecord["status"]) => void;
+  reviseField: (id: string, key: string, value: string) => void;
   ingestScan: (draft: ScanDraft) => string;
   completeTask: (id: string) => void;
+  logTouch: (accountId: string) => void;
+  queueFollowUp: (accountId: string, title: string) => void;
+  advanceFulfillment: (lotId: string) => void;
   sendMessage: (threadId: string, body: string) => void;
+  publishStory: (input: { title: string; body: string; lotId?: string; kind: "note" | "lot"; image?: string }) => void;
   reset: () => void;
 };
 
@@ -167,6 +176,18 @@ export const useLedger = create<LedgerState>()(
           };
           return { documents, accounts, events: [event, ...s.events] };
         }),
+      reviseField: (id, key, value) =>
+        set((s) => ({
+          documents: s.documents.map((doc) =>
+            doc.id === id
+              ? {
+                  ...doc,
+                  fields: { ...doc.fields, [key]: value },
+                  fieldMeta: doc.fieldMeta?.map((field) => (field.key === key ? { ...field, touched: true } : field)),
+                }
+              : doc,
+          ),
+        })),
       ingestScan: (draft) => {
         const id = `doc-scan-${Date.now()}`;
         const record: DocumentRecord = {
@@ -179,6 +200,12 @@ export const useLedger = create<LedgerState>()(
           confidence: draft.confidence,
           capturedAt: now(),
           fields: draft.fields,
+          fieldMeta: draft.fieldMeta,
+          previewUrl: draft.previewUrl,
+          notes:
+            draft.kind === "qc"
+              ? "Proposal only. Accepting files the sheet. The lot cup score does not move."
+              : undefined,
         };
         set((s) => ({
           documents: [record, ...s.documents],
@@ -201,6 +228,82 @@ export const useLedger = create<LedgerState>()(
         set((s) => ({
           tasks: s.tasks.map((t) => (t.id === id ? { ...t, status: "done" } : t)),
         })),
+      logTouch: (accountId) =>
+        set((s) => ({
+          accounts: s.accounts.map((account) =>
+            account.id === accountId ? { ...account, churnRisk: Math.max(0, account.churnRisk - 6) } : account,
+          ),
+          events: [
+            {
+              id: `ev-${Date.now()}`,
+              at: now(),
+              kind: "crm.touch",
+              actor: "Karmic Circle",
+              summary: "A person recorded a touch. The cadence clock resets. Nothing was sent on their behalf.",
+              accountId,
+            },
+            ...s.events,
+          ],
+        })),
+      queueFollowUp: (accountId, title) =>
+        set((s) => {
+          const open = s.tasks.some((task) => task.status === "open" && task.accountId === accountId && task.title === title);
+          if (open) return s;
+          const due = new Date(Date.now() + 3 * 86_400_000).toISOString().slice(0, 10);
+          return {
+            tasks: [
+              {
+                id: `tk-${Date.now()}`,
+                agentId: AGENT_ID,
+                kind: "follow-up" as const,
+                title,
+                accountId,
+                due,
+                status: "open" as const,
+              },
+              ...s.tasks,
+            ],
+            events: [
+              {
+                id: `ev-${Date.now()}`,
+                at: now(),
+                kind: "crm.queued",
+                actor: "CRM desk",
+                summary: `Queued for the agent: ${title}`,
+                accountId,
+              },
+              ...s.events,
+            ],
+          };
+        }),
+      advanceFulfillment: (lotId) =>
+        set((s) => {
+          const lot = s.lots.find((row) => row.id === lotId);
+          if (!lot) return s;
+          const next = nextLotStep(lot);
+          if (!next) return s;
+          const summary: Record<string, string> = {
+            sample: `Sample allocated on ${lot.code}.`,
+            offer: `Sample returned on ${lot.code}. Offer is open.`,
+            contracted: `${lot.code} confirmed as an order.`,
+            fulfilled: `${lot.code} marked fulfilled.`,
+          };
+          return {
+            lots: s.lots.map((row) => (row.id === lotId ? { ...row, availability: next } : row)),
+            events: [
+              {
+                id: `ev-${Date.now()}`,
+                at: now(),
+                kind: `fulfillment.${next}`,
+                actor: "CRM desk",
+                summary: summary[next] ?? `${lot.code} moved to ${next}.`,
+                lotId,
+                accountId: lot.producerId,
+              },
+              ...s.events,
+            ],
+          };
+        }),
       sendMessage: (threadId, body) =>
         set((s) => {
           const msg: Message = {
@@ -217,6 +320,24 @@ export const useLedger = create<LedgerState>()(
             ),
           };
         }),
+      publishStory: ({ title, body, lotId, kind, image }) =>
+        set((s) => ({
+          stories: [
+            {
+              id: `st-${Date.now()}`,
+              spaceId: "space-desk",
+              accountId: "desk",
+              lotId,
+              kind,
+              title: title.trim() || (lotId ? "A lot, passed on" : "A note"),
+              lede: body.trim().slice(0, 140),
+              body: body.trim(),
+              image: image ?? "",
+              publishedAt: now(),
+            },
+            ...s.stories,
+          ],
+        })),
       reset: () => set({ ...seed, hydrated: true }),
     }),
     {

@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { TrustBadge, TrustMeter } from "@/components/trust-badge";
 import { Eyebrow, Sheet } from "@/components/ui";
 import { bandLabel, roleLabel } from "@/lib/format";
+import { useT } from "@/lib/locale-store";
 import { useLedger } from "@/lib/store";
 import { TRUST_LABELS, TRUST_WEIGHTS } from "@/lib/trust";
 import type { TrustBand } from "@/lib/types";
@@ -20,18 +21,14 @@ function TrustPage() {
   const accounts = useLedger((s) => s.accounts);
   const ranked = [...accounts].sort((a, b) => b.trust.score - a.trust.score);
   const flagship = ranked[0];
+  const t = useT();
 
   return (
     <div className="space-y-6">
       <Sheet>
-        <Eyebrow>Trust desk</Eyebrow>
-        <h1 className="mt-2 max-w-[16ch] font-display text-4xl sm:text-5xl">
-          Honesty that stays with the tier
-        </h1>
-        <p className="mt-3 max-w-xl text-slate">
-          Trust is not a badge you buy. It is a weighted evidence score: documents, payments, cup
-          consistency, relationship history, and the field agent who signed the capture.
-        </p>
+        <Eyebrow>{t("trust.eye")}</Eyebrow>
+        <h1 className="mt-2 max-w-[16ch] font-display text-4xl sm:text-5xl">{t("trust.h1")}</h1>
+        <p className="mt-3 max-w-xl text-slate">{t("trust.body")}</p>
       </Sheet>
 
       <div className="grid gap-4 sm:grid-cols-5">

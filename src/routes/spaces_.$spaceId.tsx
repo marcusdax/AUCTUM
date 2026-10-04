@@ -1,7 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { LotCard } from "@/components/lot-card";
+import { PlotMap } from "@/components/plot-map";
+import { BagPanel } from "@/components/bag";
 import { TrustMeter } from "@/components/trust-badge";
 import { Button, Eyebrow, FieldRow, Sheet, Stat } from "@/components/ui";
+import { stationFile } from "@/lib/exchange";
 import { formatCents, formatDate, formatKg, roleLabel } from "@/lib/format";
 import { useLedger } from "@/lib/store";
 import { TRUST_LABELS } from "@/lib/trust";
@@ -55,6 +58,29 @@ function SpacePage() {
         </div>
       </Sheet>
 
+      {mine[0] ? (
+        <Sheet>
+          <BagPanel lot={mine[0]} producer={accounts.find((row) => row.id === mine[0].producerId)} />
+        </Sheet>
+      ) : (
+        <Sheet>
+          <Eyebrow>On the bag</Eyebrow>
+          <p className="mt-2 max-w-xl text-slate">No lot is attached to this Space yet. A story without a lot does not get a mark.</p>
+        </Sheet>
+      )}
+
+      {account.role === "farmer" || account.role === "coop" ? (
+        <Sheet>
+          <PlotMap
+            account={account}
+            center={(() => {
+              const pin = mine.map((lot) => stationFile[lot.id]).find(Boolean);
+              return pin ? { lat: Number(pin.lat), lng: Number(pin.lng) } : { lat: 12.78, lng: 108.08 };
+            })()}
+          />
+        </Sheet>
+      ) : null}
+
       <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         <Sheet>
           <Eyebrow>Proof strip</Eyebrow>
@@ -106,6 +132,11 @@ function SpacePage() {
                 <div>
                   <h3 className="font-display text-xl">{st.title}</h3>
                   <p className="mt-1 text-sm text-slate">{st.lede}</p>
+                  {st.lotId ? (
+                    <Link to="/autopsy/$lotId" params={{ lotId: st.lotId }} className="mt-2 inline-block meta hover:text-ink">
+                      The autopsy this story opens
+                    </Link>
+                  ) : null}
                 </div>
               </article>
             ))}

@@ -1,0 +1,1904 @@
+THE FLAVOR FOUNDRY MENU
+A Dual-Spine Catalog of Fermentation Processes and Cup Outcomes
+Prepared for ODASI Technologies, Inc. — Flavor Foundry / Ultra-Premium Green Bean Customization Platform Edition II · Supersedes Flavor Atlas of Coffee Fermentation Processes (Edition I)
+
+
+HOW THIS MENU WORKS
+Edition I was a sensory compendium: it described what processes taste like. That is a reference library, not a menu. A menu has to be orderable — a buyer must be able to point at something and have it become a purchase order with a protocol attached.
+
+The problem is that buyers arrive through two different doors, and they cannot be served by the same document.
+
+The first buyer knows the craft. A competition roaster, a green buyer with a processing background, a director of coffee who has already run trials. This person says "I want a 96-hour pressurized anaerobic on Sidra with a Pichia inoculum, 18°C, staged pressure release." They are specifying a method and want to know what it will produce, what it costs, who can execute it, and what will go wrong.
+
+The second buyer knows the cup. A brand owner, a competitor with a defined routine, a private-label client, a roaster building a seasonal release. This person says "I need something that tastes like a bergamot-and-white-flower Earl Grey, scores above 89, and can be reproduced next season." They do not care what a Torulaspora is. They want the outcome and expect the platform to solve for the route.
+
+This menu is built as two spines that address the same catalog from opposite ends, joined by a shared code system.
+
+
+
+Door I — THE PROCESS SPINE
+Door II — THE OUTCOME SPINE
+User
+Knows the method
+Knows the cup
+Entry point
+Process family → process code
+Sensory family → archetype
+Question answered
+"What will this do?"
+"How do I get there?"
+Output
+Predicted profile, risk, tier, executor
+Route stack, varietal shortlist, score band
+Codes
+WSH-03, ANA-07, YST-11
+S-06, A-0602
+
+
+The join. Every process entry lists the sensory families it routes to. Every outcome archetype lists the process codes that produce it, as a primary route and at least one alternate. Part IV holds the cross-reference matrices that let the platform traverse in either direction, plus the antagonism table that prevents the engine from proposing combinations that cancel each other.
+
+A note on what this menu does not disclose. Every entry gives mechanism, direction, and dial ranges sufficient for a buyer to make an informed selection and for a partner mill to understand scope. Exact inoculation rates, proprietary temperature curves, strain-blend ratios, and the house-calibrated endpoint criteria live in the protocol packet issued after order confirmation, under the confidentiality terms in the partner agreement. The menu sells the outcome and the method class. The recipe is the asset.
+
+
+PART I — THE CONTROL DIALS
+Before either spine is legible, the buyer needs the vocabulary of control. Nearly every process in this catalog is a particular setting of nine dials. Two processes with different names and identical dial settings will produce nearly identical coffee; two processes with the same name and different dial settings will not. This is the single most important idea in the menu, and it is why the catalog is organized by mechanism rather than by regional naming convention.
+Dial 1 · Oxygen Regime
+The master variable. It determines which microbial population dominates and therefore which metabolic pathways run.
+
+Setting
+Environment
+Dominant flora
+Sensory direction
+Fully aerobic
+Open tank, patio, agitated
+Wild yeast + acetic acid bacteria
+Clean, acetic edge, low ester load
+Semi-aerobic
+Covered, headspace present
+Mixed yeast/LAB
+Balanced, moderate ester
+Anaerobic (passive)
+Sealed, self-generated CO₂
+Yeast → LAB succession
+Ester-forward, lactic body
+Anaerobic (blanketed)
+N₂ or CO₂ purge
+Yeast-dominant, LAB suppressed
+Maximum ester clarity
+Hyperbaric
+Sealed under 0.5–2.5 bar
+Stressed yeast, altered flux
+Condensed, penetrative, high intensity
+
+
+Ester production — the source of nearly all "exotic fruit" character — is an oxygen-limited pathway. Moving from open tank to blanketed seal is the difference between a coffee that tastes of the fruit it came from and one that tastes of fruit it has never met.
+Dial 2 · Temperature and Thermal Path
+Not a number but a curve. Three distinct uses:
+
+Isothermal hold (16–22°C typical): favors ester retention and slow, even extraction of precursors. The elegance setting.
+Elevated hold (24–32°C): accelerates everything, raises acid production, raises risk. The intensity setting; the shortest path to a defect.
+Thermal cycling / shock: deliberate hot-to-cold transitions (e.g., 40°C soak → 8°C plunge) that rupture cell structures and drive molecular migration across the parchment barrier. The clarity-plus-intensity setting, and the most equipment-dependent.
+
+Rule of thumb: every 5°C of hold temperature roughly halves the usable fermentation window. A 96-hour protocol at 18°C is a 24-hour protocol at 28°C, and the 28°C version will not taste the same — it will be louder and less articulate.
+Dial 3 · Duration
+Ranges across the catalog run from 8 hours to 30 days. Duration interacts with every other dial and is meaningless in isolation. The useful frame is stage sequence, not clock time:
+
+Lag — microbes establish; little sensory change.
+Primary — sugar consumption, ester and acid formation; the flavor is built here.
+Plateau — pH stabilizes, substrate depletes; character consolidates and integrates.
+Degradation — protein and lipid breakdown; onion, vinegar, solvent. Everything past this point is loss.
+
+The art is landing the endpoint in late plateau. The commercial risk is that plateau width narrows sharply as temperature and sugar load rise. A 30°C fruit co-ferment may have a two-hour plateau.
+Dial 4 · pH Trajectory
+Start typically 5.2–5.6; endpoints from 3.4 to 4.6. The trajectory shape carries the information:
+
+Fast drop (yeast-driven, high sugar) → bright, wine-like, sharp acid structure.
+Slow drop (LAB-driven) → creamy, round, lactic body, low perceived acidity.
+Stall high (>4.6) → underdeveloped, vegetal, no complexity gain.
+Overshoot low (<3.3) → acetic burn, mouth-puckering astringency, unrecoverable.
+
+pH is the primary in-process kill switch. It is also the most reliable remote-verification signal for a buyer who is not on site.
+Dial 5 · Inoculum
+Wild / native — the resident flora of the farm and mill. Highest terroir signature, lowest reproducibility. Genuinely different every season.
+Back-slopped — a portion of a prior successful ferment carried forward. Middle ground; builds a house culture over seasons.
+Single-strain commercial — defined organism, defined dose. Highest reproducibility, strongest ester steering, weakest terroir signature.
+Multi-strain / sequential — a designed consortium or a staged pitch (yeast first, LAB after). Highest ceiling, highest complexity cost.
+
+The trade is direct and should be stated plainly to every buyer: you can have terroir or you can have reproducibility. Above a certain level of ester ambition, you cannot have both.
+Dial 6 · Substrate Load
+How much fermentable material is present: mucilage retained, cherry intact, added must, added fruit, added sugar. More substrate means more available ester precursor, a longer runway, and a wider mouth of the funnel toward defect. This is the honey spectrum's whole logic and the co-ferment family's central risk.
+Dial 7 · Vessel and Surface
+Stainless (neutral, thermally responsive), HDPE (neutral, thermally inert, cheap), oak (tannin and vanillin donation, oxygen-permeable), clay/amphora (micro-oxygenation, mineral impression), concrete (thermal mass, neutral). Vessel is usually treated as a logistics detail; it is a flavor input, and the catalog treats it as one in family VSL.
+Dial 8 · Agitation and Contact
+Static, pump-over, punch-down, rotation. Governs how evenly the microbial population contacts the substrate and how much heat and CO₂ are exchanged. Static protocols produce stratified lots — the top and bottom of the tank are different coffees. Agitation costs some ester volatility and buys uniformity. For any lot destined for a competition or a repeatable retail SKU, uniformity is worth the trade.
+Dial 9 · Drying Architecture and Landing
+The most underrated dial. A protocol executed flawlessly and dried carelessly is a failed protocol. Governing parameters: initial removal rate, whether a rest/shade cycle is used, total duration, and the final water activity landing (target 0.55–0.60 a_w, moisture 10.5–11.5%).
+
+Fast-dried ferment lots lock in volatiles but risk case-hardening and internal moisture gradients that surface as staleness within four months. Slow shade drying integrates and rounds character but widens the mold window. Drying is where most of the sensory difference between two lots of the "same" process actually originates, and it is where family DRY earns its place as a first-class part of the catalog rather than a footnote.
+
+
+PART II — THE PROCESS SPINE
+Reading a process entry
+Every entry uses one schema:
+
+Mechanism — what is actually happening biochemically.
+Dials — the settings that define this process; ranges, not recipes.
+Signature — the sensory fingerprint, stated as direction and intensity.
+Affinity — varietals and origins that respond well; those that do not.
+Fails as — the specific defect this process produces when it goes wrong. Different processes fail differently, and knowing the failure shape is how a buyer reads a sample.
+Tier — HOUSE (proven, repeatable, standing capacity), SEMI (established method, lot-specific tuning), DE NOVO (research lot, no reproducibility guarantee).
+Routes to — sensory families from Door II.
+Difficulty — ●○○○○ to ●●●●●, reflecting execution risk and the number of ways to lose the lot.
+Family index
+Code
+Family
+Entries
+Character
+WSH
+Washed & Demucilaged
+9
+Clarity, definition, terroir transparency
+NAT
+Natural & Whole-Cherry
+9
+Fruit load, body, sweetness
+HON
+Honey Spectrum
+8
+Graduated sweetness and substrate control
+ANA
+Anaerobic & Extended
+11
+Ester amplification, condensed intensity
+CBM
+Carbonic & Maceration
+5
+Intracellular metabolism, confectionary lift
+YST
+Yeast-Inoculated
+14
+Directed ester steering
+BAC
+Bacterial & Mixed Culture
+9
+Acid architecture, texture, umami
+FNG
+Fungal & Enzymatic
+6
+Amino complexity, savory transformation
+COF
+Co-Fermentation & Infusion
+10
+Additive character, declared intervention
+VSL
+Vessel & Atmosphere
+8
+Structural and mineral modulation
+DRY
+Drying Architecture
+8
+Volatile retention, stability, shelf life
+AGE
+Post-Ferment Maturation
+7
+Integration, wood, time-driven change
+SEQ
+Sequential & Stacked
+6
+Multi-phase composition
+
+
+Total: 110 orderable processes.
+
+
+WSH — WASHED & DEMUCILAGED FAMILY
+The clarity family. Mucilage is removed by controlled microbial or mechanical action before drying, so the cup reports the varietal and the terroir rather than the process. Everything here is a subtraction strategy: the goal is to take away without taking away character. These are the processes that expose a bean rather than dress it, which makes them the most honest and the least forgiving — a mediocre lot cannot hide in a washed protocol.
+WSH-01 · Classic Submerged Washed
+Mechanism — Depulped parchment submerged in water; native yeast and bacteria degrade pectin over 12–36h until mucilage releases under thumb pressure. Fermentation is a cleaning operation, not a flavor operation. Dials — Aerobic/semi-aerobic · 18–24°C ambient · 12–36h · pH to 4.4–4.6 · wild · static Signature — Crystalline definition. White flowers, jasmine, lemon zest, green apple, white grape. Citric-to-malic acidity, sparkling and forward. Light-to-medium silky, tea-like body. Clean finish with raw-sugar sweetness. Top lots show apricot and peach beneath the floral. Affinity — Universal, and the reference frame for every other process. Essential for Gesha, SL28, Bourbon, Ethiopian heirloom where varietal expression is the product. Fails as — Stalled ferment (vegetal, papery, hollow) or over-run (sour, onion in the finish). Tier HOUSE · Difficulty ●●○○○ · Routes to S-01, S-02, S-03, S-14
+WSH-02 · Extended Cold Submerged Washed
+Mechanism — Same pathway at suppressed temperature. Cold water (12–16°C) slows pectinolysis dramatically, extending the window to 48–72h and shifting the microbial balance toward slow, low-acetic organisms. Dials — Semi-aerobic · 12–16°C water · 48–72h · slow pH descent · wild or back-slopped · static Signature — Everything in WSH-01, with the treble raised and the noise floor lowered. Acidity becomes more articulate and less aggressive; florals sharpen; the finish lengthens noticeably. Adds white peach, elderflower, and a distinct mineral wet-stone impression. Affinity — High-altitude Arabica with existing acid structure. Wasted on low-grown or low-density lots. Fails as — Under-development: the ferment never finishes, mucilage clings, and the dried parchment mills badly. Tier HOUSE · Difficulty ●●●○○ · Routes to S-01, S-02, S-14
+WSH-03 · Double Washed (Kenyan Protocol)
+Mechanism — Two-stage ferment with an intervening wash. First ferment removes the bulk of mucilage; the lot is washed, then re-submerged in clean water for a second, gentler phase before final washing and soaking. Dials — Aerobic · ambient · 16–24h + wash + 12–24h + 12–24h clean-water soak · pH to 4.2–4.4 · wild · static Signature — The intensity ceiling of the washed family. Blackcurrant, red currant, tart cherry, cranberry. Savory-sweet undertones — tomato leaf, fresh herb, a real umami thread. Aggressive phosphoric acidity with a mouthwatering, juicy quality. Body heavier than expected, approaching syrupy. Long finish of dried berry and wine. Affinity — SL28, SL34, Ruiru 11, Batian; the Kenyan varietals were selected under this process and are inseparable from it. Transplants imperfectly to Central America. Fails as — Cleanliness collapse in the second phase; water quality is the hinge, and a bad second soak yields a flat, papery cup with none of the currant. Tier HOUSE · Difficulty ●●●○○ · Routes to S-02, S-04, S-11
+WSH-04 · Low-Oxygen Washed
+Mechanism — Submerged ferment under a sealed lid with CO₂ headspace but no pressure management. A bridge process: washed-family clarity with the first measurable ester load. Dials — Anaerobic (passive) · 18–22°C · 24–48h · pH to 4.0–4.3 · wild or single-strain · static Signature — Washed clarity with a fruit ghost behind it. Jasmine and orange blossom lift; stone fruit shifts from apricot toward white peach and lychee. A faint creamy lactic edge appears in the mid-palate. Acidity softens by roughly half a point of perceived intensity while staying bright. Affinity — The safest first step for a producer moving from washed into experimental processing. Excellent on Caturra, Castillo, Catuai. Fails as — Mild ferment taint — the fruit turns from "peach" to "peach that sat out." Tier HOUSE · Difficulty ●●○○○ · Routes to S-01, S-03, S-09
+WSH-05 · Mechanical Demucilage (Zero-Ferment)
+Mechanism — Mucilage stripped by friction demucilager immediately after depulping. No fermentation occurs. Included in the catalog as the true zero point — the control against which every other process is measured. Dials — N/A · immediate · no microbial phase Signature — Maximum transparency, minimum complexity. Clean, simple, cereal-and-nut baseline with whatever acidity the varietal and altitude supply. Sweetness is modest. The cup is a photograph of the bean. Affinity — Diagnostic use. Order this alongside any experimental lot from the same day-lot to isolate exactly what the process contributed. Fails as — Rarely fails; frequently underwhelms. Mechanical damage to the parchment is the one real risk. Tier HOUSE · Difficulty ●○○○○ · Routes to S-08, S-14
+WSH-06 · Yeast-Assisted Washed
+Mechanism — WSH-01 with a defined single-strain pitch. The strain outcompetes wild flora, compressing the ferment window and steering ester production while the washed architecture keeps the cup clean. Dials — Semi-aerobic · 20–24°C · 14–24h · fast pH descent · single-strain · static or gentle pump-over Signature — Depends entirely on strain (see YST). Universal effect: dramatically improved batch-to-batch consistency and a 0.5–1.5 point cup-score lift over the wild-ferment control, mostly in sweetness and uniformity scores. Affinity — Any lot needing reproducibility across a multi-container contract. The workhorse of the semi-custom tier. Fails as — Strain-appropriate off-notes if pitch rate is wrong; under-pitching yields a muddled wild/commercial hybrid that is worse than either alone. Tier HOUSE · Difficulty ●●○○○ · Routes to S-01, S-03, S-06
+WSH-07 · Extended Soak / Kenyan Water-Rest
+Mechanism — After washing, parchment is held under repeatedly changed clean water for 18–48h. Not fermentation; a slow leaching and cellular equilibration that removes residual solubles and modifies the bean's water relations before drying. Dials — Aerobic, submerged · ambient · 18–48h post-wash · water changed at 8–12h intervals Signature — Adds a distinctive silky-glassy texture and lengthens the finish. Acidity gains a phosphoric, saline-mineral quality. Reduces any residual ferment noise to near zero. Affinity — Pairs with WSH-03 canonically. A finishing move for any washed lot that cups slightly muddy. Fails as — Water quality failure produces a stagnant, sulfurous, or chlorine-tainted cup. Non-recoverable. Tier HOUSE · Difficulty ●●○○○ · Routes to S-02, S-11, S-14
+WSH-08 · Sequential Re-Wash (Triple)
+Mechanism — Three short ferment-and-wash cycles rather than one long one. Each cycle removes a fraction of mucilage and resets the microbial population, preventing any single organism from dominating. Dials — Aerobic · ambient · 3 × 8–12h with full washes · pH held above 4.3 throughout · wild Signature — Extreme cleanliness with unusually high sweetness retention. Florals become the loudest element. Acidity is crisp and singular rather than layered. The cup reads almost distilled. Affinity — Delicate high-value varietals where any ferment character is a defect: Gesha, Wush Wush, Sidra, Eugenioides. Fails as — Sweetness stripping. Over-washing leaches the sugars you were protecting, leaving an elegant but hollow cup. Tier SEMI · Difficulty ●●●●○ · Routes to S-01, S-14
+WSH-09 · Enzymatic-Assisted Washed
+Mechanism — Food-grade pectinase applied to accelerate mucilage breakdown without extended microbial activity. Ferment window collapses to 2–6h. Dials — Aerobic · ambient · 2–6h · minimal pH movement · enzymatic, non-microbial Signature — Ultra-clean, near-zero process signature; closer to WSH-05 than WSH-01 but with better sweetness retention and no mechanical stress on the parchment. Slightly rounder body than mechanical demucilage. Affinity — High-volume operations, hot climates where ferment control is difficult, and any lot at risk from an uncontrolled ambient environment. Fails as — Over-application produces a slick, faintly soapy mouthfeel. Certification constraint: check organic-program eligibility per market before ordering. Tier HOUSE · Difficulty ●●○○○ · Routes to S-08, S-14
+
+
+NAT — NATURAL & WHOLE-CHERRY FAMILY
+The fruit family. The whole cherry dries intact, and fermentation proceeds inside the fruit for days or weeks while sugars, acids, and aromatic precursors migrate inward across the seed coat. Where washed processes subtract, naturals add — and the addition is not subtle. This family carries the highest sweetness ceiling and the highest defect exposure in the catalog.
+NAT-01 · Traditional Sun-Dried Natural
+Mechanism — Whole cherry on patio or bed, turned regularly, dried over 15–30 days. Ferment is aerobic, uncontrolled, and continuous with drying. Dials — Aerobic · ambient, high daytime swing · 15–30 days · wild · frequent turning Signature — Explosive fruit. Blueberry, strawberry, raspberry, mango, pineapple, papaya. Wild, winey, often jammy; overripe fig and date at the deep end. Soft integrated acidity, lactic or citric. Full, heavy, syrupy body with creamy mouthfeel. Brown sugar and molasses sweetness. Pushed lots turn boozy — rum, brandy, grape soda. Affinity — Ethiopian heirloom, Bourbon, Yellow Catuai, Vietnamese Robusta (where it produces genuinely startling dark-fruit results at a fraction of Arabica cost). Fails as — The full defect spectrum: mold in humid conditions, vinegar in hot, and the specific "rotting fruit" failure that makes buyers distrust the whole category. Tier HOUSE · Difficulty ●●●○○ · Routes to S-05, S-06, S-10
+NAT-02 · Raised-Bed Slow Natural
+Mechanism — NAT-01 with airflow beneath the cherry and a thinner layer, extending drying to 25–40 days at a controlled rate. Airflow suppresses mold while the extended timeline deepens precursor migration. Dials — Aerobic · ambient with shade cloth in peak sun · 25–40 days · thin layer, hourly turning early Signature — The clean end of the natural family. Fruit becomes articulate rather than jammy: distinct strawberry and blueberry rather than generic "berry." Acidity survives. Body remains full but loses the heaviness. Ferment funk drops to a supporting note. Affinity — The default for any natural above 86 points. Non-negotiable for high-value varietals. Fails as — Weather dependency. A rain event mid-cycle produces a lot that will never be clean. Tier HOUSE · Difficulty ●●●○○ · Routes to S-04, S-05, S-06
+NAT-03 · Shade-Dried Extended Natural
+Mechanism — Full-shade or covered drying over 30–50 days. Extremely slow moisture loss holds the cherry in the fermentative phase far longer, driving deep sugar caramelization and heavy precursor migration. Dials — Aerobic, low light · 20–26°C · 30–50 days · very thin layer Signature — Concentrated and dark. Dried fig, date, prune, raisin, and black cherry replace fresh berry. Molasses and treacle sweetness. Very low acidity. Enormous, chewy body. Long chocolate-and-dried-fruit finish with a liqueur-like depth. Affinity — Lower-acid varietals that would otherwise be uninteresting; Robusta and Liberica respond dramatically. A route to complexity for lots without natural acid structure. Fails as — Mold is the constant threat, and internal mold in whole cherry is invisible until cupping. Tier SEMI · Difficulty ●●●●○ · Routes to S-05, S-08, S-10
+NAT-04 · Anaerobic Natural (Sealed Whole Cherry)
+Mechanism — Whole cherry sealed in tank with self-generated CO₂ before drying. The fruit ferments in oxygen exclusion, shifting metabolism decisively toward ester production while suppressing acetic pathways. Dials — Anaerobic (passive) · 18–24°C · 48–120h sealed, then dried per DRY · pH to 3.8–4.1 · wild or single-strain Signature — Condensed exotic fruit with startling clarity given the intensity. Lychee, passionfruit, guava, dragon fruit. White peach and nectarine in layers, rose water and bubblegum at the top. Ferment character presents as creamy yogurt or kefir rather than booze. Bright lactic-phosphoric acidity, silky round body. Cleanly tropical finish with sweet spice — cinnamon, clove. At its best: tropical fruit cocktail with champagne. Affinity — The flagship experimental process. Exceptional on Gesha, Sidra, Pink Bourbon, Pacamara. Transforms Robusta beyond recognition. Fails as — Over-run produces solvent, nail-polish, fusel character. The plateau is narrow and the failure is abrupt rather than gradual. Tier HOUSE · Difficulty ●●●●○ · Routes to S-06, S-07, S-09
+NAT-05 · Cryo-Arrested Natural
+Mechanism — Cherry is flash-chilled or frozen immediately post-harvest, then thawed into the ferment. Ice crystal formation ruptures cell walls, releasing sugars and precursors that would otherwise stay bound, and the thaw provides a uniform, controlled ferment start across the whole lot. Dials — Anaerobic post-thaw · freeze to −4 to −18°C, thaw to 16–20°C · 36–96h ferment · single-strain typical Signature — Intensity without the noise. Fruit reads as concentrate — pure raspberry, pure watermelon, pure strawberry candy — with an almost engineered precision. Very high sweetness. Acidity is crisp and pinpoint. Body is paradoxically heavy and clean at once. Affinity — Any lot where you want maximum extraction of what is already there. Superb on high-brix cherry from late-season pickings. Fails as — Cell rupture also releases substrate for spoilage organisms; a slow or warm thaw is a disaster. Requires cold-chain capability at origin, which sharply limits the executor list. Tier DE NOVO · Difficulty ●●●●● · Routes to S-04, S-06, S-07
+NAT-06 · Pre-Fermented Natural (Wet-Start)
+Mechanism — Whole cherry is submerged in water for a short initial phase before being drained and dried as a natural. The wet start establishes a uniform microbial population and softens the skin, accelerating subsequent migration. Dials — Submerged 12–24h, then aerobic drying · ambient · total 20–35 days Signature — Bridges natural and honey character. Fruit is fresh rather than dried — red apple, plum, cherry — with a caramel and milk chocolate base. Acidity is rounder than a dry-start natural. Body is medium-full and notably smooth. Affinity — Producers with washed infrastructure moving into naturals; uses the same tanks. Fails as — Skin damage during the soak invites mold in the drying phase. Tier SEMI · Difficulty ●●●○○ · Routes to S-03, S-04, S-08
+NAT-07 · Dehydrated–Rehydrated Natural
+Mechanism — Cherry is partially dried to roughly 30% moisture, then rehydrated in an inoculated liquid and re-fermented before final drying. The partial dry concentrates sugars; the rehydration reintroduces controlled microbial activity into a now sugar-dense substrate. Dials — Aerobic dry to ~30% · rehydrate 12–36h anaerobic with single-strain · re-dry to 11% Signature — Extremely high intensity. Concentrated jam, liqueur-soaked fruit, dense candied character. Sweetness approaches syrup. Body is enormous. A polarizing, maximalist cup that reads as deliberately constructed. Affinity — Competition and auction lots where distinctiveness outranks balance. Not a retail-blend component. Fails as — The rehydration phase is a spoilage window with an unusually rich substrate. Requires tight monitoring. Tier DE NOVO · Difficulty ●●●●● · Routes to S-05, S-07, S-10
+NAT-08 · Carbonic Natural
+Mechanism — Whole cherry under a positive CO₂ atmosphere. Distinct from NAT-04's passive seal: the deliberate CO₂ blanket triggers intracellular anaerobic metabolism within the intact fruit cells before microbial fermentation dominates. (See CBM for the full mechanism.) Dials — CO₂-purged, 0–0.5 bar · 16–22°C · 72–168h · single-strain optional Signature — Vivid and electric. Raspberry, pomegranate, cranberry, blood orange. Sharp floral top notes of rose, violet, lavender. Candy-like sweetness — red wine gums, cherry cola. Crystalline, effervescent-seeming acidity. Medium tea-like body with a coating fruitiness. Cooling minty-herbal finish over dark chocolate and spice. Affinity — The signature process for buyers who want obvious, immediate, crowd-stopping distinctiveness. Fails as — CO₂ seal failure converts the lot to an ordinary and probably mediocre natural. Tier HOUSE · Difficulty ●●●●○ · Routes to S-04, S-07, S-13
+NAT-09 · Late-Harvest / Raisin-Set Natural
+Mechanism — Cherry left on the branch past commercial ripeness until partial on-tree dehydration occurs, then processed as a natural. An agronomic decision rather than a mill decision, made a season in advance. Dials — On-tree dehydration to 22–28 brix · aerobic drying · 20–35 days Signature — Extraordinary sweetness and density. Dried fruit dominant — fig, date, prune. Winey, port-like depth. Very low acidity, immense body, chocolate and dried-fruit finish that persists for minutes. Affinity — Requires a farm partner willing to accept the yield loss and bird/insect risk. Reserve for named-farm relationships. Fails as — Over-hanging produces stinker cherries; a single one taints a bag. Tier DE NOVO · Difficulty ●●●●● · Routes to S-05, S-10
+
+
+HON — HONEY SPECTRUM
+The control family. A defined fraction of mucilage is retained on the parchment during drying, making substrate load a continuously adjustable dial rather than a binary. This is the most precise sweetness-and-body instrument in the catalog and the easiest place to give a buyer exactly the intensity they asked for.
+HON-01 · White Honey (≤15% mucilage retained)
+Mechanism — Near-complete demucilage with a thin residual film. Minimal fermentative substrate; the retained layer functions mostly as a drying modifier. Dials — Aerobic · ambient · 10–18 days drying · minimal ferment phase Signature — The cleanest honey; borderline washed. Delicate brown sugar sweetness, yellow apple, pear, almond. Gentle malic acidity. Silky light-to-medium body. Honeysuckle florals, creamy finish. Terroir with a dusting of sweetness over it. Affinity — Buyers who found washed too austere and yellow honey too sweet. Fails as — Reverts to an indifferent washed cup if the film is uneven. Tier HOUSE · Difficulty ●●○○○ · Routes to S-01, S-03
+HON-02 · Yellow Honey (~25–40% retained)
+Mechanism — Moderate mucilage, full sun drying. Enough substrate for real fermentative contribution without dominating. Dials — Aerobic · full sun · 12–20 days Signature — Washed clarity plus honeyed richness. Golden raisin, ripe apricot, mandarin. Milk chocolate and caramel underneath. Round citric-lactic acidity. Medium coating body. Nutmeg, vanilla, persistent honey sweetness in the finish. Affinity — The most commercially versatile process in the catalog. Works as a single origin, an espresso base, and a blend anchor. Fails as — Uneven mucilage distribution produces a lot that cups differently bag to bag. Tier HOUSE · Difficulty ●●○○○ · Routes to S-03, S-08
+HON-03 · Red Honey (~50–75% retained)
+Mechanism — Heavy mucilage, partial shade drying to slow the rate and extend fermentative contact. Dials — Aerobic, partial shade · 18–28 days Signature — Richer and fruitier. Prune, dried cherry, black tea, cola. Ripe plum and nectarine. Distinct brown spice — cinnamon, allspice, clove. Low, integrated acidity inside a jammy sweetness. Heavy, syrupy, velvet body. Dark chocolate and dried fruit finish with a winey edge. Affinity — Espresso programs, milk-drink applications, and buyers who want obvious richness. Fails as — Sticking and clumping on the beds; clumped parchment ferments unevenly and molds from inside. Tier HOUSE · Difficulty ●●●○○ · Routes to S-04, S-05, S-12
+HON-04 · Black Honey (100% retained, shade-dried)
+Mechanism — Full mucilage retained, drying under shade over an extended period. Maximum substrate, maximum contact time, minimum drying rate. Dials — Aerobic, full shade · 25–40 days · very thin layer Signature — Luxurious and decadent. Blackberry jam, fig, date, raisin. Molasses, treacle, dark brown sugar. Ripe rummy ferment character that stays inside the line. Overripe banana and tropical fruit appear. Very low acidity — a lactic whisper. Immense heavy-cream body, chewy. Long finish of dark chocolate and hazelnut liqueur. Affinity — The maximalist end of the classical spectrum. Excellent on varietals with strong sugar development. Fails as — Mold and over-ferment, in that order. The most labor-intensive process in the family — the beds must be worked constantly. Tier SEMI · Difficulty ●●●●○ · Routes to S-05, S-08, S-10
+HON-05 · Anaerobic Honey
+Mechanism — Mucilage-retained parchment sealed in tank for a defined anaerobic phase before honey drying. Combines the honey family's substrate control with the anaerobic family's ester production. Dials — Anaerobic (passive or blanketed) · 18–22°C · 36–96h sealed · then aerobic honey drying · single-strain common Signature — Honey sweetness and body carrying an ester payload. Tropical and stone fruit lift out of a caramel base — passionfruit and guava over butterscotch, or peach and apricot over honey. Custard-like body. The most "designed" tasting of the honeys, in the good sense. Affinity — The most-ordered semi-custom process on the platform for good reason: high ceiling, moderate risk, reproducible. Fails as — Substrate overload. Full mucilage plus sealed anaerobic plus warm ambient is the fastest route to solvent notes in the catalog. Tier HOUSE · Difficulty ●●●○○ · Routes to S-03, S-06, S-09
+HON-06 · Gold Honey (Split-Mucilage Blending)
+Mechanism — A single day-lot split into two or three mucilage retention levels, dried separately, and recombined at the dry mill in a defined ratio. The blend is engineered, not averaged — the components are chosen for layered contribution. Dials — Per component; recombination ratio is the design variable Signature — Deliberately layered. A white-honey component supplies floral top notes and acid clarity; a red or black component supplies body and depth. The cup has an unusual sense of architecture — distinct registers rather than a single integrated impression. Affinity — Buyers who want blend complexity from a single farm and a single day-lot. Strong provenance story. Fails as — Poor ratio design produces a muddy cup where neither component reads. Tier SEMI · Difficulty ●●●○○ · Routes to S-03, S-08
+HON-07 · Extended-Contact Honey (Slow Landing)
+Mechanism — Standard honey mucilage load, but drying deliberately arrested in the 18–22% moisture band with a multi-day rest before final drying. The rest permits continued enzymatic activity at high substrate concentration. Dials — Aerobic · staged drying with 3–5 day rest at 18–22% moisture · total 25–35 days Signature — Deep sweetness integration. Caramel becomes toffee; fruit becomes preserved fruit. The mid-palate fills out markedly. Finish gains length and a distinct panela character. Affinity — Any honey lot that cups thin. This is the corrective process for good beans with poor sweetness. Fails as — The rest band is squarely inside the mold-risk window; humidity control during rest is mandatory. Tier SEMI · Difficulty ●●●●○ · Routes to S-08, S-05
+HON-08 · Yeast-Inoculated Honey
+Mechanism — Defined strain pitched onto mucilage-retained parchment at the start of drying, colonizing the film and directing its fermentation over the first 72–96h of the dry. Dials — Aerobic drying with inoculated film · ambient · pitch at hour 0 · strain per YST Signature — Strain-determined; the honey substrate amplifies whatever the strain produces. Highest ester yield per unit of risk in the catalog, because the substrate is thin enough to run out before degradation begins. Affinity — The reliability workhorse for reproducible flavored profiles across multiple containers. Fails as — Weather interference — a rain event washes the inoculum off the beds and the lot reverts to wild. Tier HOUSE · Difficulty ●●●○○ · Routes to S-03, S-06, S-07
+
+
+ANA — ANAEROBIC & EXTENDED FERMENTATION FAMILY
+The amplification family. Oxygen exclusion suppresses acetic acid bacteria and pushes metabolism through yeast and lactic acid bacteria pathways, where the ester and organic acid production lives. This is where coffee stops tasting like the fruit it came from and starts tasting like fruit it has never met. It is also the family with the narrowest margins for error.
+ANA-01 · Anaerobic Washed (Depulped, Sealed, Submerged)
+Mechanism — Depulped parchment fully submerged in a sealed tank; CO₂ headspace displaces oxygen. Mucilage sugars ferment under yeast-dominant conditions. Dials — Anaerobic (passive) · 18–22°C · 36–72h · pH to 3.8–4.1 · wild or single-strain · static Signature — Pronounced floral and spice. Jasmine, elderflower, orange blossom dominate. Stone fruit moves toward white peach and lychee. A creamy lactic thread — yogurt, kefir, cream cheese — adds texture. Cinnamon, star anise, vanilla become pronounced. Bright but softened acidity in a silky, near-waxy mouthfeel. Milk chocolate, honeysuckle, cooling menthol finish. Elegant, perfumery. Affinity — The most broadly successful anaerobic process. Works on nearly everything; spectacular on Gesha and Pink Bourbon. Fails as — Sour-solvent when run long or warm. Watch pH, not the clock. Tier HOUSE · Difficulty ●●●○○ · Routes to S-01, S-03, S-09, S-12
+ANA-02 · Blanketed Anaerobic (N₂ / CO₂ Purge)
+Mechanism — Tank actively purged with inert gas before sealing, driving residual dissolved oxygen far lower than a passive seal achieves. Yeast dominance is near-total; LAB succession is delayed. Dials — Anaerobic (blanketed) · 16–20°C · 48–96h · single-strain typical · static Signature — Maximum ester clarity. The fruit is louder and simultaneously cleaner than passive anaerobic — the funk floor drops away. Florals become piercing. The cup reads as high-definition. Affinity — Competition lots. Any protocol where a specific ester target must be hit without background noise. Fails as — Rarely fails microbiologically; fails economically. Gas handling at origin is a real capex and executor constraint. Tier SEMI · Difficulty ●●●●○ · Routes to S-01, S-06, S-07
+ANA-03 · Extended Anaerobic (96–168h)
+Mechanism — Passive anaerobic held well past conventional endpoint, into and through the plateau phase. Substrate depletes; the population shifts; secondary metabolites accumulate. Dials — Anaerobic · 16–20°C mandatory · 96–168h · pH to 3.6–3.9 · monitored inoculum Signature — Deep, layered, and unmistakably processed. Fruit consolidates into a dense compote impression. Spice and floral emerge as distinct registers rather than accents. Body thickens substantially. The finish becomes the defining feature — long, evolving, unfolding across minutes. Affinity — Dense high-altitude lots that can support the load. Thin lots collapse. Fails as — The degradation phase arrives without warning at low temperature control tolerance. This process requires daily cupping of pulled samples, not a timer. Tier SEMI · Difficulty ●●●●○ · Routes to S-05, S-06, S-12
+ANA-04 · Hyperbaric / Pressurized Anaerobic
+Mechanism — Sealed vessel held under 0.5–2.5 bar of self-generated or applied CO₂ pressure. Elevated pressure increases gas solubility, stresses yeast metabolism, and drives compounds across the parchment barrier that would not otherwise migrate. Dials — Hyperbaric · 16–22°C · 48–120h · staged or single-event pressure release · single-strain Signature — Penetrative and condensed. Fruit intensity per unit of ferment time is the highest in the catalog. Notes are unusually specific — not "tropical" but identifiably lychee, identifiably passionfruit. Mouthfeel gains a dense, almost viscous quality. Staged release produces a layered result; single release produces a sharper, more unified one. Affinity — Reserve for varietals worth the cost: Gesha, Sidra, Eugenioides, Wush Wush. Fails as — Vessel failure is a safety issue as well as a lot loss. Only order from executors with rated pressure equipment and documented procedures. Tier DE NOVO · Difficulty ●●●●● · Routes to S-06, S-07, S-04
+ANA-05 · Thermal Shock Anaerobic
+Mechanism — Anaerobic ferment punctuated by deliberate temperature transitions — commonly a warm phase (35–42°C) followed by a rapid cold plunge (6–12°C). Thermal stress ruptures cellular structures and drives a burst of molecular migration. Dials — Anaerobic · cycled 40°C → 8°C, one or more cycles · 24–72h total · precise control mandatory Signature — Extreme clarity and intense fruit definition simultaneously. Pure watermelon, strawberry candy, green grape, fresh hibiscus. Piercing jasmine and rosewater. Sweetness like simple syrup or candy floss. Paradoxical body: heavy and syrupy yet immaculately clean. Crisp, pinpoint malic acidity — green apple hard candy. Pristine fruit-driven finish with zero ferment funk. Tastes engineered, in the way a flavor extract tastes engineered. Affinity — Buyers who want obvious, articulate, unmistakable results. The most reliably impressive process on a cupping table. Fails as — Equipment-limited rather than biology-limited. Without genuine thermal control the cycle does nothing and you have paid for an ordinary anaerobic. Tier SEMI · Difficulty ●●●●○ · Routes to S-04, S-06, S-07
+ANA-06 · Cold Anaerobic (Sub-15°C Extended)
+Mechanism — Anaerobic ferment held at 8–14°C for an extended period. Cold-tolerant yeast dominate; ester production slows but volatile retention rises sharply because less is lost to off-gassing. Dials — Anaerobic · 8–14°C · 120–240h · cold-tolerant strain · static Signature — Delicate and highly aromatic. Rather than intensity, this process buys aromatic retention — the cup smells like the tank did. Floral and citrus notes that would evaporate in a warm ferment survive to the cup. Acidity stays crisp; body stays light. Affinity — Aromatic varietals where the top notes are the product. Requires cold-capable infrastructure. Fails as — Stalls. A ferment that never establishes yields a vegetal, undeveloped cup. Tier DE NOVO · Difficulty ●●●●○ · Routes to S-01, S-02, S-14
+ANA-07 · Staged-Release Anaerobic
+Mechanism — Pressurized anaerobic with programmed, timed venting events. Each release drops pressure, off-gasses CO₂ and volatile fractions, and permits a controlled metabolic shift before resealing. Dials — Hyperbaric, cycled · 18–22°C · 72–144h · 3–6 release events · single or sequential inoculum Signature — The most compositionally controllable process available. Each stage can be steered toward a different register, and the result reads as genuinely layered — a fruit phase, a floral phase, and a spice phase that resolve in sequence across the palate rather than arriving together. Affinity — Signature and proprietary lots. This is the process most worth protecting as a trade secret, because the release schedule is the recipe. Fails as — Schedule errors compound; a mistimed release cannot be undone. Tier DE NOVO · Difficulty ●●●●● · Routes to S-06, S-12, S-10
+ANA-08 · Anaerobic with Must Addition
+Mechanism — Filtered cascara or depulped mucilage juice from the same day-lot is added back to the ferment tank, raising the substrate concentration without introducing foreign material. Dials — Anaerobic · 18–22°C · 48–96h · brix raised 4–10 points · single-strain Signature — Amplification without adulteration. Everything the base process produces is louder and sweeter, and the coffee remains a single-origin, single-farm product with no declarable additive. Body gains significantly. Affinity — Buyers who want co-ferment intensity but need to stay inside a "no additives" or single-origin claim. Fails as — Substrate overload; the sugar surplus feeds the degradation phase as readily as the productive one. Tier SEMI · Difficulty ●●●●○ · Routes to S-05, S-06, S-07
+ANA-09 · Whole-Cherry Submerged Anaerobic
+Mechanism — Intact cherry submerged in water in a sealed tank. The water phase moderates temperature and provides a diffusion medium; the intact skin slows substrate release, extending the productive window. Dials — Anaerobic, submerged · 18–24°C · 72–168h · wild or single-strain Signature — Broad, round, and juicy. Fruit is fresh rather than concentrated — ripe plum, red apple, watermelon rind. Sweetness is high; acidity is soft and lactic. Body is full and smooth. A gentler, more approachable result than dry-tank anaerobics. Affinity — Producers with washed tank infrastructure and no dedicated fermentation equipment. Fails as — Water becomes anoxic and sulfurous if the lot is over-packed; loading ratio matters more than time here. Tier HOUSE · Difficulty ●●●○○ · Routes to S-03, S-04, S-09
+ANA-10 · Mucilage-Slurry Anaerobic
+Mechanism — Depulped parchment fermented in a concentrated slurry of its own mucilage rather than in water. Near-zero dilution produces the highest substrate density achievable without addition. Dials — Anaerobic · 18–22°C · 24–72h · very high substrate density · single-strain strongly advised Signature — Intense, thick, and sweet. Body is the standout — genuinely syrupy. Fruit skews dark and jammy. Ferment character sits right at the edge of declaration, which is part of the appeal for some buyers and disqualifying for others. Affinity — Espresso-focused buyers who want extreme body and sweetness in a small-format lot. Fails as — Fastest degradation curve in the family. Hours matter. Tier SEMI · Difficulty ●●●●○ · Routes to S-05, S-08, S-10
+ANA-11 · Two-Phase Anaerobic (Yeast → LAB)
+Mechanism — Sequential inoculation. A yeast strain runs the primary ester-building phase; the tank is then cooled and a lactic culture is pitched for a secondary phase that converts remaining acids and builds texture. Dials — Anaerobic · phase 1: 22–26°C, 24–48h yeast · phase 2: 16–20°C, 24–72h LAB · pH endpoint 3.6–3.8 Signature — Ester payload with lactic texture underneath. Tropical or stone fruit sits on a creamy, custard-like base. The combination reads as expensive — the fruit says "exotic" and the mouthfeel says "refined." Acidity is bright at entry, round at finish. Affinity — The highest-scoring reproducible process class in the catalog. Worth the complexity. Fails as — Phase-boundary errors; pitching LAB too early truncates ester development and yields a merely creamy cup. Tier SEMI · Difficulty ●●●●○ · Routes to S-06, S-09, S-07
+
+
+CBM — CARBONIC & MACERATION FAMILY
+The intracellular family. Under a saturating CO₂ atmosphere, intact fruit cells switch to their own anaerobic metabolism before microbial fermentation takes over. Enzymes inside the living cell produce a distinct compound set — and the resulting flavors do not resemble what microbes make. This borrowing from Beaujolais winemaking is the single most identifiable process signature in specialty coffee.
+CBM-01 · Classic Carbonic Maceration (Whole Cherry)
+Mechanism — Intact cherry in a CO₂-saturated sealed vessel. Intracellular metabolism runs for the first 24–72h; microbial fermentation follows as cells break down. Dials — CO₂-saturated, 0–0.3 bar · 16–22°C · 72–240h · whole cherry, unbroken skin required Signature — Vivid, electric, exceptionally clean. Raspberry, pomegranate, cranberry, blood orange. Rose, violet, lavender at the top. Candy-like sweetness — red wine gums, cherry cola. Sharp, effervescent-seeming acidity with crystalline clarity. Medium tea-like body with a coating fruit quality. Cooling minty-herbal finish over dark chocolate and spice. Confectionary yet refined. Affinity — Bourbon-family varietals respond best. Damaged or partially split cherry ruins it — picking discipline is a prerequisite, not a detail. Fails as — Loses the signature entirely if CO₂ saturation is incomplete; you get a mediocre natural. Tier HOUSE · Difficulty ●●●●○ · Routes to S-04, S-07, S-13
+CBM-02 · Semi-Carbonic
+Mechanism — Vessel is filled with whole cherry and sealed without an external CO₂ purge; the weight of the upper cherry crushes the lower layers, whose fermentation generates the CO₂ blanket for the intact fruit above. Two processes run simultaneously in one vessel. Dials — Self-generated CO₂ · 18–24°C · 96–168h · no agitation, stratification intentional Signature — Complexity from stratification. The lower fraction contributes conventional anaerobic depth and body; the upper contributes carbonic brightness and florals. Recombined, the cup has both a fruit-candy top and a jammy base. Affinity — Producers without gas infrastructure who still want carbonic character. The most accessible entry to this family. Fails as — Excessive crush ratio drowns the carbonic fraction; the lot cups as a heavy anaerobic natural. Tier HOUSE · Difficulty ●●●○○ · Routes to S-04, S-05, S-07
+CBM-03 · Carbonic Washed
+Mechanism — Carbonic maceration on whole cherry as a first phase, followed by depulping and a conventional washed finish. The intracellular compound set is generated, then the mucilage is removed so it is not overlaid with heavy ferment character. Dials — CO₂-saturated 48–96h · then depulp, wash, dry conventionally Signature — Carbonic top notes in a washed frame. Red fruit and floral sit over crystalline clarity with a clean, light body. Reads as an unusually vivid washed rather than an experimental lot — which is exactly what some buyers want. Affinity — Buyers with a washed-only house style who want one distinctive lot without breaking the aesthetic. Fails as — Loses too much in the wash if the carbonic phase is short; the process is either committed or pointless. Tier SEMI · Difficulty ●●●●○ · Routes to S-01, S-04, S-02
+CBM-04 · Extended Carbonic (10–30 Days)
+Mechanism — Carbonic maceration held for weeks under maintained CO₂ and tight temperature control. Intracellular metabolism exhausts, then a long, slow, cool microbial phase follows. Dials — CO₂-maintained · 12–18°C mandatory · 240–720h · pressure and pH monitored throughout Signature — Profound and strange. Fruit becomes preserved and liqueur-like — kirsch, maraschino, cassis. Florals become dense, closer to perfume than to blossom. A distinctive savory-mineral undertone appears that is unique to this process. Extremely long finish. Affinity — Auction and single-cask-equivalent releases. Genuinely unreplicable without the equipment. Fails as — Any thermal excursion above roughly 20°C for more than a few hours ends the lot. Tier DE NOVO · Difficulty ●●●●● · Routes to S-04, S-10, S-11
+CBM-05 · Carbonic with Directed Inoculum
+Mechanism — Carbonic maceration with a strain pitched into the vessel to govern the microbial phase that follows intracellular metabolism. Combines the carbonic compound set with steered ester production. Dials — CO₂-saturated · 16–22°C · 96–168h · single-strain pitched at hour 0 or at phase transition Signature — Carbonic's electric red fruit and floral, plus whatever the strain contributes. Pichia adds tropical terpenics over the raspberry; a wine strain adds structure and cassis depth; a sake strain adds an ethereal melon-and-blossom lift. Affinity — The most designable process in this family and the strongest candidate for a proprietary house protocol. Fails as — Strain–carbonic clashes are real; some ester profiles muddy the carbonic signature rather than layering with it. Trial before committing a container. Tier DE NOVO · Difficulty ●●●●● · Routes to S-04, S-06, S-07
+
+
+YST — YEAST-INOCULATED FAMILY
+The steering family. A defined organism is introduced at a defined dose, outcompeting wild flora and running its own metabolic program. This is where the platform's core promise — tell us the flavor and we will build it — actually lives, because ester production is strain-specific and predictable in a way that wild fermentation is not.
+
+How to read this family. A strain is not a process; it is a modifier applied to one. Every YST entry must be paired with a carrier process from WSH, NAT, HON, ANA, or CBM. The carrier determines clarity, body, and substrate; the strain determines which esters appear. YST-06 → ANA-01 and YST-06 → HON-05 are different coffees that share a flavor family.
+YST-01 · S. cerevisiae, Ale Strain
+Produces — Isoamyl acetate, ethyl hexanoate, phenethyl alcohol; diacetyl at moderate levels. Signature — Intense estery fruit. Bananas foster, pear drops, red apple skin. Bread-dough and brioche undertone with buttery diacetyl. Mellow acidity, creamy beer-like body. Clove, nutmeg, malty sweetness in the finish. Reads like a fruity Belgian ale. Dials — 20–26°C optimum · fast, vigorous, 18–36h · tolerant of variable conditions Best carriers — ANA-01, HON-05, WSH-06 · Tier HOUSE · Difficulty ●●○○○ · Routes to S-07, S-08, S-09
+YST-02 · S. cerevisiae, Wine Strain (Burgundy / Bordeaux Type)
+Produces — Higher alcohols, glycerol, structured organic acid profile; low ester-to-alcohol ratio. Signature — Dark fruit and vinous character. Black cherry, cassis, blackberry, plum. A subtle tannic structure providing a dry edge. Oaky vanilla, cedar, leather without any barrel contact. Winey, tart-but-structured acidity. Full body with a dry red-wine finish. Complex and age-worthy. Dials — 18–24°C · 36–72h · high alcohol tolerance permits long runs Best carriers — NAT-04, CBM-05, ANA-03 · Tier HOUSE · Difficulty ●●●○○ · Routes to S-05, S-10, S-12
+YST-03 · S. cerevisiae, Sake Strain (High-Ester, Ginjo Type)
+Produces — Ethyl caproate and isoamyl acetate at high ratio; very low acid production. Signature — Ultra-floral and delicate. Melon, white peach, pear, cherry blossom. Rice-wine and koji notes with a clear ginjo aroma — lychee, banana, apple. Acidity almost imperceptible, giving a water-like clarity. Light but unctuous body. Sweet finish with fresh anise and green tea. Extremely clean, nearly ethereal. Dials — 14–18°C mandatory (esters collapse above 20°C) · 72–168h · slow, low-vigor Best carriers — ANA-06, WSH-06, ANA-02 · Tier SEMI · Difficulty ●●●●○ · Routes to S-01, S-03, S-14
+YST-04 · S. cerevisiae, Champagne / Prise de Mousse
+Produces — Clean fermentation, minimal ester, high attenuation, crisp acid retention. Signature — A clarifier rather than a flavorer. Sharpens whatever the bean already has, strips ferment noise, brightens acidity, extends finish. Faint green apple and citrus contribution. The strain to use when you want the varietal to speak and the wild flora silenced. Dials — 14–22°C · wide tolerance · 24–72h · very reliable Best carriers — WSH-06, WSH-02, ANA-02 · Tier HOUSE · Difficulty ●●○○○ · Routes to S-01, S-02, S-14
+YST-05 · S. cerevisiae, Kveik (Norwegian Farmhouse)
+Produces — Heavy tropical ester load at extreme temperature; exceptional heat tolerance. Signature — Tropical and dense — mango, pineapple, orange. Notably, it produces these at 30–38°C, where every other yeast in this family fails. Clean despite the temperature. Body is full; acidity moderate. Dials — 28–38°C · 12–36h (extremely fast) · outcompetes spoilage flora by speed Best carriers — NAT-04, ANA-09, HON-08 · Tier SEMI · Difficulty ●●●○○ · Routes to S-06, S-07 Note — The strategic strain for hot-climate origins, including much of Vietnam's Central Highlands and lowland Robusta zones, where ambient temperature makes conventional strain selection impossible.
+YST-06 · Pichia kluyveri
+Produces — Thiols and acetate esters; the strongest tropical-terpenic signature available. Signature — Tropical and exotic esters. Passionfruit, guava, grapefruit, and a distinct terpenic note commonly read as cannabis or hops. Some expressions yield pear and pineapple. Subtle rose floral underneath. Bright citric acidity. Light, crisp, cider-like body. Zesty, refreshing finish with lingering tropical-candy sweetness. Can verge wild but stays controlled. Dials — 18–25°C · 36–96h · often co-pitched with a S. cerevisiae for completion Best carriers — HON-05, ANA-01, CBM-05 · Tier HOUSE · Difficulty ●●●○○ · Routes to S-06, S-13, S-02
+YST-07 · Pichia fermentans
+Produces — Related ester set to P. kluyveri with a heavier floral and lower terpenic fraction. Signature — Softer and more floral than its sibling. Peach, apricot, orange blossom, honeysuckle. Less grapefruit bite, more nectar. Round acidity, satiny body, clean honeyed finish. Dials — 18–24°C · 48–96h Best carriers — HON-05, WSH-04, ANA-01 · Tier SEMI · Difficulty ●●●○○ · Routes to S-01, S-03
+YST-08 · Torulaspora delbrueckii
+Produces — Moderate ester, high glycerol, low volatile acidity; notable lactone contribution. Signature — Stone fruit and honey. Ripe peach, apricot, nectarine, with a pronounced floral-honey character — orange blossom, acacia. Lactic creaminess without harsh ferment. Soft malic acidity. Round, satiny body. Clean finish of peach tea and shortbread. Elegant, subtly complex. Dials — 16–22°C · 48–120h · slow, gentle, forgiving Best carriers — HON-05, WSH-06, ANA-11 · Tier HOUSE · Difficulty ●●○○○ · Routes to S-03, S-09, S-01
+YST-09 · Hanseniaspora spp. (Apiculate Wild Type)
+Produces — Very high acetate ester production early, then dies off as alcohol accumulates. Signature — Explosive fruit in the first 24 hours, then a handoff. Pear, banana, tropical punch. Almost always used as the first organism in a sequential pitch, contributing an aromatic top layer that a second strain then builds under. Dials — 18–24°C · 12–36h before handoff · low alcohol tolerance by design Best carriers — Sequential protocols only; see SEQ · Tier DE NOVO · Difficulty ●●●●○ · Routes to S-06, S-07
+YST-10 · Metschnikowia pulcherrima
+Produces — Terpene-liberating enzymes; low ethanol; strong antimicrobial effect against spoilage organisms. Signature — A protector and an unlocker. Liberates bound terpenes already present in the bean, amplifying varietal florals and citrus rather than adding new character. Suppresses spoilage flora, widening the safe window. The cup tastes like a more floral, cleaner version of itself. Dials — 15–22°C · pitched at hour 0 as a co-culture · 24–72h Best carriers — Any; especially valuable in high-risk ambient conditions · Tier SEMI · Difficulty ●●●○○ · Routes to S-01, S-02, S-13
+YST-11 · Wickerhamomyces anomalus
+Produces — Ethyl acetate at high levels, plus antifungal metabolites. Signature — Sharp, solvent-adjacent brightness that reads as pear drop and nail-polish-lift at low levels and becomes a defect above them. Used deliberately and sparingly for a "lifted" aromatic top. Also functions as a mold suppressant in humid drying conditions. Dials — 16–20°C · short runs, 12–24h · dose discipline is critical Best carriers — NAT-02, DRY-06 in humid regions · Tier DE NOVO · Difficulty ●●●●● · Routes to S-07, S-02
+YST-12 · Starmerella bacillaris (formerly Candida zemplinina)
+Produces — Very high glycerol, low ethanol, fructose-preferential metabolism. Signature — A texture strain. Contributes little aroma and a great deal of mouthfeel — glycerol-driven viscosity, sweetness perception, and a rounded, coating body. Commonly co-pitched to give body to a lot whose aromatics are already strong. Dials — 14–20°C · 48–120h · co-pitch standard Best carriers — ANA-11, HON-05 as a body modifier · Tier SEMI · Difficulty ●●●○○ · Routes to S-09, S-08
+YST-13 · Native Isolate Program (Farm-Specific)
+Mechanism — Wild yeast is isolated from a specific farm's environment, screened for performance, propagated, and returned as a defined single-strain inoculum unique to that origin. Signature — Unpredictable in advance and unique by construction. The value proposition is not a flavor target but exclusivity: a strain that exists nowhere else, tied to one farm, defensible as a trade secret and ownable as a brand asset. Dials — Per isolate; requires a full screening season before commercial use Best carriers — Any · Tier DE NOVO · Difficulty ●●●●● · Routes to All Note — 12–18 month lead time from isolation to first commercial lot. The highest-value, longest-horizon offering in the catalog and the strongest foundation for a proprietary program.
+YST-14 · Designed Multi-Strain Consortium
+Mechanism — Two to four strains pitched together in a designed ratio, chosen for complementary ester profiles and non-competing temperature optima. Signature — Composite by design. A Pichia tropical layer, a Torulaspora stone-fruit and texture layer, and a Saccharomyces completion strain produce a cup with three distinct aromatic registers that a single strain cannot deliver. Dials — Ratio and pitch order are the design variables; temperature must satisfy all members Best carriers — ANA-02, HON-05, ANA-11 · Tier DE NOVO · Difficulty ●●●●● · Routes to S-06, S-07, S-09
+
+
+BAC — BACTERIAL & MIXED CULTURE FAMILY
+The architecture family. Bacteria do not build the ester load; they build the acid structure and the texture the esters sit on. Lactic acid bacteria in particular are the difference between a coffee that tastes fruity and a coffee that tastes expensive — they supply the round, creamy, low-astringency mouthfeel that reads as quality independent of flavor.
+BAC-01 · Lactobacillus plantarum
+Signature — The pure lactic profile. Sour cream, cream cheese, yogurt, moving toward sauerkraut tang if pushed. Fruits become stewed — apple compote, poached pear. Malolactic character: butter, butterscotch. Extremely creamy, near-custard body. All lactic softness with zero citric bite. Savory cheese-puff or popcorn note in the finish, umami-rich. Dials — 25–35°C optimum · 24–72h · drives pH to 3.5–3.8 rapidly Best carriers — ANA-11 (phase 2), ANA-01, HON-05 · Tier HOUSE · Difficulty ●●●○○ · Routes to S-09, S-11
+BAC-02 · Lactobacillus casei / paracasei
+Signature — Gentler than plantarum. Yogurt and fresh cream without the tang. Fruit stays fresher — ripe apple, white grape. Buttery mid-palate, silky rather than custard-thick. The subtle option when texture is wanted and lactic flavor is not. Dials — 22–30°C · 36–96h · slower pH descent Best carriers — ANA-11, WSH-04 · Tier SEMI · Difficulty ●●●○○ · Routes to S-09, S-03
+BAC-03 · Leuconostoc mesenteroides
+Signature — Heterofermentative: produces lactic acid, acetic acid, CO₂, and mannitol together. Result is a complex, effervescent-seeming acidity with a distinctive cooling sweetness from mannitol. Fruit gains a lifted, sparkling quality. The classic first-succession organism in wild coffee ferments. Dials — 20–28°C · 24–48h · early-phase organism Best carriers — WSH-01, ANA-01 as a directed replacement for wild succession · Tier SEMI · Difficulty ●●●○○ · Routes to S-02, S-04, S-09
+BAC-04 · Pediococcus spp.
+Signature — Slow, low-temperature-tolerant lactic acidification with high diacetyl potential. Contributes butter, butterscotch, and a dense creamy weight. Used where a long cold ferment needs a lactic phase that plantarum cannot run. Dials — 12–20°C · 96–240h · slow and steady Best carriers — ANA-06, ANA-03 · Tier DE NOVO · Difficulty ●●●●○ · Routes to S-09, S-08
+BAC-05 · Acetic Acid Bacteria (Directed Acetobacter)
+Signature — Sharp, penetrating acetic brightness. Used deliberately and at low dose, it produces a kombucha-like lift and a mouthwatering sharpness that can rescue a flat lot. Above threshold it is simply vinegar — the narrowest useful band in the catalog. Dials — Aerobic phase required · 22–30°C · 6–18h only · dose and time discipline absolute Best carriers — Short aerobic phase appended to WSH-01 or NAT-02 · Tier DE NOVO · Difficulty ●●●●● · Routes to S-02, S-10
+BAC-06 · Malolactic Conversion (Secondary)
+Mechanism — Oenococcus or Lactobacillus converts harsh malic acid to softer lactic acid in a dedicated secondary phase, borrowed directly from winemaking. Signature — A corrective and refining process. Sharp green-apple malic acidity converts to round, creamy lactic. Perceived acidity drops by a full register while total acidity is unchanged. Buttery notes emerge. The cup gains age and composure. Dials — 18–22°C · 48–120h secondary phase · post-primary Best carriers — Any high-malic lot; especially high-altitude washed · Tier SEMI · Difficulty ●●●●○ · Routes to S-09, S-08
+BAC-07 · Kefir Consortium
+Mechanism — A defined mixed culture of lactic bacteria, acetic bacteria, and yeasts operating symbiotically. Signature — Complex, tangy, and creamy at once. Cultured dairy character — kefir, crème fraîche, buttermilk — over lifted fruit. A faint effervescent quality. Body is thick, acidity is layered rather than singular. Dials — 20–26°C · 36–96h · self-regulating consortium, unusually stable Best carriers — NAT-04, ANA-09 · Tier SEMI · Difficulty ●●●○○ · Routes to S-09, S-06
+BAC-08 · Back-Slopped House Culture
+Mechanism — A portion of a successful prior ferment is carried forward to inoculate the next, season after season, until a stable house consortium establishes. Signature — Increasingly consistent and increasingly distinctive over time. Year one resembles wild ferment; by year three the culture imposes a recognizable house signature on every lot it touches. Dials — Per generation; requires disciplined carry-forward and contamination screening Best carriers — Any · Tier SEMI · Difficulty ●●●○○ · Routes to Variable Note — Strategically important. A mature house culture is a genuine trade secret and a durable competitive asset that competitors cannot buy.
+BAC-09 · Sequential Bacterial Cascade
+Mechanism — Leuconostoc → Lactobacillus → optional acetic phase, each pitched at a defined pH threshold rather than a clock time. Signature — Engineered acid architecture. Entry acidity is bright and lifted, mid-palate is creamy and round, finish carries a mouthwatering sharpness. Fruit is unchanged; the shape of the cup is completely rebuilt. Dials — pH-triggered transitions · 20–28°C · 72–144h total Best carriers — ANA-01, WSH-04 · Tier DE NOVO · Difficulty ●●●●● · Routes to S-02, S-09, S-11
+
+
+FNG — FUNGAL & ENZYMATIC FAMILY
+The transformation family. Filamentous fungi and isolated enzymes break down proteins and complex carbohydrates that yeast and bacteria cannot touch, producing free amino acids, peptides, and sugars that yield a fundamentally different flavor class — savory, umami, and deeply sweet in a way no fruit-ferment achieves. This family produces the most polarizing coffee in the catalog and the most memorable.
+FNG-01 · Koji Fermentation (Aspergillus oryzae)
+Mechanism — Koji is cultivated on a rice or bean substrate, then applied to the coffee. Its protease and amylase enzymes liberate amino acids and simple sugars over an extended, controlled incubation. Signature — A full umami transformation. Soy sauce, miso, mushroom, kombu dashi. Sweetness amplified to a mirin or amazake character. Subtle fruit: overripe melon, cooked apple. Acidity converts into amino complexity rather than brightness. Oily, slick body. Savory, almost meaty finish with a persistent, otherworldly sweetness. Dials — 28–32°C, 70–80% RH · 36–72h incubation · sterile substrate handling mandatory Best carriers — Depulped parchment, post-wash · Tier DE NOVO · Difficulty ●●●●● · Routes to S-11, S-08 Note — Requires genuine mycology capability and food-safety controls. Executor list is short and should be audited.
+FNG-02 · Aspergillus luchuensis (Black Koji)
+Signature — Koji character with a citric-acid backbone, because this species produces citric acid natively. Umami depth with a bright, clean acidity that A. oryzae lacks. Yuzu and lime appear over the miso base. Safer in warm, humid conditions due to the acid environment it creates. Dials — 30–35°C · 48–96h · self-acidifying Best carriers — Depulped parchment; tropical origins · Tier DE NOVO · Difficulty ●●●●● · Routes to S-11, S-02
+FNG-03 · Monascus purpureus (Red Koji)
+Signature — Distinctive and unusual. Fermented-red-rice character: earthy, slightly winey, with a sweet-savory depth and a faint red-fruit impression. Also produces natural pigments, which is irrelevant to green coffee but signals the intensity of its metabolic footprint. Dials — 28–32°C · 72–168h Best carriers — Depulped parchment · Tier DE NOVO · Difficulty ●●●●● · Routes to S-11, S-10
+FNG-04 · Pectinase-Directed Enzymatic
+Mechanism — Isolated pectinase degrades mucilage without microbial activity. Precise, fast, and reproducible. Signature — Near-neutral. Clean, high sweetness retention, no ferment character. The tool for producing an absolutely clean baseline in conditions where microbial control is impossible. Dials — 30–40°C · 2–6h · dose per mucilage load Best carriers — WSH-09 · Tier HOUSE · Difficulty ●●○○○ · Routes to S-14, S-08
+FNG-05 · Cellulase / Hemicellulase Assisted
+Mechanism — Cell-wall-degrading enzymes applied to open the parchment and seed coat structure, increasing permeability for a subsequent fermentation. Signature — Not a flavor process; a delivery process. Substantially increases the migration of ferment-derived compounds into the bean, amplifying whatever follows by a meaningful margin. Dials — 35–45°C · 1–4h pre-treatment · followed by any ferment Best carriers — Pre-treatment to ANA or COF families · Tier DE NOVO · Difficulty ●●●●○ · Routes to Amplifier
+FNG-06 · Tannase-Treated
+Mechanism — Tannase hydrolyzes tannins, reducing astringency and bitterness. Signature — Removes harshness. Astringent, drying, woody notes soften markedly. Particularly transformative on Robusta and on lots with high phenolic load, where it can convert an aggressive cup into a smooth one. Dials — 30–40°C · 2–8h Best carriers — Robusta programs; high-phenolic lots · Tier SEMI · Difficulty ●●●○○ · Routes to S-08, S-09 Note — Strategically significant for any Vietnamese Robusta quality program, where phenolic harshness is the primary ceiling on cup score.
+
+
+COF — CO-FERMENTATION & INFUSION FAMILY
+The additive family, and the one requiring the most candor. Introducing external material — fruit, botanicals, spice, spirits — produces flavors the coffee plant cannot make. That is either the point or the problem, depending on the buyer and the market.
+
+Disclosure standard. Every COF lot ships with a declared-intervention statement listing every added material by name and approximate rate. These lots are ineligible for SCA-sanctioned competition categories that prohibit additives, are frequently ineligible for organic certification depending on the additive's own status, and must be labeled per destination-market food law — which varies materially between the US, EU, Japan, and Korea. The platform will not ship a COF lot without the declaration. This is a commercial decision as much as an ethical one: undeclared co-ferments are the single largest reputational risk in specialty coffee, and being visibly on the right side of it is worth more than any individual lot.
+COF-01 · Stone Fruit Co-Ferment (Peach, Apricot, Plum)
+Signature — Direct infusion of the added fruit onto the coffee's own frame. Peach cobbler, apricot jam, plum skin. The coffee's stone-fruit notes fuse with the additive rather than sitting beside it, which is why this pairing is the most convincing in the family. Malic acidity, jammy body, creamy yogurt underlayer from yeast interaction. Dials — Anaerobic · 5–15% w/w fruit · 18–22°C · 48–96h Tier SEMI · Difficulty ●●●●○ · Routes to S-03, S-07
+COF-02 · Tropical Co-Ferment (Passionfruit, Mango, Pineapple)
+Signature — Intense tropical punch. Passionfruit yields the most dramatic result — a piercing, unmistakable aromatic that survives roasting better than most additions. Pineapple gives piña colada with a creamy underlayer. Mango gives a dense, nectar-like sweetness. High acidity, jammy-to-smoothie body. Dials — Anaerobic · 5–20% w/w · 18–24°C · 36–72h (high sugar shortens the window) Tier SEMI · Difficulty ●●●●○ · Routes to S-06, S-07
+COF-03 · Citrus Peel & Zest Co-Ferment
+Signature — Aromatic oils rather than sugars. Bergamot, yuzu, blood orange, and lime peel contribute terpene-driven top notes with very little body change. Bergamot in particular produces a genuinely Earl Grey-like effect that is one of the most commercially successful profiles in this family. Dials — Anaerobic · 1–4% w/w (oils are potent; low rate) · 16–20°C · 24–48h Tier SEMI · Difficulty ●●●●○ · Routes to S-02, S-13, S-14
+COF-04 · Berry Co-Ferment (Strawberry, Raspberry, Blackcurrant)
+Signature — Amplification of an existing register rather than a new one, since many naturals already show berry. Result is a saturated, unmistakable berry cup — strawberry syrup, raspberry coulis, cassis. Sweetness is very high. Body becomes jammy. Dials — Anaerobic · 5–15% w/w · 18–22°C · 36–72h Tier SEMI · Difficulty ●●●○○ · Routes to S-04, S-05, S-07
+COF-05 · Cascara Reinforcement
+Mechanism — Dried coffee cherry husk from the same farm reintroduced to the ferment. Signature — Amplifies the coffee's own fruit character using only coffee material. Hibiscus, rosehip, dried cherry, and tamarind lift out. This is the co-ferment for buyers who want intensity without a foreign additive, and it usually remains inside a single-origin claim. Dials — Anaerobic · 3–10% w/w cascara · 18–22°C · 48–96h Tier HOUSE · Difficulty ●●●○○ · Routes to S-04, S-02
+COF-06 · Botanical & Floral Co-Ferment (Rose, Jasmine, Hibiscus, Lavender)
+Signature — Perfumed and delicate, and the hardest to keep on the right side of the soap line. Rose and jasmine at low rates deepen existing floral notes convincingly. Hibiscus adds tart red-fruit acidity. Lavender is the highest-risk addition in the family — the margin between "elegant" and "potpourri" is very narrow. Dials — Anaerobic · 0.5–3% w/w · 16–20°C · 24–48h Tier DE NOVO · Difficulty ●●●●● · Routes to S-01, S-13
+COF-07 · Spice Co-Ferment (Cinnamon, Cardamom, Clove, Vanilla)
+Signature — Warm and immediately legible. Cinnamon and cardamom integrate best; clove overwhelms above trace rates; vanilla contributes sweetness perception more than aroma. Produces the most commercially obvious seasonal-release profile in the catalog. Dials — Anaerobic · 0.5–2% w/w · 18–22°C · 36–72h Tier SEMI · Difficulty ●●●●○ · Routes to S-12, S-08
+COF-08 · Cacao & Cacao-Pulp Co-Ferment
+Signature — Cacao pulp contributes a bright, tropical, lychee-like acidity that surprises people expecting chocolate; cacao nib contributes actual cocoa depth. Together they yield a layered chocolate-and-tropical-fruit cup with substantial body. Dials — Anaerobic · 5–15% pulp or 2–5% nib · 20–24°C · 48–96h Tier SEMI · Difficulty ●●●●○ · Routes to S-08, S-06
+COF-09 · Must / Wine-Grape Co-Ferment
+Signature — Structured vinosity. Grape must adds tannin, glycerol, and dark fruit without the confectionary quality of most co-ferments. Result is genuinely wine-like — cassis, plum, dried herb, a dry tannic finish. Dials — Anaerobic · 10–25% must · 16–20°C · 72–168h · wine strain co-pitch standard Tier DE NOVO · Difficulty ●●●●● · Routes to S-10, S-05, S-12
+COF-10 · Sugar / Panela Feed
+Mechanism — Refined or unrefined sugar added to extend the fermentable substrate. Signature — Amplifies ferment intensity and extends the runway without contributing flavor of its own (panela contributes some molasses character; refined sugar contributes none). A blunt instrument that raises both ceiling and risk. Dials — Anaerobic · 2–8% w/w · 18–22°C · window shortens sharply Tier SEMI · Difficulty ●●●●○ · Routes to Amplifier Note — Declarable. Several buyers and certification programs treat sugar feeding as disqualifying regardless of disclosure; confirm before ordering.
+
+
+VSL — VESSEL & ATMOSPHERE FAMILY
+The structural family. Vessel is usually treated as equipment; it is an ingredient. Material, geometry, thermal mass, and gas exchange all shape the outcome, and specifying the vessel is one of the cheapest ways to differentiate two otherwise identical protocols.
+VSL-01 · Stainless Steel (Neutral, Thermally Responsive)
+Contributes — Nothing to flavor; everything to control. Rapid thermal response, full sanitation, jacket-coolable. The default for any protocol where temperature is a specified variable. Tier HOUSE · Difficulty ●○○○○
+VSL-02 · HDPE / Food-Grade Polymer
+Contributes — Neutral flavor, high thermal inertia (buffers ambient swings), very low cost. The reason most origin experimental programs exist at all. Limitation: cannot be actively temperature-controlled and scratches harbor biofilm across seasons. Tier HOUSE · Difficulty ●○○○○
+VSL-03 · Oak (New and Used)
+Contributes — Vanillin, lactones, tannin, and slow micro-oxygenation through the staves. New oak donates aggressively — vanilla, coconut, toast, spice. Used oak donates structure without dominating. Materially changes the coffee, not just the ferment. Tier SEMI · Difficulty ●●●●○ · Routes to S-12, S-10
+VSL-04 · Clay Amphora / Tinaja
+Contributes — Micro-oxygenation through porous walls plus a distinct mineral-earthen impression. Produces a rounded, softly structured, slightly saline result. Notably good at taming aggressive acidity without flattening it. Tier DE NOVO · Difficulty ●●●●○ · Routes to S-11, S-14
+VSL-05 · Concrete Egg
+Contributes — High thermal mass (extremely stable temperature), neutral flavor, and a convection current from the egg geometry that keeps the ferment gently self-mixing without mechanical agitation. Yields unusual uniformity in a static protocol. Tier DE NOVO · Difficulty ●●●●○
+VSL-06 · Grainpro / Barrier-Bag Ferment
+Contributes — A near-zero-capex anaerobic vessel. Hermetic barrier bags allow small-lot anaerobic protocols anywhere, including on the farm. Limitation: no pressure management, no temperature control, no sampling without breaking the seal. The entry point for microlot experimentation. Tier HOUSE · Difficulty ●●○○○
+VSL-07 · Active Agitation (Pump-Over / Punch-Down / Rotary)
+Contributes — Uniformity at the cost of some volatile retention. Converts a stratified tank into a homogeneous one. Mandatory for any lot that must cup identically bag to bag across a container. Tier SEMI · Difficulty ●●●○○
+VSL-08 · Deliberate Stratification (Static, Layered)
+Contributes — The opposite bet. A static tall vessel produces measurably different coffee at top, middle, and bottom; these fractions are separated at the end and either sold as three distinct micro-lots or recombined in a designed ratio. One ferment, three products. Tier SEMI · Difficulty ●●●●○
+
+
+DRY — DRYING ARCHITECTURE FAMILY
+The retention family, and the most consequential underrated stage in the catalog. Drying determines how much of what fermentation built actually survives into the cup, and how long it stays there. A perfect ferment dried badly is a failed lot; a modest ferment dried expertly is a good one.
+DRY-01 · Patio (Concrete / Tile)
+Fast initial removal, high thermal load, ground contact. Suited to high-volume commercial lots and to naturals in dry climates. Risk: case-hardening and thermal damage to the seed. Tier HOUSE · Difficulty ●●○○○
+DRY-02 · Raised Bed (African Bed)
+Airflow beneath, thin layer, even removal. The specialty default for a reason. Layer depth and turning frequency are the working variables. Tier HOUSE · Difficulty ●●○○○
+DRY-03 · Parabolic / Solar Dome
+Enclosed, humidity-managed, weather-independent. Extends the usable drying season and protects experimental lots from rain events. Risk: inadequate venting produces stagnant, musty lots. Tier HOUSE · Difficulty ●●●○○
+DRY-04 · Shade / Low-Light Slow Dry
+Extends duration substantially, integrating and rounding character. Adds body and sweetness perception; costs some aromatic top notes. The canonical partner to heavy-substrate processes. Tier SEMI · Difficulty ●●●○○
+DRY-05 · Mechanical / Guardiola (Controlled Air)
+Precise, weather-independent, fast. Temperature discipline is everything: above roughly 40°C bean surface, volatile loss and internal damage accelerate sharply. Below that it is the most reproducible drying method available. Tier HOUSE · Difficulty ●●●○○
+DRY-06 · Staged Drying with Rest Cycles
+Alternating active drying and sealed rest periods permits internal moisture to equilibrate between stages. Produces markedly more uniform final moisture distribution, which translates directly into roast consistency and shelf stability. The single highest-leverage upgrade available to most origin partners. Tier SEMI · Difficulty ●●●●○
+DRY-07 · Freeze-Drying / Lyophilization (Post-Ferment Arrest)
+Sublimation removes water without a liquid phase, arresting fermentation instantly and retaining volatiles almost completely. Produces the highest aromatic retention achievable. Extremely capital-intensive; reserve for the highest-value micro-lots. Tier DE NOVO · Difficulty ●●●●●
+DRY-08 · Controlled Water-Activity Landing
+Not a method but a discipline: drying is managed to a target water activity (0.55–0.60 a_w) rather than a target moisture percentage, with a defined final rate and a mandatory rest before hulling. Water activity, not moisture content, governs microbial stability and predicts shelf life. Any lot intended to hold its profile past six months should specify this. Tier SEMI · Difficulty ●●●○○
+
+
+AGE — POST-FERMENT MATURATION FAMILY
+The time family. Compounds continue to change after drying. Most change is loss; some is gain. This family isolates the cases where holding a lot deliberately makes it better, and defines the storage conditions under which that is true.
+AGE-01 · Parchment Rest (Reposo)
+Holding in parchment for 30–90 days before hulling. Standard practice in Colombia and Central America, frequently skipped elsewhere. Integrates harsh edges, settles acidity, improves roast uniformity. Costs nothing but time and is nearly always worth it for ferment-heavy lots. Tier HOUSE · Difficulty ●○○○○
+AGE-02 · Bourbon Barrel Aging
+Green coffee held in ex-bourbon barrels. Absorbs vanilla, caramel, charred oak, butterscotch, and a smoky sweetness. Body becomes viscous and oily; acidity mutes. Long, spirit-like, wood-and-spice finish. The coffee base is deeply altered before roasting. Tier SEMI · Difficulty ●●●●○ · Routes to S-12, S-10 · Declarable; verify alcohol-contact labeling rules per destination market.
+AGE-03 · Rum Barrel Aging
+Molasses, dark fruit, coconut, warm spice. Heavier and sweeter than bourbon; pairs naturally with naturals and black honeys that already carry molasses character. Tier SEMI · Difficulty ●●●●○ · Routes to S-10, S-05
+AGE-04 · Wine Cask Aging
+Red fruit, oak tannin, dried herbs, dry vinosity. Drier and more structured than the spirit barrels. Best on lots with existing acidity to carry the tannin. Tier SEMI · Difficulty ●●●●○ · Routes to S-10, S-12
+AGE-05 · Oak Chip / Stave Contact (Controlled)
+Wood contact without the barrel: measured chip or stave insertion into sealed storage, with toast level and contact time as dials. Far more controllable and far cheaper than barrel aging, and reversible up to the point of removal. Tier SEMI · Difficulty ●●●○○ · Routes to S-12
+AGE-06 · Monsooning / Controlled Humidity Exposure
+Deliberate exposure to high-humidity air over weeks. Beans swell, acidity drops almost entirely, and the cup becomes heavy, earthy, woody, and low-toned. A specific, traditional, polarizing profile with a real market. Tier SEMI · Difficulty ●●●●○ · Routes to S-11, S-12
+AGE-07 · Cellar Aging (Vacuum / Inert, Cold)
+Long-term hold under vacuum or inert gas at 12–15°C. Not transformative — preservative. Extends the usable flavor window of a high-value lot from months to years, permitting staged release of a single exceptional harvest across multiple seasons. Tier SEMI · Difficulty ●●●○○
+
+
+SEQ — SEQUENTIAL & STACKED PROTOCOLS
+The composition family. Two or more processes run in defined order, each contributing a distinct register. This is where the platform's most differentiated and most defensible products live, because the sequence itself — the order, the transition triggers, the phase durations — is the intellectual property.
+SEQ-01 · Double Fermentation (Anaerobic → Aerobic)
+Signature — Complex, multi-layered, symphonic. Bright tropical top notes from the anaerobic phase, refined spice and clean finish from the aerobic secondary. Achieves combinations that no single process reaches: passionfruit and dark chocolate, blueberry and sandalwood, cherry pie and pine. Acidity evolves from sharp to creamy across the palate. Heavy but silky body. The finish is the hallmark — minutes long, unfolding. Dials — Phase 1 anaerobic 48–96h · wash · phase 2 aerobic 12–36h · Tier SEMI · Difficulty ●●●●○ · Routes to S-06, S-12, S-08
+SEQ-02 · Triple-Phase (Carbonic → Anaerobic → Lactic)
+Signature — The most compositionally ambitious protocol offered. Carbonic supplies electric red fruit and floral; anaerobic supplies ester depth and body; the lactic finish supplies creamy texture and integration. Three legible registers in one cup. Dials — 72h CO₂ · 48h sealed anaerobic · 48h LAB at reduced temperature · Tier DE NOVO · Difficulty ●●●●● · Routes to S-04, S-06, S-09
+SEQ-03 · Split-Lot Divergent Recombination
+Mechanism — One day-lot divided into three or four fractions, each run through a different process, then recombined at the dry mill in a designed ratio. Signature — Blend complexity from a single farm, single variety, single day. The provenance claim stays intact while the cup carries constructed architecture — a washed fraction for clarity, an anaerobic fraction for fruit, a lactic fraction for body. Dials — Fraction count and recombination ratio are the design variables · Tier SEMI · Difficulty ●●●●○ · Routes to All
+SEQ-04 · Inoculum Relay (Sequential Pitch)
+Mechanism — Organisms pitched in succession at pH or time triggers: an apiculate yeast for aromatic top notes, a Saccharomyces for completion, a lactic culture for texture. Signature — Each organism contributes a layer it alone can produce. The highest ceiling in the catalog for designed complexity, and the protocol most worth protecting. Dials — Pitch schedule and trigger thresholds · Tier DE NOVO · Difficulty ●●●●● · Routes to S-06, S-07, S-09
+SEQ-05 · Ferment–Dry–Ferment (Interrupted)
+Mechanism — Primary ferment, partial drying to arrest it, then rehydration and a second ferment before final drying. Two distinct fermentations at two distinct substrate concentrations. Signature — Extreme intensity and concentration. The second ferment operates on a sugar-dense substrate, producing a dense, liqueur-like, maximalist result. Dials — Per NAT-07; the highest-risk sequence offered · Tier DE NOVO · Difficulty ●●●●● · Routes to S-05, S-07, S-10
+SEQ-06 · Cascade (Multi-Vessel Progressive Transfer)
+Mechanism — The lot moves through a series of vessels, each with different conditions — temperature, atmosphere, inoculum, material — on a fixed schedule. Signature — Fully composed. Each vessel is a movement. The most controllable and most expensive protocol in the catalog; the flagship for a proprietary house program. Dials — Vessel sequence, dwell times, transition conditions · Tier DE NOVO · Difficulty ●●●●● · Routes to All
+
+
+PART III — THE OUTCOME SPINE
+The buyer who enters here does not specify a method. They specify a cup, and the platform solves for the route.
+Reading an outcome entry
+Target cup — the sensory descriptor set the archetype delivers.
+Primary route — the process stack with the highest probability of hitting the target. Read → as "then."
+Alternate route — a second path, usually cheaper, lower-risk, or executable by a wider set of partners.
+Varietal shortlist — beans whose precursor chemistry supports the target. Ordering an archetype on an unsuitable varietal is the most common cause of disappointment on this platform.
+Score band — realistic SCA range for a well-executed lot. Not a guarantee; a calibration.
+Confidence — how reliably the route hits the target. High means we will stand behind it. Moderate means expect variation between lots. Exploratory means it is a research order.
+What kills it — the single most common failure. Read this before ordering, not after.
+Sensory family index
+Code
+Family
+Character
+S-01
+Crystalline & Floral
+Jasmine, blossom, transparency
+S-02
+Citrus & High Acid
+Bergamot, lime, structured brightness
+S-03
+Orchard & Stone Fruit
+Peach, apricot, apple, pear
+S-04
+Red Berry & Cherry
+Raspberry, cherry, pomegranate
+S-05
+Dark Berry & Preserve
+Blueberry, blackberry, fig, jam
+S-06
+Tropical & Exotic
+Passionfruit, lychee, guava, mango
+S-07
+Confection & Candy
+Bubblegum, syrup, candied fruit
+S-08
+Chocolate, Nut & Caramel
+Cocoa, praline, toffee
+S-09
+Creamy & Lactic
+Yogurt, custard, butter, silk
+S-10
+Vinous & Spirituous
+Wine, rum, cask, tannin
+S-11
+Savory, Umami & Saline
+Miso, soy, sea salt, mineral
+S-12
+Spice, Wood & Smoke
+Cinnamon, oak, clove, char
+S-13
+Herbal, Green & Terpenic
+Mint, basil, hops, eucalyptus
+S-14
+Tea-like & Ethereal
+Delicate, weightless, long
+
+
+
+S-01 · CRYSTALLINE & FLORAL
+Transparency as an achievement. These cups are built by subtraction — the goal is to remove everything between the drinker and the blossom.
+A-0101 · "Alabaster" — Pure White Floral
+Target cup — Jasmine, orange blossom, white grape, honeysuckle. Weightless silk body. Sparkling citric acid. Finish of raw sugar and cool stone. Primary route — WSH-08 → DRY-02 → AGE-01 Alternate route — WSH-02 + YST-04 → DRY-02 Varietals — Gesha, Wush Wush, Sidra, Ethiopian heirloom (74110, 74112) Band 88.0–91.0 · Confidence High · Difficulty ●●●●○ What kills it — Over-washing. The sweetness that carries the florals leaches out and you are left with elegance and nothing to hold it up.
+A-0102 · "Perfumer's Draft" — Amplified Perfumery Floral
+Target cup — Dense jasmine, elderflower, rosewater, lychee blossom. Faint creamy lactic underlayer. Silky, near-waxy mouthfeel. Menthol-cool finish. Primary route — ANA-01 + YST-03 → DRY-04 → AGE-01 Alternate route — ANA-02 + YST-07 → DRY-02 Varietals — Gesha, Pink Bourbon, Java, Laurina Band 88.5–91.5 · Confidence High · Difficulty ●●●●○ What kills it — Sake-strain esters collapse above 20°C. Without genuine temperature control this becomes an ordinary anaerobic.
+A-0103 · "Cold Cathedral" — Retained-Aromatic Floral
+Target cup — The cup smells like the ferment tank. Piercing blossom, white flower, lime leaf, cool mineral. Very light body, high aromatic intensity, extraordinary length. Primary route — ANA-06 + YST-03 → DRY-07 Alternate route — ANA-06 + YST-10 → DRY-05 (low temp) Varietals — Gesha, Eugenioides, Laurina, SL34 Band 89.0–92.0 · Confidence Moderate · Difficulty ●●●●● What kills it — Stalled ferment at low temperature. If the culture never establishes you get a vegetal, hollow lot with no recovery path.
+A-0104 · "Unlocked" — Terpene-Liberated Varietal Floral
+Target cup — The varietal's own florals turned up rather than replaced. Bergamot-lavender-jasmine depending on the bean. Clean, structured, unmistakably itself. Primary route — WSH-06 + YST-10 → DRY-02 → AGE-01 Alternate route — WSH-01 + YST-10 → DRY-06 Varietals — Any aromatic varietal; especially valuable where wild ferment has been muddying results Band 86.5–89.0 · Confidence High · Difficulty ●●●○○ What kills it — Nothing dramatic. This is a low-risk archetype; the failure mode is simply an unremarkable result on an unremarkable bean.
+
+
+S-02 · CITRUS & HIGH ACID
+Structured brightness. The distinction that matters here is which acid — citric reads as lemon and lime, malic as green apple, phosphoric as blackcurrant and mouthwatering juiciness, and each is produced by a different route.
+A-0201 · "Voltage" — Phosphoric Blackcurrant
+Target cup — Blackcurrant, red currant, tart cherry, cranberry. Savory tomato-leaf and herb underneath. Aggressive, juicy, mouthwatering acidity. Syrupy body. Long dried-berry and wine finish. Primary route — WSH-03 → WSH-07 → DRY-02 Alternate route — WSH-03 + YST-04 → DRY-02 Varietals — SL28, SL34, Batian, Ruiru 11 (Kenya-descended only; this profile does not transplant) Band 87.5–90.0 · Confidence High · Difficulty ●●●○○ What kills it — Water quality in the second soak. Everything else can be right and a bad soak flattens the cup completely.
+A-0202 · "Bergamot Line" — Earl Grey Citrus
+Target cup — Bergamot, lemon oil, black tea tannin, white flower. Light-bodied, structured, extremely long. Reads as tea more than as coffee. Primary route — COF-03 (bergamot peel, low rate) → DRY-02 → AGE-01 Alternate route — ANA-06 + YST-06 → DRY-04 (additive-free path; less literal, more defensible) Varietals — Gesha, SL34, Ethiopian heirloom, Java Band 87.0–90.0 · Confidence High (primary) / Moderate (alternate) · Difficulty ●●●●○ What kills it — Peel oil overdose. Above roughly 4% the cup goes soapy and there is no recovery.
+A-0203 · "Green Flash" — Malic Apple Acid
+Target cup — Green apple, lime zest, white grape, gooseberry. Crisp, pinpoint, almost hard-candy acidity. Light clean body. Bright, snapping finish. Primary route — ANA-05 (thermal shock) → DRY-02 Alternate route — WSH-02 + YST-04 → DRY-06 Varietals — High-altitude Caturra, Bourbon, Typica, SL28 Band 86.5–89.5 · Confidence High · Difficulty ●●●●○ What kills it — Malolactic conversion happening by accident. Any warm rest converts the malic acid you were selling into lactic softness.
+A-0204 · "Kombucha Edge" — Lifted Acetic Brightness
+Target cup — Sparkling, effervescent-seeming lift. Lemonade, green apple, a faint kombucha tang. Sharp light body, dry mouthwatering finish. Primary route — ANA-01 → BAC-05 (short aerobic phase) → DRY-02 Alternate route — BAC-03 directed → DRY-02 Varietals — Any lot cupping flat that needs lift Band 85.0–88.0 · Confidence Moderate · Difficulty ●●●●● What kills it — Six extra hours. This is the narrowest window in the catalog and the failure is vinegar.
+
+
+S-03 · ORCHARD & STONE FRUIT
+The most commercially durable family in the catalog. Peach and apricot sell to more buyers than any exotic profile, and the routes are comparatively forgiving.
+A-0301 · "Nectarine Hour" — Clean Stone Fruit
+Target cup — White peach, nectarine, apricot, honeysuckle. Round malic acidity. Satiny body. Peach tea and shortbread finish. Primary route — HON-05 + YST-08 → DRY-02 → AGE-01 Alternate route — WSH-04 + YST-08 → DRY-02 Varietals — Bourbon, Caturra, Pacamara, Pink Bourbon, Castillo Band 86.5–89.0 · Confidence High · Difficulty ●●○○○ What kills it — Very little. This is the most reliable archetype on the menu and the right first order for a new buyer.
+A-0302 · "Orchard Gold" — Honeyed Orchard
+Target cup — Golden raisin, ripe apricot, mandarin, acacia honey. Milk chocolate and caramel base. Medium coating body. Nutmeg and vanilla finish. Primary route — HON-02 → DRY-02 → AGE-01 Alternate route — HON-08 + YST-08 → DRY-04 Varietals — Bourbon, Catuai, Caturra, Typica Band 85.5–88.0 · Confidence High · Difficulty ●●○○○ What kills it — Uneven mucilage distribution, producing bag-to-bag variation that a single-origin retail SKU cannot absorb.
+A-0303 · "Cobbler" — Baked Stone Fruit
+Target cup — Peach cobbler, baked apple, brown butter, cinnamon crust. Low soft acidity. Thick creamy body. Long sweet-spiced finish. Primary route — COF-01 (peach) + BAC-01 → DRY-04 Alternate route — HON-07 + YST-01 → DRY-04 (additive-free) Varietals — Catuai, Castillo, Sarchimor, Robusta (responds unusually well) Band 85.0–88.0 · Confidence High · Difficulty ●●●●○ What kills it — Fruit overload; above 15% w/w the coffee disappears behind the peach and cups as flavored, not co-fermented.
+A-0304 · "Split Orchard" — Layered Orchard Architecture
+Target cup — Distinct registers: pear and white flower on entry, apricot and honey mid-palate, almond and caramel at the finish. Primary route — SEQ-03 (split-lot: WSH-02 / HON-05 / NAT-02, recombined ~40/40/20) Alternate route — HON-06 (gold honey split-mucilage) Varietals — Bourbon, Caturra, Typica — single farm, single day-lot Band 87.0–89.5 · Confidence Moderate · Difficulty ●●●●○ What kills it — Bad ratio design. The fractions must be cupped separately and blended to taste, never blended to a predetermined number.
+
+
+S-04 · RED BERRY & CHERRY
+The electric family. Carbonic maceration owns this territory, and nothing else gets quite the same crystalline red-fruit character.
+A-0401 · "Live Wire" — Electric Carbonic Red
+Target cup — Raspberry, pomegranate, cranberry, blood orange. Rose and violet on top. Red-wine-gum and cherry-cola sweetness. Sharp crystalline acidity. Medium tea-like body with coating fruit. Cooling minty finish over dark chocolate. Primary route — CBM-01 → DRY-02 → AGE-01 Alternate route — CBM-02 (semi-carbonic) → DRY-02 Varietals — Bourbon, Pink Bourbon, Caturra, Castillo Band 87.5–90.5 · Confidence High · Difficulty ●●●●○ What kills it — Split or damaged cherry at intake. Carbonic maceration requires intact fruit; picking and transport discipline is the whole game.
+A-0402 · "Cherry Cordial" — Dark Cherry and Cocoa
+Target cup — Black cherry, dark chocolate, almond, marzipan. Creamy mouthfeel. Round low acidity. Long confectionary finish. Primary route — WSH-03 → ANA-11 (LAB phase) → DRY-02 Alternate route — NAT-06 + YST-02 → DRY-04 Varietals — Bourbon, SL28, Typica, Mundo Novo Band 86.5–89.0 · Confidence High · Difficulty ●●●○○ What kills it — Skipping the lactic phase. Without it the cup is a good washed coffee, not a cordial.
+A-0403 · "Kirsch" — Preserved Cherry, Liqueur Depth
+Target cup — Maraschino, kirsch, cassis, dried rose. Dense perfumed florals. Savory-mineral undertone. Extremely long finish. Primary route — CBM-04 (extended carbonic, 20+ days) → DRY-04 → AGE-01 Alternate route — CBM-05 + YST-02 → DRY-04 → AGE-05 Varietals — Bourbon-family, Pink Bourbon, Gesha Band 88.0–91.0 · Confidence Exploratory · Difficulty ●●●●● What kills it — A single thermal excursion above 20°C. Order only from executors with logged, verifiable temperature control.
+A-0404 · "Strawberry Field" — Pure Bright Berry
+Target cup — Fresh strawberry, watermelon, hibiscus, red apple. Candy-floss sweetness. Crisp acidity. Paradoxically heavy-yet-clean body. Primary route — ANA-05 (thermal shock) → DRY-02 Alternate route — NAT-05 (cryo) + YST-05 → DRY-02 Varietals — Bourbon, Catuai, Ethiopian heirloom, Robusta (surprisingly strong) Band 86.5–89.5 · Confidence High · Difficulty ●●●●○ What kills it — Absent real thermal control, the shock cycle does nothing and you have paid a premium for a standard anaerobic.
+
+
+S-05 · DARK BERRY & PRESERVE
+Weight, depth, and concentration. Where S-04 is electric, this family is dense.
+A-0501 · "Deep Field" — Blueberry Concentrate
+Target cup — Blueberry, blackberry, boysenberry. Molasses and brown sugar. Very low acidity. Enormous syrupy body. Chocolate and dried-fruit finish. Primary route — NAT-04 → DRY-04 → AGE-01 Alternate route — NAT-02 + YST-02 → DRY-04 Varietals — Ethiopian heirloom (the canonical blueberry source), Bourbon, Robusta Band 86.5–89.5 · Confidence High · Difficulty ●●●●○ What kills it — The ferment plateau is narrow. One warm day past endpoint and blueberry becomes compost.
+A-0502 · "Vaulted" — Fig, Date, Treacle
+Target cup — Blackberry jam, fig, date, raisin. Treacle and dark brown sugar. Ripe rummy ferment that stays inside the line. Immense heavy-cream body. Hazelnut-liqueur finish. Primary route — HON-04 (black honey) → DRY-04 → AGE-01 Alternate route — NAT-03 (shade-dried extended) → DRY-04 Varietals — Bourbon, Catuai, Robusta, Liberica Band 85.5–88.5 · Confidence Moderate · Difficulty ●●●●○ What kills it — Internal mold in the clumped parchment, invisible until the cupping table.
+A-0503 · "Cassis Structure" — Dark Berry with Tannin
+Target cup — Cassis, blackberry, plum, cedar, dried herb. Tannic dry edge. Winey structured acidity. Full body, dry red-wine finish. Primary route — NAT-04 + YST-02 → DRY-04 → AGE-05 Alternate route — COF-09 (must co-ferment) → DRY-04 Varietals — Pacamara, Bourbon, SL28, Maragogype Band 87.0–90.0 · Confidence High · Difficulty ●●●●○ What kills it — Thin lots. Without existing density the tannin reads as astringency rather than structure.
+A-0504 · "Port Cellar" — Maximum Concentration
+Target cup — Port, dried fig, prune, dark chocolate, walnut. Sweetness approaching syrup. Near-zero acidity. Body like liqueur. Finish measured in minutes. Primary route — NAT-09 (late-harvest) → NAT-03 → DRY-04 → AGE-03 Alternate route — NAT-07 (dehydrate–rehydrate) → DRY-04 Varietals — Requires a farm partner accepting yield loss; Bourbon, Catuai, Liberica Band 86.0–89.0 · Confidence Exploratory · Difficulty ●●●●● What kills it — Stinker cherries from over-hanging. One taints a bag; hand sorting at intake is non-negotiable.
+
+
+S-06 · TROPICAL & EXOTIC
+The flagship family. This is what buyers mean when they say they want something nobody else has, and it is where the platform's ester engineering earns its premium.
+A-0601 · "Ambrosia Line" — Passionfruit and Custard
+Target cup — Passionfruit, guava, honeycomb, orange blossom. Custard body. Bright citric acidity. Lingering tropical-candy finish. Primary route — HON-05 + YST-06 → DRY-02 → AGE-01 Alternate route — ANA-01 + YST-06 → DRY-02 Varietals — Gesha, Sidra, Pink Bourbon, Pacamara, Wush Wush Band 88.0–91.0 · Confidence High · Difficulty ●●●○○ What kills it — Substrate overload. Full mucilage plus sealed anaerobic plus warm ambient produces solvent, not passionfruit.
+A-0602 · "Lychee Vault" — Condensed Exotic Fruit
+Target cup — Lychee, dragon fruit, white peach, rose water. Ferment reads as kefir, not booze. Silky round body. Cleanly tropical finish with sweet spice. Primary route — NAT-04 → DRY-02 → AGE-01 Alternate route — ANA-04 (hyperbaric) + YST-06 → DRY-02 Varietals — Gesha, Sidra, Eugenioides, Wush Wush Band 88.5–92.0 · Confidence High (primary) / Moderate (alternate) · Difficulty ●●●●○ What kills it — The narrow plateau. This failure is abrupt: the lot is excellent, then it is nail polish.
+A-0603 · "Kveik Equator" — Hot-Climate Tropical
+Target cup — Mango, pineapple, orange, papaya. Clean despite the heat. Full body, moderate acidity, sweet tropical finish. Primary route — NAT-04 + YST-05 (kveik) → DRY-03 Alternate route — ANA-09 + YST-05 → DRY-02 Varietals — Vietnamese Robusta, Catimor, lowland Arabica, Liberica Band 84.0–87.5 · Confidence High · Difficulty ●●●○○ What kills it — Very little, which is the point. This is the archetype for origins where ambient temperature makes every other tropical route unworkable — the Central Highlands, lowland Vietnam, and hot Robusta-belt regions generally.
+A-0604 · "Three Registers" — Layered Tropical Composition
+Target cup — Apricot and pear on entry, passionfruit and guava mid-palate, custard and honeysuckle at the finish. Three distinct aromatic phases. Primary route — SEQ-04 (relay: YST-09 → YST-06 → BAC-01) in ANA-02 Alternate route — YST-14 (designed consortium) in HON-05 Varietals — Gesha, Sidra, Pink Bourbon Band 89.0–92.0 · Confidence Exploratory · Difficulty ●●●●● What kills it — Pitch-timing error. Each handoff is a single-chance event with no correction path.
+
+
+S-07 · CONFECTION & CANDY
+Deliberately artificial-seeming and unapologetic about it. These cups win competitions and split rooms.
+A-0701 · "Engineered" — Flavor-Extract Clarity
+Target cup — Pure watermelon, strawberry candy, green grape, hibiscus. Piercing jasmine and rosewater. Simple-syrup sweetness. Heavy-yet-clean body. Zero ferment funk. Tastes constructed. Primary route — ANA-05 (thermal shock) → DRY-02 Alternate route — NAT-05 (cryo) + YST-05 → DRY-07 Varietals — Bourbon, Catuai, Ethiopian heirloom, Gesha Band 87.0–90.0 · Confidence High · Difficulty ●●●●○ What kills it — Inadequate thermal equipment, full stop.
+A-0702 · "Bubblegum Vault" — Ester Maximum
+Target cup — Bubblegum, pear drop, banana candy, tutti-frutti. Very high sweetness. Light crisp acidity. Bright, sugary finish. Primary route — ANA-02 + YST-01 → DRY-02 Alternate route — ANA-01 + YST-09 → YST-01 relay → DRY-02 Varietals — Caturra, Catuai, Castillo, Robusta Band 85.5–88.5 · Confidence High · Difficulty ●●●○○ What kills it — Pushing further for more. Past a threshold, isoamyl acetate stops reading as banana candy and starts reading as solvent.
+A-0703 · "Cola Nut" — Spiced Confection
+Target cup — Cherry cola, red wine gum, sarsaparilla, cinnamon bark. Effervescent-seeming acidity. Medium coating body. Cooling herbal finish. Primary route — CBM-01 → AGE-05 (light oak) → DRY-02 Alternate route — CBM-02 + COF-07 (cinnamon, trace) → DRY-02 Varietals — Bourbon, Pink Bourbon, Caturra Band 86.5–89.0 · Confidence Moderate · Difficulty ●●●●○ What kills it — Spice overdose; clove and cinnamon dominate above trace rates and never recede.
+A-0704 · "Sugarwork" — Candied Fruit Maximum
+Target cup — Candied pineapple, glacé cherry, marzipan, honeycomb. Syrup-density sweetness. Enormous body. Extremely long finish. Primary route — NAT-07 (dehydrate–rehydrate) + YST-05 → DRY-04 Alternate route — ANA-08 (must addition) + YST-01 → DRY-04 Varietals — Catuai, Bourbon, Robusta, Liberica Band 85.0–88.5 · Confidence Exploratory · Difficulty ●●●●● What kills it — The rehydration window. Rich substrate, warm conditions, and an open door for spoilage.
+
+
+S-08 · CHOCOLATE, NUT & CARAMEL
+The commercial backbone. Less glamorous than the exotic families and responsible for far more volume. Espresso programs, milk drinks, and blend anchors live here.
+A-0801 · "Praline" — Nut and Caramel Base
+Target cup — Toasted almond, hazelnut, caramel, milk chocolate. Low round acidity. Smooth medium-full body. Clean sweet finish. Primary route — HON-02 → DRY-02 → AGE-01 Alternate route — WSH-09 (enzymatic) → DRY-06 Varietals — Bourbon, Mundo Novo, Catuai, Typica, Castillo Band 84.0–86.5 · Confidence High · Difficulty ●●○○○ What kills it — Nothing much. This is the lowest-risk archetype on the menu and the correct anchor for any multi-container contract.
+A-0802 · "Toffee Vault" — Deep Caramel Integration
+Target cup — Toffee, panela, dark caramel, preserved fruit. Filled mid-palate. Long sweet finish with a distinct raw-sugar character. Primary route — HON-07 (extended-contact honey) → DRY-04 → AGE-01 Alternate route — HON-03 + BAC-06 (malolactic) → DRY-04 Varietals — Catuai, Bourbon, Sarchimor, Robusta Band 85.0–87.5 · Confidence High · Difficulty ●●●●○ What kills it — The moisture-rest band sits inside the mold window; humidity control during the rest is mandatory.
+A-0803 · "Cacao Twin" — Chocolate with Tropical Lift
+Target cup — Dark cocoa, cacao nib, lychee-like brightness, brown spice. Substantial body. Layered chocolate-and-fruit finish. Primary route — COF-08 (cacao pulp + nib) → DRY-04 Alternate route — NAT-04 + YST-02 → AGE-05 → DRY-04 (additive-free) Varietals — Bourbon, Pacamara, Robusta, Liberica Band 85.5–88.5 · Confidence Moderate · Difficulty ●●●●○ What kills it — Cacao pulp is high-sugar and ferments fast; the window closes hours before you expect it to.
+A-0804 · "Smooth Draft" — De-Astringed Robusta Chocolate
+Target cup — Dark chocolate, roasted nut, molasses, tobacco leaf. Heavy body with the harsh edge removed. Low acidity. Long smooth finish. Primary route — FNG-06 (tannase) → HON-05 + YST-01 → DRY-03 Alternate route — FNG-06 → NAT-02 → DRY-03 Varietals — Vietnamese Robusta (fine Robusta programs), Liberica, Excelsa Band 82.5–86.0 · Confidence High · Difficulty ●●●○○ What kills it — Nothing dramatic — but the route only pays where phenolic harshness is the actual ceiling. Cup the untreated control first.
+
+
+S-09 · CREAMY & LACTIC
+Texture as the product. The most underrated commercial lever in the catalog: buyers consistently score creamy cups higher without being able to say why.
+A-0901 · "Silk Register" — Pure Lactic Texture
+Target cup — Yogurt, crème fraîche, butter, white chocolate. Stewed apple and poached pear. Custard body. All lactic softness, no citric bite. Savory-sweet finish. Primary route — ANA-11 (YST-08 → BAC-01) → DRY-02 Alternate route — ANA-01 + BAC-02 → DRY-04 Varietals — Bourbon, Caturra, Castillo, Pacamara Band 86.5–89.0 · Confidence High · Difficulty ●●●●○ What kills it — Pitching the lactic culture too early, which truncates ester development and leaves a cup that is creamy and boring.
+A-0902 · "Butterfat" — Diacetyl-Forward Richness
+Target cup — Butter, butterscotch, brioche, malted milk. Banana and red apple skin above it. Dense creamy body. Clove and nutmeg finish. Primary route — ANA-01 + YST-01 + BAC-04 → DRY-04 Alternate route — HON-05 + YST-01 → BAC-06 → DRY-04 Varietals — Bourbon, Catuai, Mundo Novo Band 85.5–88.0 · Confidence Moderate · Difficulty ●●●●○ What kills it — Diacetyl above threshold reads as artificial-butter popcorn. The line is real and it is not far away.
+A-0903 · "Cultured" — Kefir Complexity
+Target cup — Kefir, buttermilk, crème fraîche over lifted stone fruit. Faint effervescence. Thick body, layered acidity. Primary route — NAT-04 + BAC-07 (kefir consortium) → DRY-02 Alternate route — ANA-09 + BAC-07 → DRY-02 Varietals — Bourbon, Caturra, Ethiopian heirloom Band 86.0–88.5 · Confidence Moderate · Difficulty ●●●○○ What kills it — Consortium drift across batches; verify culture health before each season.
+A-0904 · "Weight Without Noise" — Glycerol Body
+Target cup — Little added aroma; substantially more body. Viscous, coating, sweet-perceived mouthfeel that makes an existing profile read richer. Primary route — YST-12 (Starmerella) co-pitch into any carrier → DRY-02 Alternate route — BAC-06 (malolactic) secondary → DRY-04 Varietals — Any lot with good aromatics and thin body Band +0.5 to +1.5 over the untreated control · Confidence High · Difficulty ●●●○○ What kills it — Nothing. This is a modifier, not a destination; order it alongside another archetype rather than on its own.
+
+
+S-10 · VINOUS & SPIRITUOUS
+Adult, structured, and cocktail-adjacent. The buyer here is usually selling to a wine or spirits audience and wants the vocabulary to carry over.
+A-1001 · "Burgundy Frame" — Structured Red Wine
+Target cup — Black cherry, cassis, plum, cedar, leather. Tannic dry edge without barrel contact. Winey structured acidity. Full body, dry finish. Primary route — NAT-04 + YST-02 → DRY-04 → AGE-01 Alternate route — COF-09 (must) + YST-02 → DRY-04 Varietals — Pacamara, Maragogype, SL28, Bourbon Band 87.0–90.0 · Confidence High · Difficulty ●●●●○ What kills it — Thin, low-density beans that cannot carry tannin; it reads as astringency.
+A-1002 · "Spirit of the Bean" — Bourbon Cask
+Target cup — Smoked vanilla, black cherry cola, charred oak, butterscotch, leather. Viscous oily body. Muted acidity. Long warming finish. Primary route — CBM-01 → AGE-02 (bourbon barrel) → DRY-08 Alternate route — NAT-04 → AGE-05 (heavy-toast staves) → DRY-08 Varietals — Bourbon, Catuai, Robusta, Pacamara Band 85.5–88.5 · Confidence Moderate · Difficulty ●●●●○ What kills it — Over-contact. Past a certain point the oak is all that remains and the coffee is a delivery mechanism. Also: verify alcohol-contact labeling rules for the destination market before ordering.
+A-1003 · "Molasses Cask" — Rum Depth
+Target cup — Molasses, dark fruit, coconut, warm baking spice. Heavy sweet body. Very low acidity. Long spirituous finish. Primary route — HON-04 (black honey) → AGE-03 (rum barrel) → DRY-08 Alternate route — NAT-03 → AGE-05 → DRY-08 Varietals — Catuai, Robusta, Liberica, Bourbon Band 85.0–88.0 · Confidence Moderate · Difficulty ●●●●○ What kills it — The base and the barrel both push sweetness; without acid structure underneath the cup goes cloying.
+A-1004 · "Cellar Composition" — Extended Vinous
+Target cup — Kirsch, maraschino, dried rose, savory mineral. Perfumed density. Extraordinary length. Reads more like an aged wine than a coffee. Primary route — CBM-04 (extended carbonic) → AGE-01 → AGE-07 Alternate route — SEQ-06 (cascade) → AGE-05 → AGE-07 Varietals — Gesha, Pink Bourbon, Bourbon-family Band 88.0–91.5 · Confidence Exploratory · Difficulty ●●●●● What kills it — Any thermal excursion during the extended phase. This is a logged-temperature order or it is not an order.
+
+
+S-11 · SAVORY, UMAMI & SALINE
+The frontier family. Polarizing, unforgettable, and the strongest signal a buyer can send that they are doing something no one else is.
+A-1101 · "Dashi" — Full Umami Transformation
+Target cup — Soy sauce, miso, mushroom, kombu. Sweetness amplified to mirin or amazake. Overripe melon and cooked apple beneath. Acidity converted to amino complexity. Oily slick body. Savory, near-meaty, persistent sweet finish. Primary route — FNG-01 (koji) → DRY-05 (controlled) → AGE-01 Alternate route — FNG-03 (red koji) → DRY-05 Varietals — Bourbon, Catuai, Robusta, Liberica — varietal matters less here than in any other family Band 84.0–88.0 (scores poorly on conventional rubrics; judge on distinctiveness) · Confidence Moderate · Difficulty ●●●●● What kills it — Contamination during koji propagation. Order only from executors with documented mycology and food-safety controls; audit before first order.
+A-1102 · "Yuzu Miso" — Umami with Acid Backbone
+Target cup — Miso and mushroom depth with a bright citric lift. Yuzu, lime, kombu. Cleaner and more balanced than classic koji. Slick body, long savory-bright finish. Primary route — FNG-02 (A. luchuensis) → DRY-05 → AGE-01 Alternate route — FNG-01 → BAC-03 secondary → DRY-05 Varietals — Any; particularly effective on low-acid lots needing structure Band 85.0–88.5 · Confidence Moderate · Difficulty ●●●●● What kills it — Humidity control during incubation. The self-acidifying environment helps, but does not substitute for a controlled room.
+A-1103 · "Saltworks" — Saline and Mineral
+Target cup — Salted caramel, chocolate-covered pretzel, sea salt and dark chocolate. Preserved fruit — salted plum, pickled cherry. Oceanic mineral brininess. Bright rounded acidity. Smooth saline mouthwatering finish. Primary route — Brine ferment in VSL-04 (amphora) → DRY-02 Alternate route — WSH-07 (extended soak) + BAC-01 → VSL-04 rest → DRY-02 Varietals — Bourbon, SL28, Pacamara Band 85.5–88.5 · Confidence Exploratory · Difficulty ●●●●● What kills it — Salt loading. Above threshold the cup is simply salty, and there is no recovery. Also constrains certification eligibility in several programs — confirm before ordering.
+A-1104 · "Tomato Leaf" — Savory Washed
+Target cup — Tomato, fresh herb, blackcurrant, wet stone. Genuine umami thread. Phosphoric mouthwatering acidity. Long clean savory finish. Primary route — WSH-03 → WSH-07 → DRY-02 Alternate route — WSH-03 + BAC-09 (cascade) → DRY-02 Varietals — SL28, SL34, Batian, Ruiru 11 Band 87.0–90.0 · Confidence High · Difficulty ●●●○○ What kills it — Water quality. The savory register is the first thing a bad soak destroys.
+
+
+S-12 · SPICE, WOOD & SMOKE
+Warmth and structure. The seasonal-release family, and a natural fit for autumn and winter programs.
+A-1201 · "Spice Route" — Warm Baking Spice
+Target cup — Cinnamon, allspice, clove, nutmeg over prune and black tea. Low integrated acidity. Heavy velvet body. Long spiced-chocolate finish. Primary route — HON-03 (red honey) → DRY-04 → AGE-01 Alternate route — ANA-01 + COF-07 (cinnamon, trace) → DRY-04 Varietals — Catuai, Bourbon, Castillo, Robusta Band 85.5–88.0 · Confidence High · Difficulty ●●●○○ What kills it — Additive rate on the alternate route; clove above trace dominates permanently.
+A-1202 · "Sandalwood" — Wood and Resin
+Target cup — Sandalwood, cedar, dried herb, incense over dark fruit. Dry structured finish. Tannic edge. Full body. Primary route — SEQ-01 (anaerobic → aerobic) → AGE-05 (light oak) → DRY-04 Alternate route — ANA-03 (extended) → VSL-03 (used oak) → DRY-04 Varietals — Pacamara, Maragogype, Bourbon Band 86.5–89.5 · Confidence Moderate · Difficulty ●●●●○ What kills it — New oak. It donates vanilla and coconut aggressively and buries the resinous character you were building.
+A-1203 · "Cellar Floor" — Earth and Age
+Target cup — Earthy, woody, low-toned, tobacco and cedar. Almost no acidity. Heavy swollen body. Long dry finish. Primary route — AGE-06 (monsooning) → DRY-08 Alternate route — NAT-03 → AGE-06 → DRY-08 Varietals — Robusta, Liberica, Excelsa, low-grown Arabica Band 80.0–84.0 (a category profile, not a score profile) · Confidence High · Difficulty ●●●●○ What kills it — Uncontrolled humidity exposure crosses from monsooned into moldy, and the two are distinguishable only on the cupping table.
+A-1204 · "Ember" — Smoke and Char
+Target cup — Charred oak, smoked vanilla, tobacco, leather over dark cherry. Viscous body. Warming spirituous finish. Primary route — AGE-02 (bourbon barrel, heavy char) → DRY-08 Alternate route — AGE-05 (heavy-toast staves, controlled contact) → DRY-08 Varietals — Robusta, Bourbon, Catuai Band 84.0–87.0 · Confidence Moderate · Difficulty ●●●●○ What kills it — Char is one-directional. Contact time cannot be undone; sample-pull weekly and stop early.
+
+
+S-13 · HERBAL, GREEN & TERPENIC
+The polarizing family. Terpenes read as sophisticated to some palates and as defect to others. Worth a candid conversation before a container-scale order.
+A-1301 · "Terpene Line" — Hop and Resin
+Target cup — Grapefruit pith, hops, cannabis-like resin, passionfruit. Bright citric acidity. Light crisp cider-like body. Zesty tropical finish. Primary route — ANA-01 + YST-06 (P. kluyveri, high dose) → DRY-02 Alternate route — HON-05 + YST-06 → DRY-02 Varietals — Sidra, Gesha, SL28, Ethiopian heirloom Band 86.0–89.5 · Confidence High · Difficulty ●●●○○ What kills it — Dose. The terpenic register climbs steeply and there is a point past which most cuppers score it down rather than up.
+A-1302 · "Cool Register" — Mint and Eucalyptus
+Target cup — Cooling mint, eucalyptus, lemongrass over red fruit. Effervescent-seeming acidity. Tea-like body. Distinctly cooling finish. Primary route — CBM-01 → DRY-02 → AGE-01 Alternate route — CBM-05 + YST-06 → DRY-02 Varietals — Bourbon, Pink Bourbon, Caturra Band 87.0–90.0 · Confidence Moderate · Difficulty ●●●●○ What kills it — The cooling note is a carbonic byproduct and disappears entirely if CO₂ saturation is incomplete.
+A-1303 · "Garden" — Green Herbal
+Target cup — Basil, thyme, green tea, snap pea, lime leaf. Very light body. Sharp clean acidity. Long green finish. Primary route — WSH-02 (extended cold) + YST-10 → DRY-02 Alternate route — ANA-06 + YST-10 → DRY-05 (low temp) Varietals — SL34, Java, Typica, Eugenioides Band 85.5–88.5 · Confidence Moderate · Difficulty ●●●●○ What kills it — The line between "herbal" and "underdeveloped/vegetal" is thin, and buyers who did not order this profile will call it a defect.
+A-1304 · "Bergamot Garden" — Citrus-Herbal Hybrid
+Target cup — Bergamot, lemon verbena, jasmine, white tea. Weightless. Extremely long. Perfumed rather than fruity. Primary route — COF-03 (bergamot + verbena, low rate) → DRY-02 → AGE-01 Alternate route — ANA-06 + YST-03 → DRY-04 (additive-free) Varietals — Gesha, Java, SL34, Laurina Band 87.5–90.5 · Confidence Moderate · Difficulty ●●●●○ What kills it — Botanical overdose, which arrives as soap and never leaves.
+
+
+S-14 · TEA-LIKE & ETHEREAL
+The restraint family. The hardest profiles to sell and the hardest to make, because there is nothing to hide behind. Everything here depends on the bean being genuinely exceptional.
+A-1401 · "Weightless" — Pure Delicate Tea
+Target cup — White tea, jasmine, honeysuckle, cane sugar. Almost no body by design. Acidity present but soft. Finish that persists far beyond what the weight suggests. Primary route — WSH-08 (triple re-wash) → DRY-02 → AGE-01 Alternate route — WSH-05 (zero-ferment) → DRY-06 Varietals — Gesha, Laurina, Eugenioides, Wush Wush Band 88.0–91.5 · Confidence High · Difficulty ●●●●○ What kills it — Any process character at all. There is no margin; a trace of ferment reads as a flaw rather than a feature.
+A-1402 · "Ginjo" — Sake-Ester Ethereal
+Target cup — Melon, white peach, pear, cherry blossom, rice koji. Almost imperceptible acidity, water-like clarity. Light but unctuous. Sweet finish with anise and green tea. Primary route — ANA-06 + YST-03 (sake strain) → DRY-07 Alternate route — WSH-06 + YST-03 → DRY-02 Varietals — Gesha, Laurina, Java, Eugenioides Band 88.0–91.0 · Confidence Moderate · Difficulty ●●●●● What kills it — Temperature. Above 20°C the ginjo esters simply are not produced and the lot becomes ordinary.
+A-1403 · "Low Caffeine Register" — Natural Low-Caf Delicacy
+Target cup — Extremely sweet, light, honeyed, floral. Low intensity throughout, unusual softness. A varietal-driven profile rather than a process-driven one. Primary route — WSH-02 + YST-04 → DRY-02 → AGE-01 Alternate route — HON-01 → DRY-02 Varietals — Laurina, Aramosa, Eugenioides — the route is secondary to sourcing the bean Band 86.0–89.5 · Confidence High · Difficulty ●●●○○ What kills it — Availability, not execution. These varietals are yield-poor and supply is the binding constraint.
+A-1404 · "Glass" — Mineral Transparency
+Target cup — Wet stone, spring water, faint white flower, saline mineral. Glassy silky texture. Phosphoric-mineral acidity. Very long, very clean. Primary route — WSH-01 → WSH-07 (extended soak) → DRY-02 → AGE-01 Alternate route — WSH-02 → VSL-04 (amphora rest) → DRY-02 Varietals — SL28, Gesha, high-altitude Bourbon, Typica Band 87.0–90.0 · Confidence High · Difficulty ●●●○○ What kills it — Water quality in the soak, which is also the entire mechanism.
+
+
+PART IV — THE JOIN
+The two spines meet here. These matrices are the machine-readable heart of the menu: they are what lets the platform traverse from either door, validate an order before it is placed, and refuse combinations that will not work.
+IV.1 · Process → Sensory Vector
+Each process family's contribution scored on six axes, where 0 is no contribution and 5 is dominant. This table is the basis for route scoring: the engine sums vectors across a proposed stack and compares the result to the archetype target.
+
+Family
+Fruit intensity
+Floral
+Acidity
+Body
+Ferment character
+Cleanliness
+WSH Washed
+1
+4
+5
+1
+0
+5
+NAT Natural
+5
+1
+2
+5
+4
+2
+HON Honey
+3
+2
+3
+4
+2
+3
+ANA Anaerobic
+5
+4
+3
+4
+3
+3
+CBM Carbonic
+5
+5
+4
+2
+2
+4
+YST Yeast
+4
+4
+2
+2
+2
+4
+BAC Bacterial
+1
+1
+4
+5
+2
+4
+FNG Fungal
+1
+0
+1
+5
+5
+2
+COF Co-ferment
+5
+3
+3
+4
+3
+3
+VSL Vessel
+0
+1
+2
+3
+1
+3
+DRY Drying
+2
+3
+2
+2
+2
+5
+AGE Aging
+2
+0
+1
+4
+2
+3
+SEQ Sequential
+5
+4
+4
+4
+3
+3
+
+
+Reading it: WSH scores 5 on cleanliness and 0 on ferment character; FNG inverts that exactly. This is why the two never appear in the same stack except with a full wash between them.
+IV.2 · Sensory Family → Recommended Process Stack
+The reverse lookup. Given a target family, the shortest reliable route.
+
+Target
+Primary stack
+Lower-cost alternate
+Avoid
+S-01 Crystalline & Floral
+WSH-08 → DRY-02 → AGE-01
+WSH-02 + YST-04
+NAT, COF, FNG
+S-02 Citrus & High Acid
+WSH-03 → WSH-07
+ANA-05
+BAC-06, AGE-06
+S-03 Orchard & Stone Fruit
+HON-05 + YST-08
+WSH-04 + YST-08
+FNG-01, AGE-06
+S-04 Red Berry & Cherry
+CBM-01 → DRY-02
+CBM-02
+AGE-06, FNG
+S-05 Dark Berry & Preserve
+NAT-04 → DRY-04
+HON-04
+WSH-08, WSH-05
+S-06 Tropical & Exotic
+HON-05 + YST-06
+ANA-01 + YST-06
+AGE-06, WSH-05
+S-07 Confection & Candy
+ANA-05 → DRY-02
+ANA-02 + YST-01
+WSH-05, FNG
+S-08 Chocolate, Nut & Caramel
+HON-02 → AGE-01
+WSH-09 → DRY-06
+CBM, ANA-06
+S-09 Creamy & Lactic
+ANA-11 (YST-08→BAC-01)
+ANA-01 + BAC-02
+BAC-05, WSH-08
+S-10 Vinous & Spirituous
+NAT-04 + YST-02 → AGE-01
+AGE-05 on any natural
+WSH-05, ANA-06
+S-11 Savory, Umami & Saline
+FNG-01 → DRY-05
+WSH-03 → WSH-07
+CBM, COF-02
+S-12 Spice, Wood & Smoke
+HON-03 → DRY-04 → AGE-01
+AGE-05 light oak
+WSH-08, ANA-06
+S-13 Herbal, Green & Terpenic
+ANA-01 + YST-06
+HON-05 + YST-06
+NAT-03, AGE-06
+S-14 Tea-like & Ethereal
+WSH-08 → DRY-02
+WSH-05 → DRY-06
+NAT, COF, FNG, AGE-02/03/04
+
+IV.3 · Antagonism Table
+Combinations the engine must block or flag. These are not preferences; they are mechanisms that cancel each other.
+
+Combination
+Why it fails
+WSH-08 + any ANA
+Triple re-wash exists to strip ferment character; sealing it back in wastes both processes.
+FNG-01 + CBM
+Koji's amino-driven umami and carbonic's volatile red fruit are mutually masking. The cup reads muddled, not layered.
+AGE-06 + any S-01/S-02/S-14 target
+Monsooning removes acidity as its core mechanism. It cannot coexist with an acid- or delicacy-led target.
+BAC-05 + long ANA
+Acetic bacteria require oxygen; in a sealed extended ferment they either do nothing or, on seal failure, produce vinegar.
+YST-03 (sake) above 20°C
+The ginjo ester pathway shuts down. Any warm carrier makes this strain pointless.
+COF-10 (sugar) + NAT-07
+Two independent substrate-loading mechanisms stacked; the degradation phase arrives before the productive one completes.
+WSH-05 + any flavor archetype
+Zero-ferment is a diagnostic control. It cannot produce a designed profile because nothing is designed.
+DRY-01 (patio) + ANA family
+High thermal load on a volatile-rich lot; the esters you paid for evaporate on the concrete.
+AGE-02/03/04 + S-14 targets
+Barrel character overwhelms delicate profiles categorically.
+BAC-01 pitched before ester completion
+Rapid pH drop truncates yeast activity; you lose the aromatics and keep only the texture.
+
+IV.4 · Varietal Response Matrix
+How different varietal classes respond to process intensity. Ordering an aggressive protocol on a varietal that cannot carry it is the most expensive mistake available on this platform.
+
+Varietal class
+Washed
+Honey
+Natural
+Anaerobic
+Carbonic
+Co-ferment
+Koji
+Gesha / Sidra / Wush Wush
+●●●●●
+●●●●
+●●●
+●●●●●
+●●●●
+●●
+●
+Bourbon / Caturra / Catuai
+●●●●
+●●●●●
+●●●●●
+●●●●
+●●●●●
+●●●●
+●●●
+SL28 / SL34 / Kenyan
+●●●●●
+●●●
+●●●
+●●●●
+●●●●
+●●
+●●
+Pacamara / Maragogype
+●●●
+●●●●
+●●●●
+●●●●●
+●●●
+●●●
+●●●
+Ethiopian heirloom
+●●●●●
+●●●●
+●●●●●
+●●●●
+●●●●
+●●●
+●●
+Castillo / Colombia / Catimor
+●●●
+●●●●
+●●●●
+●●●●●
+●●●●
+●●●●●
+●●●●
+Laurina / Eugenioides
+●●●●●
+●●●
+●●
+●●●
+●●●
+●
+●
+Robusta (fine)
+●●
+●●●●
+●●●●●
+●●●●●
+●●●
+●●●●●
+●●●●●
+Liberica / Excelsa
+●●
+●●●
+●●●●
+●●●●
+●●●
+●●●●
+●●●●●
+
+
+The pattern that matters commercially: varietals with strong intrinsic character (Gesha, Kenyan, Laurina) gain the most from restraint and the least from intervention. Varietals with weak intrinsic character (Castillo, Catimor, Robusta, Liberica) gain the most from intervention and are where aggressive processing generates the largest score and margin lift per dollar spent.
+
+This has a direct strategic implication for any Vietnam-origin program: the Robusta and Liberica rows are the two rows in this table where heavy processing is not merely tolerated but is the highest-return option available. A fine-Robusta program built on FNG-06 → HON-05 → YST-05 and a Liberica program built on NAT-04 → AGE-05 are the two clearest cases in this catalog of processing creating value rather than merely revealing it.
+
+
+PART V — ORDERING ARCHITECTURE
+V.1 · The Three Tiers
+Every process in the catalog carries a tier. The tier is a commitment structure, not a quality ranking.
+HOUSE — Proven Protocol
+Established methods with standing capacity at multiple partner mills, documented reproducibility across at least two seasons, and a predicted profile the platform will stand behind.
+
+Minimum order — 5 bags (300 kg)
+Lead time — Within harvest window; 60–90 days to shipment
+Reproducibility — Guaranteed within a defined tolerance band, season over season
+Profile guarantee — Yes. Off-target lots are subject to the exception-handling disposition process
+Pricing — Published differential over baseline
+Exclusivity — None. Multiple buyers may order the same protocol
+SEMI — Semi-Custom Protocol
+Established method classes tuned to the specific lot, farm, and target. The method is known; the settings are designed for the order.
+
+Minimum order — 10 bags (600 kg)
+Lead time — 90–150 days; requires pre-harvest commitment
+Reproducibility — Best effort, with a documented tolerance band and a stated variance expectation
+Profile guarantee — Directional only. The family is guaranteed; the exact descriptor set is not
+Pricing — Differential plus a protocol design fee
+Exclusivity — Optional regional exclusivity available; protocol remains platform-owned
+Included — Two rounds of remote sensory review during the ferment window, retained samples at each stage
+DE NOVO — Research Lot
+Genuinely new work. The buyer is funding an experiment with a defined hypothesis and an uncertain outcome.
+
+Minimum order — Negotiated; typically 3–20 bags
+Lead time — 6–18 months, spanning at least one full season
+Reproducibility — None guaranteed. Season one is discovery
+Profile guarantee — None. The deliverable is the attempt and the documentation
+Pricing — Cost-plus with a research fee; partial failure is priced in
+Exclusivity — Available, including protocol assignment and trade-secret framework
+Included — Full protocol documentation, complete process telemetry, retained samples at every stage, cupping records, and a written post-mortem whether the lot succeeds or fails
+
+On failure in the DE NOVO tier. A meaningful fraction of research lots will not hit their target. This must be said plainly at the point of order, not discovered at the point of delivery. The tier's value proposition is that a documented failure with full telemetry is itself an asset — it eliminates a hypothesis and informs the next attempt — and buyers who cannot accept that should be routed to SEMI. The platform's credibility on the HOUSE guarantee depends entirely on being honest about where the guarantee does not extend.
+V.2 · The Order Specification Sheet
+Every order, regardless of door or tier, resolves to this document. It is what goes to the partner mill and what the delivered lot is verified against.
+
+Section A — Identity Buyer, contract reference, target release name (if assigned), exclusivity terms, IP framework applicable.
+
+Section B — Source Origin country and region, farm or cooperative, varietal, altitude band, harvest window, day-lot designation, cherry selection standard (brix floor, float rejection, hand-sort standard).
+
+Section C — Target (Door II orders) Archetype code, target descriptor set in priority order, minimum acceptable cup score, sensory attributes ranked by importance, explicit list of descriptors that constitute rejection.
+
+Section D — Protocol (Door I orders, or generated from Section C) Process code stack in sequence. For each stage: vessel and material, atmosphere and pressure regime, temperature setpoint and tolerance, duration or endpoint trigger, inoculum identity and pitch timing, agitation regime, transition trigger. Drying architecture, target water activity, rest schedule.
+
+Section E — Monitoring pH sampling interval, temperature logging interval and method, brix tracking, sample pull schedule, remote reporting cadence, buyer participation option (on-site or remote real-time).
+
+Section F — Acceptance Cup score floor, descriptor match standard, moisture and water activity range, defect count ceiling, screen size distribution, retained sample requirements, and the disposition path if the lot lands outside acceptance — re-price, downgrade, reject, or re-verify.
+
+Section G — Declaration Additive declaration (mandatory for all COF and AGE-02/03/04 orders), certification status and any process-driven constraints, destination-market labeling requirements, and the traceability record chain.
+V.3 · Harvest Calendar Constraint
+Fermentation orders are bound to harvest windows. A protocol cannot be executed out of season, and pre-harvest commitment is required for anything above HOUSE tier. Indicative windows:
+
+Origin
+Main harvest
+Order deadline (SEMI)
+Order deadline (DE NOVO)
+Colombia (main)
+Sep–Dec
+Jun
+Mar
+Colombia (mitaca)
+Apr–Jun
+Jan
+Oct prior
+Ethiopia
+Oct–Jan
+Jul
+Apr
+Kenya (main)
+Oct–Dec
+Jul
+Apr
+Costa Rica / Panama
+Dec–Mar
+Sep
+Jun
+Brazil
+May–Sep
+Feb
+Nov prior
+Guatemala / Honduras
+Nov–Apr
+Aug
+May
+Vietnam (Robusta)
+Oct–Jan
+Jul
+Apr
+Vietnam (Arabica, highland)
+Nov–Feb
+Aug
+May
+Indonesia
+May–Sep
+Feb
+Nov prior
+Rwanda / Burundi
+Mar–Jul
+Dec prior
+Sep prior
+
+
+The platform should treat these deadlines as hard. The most common cause of a disappointed custom order is a buyer who committed too late for the mill to prepare, and who then received an improvised version of the protocol they specified.
+V.4 · Verification Hooks
+Every custom lot generates a verification record at the following control points, consistent with the platform's chain-of-custody and retained-sample standards:
+
+Cherry intake — brix, float rejection rate, hand-sort record, day-lot assignment, geolocation.
+Ferment start — vessel ID, inoculum lot and pitch record, initial pH and temperature, seal confirmation.
+In-ferment — logged temperature and pH at the specified interval; pulled samples retained.
+Ferment end — endpoint pH, elapsed time, endpoint decision record and who made it.
+Drying — method, layer depth, duration, ambient conditions, moisture and water activity curve.
+Landing — final moisture, final water activity, rest duration before hulling.
+Dry mill — screen distribution, defect count, density, retained green sample.
+Cupping — panel composition, session log, scores by cupper, descriptor consensus, comparison to the predicted profile.
+Shipment — seal, weight, container conditions, retained sample at origin and at destination.
+
+Deviation between the predicted and delivered profile at step 8 is the platform's most valuable data. Every deviation should be logged against the protocol that produced it and fed back into route scoring — this is how DE NOVO protocols graduate to SEMI, and SEMI protocols graduate to HOUSE.
+
+
+PART VI — DEFECT BOUNDARIES & GUARDRAILS
+Every process in this catalog has a failure mode, and the failure modes are as characteristic as the successes. A buyer who can read a defect can read a sample; a platform that names its defects honestly is trusted with the successes.
+VI.1 · The Defect Profiles
+Sour / Over-Fermented
+Tastes like — Vinegar, sour beer, rotting citrus, sharp acetic bite. Unripe fruit, green banana, harsh alcohol. Acidity is painful rather than pleasant. Dry astringent finish with a lingering onion or garlic note. Produced by — Any ferment run past plateau, especially at elevated temperature. Most common in NAT, ANA, COF. Prevented by — pH endpoint triggers rather than clock triggers; temperature control; sample-pull cupping. Recoverable? — No.
+Phenolic / Medicinal
+Tastes like — Band-aid, barnyard, horse blanket, antiseptic clove, chlorine, iodine, plastic. A Brettanomyces-like character gone unmanaged. Produced by — Wild flora contamination, unsanitized vessels, biofilm in scratched HDPE, contaminated water. Prevented by — Vessel sanitation discipline, water quality control, defined inoculum outcompeting wild flora. Recoverable? — No. Phenolic taint is detectable at very low concentration and is the most commercially damaging defect in the list.
+Moldy / Musty
+Tastes like — Damp basement, wet cardboard, excessive earthy peat, potato, dusty, sack-like. Stale papery finish that obliterates sweetness. Produced by — Slow drying in humid conditions, clumped parchment, inadequate venting in enclosed dryers, high water activity at landing, poor storage. Prevented by — Drying architecture discipline, water-activity landing (DRY-08), bed-turning frequency, humidity monitoring during any rest phase. Recoverable? — No, and it carries a food-safety dimension: mycotoxin screening is warranted on any lot showing this character.
+Unclean Ferment
+Tastes like — Overripe rotting fruit, compost, rotten banana, alcohol, paint thinner, fusel oils. A sickly sweet putrefaction. Produced by — Substrate overload, uncontrolled wild flora, mixed populations without dominance. Prevented by — Substrate discipline, defined inoculum, cleanliness at intake. Recoverable? — No.
+Solvent / Ester Overshoot
+Tastes like — Nail polish, acetone, glue. Distinct from unclean ferment in that the lot is otherwise clean; it has simply gone too far in the direction it was pushed. Produced by — YST-11 overdose, extended anaerobic past plateau, high-ester strains at excessive temperature. Prevented by — Dose discipline, temperature control, endpoint sampling. Recoverable? — Occasionally, by blending at low ratio into a heavier base. Usually not worth it.
+Astringent / Over-Extracted Tannin
+Tastes like — Drying, puckering, woody, harsh. Not sour; textural. Produced by — New-oak over-contact (VSL-03, AGE-02/05), high-phenolic Robusta without tannase treatment, extended must co-ferment. Prevented by — Contact-time discipline, weekly sample pulls during any wood contact, FNG-06 on high-phenolic bases. Recoverable? — Partially, via blending or FNG-06.
+Flat / Underdeveloped
+Tastes like — Vegetal, papery, hollow, cereal without sweetness. The absence of character rather than the presence of a fault. Produced by — Stalled ferment (usually cold), over-washing, incomplete inoculation, low-brix cherry. Prevented by — Confirming ferment establishment in the first 12 hours; brix floor at intake. Recoverable? — Sometimes, via a secondary process, but the lot rarely justifies the second intervention.
+VI.2 · Operating Guardrails
+These are the standing rules the platform should enforce at the point of order, not at the point of delivery.
+
+pH is the endpoint, not the clock. Any protocol specified in hours alone is under-specified. Every order sheet carries a pH endpoint and a maximum elapsed time, and whichever arrives first ends the ferment.
+
+Temperature control is a prerequisite, not an upgrade. Protocols above HOUSE tier that specify a temperature setpoint may only be assigned to executors with logged, verifiable control. Assigning a thermal-shock protocol to a mill with no chiller produces a disappointed buyer and a damaged relationship.
+
+Substrate load and temperature are multiplicative risks, not additive. High mucilage plus added sugar plus warm ambient plus sealed anaerobic is not four moderate risks; it is one very high one. The engine should score stacked substrate risk and flag combinations before they are ordered.
+
+Every added material is declared. No exceptions, no matter how small the rate or how commercially inconvenient. This includes cascara reinforcement, must addition, sugar feed, and barrel contact.
+
+The varietal gets a veto. If the varietal response matrix scores below three stars for the requested process class, the order is flagged and the buyer is offered an alternate route before confirmation.
+
+Retained samples at every stage, without exception. A lot with no retained samples cannot be investigated when it disappoints, and an uninvestigable disappointment costs more than the lot.
+
+The predicted profile is a prediction. It ships with a confidence rating and a variance expectation. Overstating confidence to close an order is the fastest way to destroy the credibility that makes the whole platform work.
+
+Defect boundaries are published, not hidden. Buyers should receive the defect profile associated with their chosen process at the time of order. A buyer who knows what over-fermentation tastes like is a buyer who can evaluate their own sample and trust the result.
+
+
+PART VII — BLEND ARCHITECTURE
+The catalog's highest-margin application is not a single custom lot; it is a designed blend in which each component is separately engineered. This is the "build-a-cup-by-processing-parts" capability the platform is built to offer.
+VII.1 · The Component Roles
+A designed blend assigns each component a job rather than a proportion.
+
+Role
+Contributes
+Typical share
+Typical route
+Top note
+Aromatic lift, florals, high volatiles
+15–25%
+WSH-02, CBM-03, ANA-06 + YST-03
+Fruit core
+The defining flavor identity
+30–45%
+NAT-04, ANA-01 + YST-06, CBM-01
+Body & texture
+Mouthfeel, weight, viscosity
+20–30%
+ANA-11, HON-04, YST-12 co-pitch
+Sweet base
+Caramel, sugar structure, integration
+15–25%
+HON-02, HON-07
+Acid spine
+Structure, length, mouthwatering finish
+10–20%
+WSH-03, WSH-07, ANA-05
+Depth anchor
+Chocolate, nut, savory floor
+10–20%
+WSH-09, FNG-06 Robusta, NAT-03
+
+VII.2 · Blend Design Rules
+Never blend to a number; blend to a cup. Ratios are outputs of tasting, not inputs to it. Design the roles, produce the components, then find the ratio on the table.
+
+Roast compatibility precedes flavor compatibility. Components with divergent density and moisture will not roast together. Specify screen size and density tolerance across components at order time, not at blending time.
+
+Top notes are consumed first in storage. A blend that is perfect on arrival will be unbalanced at month four as the volatile fraction fades. Design the blend to peak at the buyer's actual selling window, which usually means slightly over-weighting the top-note component.
+
+Two ferment-heavy components rarely add; they usually cancel. Two loud processes produce mud, not complexity. The reliable architecture is one loud component and three quiet ones.
+
+Same-farm blends carry a stronger story than same-flavor blends. SEQ-03 split-lot recombination — one farm, one day-lot, three processes — is more defensible commercially than a multi-origin blend of equivalent quality, and usually cheaper to source.
+
+
+PART VIII — RELEASE & PROTECTION HOOKS
+Every archetype in Part III is a potential branded release, and the protocol behind it is a potential protected asset. This section is the connective tissue between the menu and the commercial layer.
+VIII.1 · What Is Protectable
+Asset
+Mechanism
+Durability
+Notes
+The protocol itself
+Trade secret
+Indefinite while secret
+Requires documented secrecy program, partner NDAs, restricted-access handling
+A native yeast isolate (YST-13)
+Trade secret + physical control of the culture
+Strong
+The most defensible asset in the catalog; a competitor cannot buy the strain
+A novel process step
+Patent (jurisdiction-dependent)
+~20 years, disclosed
+Disclosure is the cost; usually inferior to trade secret for a fermentation protocol
+The release name and mark
+Trademark
+Renewable indefinitely
+Clear against global registries and coffee-sector marks before announcing
+The sensory narrative and copy
+Copyright
+Long
+Weak protection against paraphrase; matters less than the mark
+The exclusive supply relationship
+Contract
+Term-limited
+Often the real moat, and the most frequently under-drafted
+
+VIII.2 · Partner Confidentiality
+Any SEMI or DE NOVO protocol executed at a partner mill leaves the platform's direct control. Standard terms should cover: protocol confidentiality with a defined term, a non-replication clause for the buyer's exclusive protocol, restricted access to written protocol documents at the mill, training delivered under confidentiality, and clear ownership of any improvement developed during execution. Trade-secret protection that is not documented is not protection — the secrecy program has to be real and auditable, or it will not survive a challenge.
+VIII.3 · Naming Convention Note
+The archetype names in Part III ("Ambrosia Line", "Live Wire", "Cold Cathedral") are internal working names for the platform catalog. They are deliberately evocative and deliberately unregistered. When an archetype becomes a buyer's exclusive release, the name should be generated fresh for that buyer, cleared against global trademark registries and coffee-sector marks, checked for linguistic and cultural issues in the target markets, and assigned to the buyer under the exclusivity terms. Reusing a catalog working name as a commercial mark forfeits both the clearance and the exclusivity.
+
+
+APPENDIX A — MASTER PROCESS INDEX
+Code
+Name
+Tier
+Difficulty
+WSH-01
+Classic Submerged Washed
+HOUSE
+●●○○○
+WSH-02
+Extended Cold Submerged Washed
+HOUSE
+●●●○○
+WSH-03
+Double Washed (Kenyan Protocol)
+HOUSE
+●●●○○
+WSH-04
+Low-Oxygen Washed
+HOUSE
+●●○○○
+WSH-05
+Mechanical Demucilage (Zero-Ferment)
+HOUSE
+●○○○○
+WSH-06
+Yeast-Assisted Washed
+HOUSE
+●●○○○
+WSH-07
+Extended Soak / Water-Rest
+HOUSE
+●●○○○
+WSH-08
+Sequential Re-Wash (Triple)
+SEMI
+●●●●○
+WSH-09
+Enzymatic-Assisted Washed
+HOUSE
+●●○○○
+NAT-01
+Traditional Sun-Dried Natural
+HOUSE
+●●●○○
+NAT-02
+Raised-Bed Slow Natural
+HOUSE
+●●●○○
+NAT-03
+Shade-Dried Extended Natural
+SEMI
+●●●●○
+NAT-04
+Anaerobic Natural
+HOUSE
+●●●●○
+NAT-05
+Cryo-Arrested Natural
+DE NOVO
+●●●●●
+NAT-06
+Pre-Fermented Natural (Wet-Start)
+SEMI
+●●●○○
+NAT-07
+Dehydrated–Rehydrated Natural
+DE NOVO
+●●●●●
+NAT-08
+Carbonic Natural
+HOUSE
+●●●●○
+NAT-09
+Late-Harvest / Raisin-Set Natural
+DE NOVO
+●●●●●
+HON-01
+White Honey
+HOUSE
+●●○○○
+HON-02
+Yellow Honey
+HOUSE
+●●○○○
+HON-03
+Red Honey
+HOUSE
+●●●○○
+HON-04
+Black Honey
+SEMI
+●●●●○
+HON-05
+Anaerobic Honey
+HOUSE
+●●●○○
+HON-06
+Gold Honey (Split-Mucilage)
+SEMI
+●●●○○
+HON-07
+Extended-Contact Honey
+SEMI
+●●●●○
+HON-08
+Yeast-Inoculated Honey
+HOUSE
+●●●○○
+ANA-01
+Anaerobic Washed
+HOUSE
+●●●○○
+ANA-02
+Blanketed Anaerobic
+SEMI
+●●●●○
+ANA-03
+Extended Anaerobic (96–168h)
+SEMI
+●●●●○
+ANA-04
+Hyperbaric Anaerobic
+DE NOVO
+●●●●●
+ANA-05
+Thermal Shock Anaerobic
+SEMI
+●●●●○
+ANA-06
+Cold Anaerobic
+DE NOVO
+●●●●○
+ANA-07
+Staged-Release Anaerobic
+DE NOVO
+●●●●●
+ANA-08
+Anaerobic with Must Addition
+SEMI
+●●●●○
+ANA-09
+Whole-Cherry Submerged Anaerobic
+HOUSE
+●●●○○
+ANA-10
+Mucilage-Slurry Anaerobic
+SEMI
+●●●●○
+ANA-11
+Two-Phase Anaerobic (Yeast → LAB)
+SEMI
+●●●●○
+CBM-01
+Classic Carbonic Maceration
+HOUSE
+●●●●○
+CBM-02
+Semi-Carbonic
+HOUSE
+●●●○○
+CBM-03
+Carbonic Washed
+SEMI
+●●●●○
+CBM-04
+Extended Carbonic (10–30 days)
+DE NOVO
+●●●●●
+CBM-05
+Carbonic with Directed Inoculum
+DE NOVO
+●●●●●
+YST-01
+S. cerevisiae, Ale
+HOUSE
+●●○○○
+YST-02
+S. cerevisiae, Wine
+HOUSE
+●●●○○
+YST-03
+S. cerevisiae, Sake
+SEMI
+●●●●○
+YST-04
+S. cerevisiae, Champagne
+HOUSE
+●●○○○
+YST-05
+S. cerevisiae, Kveik
+SEMI
+●●●○○
+YST-06
+Pichia kluyveri
+HOUSE
+●●●○○
+YST-07
+Pichia fermentans
+SEMI
+●●●○○
+YST-08
+Torulaspora delbrueckii
+HOUSE
+●●○○○
+YST-09
+Hanseniaspora spp.
+DE NOVO
+●●●●○
+YST-10
+Metschnikowia pulcherrima
+SEMI
+●●●○○
+YST-11
+Wickerhamomyces anomalus
+DE NOVO
+●●●●●
+YST-12
+Starmerella bacillaris
+SEMI
+●●●○○
+YST-13
+Native Isolate Program
+DE NOVO
+●●●●●
+YST-14
+Designed Multi-Strain Consortium
+DE NOVO
+●●●●●
+BAC-01
+Lactobacillus plantarum
+HOUSE
+●●●○○
+BAC-02
+Lactobacillus casei
+SEMI
+●●●○○
+BAC-03
+Leuconostoc mesenteroides
+SEMI
+●●●○○
+BAC-04
+Pediococcus spp.
+DE NOVO
+●●●●○
+BAC-05
+Directed Acetobacter
+DE NOVO
+●●●●●
+BAC-06
+Malolactic Conversion
+SEMI
+●●●●○
+BAC-07
+Kefir Consortium
+SEMI
+●●●○○
+BAC-08
+Back-Slopped House Culture
+SEMI
+●●●○○
+BAC-09
+Sequential Bacterial Cascade
+DE NOVO
+●●●●●
+FNG-01
+Koji (A. oryzae)
+DE NOVO
+●●●●●
+FNG-02
+Black Koji (A. luchuensis)
+DE NOVO
+●●●●●
+FNG-03
+Red Koji (Monascus)
+DE NOVO
+●●●●●
+FNG-04
+Pectinase-Directed
+HOUSE
+●●○○○
+FNG-05
+Cellulase-Assisted
+DE NOVO
+●●●●○
+FNG-06
+Tannase-Treated
+SEMI
+●●●○○
+COF-01
+Stone Fruit Co-Ferment
+SEMI
+●●●●○
+COF-02
+Tropical Co-Ferment
+SEMI
+●●●●○
+COF-03
+Citrus Peel & Zest
+SEMI
+●●●●○
+COF-04
+Berry Co-Ferment
+SEMI
+●●●○○
+COF-05
+Cascara Reinforcement
+HOUSE
+●●●○○
+COF-06
+Botanical & Floral
+DE NOVO
+●●●●●
+COF-07
+Spice Co-Ferment
+SEMI
+●●●●○
+COF-08
+Cacao & Cacao-Pulp
+SEMI
+●●●●○
+COF-09
+Must / Wine-Grape
+DE NOVO
+●●●●●
+COF-10
+Sugar / Panela Feed
+SEMI
+●●●●○
+VSL-01
+Stainless Steel
+HOUSE
+●○○○○
+VSL-02
+HDPE / Polymer
+HOUSE
+●○○○○
+VSL-03
+Oak
+SEMI
+●●●●○
+VSL-04
+Clay Amphora
+DE NOVO
+●●●●○
+VSL-05
+Concrete Egg
+DE NOVO
+●●●●○
+VSL-06
+Barrier-Bag Ferment
+HOUSE
+●●○○○
+VSL-07
+Active Agitation
+SEMI
+●●●○○
+VSL-08
+Deliberate Stratification
+SEMI
+●●●●○
+DRY-01
+Patio
+HOUSE
+●●○○○
+DRY-02
+Raised Bed
+HOUSE
+●●○○○
+DRY-03
+Parabolic / Solar Dome
+HOUSE
+●●●○○
+DRY-04
+Shade / Slow Dry
+SEMI
+●●●○○
+DRY-05
+Mechanical / Guardiola
+HOUSE
+●●●○○
+DRY-06
+Staged Drying with Rest
+SEMI
+●●●●○
+DRY-07
+Freeze-Drying
+DE NOVO
+●●●●●
+DRY-08
+Water-Activity Landing
+SEMI
+●●●○○
+AGE-01
+Parchment Rest (Reposo)
+HOUSE
+●○○○○
+AGE-02
+Bourbon Barrel
+SEMI
+●●●●○
+AGE-03
+Rum Barrel
+SEMI
+●●●●○
+AGE-04
+Wine Cask
+SEMI
+●●●●○
+AGE-05
+Oak Chip / Stave
+SEMI
+●●●○○
+AGE-06
+Monsooning
+SEMI
+●●●●○
+AGE-07
+Cellar Aging
+SEMI
+●●●○○
+SEQ-01
+Double Fermentation
+SEMI
+●●●●○
+SEQ-02
+Triple-Phase
+DE NOVO
+●●●●●
+SEQ-03
+Split-Lot Recombination
+SEMI
+●●●●○
+SEQ-04
+Inoculum Relay
+DE NOVO
+●●●●●
+SEQ-05
+Ferment–Dry–Ferment
+DE NOVO
+●●●●●
+SEQ-06
+Cascade
+DE NOVO
+●●●●●
+
+APPENDIX B — MASTER ARCHETYPE INDEX
+Code
+Name
+Family
+Band
+A-0101
+Alabaster
+Crystalline & Floral
+88.0–91.0
+A-0102
+Perfumer's Draft
+Crystalline & Floral
+88.5–91.5
+A-0103
+Cold Cathedral
+Crystalline & Floral
+89.0–92.0
+A-0104
+Unlocked
+Crystalline & Floral
+86.5–89.0
+A-0201
+Voltage
+Citrus & High Acid
+87.5–90.0
+A-0202
+Bergamot Line
+Citrus & High Acid
+87.0–90.0
+A-0203
+Green Flash
+Citrus & High Acid
+86.5–89.5
+A-0204
+Kombucha Edge
+Citrus & High Acid
+85.0–88.0
+A-0301
+Nectarine Hour
+Orchard & Stone Fruit
+86.5–89.0
+A-0302
+Orchard Gold
+Orchard & Stone Fruit
+85.5–88.0
+A-0303
+Cobbler
+Orchard & Stone Fruit
+85.0–88.0
+A-0304
+Split Orchard
+Orchard & Stone Fruit
+87.0–89.5
+A-0401
+Live Wire
+Red Berry & Cherry
+87.5–90.5
+A-0402
+Cherry Cordial
+Red Berry & Cherry
+86.5–89.0
+A-0403
+Kirsch
+Red Berry & Cherry
+88.0–91.0
+A-0404
+Strawberry Field
+Red Berry & Cherry
+86.5–89.5
+A-0501
+Deep Field
+Dark Berry & Preserve
+86.5–89.5
+A-0502
+Vaulted
+Dark Berry & Preserve
+85.5–88.5
+A-0503
+Cassis Structure
+Dark Berry & Preserve
+87.0–90.0
+A-0504
+Port Cellar
+Dark Berry & Preserve
+86.0–89.0
+A-0601
+Ambrosia Line
+Tropical & Exotic
+88.0–91.0
+A-0602
+Lychee Vault
+Tropical & Exotic
+88.5–92.0
+A-0603
+Kveik Equator
+Tropical & Exotic
+84.0–87.5
+A-0604
+Three Registers
+Tropical & Exotic
+89.0–92.0
+A-0701
+Engineered
+Confection & Candy
+87.0–90.0
+A-0702
+Bubblegum Vault
+Confection & Candy
+85.5–88.5
+A-0703
+Cola Nut
+Confection & Candy
+86.5–89.0
+A-0704
+Sugarwork
+Confection & Candy
+85.0–88.5
+A-0801
+Praline
+Chocolate, Nut & Caramel
+84.0–86.5
+A-0802
+Toffee Vault
+Chocolate, Nut & Caramel
+85.0–87.5
+A-0803
+Cacao Twin
+Chocolate, Nut & Caramel
+85.5–88.5
+A-0804
+Smooth Draft
+Chocolate, Nut & Caramel
+82.5–86.0
+A-0901
+Silk Register
+Creamy & Lactic
+86.5–89.0
+A-0902
+Butterfat
+Creamy & Lactic
+85.5–88.0
+A-0903
+Cultured
+Creamy & Lactic
+86.0–88.5
+A-0904
+Weight Without Noise
+Creamy & Lactic
+modifier
+A-1001
+Burgundy Frame
+Vinous & Spirituous
+87.0–90.0
+A-1002
+Spirit of the Bean
+Vinous & Spirituous
+85.5–88.5
+A-1003
+Molasses Cask
+Vinous & Spirituous
+85.0–88.0
+A-1004
+Cellar Composition
+Vinous & Spirituous
+88.0–91.5
+A-1101
+Dashi
+Savory, Umami & Saline
+84.0–88.0
+A-1102
+Yuzu Miso
+Savory, Umami & Saline
+85.0–88.5
+A-1103
+Saltworks
+Savory, Umami & Saline
+85.5–88.5
+A-1104
+Tomato Leaf
+Savory, Umami & Saline
+87.0–90.0
+A-1201
+Spice Route
+Spice, Wood & Smoke
+85.5–88.0
+A-1202
+Sandalwood
+Spice, Wood & Smoke
+86.5–89.5
+A-1203
+Cellar Floor
+Spice, Wood & Smoke
+80.0–84.0
+A-1204
+Ember
+Spice, Wood & Smoke
+84.0–87.0
+A-1301
+Terpene Line
+Herbal, Green & Terpenic
+86.0–89.5
+A-1302
+Cool Register
+Herbal, Green & Terpenic
+87.0–90.0
+A-1303
+Garden
+Herbal, Green & Terpenic
+85.5–88.5
+A-1304
+Bergamot Garden
+Herbal, Green & Terpenic
+87.5–90.5
+A-1401
+Weightless
+Tea-like & Ethereal
+88.0–91.5
+A-1402
+Ginjo
+Tea-like & Ethereal
+88.0–91.0
+A-1403
+Low Caffeine Register
+Tea-like & Ethereal
+86.0–89.5
+A-1404
+Glass
+Tea-like & Ethereal
+87.0–90.0
+
+
+
+
+Prepared for ODASI Technologies, Inc. — Flavor Foundry. Score bands are calibration estimates for well-executed lots on suitable varietals, not guarantees. Every descriptor traces to a documented metabolic pathway; every route is stated at method-class resolution, with exact parameters reserved to the protocol packet issued on order confirmation.
+

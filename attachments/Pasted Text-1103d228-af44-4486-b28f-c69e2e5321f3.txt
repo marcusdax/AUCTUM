@@ -1,0 +1,168 @@
+EXPANDED SPRINT PLAN
+Document Scanner + Vietnam Payment Coffee Business Manager
+Full-Value-Chain Implementation Blueprint  ·  Auctum Ledger
+Source of truth plan file: .kilo/plans/[1788153435552-vietnam-payment-coffee-manager.md]
+Reference OCR repository: marcusdax/vision-ocr-ai-agent-logistics
+1. Executive Summary & Strategic Intent
+This expanded sprint plan consolidates four prior sessions into a single, actionable blueprint. It simultaneously delivers two tightly coupled capabilities:
+A production-grade Document Scanner for QC audits and contract uploads, powered by vision-OCR/AI patterns adapted from the reference logistics agent repository.
+A complete Vietnam-focused Payment & Coffee Business Manager that covers the full coffee value chain—from agronomy and post-harvest processing through trading, logistics, roasting, consumer strategy, and real-time VietQR payment settlement.
+The system is built on the existing Auctum Ledger domain-driven, event-sourced architecture. All new tables, events, tRPC routers, and UI surfaces must respect the established patterns for money (integer cents), idempotency, domain events via the outbox, and coffee_lots as the single source of truth for green coffee identity.
+Business outcome: enable Vietnamese coffee exporters, importers, roasters, and trading desks to manage lots, contracts, quality control, receivables, and VietQR settlements inside one coherent ledger while preserving full traceability from farm lot to finished product.
+2. Coffee Domain Model Expansion (Full Value Chain)
+2.1 Canonical Green Coffee Identity — coffee_lots
+The coffee_lots table remains the immutable source of truth for every physical green lot. All downstream entities (products, inventory movements, contracts, QC audits, payments) reference it by lotId. Key attributes already present or to be confirmed:
+lotId (UUID primary key)
+originCountry, region, farm/cooperative, altitude, variety (Bourbon, Catimor, Robusta, etc.)
+processMethod (washed, natural, honey, anaerobic, carbonic maceration, experimental)
+cupScore (SCA 80–100 scale), moistureContent, waterActivity, density, defectCount
+pricePerLbCents / pricePerKgCents (integer cents, never floating-point)
+status (available, reserved, sold, roasted, archived)
+certifications (Organic, Fair Trade, Rainforest Alliance, 4C, etc.)
+harvestYear, arrivalDate, warehouseLocation
+2.2 Manager Schema (db/manager-schema.ts) — Expanded Tables
+The following tables form the complete Manager domain. Each must be defined with proper foreign keys back to coffee_lots where applicable, soft-delete support, and audit timestamps.
+Table
+Purpose & Key Relationships
+coffee_products
+Roasted / finished SKUs. lotId → coffee_lots.id. Carries roast profile, grind size, packaging, retailPriceCents.
+inventory_lots
+Physical inventory positions. lotId + warehouse + quantityGrams + status.
+inventory_movements
+Immutable ledger of stock in/out. References inventory_lots and optionally contracts or sales orders.
+contracts
+Purchase / sales contracts. Links to lots, counterparties, price terms, delivery windows, payment terms.
+qc_audits
+Quality control records. lotId, cupping scores, defect photos, OCR-extracted data from lab reports.
+documents
+Uploaded contracts, invoices, certificates, lab reports. Links to OCR results and entity (contractId / lotId / auditId).
+ocr_results
+Structured extraction output from the vision-OCR pipeline. JSON payload + confidence scores.
+payment_intents
+VietQR / Casso / PayOS payment requests. amountCents, orderId, providerTxnId, status, idempotencyKey.
+ar_aging
+Accounts receivable snapshot. outstandingCents decremented on payment.received events.
+counterparties
+Farmers, co-ops, exporters, importers, roasters, cafés. KYC fields, bank details for VietQR.
+
+2.3 Money Modeling Rules (Non-Negotiable)
+All monetary values are stored as integer cents (or dong subunits where applicable). Never use floating-point for money.
+Helpers live in contracts/constants.ts: formatCents, parseCents, toDisplayVND, etc.
+Currency is primarily VND for domestic Vietnam flows; USD or EUR may appear on export contracts—store currency code explicitly.
+Price fields: pricePerLbCents, pricePerKgCents, totalCents, unitPriceCents, taxCents, shippingCents.
+2.4 Event-Driven Architecture Consistency
+New domain events must conform to the existing domain_events outbox table structure:
+eventType (string) — e.g. payment.received, sales.order.paid, qc.audit.completed, document.ocr.completed, inventory.moved
+aggregateType (string) — e.g. PaymentIntent, Contract, QcAudit, CoffeeLot
+aggregateId (UUID)
+payload (JSONB)
+emitted exclusively via emitEvent() in app/api/engine.ts
+Side-effect handlers consume the outbox and perform AR clearing, inventory adjustments, notification, and webhook acknowledgements.
+3. Document Scanner Feature — OCR / AI Integration
+3.1 Reference Repository Adaptation
+The marcusdax/vision-ocr-ai-agent-logistics repository provides a proven vision-OCR pipeline for logistics documents. Adaptation strategy:
+Extract the core OCR service (image pre-processing, multi-engine OCR, LLM structured extraction) into a shared package or service within Auctum.
+Map logistics document types (BOL, packing list, invoice) to coffee-specific types: SCA lab report, contract of sale, phytosanitary certificate, certificate of origin, cupping form, warehouse receipt.
+Preserve confidence scoring and human-in-the-loop review UI patterns.
+Store raw images + OCR JSON in the documents / ocr_results tables.
+3.2 Primary Use Cases
+QC Audit Workflow
+User uploads lab report photo or PDF (mobile or desktop).
+OCR extracts cup score, moisture, defects, sensory descriptors, sample ID.
+System proposes a new qc_audits record linked to the matching coffee_lots row (by sample ID or lot code).
+Auditor confirms or corrects; event qc.audit.completed is emitted.
+Contract Upload Workflow
+User uploads signed contract (PDF or image).
+OCR extracts parties, lot references, volume, price terms, payment schedule, delivery window.
+System creates or updates a contracts record and links the document.
+If price and volume are extracted, an AR entry or payment schedule can be pre-populated.
+3.3 Technical Implementation Notes
+Frontend: drag-and-drop / camera capture component that posts to a tRPC mutation (documents.upload).
+Backend: stores file (S3 or equivalent), enqueues OCR job, returns documentId immediately.
+OCR worker: processes image, calls vision model + LLM structured output, writes ocr_results, emits document.ocr.completed.
+UI: side-by-side original image + extracted fields with confidence badges; one-click “Accept & Create Audit/Contract”.
+4. Vietnam Payment Integration (VietQR / Casso / PayOS)
+4.1 Payment Flow
+Create payment intent via tRPC mutation intents.create (idempotencyKey required).
+Generate VietQR payload or deep-link using Casso/PayOS aggregator APIs.
+Customer scans QR or pays via banking app.
+Provider webhook arrives → signature verification → idempotent handling via providerTxnId.
+On success: emit payment.received → AR aging outstandingCents is decremented → order status moves to paid.
+4.2 Idempotency & Safety
+All write mutations enforce idempotencyKey (orders) or (orderId + amountCents) / providerTxnId (payments).
+Webhook handlers must be fully idempotent; duplicate delivery must not double-apply funds.
+Store raw webhook body for audit and replay.
+4.3 Environment & Secrets
+Update .env.example with:
+CASSO_API_KEY / PAYOS_CLIENT_ID / PAYOS_API_KEY / PAYOS_CHECKSUM_KEY
+VIETQR_BANK_BIN / VIETQR_ACCOUNT_NO (for static QR generation if used)
+WEBHOOK_SECRET for signature validation
+5. tRPC Router Surface
+5.1 Manager Router (api/routers/manager.ts)
+Already created in prior sessions; complete registration in app/api/router.ts. Expected endpoints:
+lots.list / lots.byId / lots.create / lots.updateStatus
+products.list / products.create
+inventory.movements / inventory.adjust
+contracts.list / contracts.create / contracts.attachDocument
+qcAudits.create / qcAudits.listByLot
+documents.upload / documents.getOcrResult
+counterparties.list / counterparties.create
+5.2 Payments Router (api/routers/payments.ts) — To Be Created
+intents.create (public or authenticated mutation, idempotencyKey required)
+intents.byId / intents.list
+webhooks.casso / webhooks.payos (raw body + signature verification)
+ar.agingByCounterparty / ar.summary
+6. TypeScript & Contracts Layer
+All DTOs live in contracts/manager-types.ts and contracts/payments-types.ts as Zod schemas. Path aliases (@/*, @contracts/*, @db/*) are already fixed; no baseUrl dependency remains.
+Every mutation input and query output must be Zod-validated.
+Shared money helpers and EXCEPTION_TYPES remain in contracts/constants.ts.
+Vite alias resolution uses path.resolve; runtime is independent of tsconfig baseUrl.
+7. Database Migration Path
+Finalize db/manager-schema.ts and db/payments-schema.ts.
+Run db:generate to produce the migration SQL.
+Review migration for foreign-key order (coffee_lots first, then dependents).
+Apply migration in staging; seed minimal reference data (sample lots, one counterparty, one payment method).
+Add indexes on lotId, status, createdAt, providerTxnId, idempotencyKey.
+8. Frontend Surfaces (Manager UI)
+Existing pages such as src/pages/Inventory.tsx already depend on inventory_movements and coffee_products. Expand as follows:
+Inventory page — surface pricePerLbCents, cupScore, origin, process for every lot row.
+QC Audit page — camera/upload + OCR review pane + accept flow.
+Contracts page — list + upload + OCR-assisted create.
+Payments / AR page — open intents, aging buckets, VietQR display, webhook status.
+Lot detail page — full timeline of movements, audits, contracts, payments.
+9. Testing Requirements
+Unit: Zod schema validation for every DTO.
+Integration: intents.create with duplicate idempotencyKey returns the original intent.
+Webhook: valid signature → AR decrement; invalid signature → 401; duplicate providerTxnId → no double-apply.
+OCR happy path: mock vision response → ocr_results written → event emitted.
+End-to-end: create lot → attach contract via OCR → create payment intent → simulate webhook → verify AR cleared and order paid.
+10. Coffee Value-Chain Knowledge Deliverables (ODASI / Auctum)
+Beyond pure software, the Vietnam Payment Coffee Manager is the operational backbone for the following strategic artifacts that the Coffee Industry Omni-Expert capability can generate on demand:
+Agronomy improvement plans (variety maps, climate adaptation, yield projections for Central Highlands / Lam Dong / Dak Lak).
+Processing SOPs and quality roadmaps with predicted cup-score uplift for washed vs. natural vs. experimental lots.
+Procurement strategy memos (origin diversification, contract timing, hedging against ICE/LIFFE).
+Regulatory compliance navigators (EUDR, phytosanitary, Vietnamese export licensing, tariff engineering).
+Roast profile libraries matched to sensory targets and cost parameters.
+Financial models (P&L, break-even, CAPEX, ROI) for export desks, roasting plants, and café concepts.
+Sustainability certification gap analyses and living-income differential roadmaps.
+Tiered educational curriculum modules for cultivation, post-harvest, trading, and regulatory compliance.
+11. Immediate Next Steps (Execution Order)
+Complete manager router registration in app/api/router.ts.
+Create api/routers/payments.ts with intents + webhook handlers.
+Finalize db/manager-schema.ts + db/payments-schema.ts; run db:generate and review migration.
+Update .env.example with Casso/PayOS/VietQR keys and webhook secret.
+Implement documents.upload + OCR worker pipeline (adapt reference repo).
+Build QC Audit and Contract upload UI surfaces with OCR review.
+Write idempotency, webhook, and AR-clearing tests.
+Run full type-check, migration, and test suite in CI.
+Stage deploy and validate end-to-end VietQR + OCR flows with real (sandbox) provider credentials.
+12. Risk, Compliance & Operational Guardrails
+Money movement: never skip signature verification or idempotency checks on webhooks.
+Traceability: every finished product and every payment must be able to resolve back to a coffee_lots row.
+Data residency: confirm Vietnamese personal-data and payment-data handling requirements if storing counterparty KYC.
+OCR confidence: low-confidence extractions must force human review before creating financial or quality records.
+Eventual consistency: AR aging and inventory projections may lag the outbox by seconds; UI should show “pending confirmation” states.
+13. Closing Statement
+This expanded plan turns the four-session summary into a coherent, implementable system. By anchoring every new capability to the existing domain-driven event model, integer-cent money handling, and coffee_lots as the single source of truth, Auctum Ledger can deliver both a best-in-class Vietnam payment experience and a full-value-chain coffee business manager without introducing architectural debt.
+Execution of the ordered next steps will produce a production-ready Document Scanner and Payment Manager that simultaneously serves operational needs and powers the broader ODASI coffee intelligence capabilities.
+Document prepared for the Auctum Ledger engineering and product teams. All prior session artifacts remain valid; this document is the authoritative expansion.

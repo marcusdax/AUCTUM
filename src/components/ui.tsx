@@ -68,7 +68,7 @@ export function Sheet({
   return (
     <section
       className={cn(
-        "bg-paper text-ink shadow-[var(--shadow-sheet)]",
+        "border-t border-brass bg-paper text-ink shadow-[var(--shadow-sheet)]",
         padded && "px-5 py-6 sm:px-8 sm:py-8",
         className,
       )}

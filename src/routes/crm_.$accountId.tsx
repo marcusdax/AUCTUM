@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { TrustMeter } from "@/components/trust-badge";
-import { Eyebrow, FieldRow, Sheet, Stat, buttonClass } from "@/components/ui";
+import { Button, Eyebrow, FieldRow, Sheet, Stat, buttonClass } from "@/components/ui";
+import { explainChurn, inSegment, SEGMENTS, type SegmentId } from "@/lib/crm";
 import { formatCents, formatDate, formatKg, roleLabel } from "@/lib/format";
 import { accountById, useLedger } from "@/lib/store";
 import { TRUST_LABELS } from "@/lib/trust";
@@ -13,6 +14,9 @@ function AccountPage() {
   const lots = useLedger((s) => s.lots);
   const documents = useLedger((s) => s.documents);
   const events = useLedger((s) => s.events);
+  const threads = useLedger((s) => s.threads);
+  const logTouch = useLedger((s) => s.logTouch);
+  const queueFollowUp = useLedger((s) => s.queueFollowUp);
   const account = accountById(accounts, accountId);
   if (!account) {
     return (
@@ -24,6 +28,8 @@ function AccountPage() {
   const relatedLots = lots.filter((l) => l.producerId === account.id || l.exporterId === account.id);
   const relatedDocs = documents.filter((d) => d.accountId === account.id);
   const relatedEvents = events.filter((e) => e.accountId === account.id);
+  const reading = explainChurn(account, events, threads, lots);
+  const segments = (Object.keys(SEGMENTS) as SegmentId[]).filter((id) => inSegment(id, account, events, threads));
   const peers = account.relationships
     .map((id) => accountById(accounts, id))
     .filter((x): x is NonNullable<typeof x> => Boolean(x));
@@ -53,6 +59,65 @@ function AccountPage() {
           <Stat label="Outstanding" value={formatCents(account.outstandingCents)} />
           <Stat label="Since" value={formatDate(account.since)} />
         </div>
+      </Sheet>
+      <Sheet>
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <Eyebrow>Cadence</Eyebrow>
+            <h2 className="mt-2 font-display text-2xl">
+              {reading.overdue ? "Write before the week turns" : "Inside the cadence"}
+            </h2>
+            <p className="mt-2 max-w-xl text-sm text-slate">
+              {reading.lastTouchAt
+                ? `Last touch ${formatDate(reading.lastTouchAt)}. This role is written every ${reading.cadenceDays} days.`
+                : `No touch recorded. This role is written every ${reading.cadenceDays} days.`}
+            </p>
+          </div>
+          <Button tone="stamp" onClick={() => logTouch(account.id)}>
+            Log a touch
+          </Button>
+        </div>
+        <ul className="mt-6 space-y-4">
+          {reading.factors.length === 0 ? <li className="text-sm text-slate">Nothing in the churn sum.</li> : null}
+          {reading.factors.map((factor) => (
+            <li key={factor.id}>
+              <div className="flex justify-between gap-3 font-mono text-xs">
+                <span>{factor.label}</span>
+                <span className="tabular">{factor.points}</span>
+              </div>
+              <div className="mt-2 h-1.5 bg-raw">
+                <div className="h-full bg-stamp" style={{ width: `${Math.min(100, factor.points * 2.5)}%` }} />
+              </div>
+              <p className="mt-1 text-sm text-slate">{factor.detail}</p>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-4 font-mono text-sm">
+          Live {reading.score}
+          <span className="text-slate"> · filed {account.churnRisk}</span>
+        </p>
+        {segments.length ? (
+          <div className="mt-5 flex flex-wrap gap-2">
+            {segments.map((id) => (
+              <Button
+                key={id}
+                tone="ghost"
+                onClick={() =>
+                  queueFollowUp(
+                    account.id,
+                    id === "sample"
+                      ? `Write ${account.name} about the sample`
+                      : id === "reorder"
+                        ? `Ask ${account.name} if the next lock is due`
+                        : `Harvest note for ${account.name}`,
+                  )
+                }
+              >
+                Queue {SEGMENTS[id].title.toLowerCase()}
+              </Button>
+            ))}
+          </div>
+        ) : null}
       </Sheet>
       <div className="grid gap-6 lg:grid-cols-2">
         <Sheet>

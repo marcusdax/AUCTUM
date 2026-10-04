@@ -27,8 +27,8 @@ function MarketPage() {
   return (
     <div className="space-y-6">
       <Sheet>
-        <Eyebrow>Market</Eyebrow>
-        <h1 className="mt-2 font-display text-4xl sm:text-5xl">The live offer sheet</h1>
+        <Eyebrow>Ledger</Eyebrow>
+        <h1 className="mt-2 font-display text-4xl sm:text-5xl">The book, not a feed</h1>
         <p className="mt-3 max-w-xl text-slate">
           Ranked by availability, fit, and trust — never solely by engagement. A lot is a tradable
           object with a story, a cup, and a waterfall.

@@ -1,5 +1,5 @@
 import { i as __toESM } from "../_runtime.mjs";
-import { J as require_react } from "./@tanstack/react-router+[...].mjs";
+import { Y as require_react } from "./@tanstack/react-router+[...].mjs";
 //#region node_modules/lucide-react/dist/esm/shared/src/utils.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 /**
@@ -115,6 +115,37 @@ var Menu = createLucideIcon("menu", [
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
+var Pause = createLucideIcon("pause", [["rect", {
+	x: "14",
+	y: "4",
+	width: "4",
+	height: "16",
+	rx: "1",
+	key: "zuxfzm"
+}], ["rect", {
+	x: "6",
+	y: "4",
+	width: "4",
+	height: "16",
+	rx: "1",
+	key: "1okwgv"
+}]]);
+/**
+* @license lucide-react v0.510.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var Play = createLucideIcon("play", [["polygon", {
+	points: "6 3 20 12 6 21 6 3",
+	key: "1oa8hb"
+}]]);
+/**
+* @license lucide-react v0.510.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
 var ScanLine = createLucideIcon("scan-line", [
 	["path", {
 		d: "M3 7V5a2 2 0 0 1 2-2h2",
@@ -184,4 +215,4 @@ var X = createLucideIcon("x", [["path", {
 	key: "d8bk6v"
 }]]);
 //#endregion
-export { Menu as a, ScanLine as i, TriangleAlert as n, ArrowRight as o, ShieldCheck as r, X as t };
+export { Play as a, ArrowRight as c, ScanLine as i, TriangleAlert as n, Pause as o, ShieldCheck as r, Menu as s, X as t };

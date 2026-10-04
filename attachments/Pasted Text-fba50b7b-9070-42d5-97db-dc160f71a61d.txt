@@ -1,0 +1,526 @@
+Green Coffee Supply & Roaster Lead Sources for Greensheet Scraping
+Based on your platform architecture for Greensheet, here is a structured intelligence package: where to find supply-side inventory (high-end green coffee sellers) and demand-side leads (roasters who buy), ranked by scraping feasibility, data quality, and strategic fit for your ledger.
+
+1. SUPPLY-SIDE SOURCES — High-End Green Coffee Sellers
+These are the platforms and company sites where specialty green coffee is actively listed for sale, making them prime targets for inventory scraping.
+Tier A: Dedicated Green Coffee Marketplaces (Best Data Structure)
+Platform
+URL
+Why It Matters
+Scraping Notes
+Cropster Hub
+cropster.com/hub
+The de facto software layer for specialty roasters; many importers publish offers here
+Requires login for full lot data; but offer listings are semi-public; API exists for partners
+Algrano
+algrano.com
+Direct-trade marketplace connecting roasters to origin producers; every lot has score, price, volume, producer story
+Highly structured pages; offer details public; ideal scraping target; ~600+ active lots across EU/US
+Cafe Imports
+cafeimports.com/green-coffee
+Major specialty importer; publishes full lot catalogs with cup scores, availability, pricing to registered users
+Catalog pages have consistent HTML structure; pricing behind login; count sheet PDFs downloadable
+Bodhi Leaf Coffee Traders
+bodhileafcoffee.com
+Consumer-facing "green coffee for home roasters" storefront; sells specialty lots in small quantities
+Full e-commerce site with public pricing and inventory; easy scrape target
+Sweet Maria's
+sweetmarias.com/green-coffee
+The largest home-roaster green supplier; detailed lot specs, cupping notes, and scores
+Extremely scrape-friendly; consistent product schema; updates weekly; excellent for "sample kit" reference data
+Coffee Shrub
+coffeeshrub.com
+Sweet Maria's wholesale/commercial arm; larger volumes, origin lots for small roasters
+Similar structure to Sweet Maria's; public pricing tiers
+Genuine Origin
+genuineorigin.com
+Volcafe's direct-to-roaster platform; sells full bags (60-70kg) of verified specialty lots
+Clean product pages; inventory status public; ideal for "small roaster" supply data
+Royal Coffee
+royalcoffee.com/crown-jewels
+Major importer with the "Crown Jewel" program: weekly featured micro-lots with full analysis
+Weekly update cadence; public cupping data; scrape-friendly
+InterAmerican Coffee
+interamericancoffee.com
+Large specialty importer with multiple origin catalogs
+Catalog pages structured; pricing via login
+Balzac Brothers
+balzac.com
+Charleston-based importer; publishes origin-specific lot offers
+Moderate scrape difficulty; PDF-based catalogs
+Olam Specialty Coffee
+olamspecialtycoffee.com
+Enterprise trader; publishes select spot offers
+Limited public inventory; mostly requires relationship
+
+Tier B: Origin-Specific Platforms (Emerging Channel)
+Platform
+URL
+Value
+Scraping Feasibility
+Producers Direct
+producersdirect.org
+Smallholder cooperative aggregator; features producer stories + lot data
+Moderate; small inventory
+Sucafina's "In My Mug"
+sucafina.com/en/in-my-mug
+Sucafina's digital trading platform; weekly specialty offers
+Requires login; but worth monitoring
+Beyers Koffie (Vollers)
+beyerskoffie.com
+EU-based green coffee seller
+EU market data; catalog structure varies
+Nordic Approach
+nordicapproach.no
+Norwegian importer focused on African origins; publishes lot lists with cup scores
+Public PDF catalogs; scrapeable with effort
+Belco
+belco.fr
+French importer with strong specialty program; has an online platform for roasters
+French-language; structured offers; EU data point
+
+Tier C: Commercial/Auction Platforms (Pricing Intelligence)
+Source
+URL
+Value for Your Ledger
+Cup of Excellence
+allianceforcoffeeexcellence.org
+Winning lots with historical prices; benchmark for top-tier pricing
+Best of Panama
+bestofpanama.org
+Ultra-high-end lot pricing (Geisha, etc.); sets ceiling for your elasticity model
+Specialty Coffee Transaction Guide
+transactionsguide.com
+Aggregated FOB price data across contract types; essential for your "landed-cost parity" claim
+International Coffee Organization (ICO)
+ico.org
+Composite and group price indices; for baseline commodity pricing in your models
+
+
+
+2. DEMAND-SIDE SOURCES — Where Roasters Publish Themselves
+Your "demand-side clients" are roasters. Here is where they are visible, listed, and reachable—and where you can scrape structured data for lead generation.
+Tier A: Industry Directories (Highest Density, Structured)
+Source
+URL
+What You Get
+Scraping Notes
+SCA (Specialty Coffee Association) Member Directory
+sca.coffee
+~4,000+ roasters globally; company name, location, website, size (inferred)
+Login required for full directory; but member list is partially public; can scrape via search results
+Roast Magazine Roaster Directory
+roastmagazine.com/resources
+Curated US roaster list with links; includes production volume indicators
+Static-ish list; scrape with basic crawler
+Coffee Review
+coffeereview.com
+Reviews of roaster products; reveals quality tier and product lines
+Each review page links to roaster site; allows segmentation by score
+Daily Coffee News (Roast Magazine)
+dailycoffeenews.com
+Press releases about roaster expansions, new equipment, hiring; indicates growth signals
+Article archive searchable by company; ideal for triggering "expansion" leads
+Sprudge
+sprudge.com
+Industry news; roaster features, new cafe openings
+Searchable; less structured than directories
+Specialty Coffee Transaction Guide (Roster)
+transactionsguide.com/roster
+Roasters who report their prices; high-intent buyers
+Limited but highly qualified
+Roasters Guild Membership List
+roastersguild.org
+SCA sub-guild; pure roaster focus
+Similar SCA access constraints
+Cropster Community
+cropster.com/community
+Roasters using Cropster; shows scale (via features used)
+Requires some research; not a pure directory
+
+Tier B: E-Commerce Platforms Where Roasters Sell (Product-Level Intelligence)
+This gives you what they are selling (to infer what green they need):
+Platform
+URL
+What It Reveals
+Scraping Feasibility
+Shopify Store Locator / Search
+Many specialty roasters run on Shopify
+Product names, origins, roast level, price points
+Hard to find "all coffee roasters" systematically, but if you know a roaster's site, you can infer inventory
+Trade (formerly Taza)
+drinktrade.com
+Marketplace for specialty coffee from US roasters; roaster profiles + products
+Excellent scrape target; roaster pages are structured
+Bottomless
+bottomless.com
+Subscription marketplace; roaster profiles
+Similar to Trade; smaller catalog
+Amazon Specialty Coffee
+amazon.com (search "specialty coffee roaster")
+Reveals which roasters have scaled to Amazon fulfillment
+Noise-heavy; but shows "scaled" roasters
+Direct-to-Consumer (DTC) Roaster Sites
+—
+You'll need to build your own roaster website list; from directories above, most roasters have Shopify, WooCommerce, or Squarespace stores. Scrape their product pages to see what they sell.
+High effort, high value for your "what do they actually buy" inference engine
+
+Tier C: Wholesale & Industry Marketplaces (Indicates B2B Buyers)
+Source
+URL
+Value
+Notes
+Faire
+faire.com
+Wholesale marketplace where roasters sell to cafes/retailers; reveals roasters with B2B channels
+Search "coffee roaster"; product and pricing data public
+RangeMe
+rangeme.com
+Retail sourcing platform; some roasters list wholesale offers
+Login-heavy; but can surface roasters targeting grocery
+Specialty Food Association (SFA) Member Directory
+specialtyfood.com
+Roasters targeting gourmet grocery; signals scale
+Directory access via membership
+
+Tier D: Roaster Aggregators & Marketplaces (One-to-Many Visibility)
+Source
+URL
+Value
+Scraping Feasibility
+Beanhunter
+beanhunter.com
+Cafe/roaster directory with reviews; global
+Moderate; useful for geographic mapping
+Happy Cow
+happycow.com
+Vegan/healthfood cafes; may list roasters
+Niche; lower priority
+Google Maps API
+maps.google.com
+Search "coffee roaster" by geography; returns business data including website, phone, rating
+Highly feasible via API; essential for building your initial 4,000-roaster list
+LinkedIn Sales Navigator
+linkedin.com
+Company size, location, key contacts (e.g., "Head Roaster", "Green Buyer")
+API restricted; but manual export or scraping via tools possible; highest-value for "decision-making unit" mapping
+Yelp / TripAdvisor
+yelp.com, tripadvisor.com
+Cafes and roasteries; reveals retail footprint
+Useful for identifying "boutique" segment (multi-cafe)
+
+
+
+3. B2B2C OVERLAY — Platforms That Bridge Both Sides
+These are places where both your supply-side and demand-side segments coexist, making them high-leverage for a single-source scrape:
+Platform
+URL
+Why It's Both Sides
+Recommended Action
+Algrano
+algrano.com
+Producers (supply) list lots; roasters (demand) buy. Your entire value chain lives here.
+Priority #1 for scraping: lot data, pricing, producer profiles, roaster engagement
+Cropster
+cropster.com
+Roasters manage buying; importers manage selling; infrastructure layer for your entire market
+Seek API partnership or invest in robust scraping
+Genuine Origin
+genuineorigin.com
+Supply (Volcafe's lots) + demand (roaster accounts) in one platform
+Monitor for lot turnover, pricing shifts
+Cafe Imports
+cafeimports.com
+Major supply-side; their customer list includes most US roasters (demand)
+Scrape lot catalog; infer which roasters are their customers via social/professional ties
+Sucafina
+sucafina.com
+Enterprise supply; their digital platform "In My Mug" has demand-side engagement
+Low public data; monitor PR for customer announcements
+
+
+
+4. PRIORITIZED SCRAPING SEQUENCE FOR YOUR LEDGER
+Based on your stated need to "populate the ledger" with supply inventory and demand-side accounts, here is the recommended sequence:
+Phase 1: Supply Inventory (Weeks 1–2)
+Sweet Maria's + Coffee Shrub — scrape all green coffee listings (lot, origin, process, score, price, volume). Gives you a baseline "reference price" for home/small roaster market.
+Genuine Origin — scrape all available lots with pricing. This is your "small roaster" supply benchmark.
+Bodhi Leaf — scrape their green inventory; fills in specialty varieties and micro-lots.
+Cafe Imports — scrape catalog pages (public). This gives you "mid-tier importer" inventory.
+Algrano — scrape all public lot offers. This is your "direct trade" benchmark and includes producer profiles.
+Expected output: 500–2,000 individual lots with origin, process, score, price, and volume.
+Phase 2: Demand Leads (Weeks 3–4)
+SCA Member Directory (or public member list) — extract company names, locations, websites for US/EU roasters. Target: 4,000+ records.
+Trade (drinktrade.com) — scrape roaster profiles and product catalogs. Reveals which origins they currently sell (infer green buying patterns).
+Coffee Review — scrape review pages; segment by score (86+, 90+, etc.). Gives you "quality tier" for lead scoring.
+Roast Magazine Directory + Daily Coffee News — add roaster records; flag recent news (expansion = likely buying).
+Google Maps API — run "coffee roaster" queries across target metros; fill gaps in the SCA list.
+Expected output: 3,500–5,500 roaster records with website, location, quality tier, and engagement signals.
+Phase 3: Enrichment (Week 5+)
+LinkedIn — for each roaster, extract key contacts (Green Buyer, Head Roaster, Owner). This powers your "decision-making unit" mapping.
+Shopify product pages — for roasters with known websites, scrape their product listings to see what they are currently roasting (origins, prices, bag sizes). This allows you to predict what green coffee they need next.
+Win/Loss and Price Tracking — monitor Algrano, Genuine Origin, and Cafe Imports for lot turnover (what sells out, what's discounted). This informs your "speed to decision" claim.
+
+5. SCRAPING FEASIBILITY MATRIX
+Source
+Data Structure
+Login Required?
+Rate Limits?
+Recommended Approach
+Sweet Maria's
+Excellent
+No (except wholesale)
+Moderate
+BeautifulSoup + schedule
+Coffee Shrub
+Excellent
+No
+Moderate
+Same as Sweet Maria's
+Bodhi Leaf
+Good
+No
+Low
+Scrapy
+Genuine Origin
+Good
+Partial (pricing needs account)
+Unknown
+Selenium/Playwright for pricing
+Algrano
+Good
+Yes for offers
+Moderate
+Requests session; respect robots.txt
+Cafe Imports
+Good
+Yes for pricing
+Unknown
+Public pages only initially
+Trade
+Excellent
+No
+Moderate
+Requests + JSON endpoints
+SCA Directory
+Moderate
+Yes
+Low
+Manual export or member access
+LinkedIn
+Excellent (but protected)
+Yes
+Aggressive
+Use official API or third-party enrichment (e.g., Apollo, Clearbit)
+Google Maps
+Excellent (API)
+No (API key)
+2,500 free queries/day
+Use Google Places API
+Coffee Review
+Good
+No
+Low
+BeautifulSoup
+
+
+
+6. LEGAL & ETHICAL NOTES FOR YOUR SCRAPING OPERATION
+Robots.txt compliance: Most of these sites have robots.txt that may disallow product scraping. Check first; where disallowed, consider API (if available), partnership (e.g., becoming a customer), or manual data entry for MVP.
+Terms of Service: Algrano, Cropster, and Cafe Imports are not simple e-commerce sites; they have platform terms. Start with public data; for gated data, consider a licensing conversation or a mutually beneficial partnership ("we'll feature your lots to our roaster network").
+Data freshness: Green coffee inventory changes weekly. Schedule scrapes weekly (or daily for high-turnover sites like Genuine Origin).
+Rate limiting: Use polite scraping (2–3 second delay, cache pages, retry-after). Deploy from a residential IP or rotating proxy if needed.
+PII boundaries: For LinkedIn and directory scraping, avoid scraping personal emails or phone numbers without consent. Use company domains and publicly listed roles.
+
+7. WHAT TO DO WITH THE SCRAPED DATA (Your Ledger Schema)
+Here's a suggested schema for your "Greensheet Ledger" spreadsheet/database:
+Supply-Side Ledger (green coffee lots)
+Column
+Description
+Source Priority
+lot_id
+Unique identifier from source platform
+Auto-generated
+origin
+Country, region, farm
+All sources
+producer
+Farm/coop name
+Algrano, Cafe Imports
+varietal
+Coffee variety
+Sweet Maria's, Bodhi Leaf
+processing_method
+Washed, natural, honey, anaerobic, etc.
+All sources
+cup_score
+SCA score if available
+Algrano, Cafe Imports, Sweet Maria's
+altitude_masl
+Elevation
+All sources
+price_per_lb_fob
+Free-on-board price
+Genuine Origin, Algrano (if public)
+available_volume_lbs
+Current inventory
+Genuine Origin, Algrano, Cafe Imports
+source_platform
+Where scraped from
+—
+listed_date
+Date scraped
+—
+sold_out
+Boolean flag after subsequent scrapes
+Track over time
+price_history
+JSON of previous prices
+Useful for elasticity
+traceability_url
+Chain-of-custody link
+Algrano, Cafe Imports
+
+Demand-Side Ledger (roaster accounts)
+Column
+Description
+Source Priority
+roaster_id
+Unique internal ID
+Auto-generated
+company_name
+Legal entity name
+SCA, LinkedIn
+website
+Primary domain
+All directories
+location_city
+HQ city
+SCA, Google Maps
+location_state
+HQ state
+SCA, Google Maps
+estimated_size
+micro, boutique, commercial (your segments)
+Inferred from: staff count (LinkedIn), production volume (news), number of cafes (Google Maps)
+current_origins_roasted
+List of origins currently sold
+Trade, product pages
+avg_roast_level
+Light/medium/dark (from product descriptions)
+Trade, product pages
+quality_tier
+Inferred from Coffee Review scores
+Coffee Review
+engagement_signals
+Recent news (expansion, hiring, new cafe)
+Daily Coffee News, Sprudge
+lead_score
+Computed value for your XGBoost model
+Formula-based initially
+key_contact_name
+Green Buyer or Owner
+LinkedIn enrichment
+key_contact_role
+Job title
+LinkedIn enrichment
+email_domain
+For cold outreach
+Website + catch-all check
+first_seen_date
+When you added them
+—
+last_activity_date
+Last detected signal (purchase, post, news)
+—
+churn_risk
+Flag if no activity 6+ months
+Your days_since_last_order logic
+
+
+
+8. QUICK-START ACTION PLAN (First 72 Hours)
+Day 1 (Hours 1–8):
+Set up scraping environment (Python + Scrapy or BeautifulSoup).
+Scrape Sweet Maria's and Coffee Shrub green coffee catalogs. (They are the most scrape-friendly and provide immediate supply data.)
+Export to your supply ledger.
+Day 2 (Hours 9–24):
+Scrape Genuine Origin public pages (and create an account to attempt pricing page scrape).
+Scrape Trade (drinktrade.com) roaster profiles + product listings.
+Begin compiling roaster list from SCA public directory and Roast Magazine.
+Day 3 (Hours 25–48):
+Scrape Algrano lot offers (respect rate limits).
+Scrape Bodhi Leaf and Cafe Imports catalog pages.
+Run Google Maps API for "coffee roaster" across top 50 US metros.
+Consolidate all data into a unified spreadsheet (Google Sheets or Airtable) with the schema above.
+Flag 100 highest-priority roaster leads (boutique tier, recent news, high quality score).
+
+9. NEXT-LEVEL INTELLIGENCE (After MVP)
+Once your ledger is populated:
+Monitor lot turnover: Track which lots sell out, how fast, and at what price. This validates your "speed to decision" claim.
+Price elasticity mapping: Cross-reference lot prices with cup scores and origin. Build your Bayesian pricing model.
+Predictive lead scoring: Use the roaster ledger + engagement signals to train your XGBoost churn model.
+Supplier-side intelligence: For importers (your paying customers), you can now tell them: "Here are 300 roasters who bought a washed Ethiopia this quarter, and their average order size is X." That's your CRM value prop.
+Incentive mapping: Cross-reference roaster locations with Opportunity Zones and state-level tax credits to add financial incentives to your pitch.
+
+SUMMARY TABLE: Where to Scrape First
+Priority
+Source
+Side
+Data You Get
+Difficulty
+1
+Sweet Maria's + Coffee Shrub
+Supply
+Green lots, prices, scores
+Low
+2
+Trade
+Demand
+Roaster profiles, product lines
+Low
+3
+SCA Directory
+Demand
+Roaster company list
+Medium
+4
+Genuine Origin
+Supply
+Full-bag lots, pricing
+Medium
+5
+Algrano
+Both
+Lots + roaster engagement
+Medium
+6
+Bodhi Leaf
+Supply
+Micro-lot inventory
+Low
+7
+Cafe Imports
+Supply
+Importer catalog
+Medium
+8
+Google Maps API
+Demand
+Roaster locations, scale signals
+Low (API)
+9
+LinkedIn
+Demand
+Key contacts, company size
+High (protected)
+10
+Daily Coffee News
+Demand
+Growth signals, press
+Low
+
+
+
+This is your complete market data acquisition blueprint. Would you like me to now generate the actual scraping scripts, the spreadsheet template, or the first-pass lead-scoring formula for your Greensheet ledger?
+

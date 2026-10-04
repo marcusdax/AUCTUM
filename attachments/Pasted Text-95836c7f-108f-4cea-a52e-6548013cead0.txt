@@ -1,0 +1,921 @@
+THE FERMENTATION FIELD MANUAL
+A Step-by-Step Cookbook for Post-Harvest Coffee Fermentation
+Ingredients, process parameters, and inexpensive auditing with gauges and sensors any farm or micro-lab can afford
+
+
+SECTION 0: HOW TO USE THIS MANUAL
+This manual is written to be used standing next to a fermentation tank with wet hands, not read in an office.
+
+Part I builds your instrument kit—every gauge and sensor referenced in a recipe, with a genuinely inexpensive option for each.
+
+Part II is the recipe library: one process per card, with ingredients, equipment, numbered steps, and the exact numbers (temperature, pH, °Brix, time, moisture) that tell you when a batch is done instead of when you feel like it's done.
+
+Part III is the logbook you copy for every batch you run—because the entire point of cheap instruments is that they only pay for themselves if you write down what they tell you.
+
+Every process below can be scaled from a single 20 kg cherry batch on a smallholder's patio to a 2,000 kg lab-controlled tank run. Where a recipe needs equipment beyond the base kit, it's called out at the top of the card.
+
+
+SECTION 1: THE INEXPENSIVE AUDITING KIT
+1.1 The Six Core Instruments
+You do not need a wine lab to run a controlled fermentation. You need six instruments, all available for well under the cost of a single rejected lot, and the discipline to read and log them at the same time every day.
+
+Total kit cost: USD $70–140 depending on which budget options you choose.
+
+Instrument
+Cost
+Purpose
+Notes
+pH Meter
+$12–30
+Tracks the acid curve—the single best proxy for "is this batch done"
+Digital pen with auto-calibration. Calibrate with pH 4.01 and 7.01 buffer sachets. Rinse with clean water between readings; never wipe dry.
+Brix Refractometer
+$12–25
+Measures dissolved sugar in mucilage or must—tells how much fuel is left
+$10 analog hand-held is adequate. Look for one with automatic temperature compensation (ATC).
+Digital Thermometer/Probe
+$8–20
+Fermentation rate roughly doubles for every 10°C rise—temperature is your throttle
+Stainless probe thermometer with alarm. Instant-read meat thermometer works identically.
+Grain-Style Moisture Meter
+$25–60
+Reads % moisture directly in parchment or dried cherry
+Replaces guessing by bite-test or bag feel. If unavailable, use the Loss-on-Drying method in §1.3.
+Kitchen/Compact Digital Scale
+$10–25
+Weighs cherry in, parchment out, culture doses, and samples
+1g resolution minimum, 0.1g if dosing yeast or bacterial cultures. Any cooking or reloading scale works.
+Timer/Simple Datalogger
+$0–15
+Fermentation is a clock as much as a chemistry set
+Phone timer is free. A $12–15 min/max thermometer with alarm catches overnight temperature spikes.
+
+1.2 Optional / Premium Tier
+Instrument
+Cost
+When It Earns Its Keep
+Airlock/One-Way Valve Fermentation Lid
+$5–10 each
+Any sealed anaerobic or carbonic maceration run—bubble rate is a free activity gauge
+Hydrometer + Test Jar
+$8–12
+Alternative to refractometer for liquid-only ferments where sample volume isn't scarce
+Hygrometer/Ambient Thermometer
+$10–15
+Natural and honey processes live and die on drying-bed climate
+Water Activity (aw) Meter
+$150–300
+Confirms a lot is genuinely storage-stable (target aw < 0.65)—worth it only once volumes justify it
+CO₂ Source for Carbonic Maceration
+$10–30/batch
+Purges oxygen from a sealed tank fast instead of waiting for cherries' own respiration
+
+1.3 Loss-on-Drying: Moisture Without a Meter
+Weigh a small sample (100g is easiest math) of parchment or dried cherry on your scale. Record the weight.
+
+Spread it thin in a dry pan and set it in full sun or a low oven (under 45°C, so you don't cook the bean) for 20–30 minutes.
+
+Re-weigh. Repeat until two consecutive weighings barely change—that's your dry reference weight.
+
+% moisture ≈ (wet weight − dry reference weight) ÷ wet weight × 100.
+
+Cross-check a few samples against a professional meter when you get the chance to calibrate your eye.
+1.4 Sanitation Without Industrial Chemicals
+Citric acid solution (5–10g/L in clean water) sanitizes tanks, hoses, and drying surfaces as effectively as chlorine, without leaving off-flavors or chlorophenol risk.
+
+Hot water above 80°C is a free sanitizer for any tool that tolerates it.
+
+Never use household bleach on anything that will touch cherry, mucilage, or parchment—chlorine taint is one of the few defects you cannot cup your way out of.
+
+
+SECTION 2: THE RECIPE LIBRARY
+Each recipe gives you ingredients, equipment beyond the base kit, numbered steps, and the target numbers that define "done." Ranges are starting points for a first run at your elevation and ambient temperature—log every batch and narrow the range to your own site within three to four batches.
+
+
+RECIPE 1: CLASSIC WASHED
+Ingredients:
+
+Fully ripe, hand-sorted cherry (reject green, overripe, and insect-damaged)
+Clean, food-safe water for depulping, fermenting, and washing
+Optional: pectinase enzyme (follow manufacturer dose) to shorten fermentation in cool climates
+
+Equipment Beyond Base Kit:
+
+Depulper
+Fermentation tank (concrete, food-grade plastic, or lined) sized to your daily cherry intake
+Wash channels or agitation paddle
+
+Method:
+
+Depulp same-day-picked cherry. Discard floaters during pre-depulp flotation—they are underdense, usually defective.
+
+Fill fermentation tank with depulped parchment, dry or under a shallow water cover per your house style. Record start temperature and pH immediately (fresh mucilage runs pH 5.5–6.0).
+
+Ferment 12–36 hours depending on ambient temperature:
+
+12–18 hours above 28°C
+24–36 hours below 20°C
+
+Check pH every 6 hours. Fermentation is complete when pH drops to roughly 4.0–4.5 and the parchment feels gritty, not slimy, when rubbed between fingers—the mucilage has broken down and released.
+
+Wash immediately once the endpoint is hit—over-fermenting past this window is the single most common cause of vinegar/onion off-notes.
+
+Dry parchment to 10–12% moisture (§1.3 or moisture meter), turning regularly for the first 48 hours to prevent case-hardening.
+
+⚠ Critical Note: If pH is still above 5.0 after 36 hours at moderate temperature, suspect a cold tank or a dead/expired enzyme dose—do not simply wait longer without checking temperature first.
+
+Target Numbers: | Parameter | Target | |-----------|--------| | Start pH | 5.5–6.0 | | End pH | 4.0–4.5 | | Temperature | 18–28°C | | Duration | 12–36 hours | | Final Moisture | 10–12% |
+
+
+RECIPE 2: TRADITIONAL NATURAL (SUN-DRIED WHOLE CHERRY)
+Ingredients:
+
+Fully ripe cherry only—natural process has zero tolerance for underripe fruit, which will taste green and grassy through the skin
+
+Equipment Beyond Base Kit:
+
+Raised drying beds or patio with airflow underneath
+Shade cloth for the first days in strong sun
+
+Method:
+
+Spread whole cherry in a single layer, no more than 2–3 cm deep, on raised beds.
+
+Cover with shade cloth (30–50% shade) for the first 3–5 days—direct sun on wet cherry cooks the outer skin and traps moisture inside.
+
+Turn by hand every 1–2 hours during peak daylight for the first week; reduce to 4–6 times daily as drying slows.
+
+Track moisture daily from an initial ~65% (whole cherry) down to 11–12% target. Expect 15–25 days depending on climate and cherry density.
+
+Move to full sun once skins are leathery (roughly day 6–10) and continue turning until target moisture is reached and holds for two consecutive readings.
+
+Rest in breathable bags for 10–15 days before hulling to let moisture equalize through the bean (a step processors call "parchment/cherry rest").
+
+⚠ Critical Note: A sweet, dried-fruit smell with no sourness is the sign of a clean natural. Sharp vinegar or nail-polish smell any time before day 10 means fermentation ran too hot or beds are stacked too thick—spread thinner and increase turning.
+
+Target Numbers: | Parameter | Target | |-----------|--------| | Initial Moisture | ~65% | | Final Moisture | 11–12% | | Shade Period | 3–5 days | | Total Drying | 15–25 days | | Rest Period | 10–15 days |
+
+
+RECIPE 3: HONEY PROCESS SPECTRUM (WHITE → BLACK)
+Ingredients:
+
+Ripe cherry, depulped same-day; no added water
+
+Equipment Beyond Base Kit:
+
+Depulper with adjustable mucilage-removal setting (or manual mucilage scraping for small batches)
+Raised drying beds
+Shade cloth
+
+Method:
+
+Depulp and set the mucilage-removal target for your style:
+
+White Honey: ~10–20% mucilage retained
+Yellow Honey: ~30–50%
+Red Honey: ~60–80%
+Black Honey: ~90–100% (essentially undemucilaged)
+
+Spread on raised beds immediately—no soak or tank fermentation step; the sugar-fermentation happens on the bed as it dries.
+
+Shade percentage scales with mucilage retained:
+
+White: almost no shade needed
+Yellow: 20–30% shade
+Red: 40–60% shade
+Black: 60–80% shade for the first 5–7 days
+
+Turn frequently in the first 3 days to prevent parchment sticking together in clumps—this is the main technical failure mode of high-mucilage honeys.
+
+Track moisture to 10–12% target.
+
+Style
+Mucilage Retained
+Shade (Days 1–5)
+Typical Drying Time
+White Honey
+10–20%
+10–20%
+10–14 days
+Yellow Honey
+30–50%
+20–30%
+13–18 days
+Red Honey
+60–80%
+40–60%
+16–24 days
+Black Honey
+90–100%
+60–80%
+20–30 days
+
+
+
+RECIPE 4: ANAEROBIC FERMENTATION (NATURAL OR WASHED BASE)
+Ingredients:
+
+Ripe cherry (whole for Anaerobic Natural, depulped for Anaerobic Washed)
+
+Equipment Beyond Base Kit:
+
+Sealed food-grade tank or drum with an airlock/one-way valve lid
+Optional: CO₂ source to purge headspace at the start
+
+Method:
+
+Load cherry or parchment into the tank, leaving 10–15% headspace. Purge the headspace with CO₂ if you have a source; otherwise seal and let the cherries' own respiration displace oxygen over the first few hours.
+
+Seal with an airlock so building CO₂ can vent without air getting back in. Record start temperature and pH.
+
+Hold temperature 18–25°C where possible—a shaded, insulated tank or a buried tank is a low-cost way to stabilize this without mechanical cooling.
+
+Ferment 48–120 hours. Check pH every 12 hours through a sealable sampling port, or briefly once daily if no port exists—minimize how often you break the seal.
+
+Target endpoint pH is style-dependent:
+
+4.2–4.5 for a fruit-forward, lighter style
+3.8–4.2 for a deeper, more intensely fermented style
+
+The airlock's bubble rate slowing to near-nothing is a secondary sign fermentation has plateaued.
+
+Open, wash (if washed-base) or move straight to drying beds (if natural-base), and dry to 10–12% moisture.
+
+⚠ Critical Note: Never open a sealed anaerobic tank early to "check on it" more than once a day—each opening lets in oxygen and resets part of the microbial environment you're trying to control.
+
+Target Numbers: | Parameter | Target | |-----------|--------| | Temperature | 18–25°C | | Duration | 48–120 hours | | End pH (Fruity) | 4.2–4.5 | | End pH (Deep) | 3.8–4.2 | | Final Moisture | 10–12% |
+
+
+RECIPE 5: CARBONIC MACERATION (WHOLE CHERRY, CO₂ ENVIRONMENT)
+Ingredients:
+
+Whole ripe cherry, uncrushed and undamaged—the technique depends on intact skins
+
+Equipment Beyond Base Kit:
+
+Sealed tank with airlock
+Food-grade dry ice (cheapest reliable CO₂ source) or bottled CO₂ with regulator
+
+Method:
+
+Load whole cherry into the tank without crushing. Place a wrapped block of food-grade dry ice in the headspace (do not let it contact the fruit directly) or inject bottled CO₂ through a valve.
+
+Seal immediately once the dry ice has fully sublimated or the CO₂ injection is complete—this displaces oxygen far faster than natural respiration alone.
+
+Hold 18–22°C for 72–120 hours. Because there is no free liquid to sample, monitor by proxy: track internal tank temperature and airlock bubble activity rather than pH.
+
+At the 72-hour mark, open briefly and cut-test a handful of cherries—flesh should be visibly softened and aromatic (bright red fruit, floral) with no sourness. Continue in 12-hour increments until this profile is reached, up to 120 hours.
+
+Depulp and finish as a natural (direct to drying beds) or washed (ferment briefly, 4–8h, then wash) depending on target profile, then dry to 10–12% moisture.
+
+Target Numbers: | Parameter | Target | |-----------|--------| | Temperature | 18–22°C | | Duration | 72–120 hours | | Cut-Test Check | 72 hours | | Final Moisture | 10–12% |
+
+
+RECIPE 6: YEAST-INOCULATED FERMENTATION
+Ingredients:
+
+Ripe cherry, depulped or whole per style
+Commercial coffee-fermentation yeast strain (Saccharomyces cerevisiae ale, wine, or sake-style; or non-Saccharomyces strains such as Torulaspora or Pichia)
+Dechlorinated water for rehydration
+
+Equipment Beyond Base Kit:
+
+Sealed or open tank per style
+Small container and thermometer for the rehydration step
+
+Method:
+
+Rehydrate the culture per the manufacturer's dose (typically 0.5–2g dry culture per 10kg cherry, but always defer to the packet) in dechlorinated water at 35–40°C for 15–20 minutes. Do not exceed 40°C—it kills the culture.
+
+Pitch the rehydrated culture evenly over the loaded cherry or parchment and mix gently to distribute.
+
+Seal (for anaerobic-style yeast ferments) or leave open (for aerobic yeast ferments) per the flavor target—sealed tends toward brighter esters, open toward baked/bready notes.
+
+Hold fermentation temperature within the strain's published range:
+
+Ale strains: 18–22°C
+Wine strains: 15–20°C
+Sake-adjacent strains: 15–18°C
+
+Track pH every 12 hours. Inoculated ferments typically finish faster than wild ferments—expect a defined endpoint in 24–72 hours rather than the longer wild-ferment windows above.
+
+Wash or move to drying beds at the pH/sensory endpoint and dry to 10–12% moisture.
+
+⚠ Critical Note: Never reuse rehydration water above 40°C and never rehydrate directly into chlorinated tap water—both will kill or stress the culture and give you an unpredictable, wild-dominated result instead of the strain you paid for.
+
+Target Numbers: | Parameter | Ale Strains | Wine Strains | Sake Strains | |-----------|------------|--------------|--------------| | Rehydration Temp | 35–40°C | 35–40°C | 35–40°C | | Fermentation Temp | 18–22°C | 15–20°C | 15–18°C | | Duration | 24–72 hours | 24–72 hours | 24–72 hours | | End pH | 4.0–4.5 | 4.0–4.5 | 4.0–4.5 |
+
+
+RECIPE 7: LACTIC FERMENTATION
+Ingredients:
+
+Ripe cherry, depulped
+Lactic acid bacteria (LAB) starter culture, or a budget substitute of a small volume of unflavored live-culture whey/yogurt liquid as a wild LAB source
+
+Equipment Beyond Base Kit:
+
+Sealed tank preferred (LAB thrive in low-oxygen conditions)
+
+Method:
+
+Depulp and load parchment into the tank. Add the LAB starter (or whey substitute, roughly 2–5% of batch volume) and mix to distribute.
+
+Seal to favor anaerobic lactic activity over wild yeast and acetic bacteria.
+
+Hold a warmer band than other recipes—28–35°C—LAB is comparatively heat-tolerant and this range speeds a clean lactic result before spoilage organisms can compete.
+
+Ferment 12–24 hours, checking pH every 4–6 hours; lactic fermentations move fast. Target endpoint pH 3.8–4.2.
+
+Wash and dry to 10–12% moisture as in Recipe 1.
+
+Target Numbers: | Parameter | Target | |-----------|--------| | Temperature | 28–35°C | | Duration | 12–24 hours | | End pH | 3.8–4.2 | | Final Moisture | 10–12% |
+
+
+RECIPE 8: SEQUENTIAL / DOUBLE FERMENTATION
+Ingredients:
+
+Ripe cherry, depulped or whole depending on the first-phase style chosen
+
+Equipment Beyond Base Kit:
+
+Same as the two component recipes being combined (e.g., a sealed tank for the anaerobic phase, then wash channels for the aerobic phase)
+
+Method:
+
+Run Phase 1 as its own complete recipe from this manual (commonly Recipe 4, Anaerobic) to its normal endpoint pH, logging it exactly as that recipe specifies.
+
+Drain or open the tank and immediately begin Phase 2 as a second, distinct recipe (commonly a short aerobic or washed fermentation, 6–12 hours) rather than extending Phase 1 further.
+
+Track pH continuously through both phases on one combined log line so the transition point is visible later—this is the batch record you'll want most when a buyer asks how the cup got its layered profile.
+
+Wash and dry to 10–12% moisture once Phase 2 reaches its own endpoint.
+
+Common Combinations: | Phase 1 | Phase 2 | Flavor Outcome | |---------|---------|----------------| | Anaerobic (72h) | Aerobic (12h) | Fruit forward with clean finish | | Carbonic Maceration (72h) | Washed (8h) | Bright red fruit, floral | | Lactic (24h) | Anaerobic (48h) | Creamy, deep fruit | | Anaerobic (48h) | Lactic (12h) | Fruity with creamy mouthfeel |
+
+
+RECIPE 9: FRUIT CO-FERMENTATION
+Ingredients:
+
+Ripe cherry, depulped
+Fresh or pureed companion fruit (peach, pineapple, passionfruit, or similar), food-safety-checked and free of mold
+
+Equipment Beyond Base Kit:
+
+Sealed tank
+Extra sanitation supplies (§1.4)—co-ferments carry a materially higher spoilage risk than coffee alone
+
+Method:
+
+Sanitize the tank and all tools more thoroughly than for any other recipe in this manual—added fruit sugar and moisture is an open invitation to spoilage organisms if hygiene lapses.
+
+Load depulped cherry with the companion fruit at 10–20% of batch weight, distributed evenly, not layered.
+
+Seal and hold 18–24°C. Fermentation runs faster than a plain anaerobic batch because of the extra sugar load—check pH every 8–12 hours rather than every 12–24.
+
+Target endpoint pH 4.0–4.4, and confirm by smell/taste of the liquor: it should read as clean fruit, not cooked or stewed fruit—a stewed note means you've gone past the endpoint.
+
+Wash thoroughly to remove all fruit residue, then dry to 10–12% moisture. Dry co-ferment lots separately from other batches to avoid cross-contaminating drying beds with residual fruit sugars.
+
+⚠ Critical Note: Only use fruit that is itself food-safe and mold-free. A co-ferment is not a place to use spoiling or overripe fruit "anyway"—it concentrates the risk instead of using it up.
+
+Target Numbers: | Parameter | Target | |-----------|--------| | Fruit Addition | 10–20% | | Temperature | 18–24°C | | pH Check | Every 8–12 hours | | End pH | 4.0–4.4 | | Final Moisture | 10–12% |
+
+
+SECTION 3: THE BATCH LOGBOOK
+3.1 Logbook Template
+Photocopy this table per batch, or rule it into a field notebook. A cheap gauge that isn't logged is just a decoration—the log is what turns six instruments into a reproducible process.
+
+Field
+Entry
+Batch ID / Lot
+
+
+Recipe # / Process
+
+
+Cherry Weight In (kg)
+
+
+Variety / Farm Block
+
+
+Start Date/Time
+
+
+Start pH
+
+
+Start °Brix
+
+
+Ambient Temp at Load
+
+
+Tank/Bed Temp—6h Checks
+
+
+pH—Logged Every Check Interval
+
+
+°Brix—Logged Every Check Interval
+
+
+Moisture %—Daily During Drying
+
+
+End pH / Endpoint Trigger
+
+
+Total Fermentation Time
+
+
+Total Drying Time
+
+
+Parchment/Green Weight Out
+
+
+Cupping Score (Once Cupped)
+
+
+Notes / Defects Observed
+
+
+
+3.2 Sample Log Entry
+Field
+Entry
+Batch ID / Lot
+VN-26-001
+Recipe # / Process
+Recipe 4: Anaerobic Natural
+Cherry Weight In (kg)
+500
+Variety / Farm Block
+Robusta TR9, Future Farm
+Start Date/Time
+2026-02-15 08:00
+Start pH
+5.8
+Start °Brix
+22.5
+Ambient Temp at Load
+24°C
+Tank/Bed Temp—6h Checks
+22°C (12h), 21°C (18h), 22°C (24h)
+pH—Logged Every Check Interval
+5.2 (12h), 4.8 (18h), 4.5 (24h), 4.2 (36h), 4.0 (48h)
+°Brix—Logged Every Check Interval
+20.1 (12h), 18.2 (18h), 16.0 (24h), 14.1 (36h), 12.5 (48h)
+Moisture %—Daily During Drying
+60% (Day 1), 45% (Day 3), 25% (Day 7), 15% (Day 10), 11.5% (Day 12)
+End pH / Endpoint Trigger
+3.95 (48h)
+Total Fermentation Time
+48 hours
+Total Drying Time
+12 days
+Parchment/Green Weight Out
+81 kg green
+Cupping Score (Once Cupped)
+84.5
+Notes / Defects Observed
+Clean fermentation, no off-flavors. Slightly slower at 22°C than expected; next batch aim for 24°C.
+
+3.3 Batch Tracking Dashboard
+Maintain a master tracking file (Excel or database) with the following columns:
+
+Field
+Type
+Purpose
+Batch ID
+Text
+Unique identifier
+Recipe #
+Number
+Process used
+Date Started
+Date
+Start date
+Date Finished
+Date
+End date
+Input Weight (kg)
+Number
+Cherry weight in
+Output Weight (kg)
+Number
+Parchment/green weight out
+Yield (%)
+Number
+Output ÷ Input
+Start pH
+Number
+Initial reading
+End pH
+Number
+Final reading
+Start Temp (°C)
+Number
+Initial tank/bed temperature
+End Temp (°C)
+Number
+Final tank/bed temperature
+Duration (hours)
+Number
+Fermentation time
+Drying Time (days)
+Number
+Total drying days
+Final Moisture (%)
+Number
+End moisture content
+Cup Score
+Number
+Q-grader score
+Cupper
+Text
+Who scored it
+Defects
+Text
+Any defects observed
+Notes
+Text
+Observations
+Batch Status
+Text
+Active / Completed / Rejected
+
+
+
+SECTION 4: QUALITY CONTROL & TROUBLESHOOTING
+4.1 Common Defects and Their Causes
+Defect
+Sensory Signature
+Likely Cause
+Solution
+Vinegar / Onion
+Sharp acidic, unpleasant sulfur
+Over-fermentation, too long or too hot
+Shorter fermentation time; better temperature control; wash earlier
+Moldy / Musty
+Damp basement, cardboard
+Insufficient drying, poor airflow
+Better turning; thinner layers; ensure airflow; improve shade management
+Green / Grassy
+Underripe fruit
+Underripe cherry; too short fermentation
+Better cherry selection at harvest; longer fermentation
+Fermented / Overripe
+Rotting fruit, alcohol
+Overripe cherry; too hot during natural
+Better cherry selection; faster drying; more frequent turning
+Cooking / Stewed
+Cooked fruit, jammy
+Too much sun on wet cherry
+More shade in first days; better temperature management
+Chemical / Phenolic
+Plastic, band-aid
+Chlorine contamination; improper sanitization
+Stop using bleach; use citric acid; better rinse
+
+4.2 Quick Reference: Endpoint Indicators
+Process
+Primary Endpoint Indicator
+Secondary Endpoint
+Typical Duration
+Washed
+pH 4.0–4.5, gritty feel
+Mucilage slips off
+12–36 hours
+Natural
+Moisture 11–12%, 2 stable days
+No sour smell
+15–25 days
+Honey
+Moisture 11–12%, no stickiness
+Even color
+10–30 days
+Anaerobic
+pH 3.8–4.5, airlock slow
+Lactic, fruity aroma
+48–120 hours
+Carbonic Maceration
+Cut-test, 72h minimum
+Bright red fruit aroma
+72–120 hours
+Yeast-Inoculated
+pH 4.0–4.5, defined endpoint
+Fruity esters
+24–72 hours
+Lactic
+pH 3.8–4.2, fast drop
+Creamy, yogurt
+12–24 hours
+Fruit Co-Ferment
+pH 4.0–4.4, clean fruit aroma
+Fruit infusion detected
+24–72 hours
+
+4.3 The Five-Minute Fermentation Audit
+Before starting any batch, run this quick equipment check:
+
+pH meter: Calibrated? Buffer sachets fresh? Probe clean?
+Temperature: Probe accurate? Tank ambient stable?
+Scale: Calibrated? Zeroed?
+Sanitation: Citric acid solution ready? Tools clean?
+Logbook: Ready to record? All fields accessible?
+
+If any answer is "no," fix it before starting. A five-minute check is cheaper than a rejected lot.
+
+
+SECTION 5: SCALING UP
+5.1 From Small Batch to Commercial Scale
+Scale
+Batch Size
+Equipment Needed
+Investment
+Micro / Experimental
+5–20 kg
+Hand tools, basic instruments
+$100–300
+Smallholder
+20–100 kg
+Depulper, fermentation tank, drying beds
+$500–2,000
+Cooperative / Mill
+100–1,000 kg
+Mechanical depulper, multiple tanks, mechanical drying
+$5,000–20,000
+Commercial
+1,000–5,000 kg
+Full wash station, temperature-controlled tanks, automated drying
+$50,000–200,000
+
+5.2 Key Scaling Considerations
+Factor
+Small Scale
+Commercial Scale
+Temperature Control
+Passive (shade, insulated tank)
+Active (chillers, heaters, sensors)
+pH Monitoring
+Manual (pH pen)
+Automated (continuous sensors)
+Drying
+Sun-dried, raised beds
+Mechanical dryers, parabolic dryers
+Quality Control
+Batch-level
+Lot-level with traceability
+Logging
+Paper logbook
+Digital, IoT-enabled
+
+5.3 The IoT Upgrade Path
+When volumes justify it, the manual instrument kit can be upgraded to:
+
+Instrument
+Upgrade
+Cost
+Benefit
+pH
+Continuous pH probe with datalogging
+$200–500
+Hourly readings without opening tank
+Temperature
+WiFi temp logger with alerts
+$50–100
+Overnight spike detection
+Moisture
+Continuous moisture monitor
+$300–800
+Real-time drying feedback
+Logging
+Automated batch logging system
+$1,000–5,000
+Eliminates manual entry errors
+
+
+
+SECTION 6: FARMER TRAINING MODULE
+6.1 Core Training Sessions
+Module
+Duration
+Content
+Intro to Specialty Fermentation
+1 day
+Why process matters; overview of all recipes; sensory basics
+Instrument Training
+1 day
+pH meter, refractometer, thermometer, moisture meter—how to use and maintain
+Washed Process
+1 day
+Full hands-on: depulp, ferment, wash, dry
+Natural Process
+1 day
+Full hands-on: selection, drying, turning, moisture monitoring
+Honey Process
+1 day
+Full hands-on: mucilage management, drying, shade control
+Anaerobic Process
+1 day
+Full hands-on: tank setup, sealing, monitoring, endpoint detection
+Yeast Inoculation
+1 day
+Culture handling, rehydration, pitching, monitoring
+Quality Control
+1 day
+Defect identification, cupping basics, batch evaluation
+Batch Logging
+1 day
+Paper logbook, data entry, reading the data
+Scaling Up
+1 day
+Equipment investment, operational planning, quality at scale
+
+6.2 Training Materials
+Logbook templates (printed, waterproof paper)
+"Quick Reference Card" (laminated, for wet hands)
+Instrument care guides (how to calibrate, clean, store)
+Defect identification photos (reference set)
+Recipe cards (one per process, waterproof)
+Batch tracking spreadsheet (digital template)
+
+
+APPENDIX A: QUICK REFERENCE CARDS
+A.1: pH to Endpoint Guide
+Process
+Start pH
+End pH
+Endpoint Check
+Washed
+5.5–6.0
+4.0–4.5
+Gritty feel, slips off parchment
+Natural
+Not applicable
+Not applicable
+11–12% moisture, 2 stable days
+Honey
+Not applicable
+Not applicable
+11–12% moisture, no stickiness
+Anaerobic (Fruity)
+5.5–6.0
+4.2–4.5
+Airlock slowing
+Anaerobic (Deep)
+5.5–6.0
+3.8–4.2
+Lactic, fruity aroma
+Carbonic Maceration
+Not applicable
+Not applicable
+Cut-test, 72h minimum
+Yeast-Inoculated
+5.5–6.0
+4.0–4.5
+Defined endpoint, fruity esters
+Lactic
+5.5–6.0
+3.8–4.2
+Creamy, yogurt aroma
+Fruit Co-Ferment
+5.5–6.0
+4.0–4.4
+Clean fruit aroma
+
+A.2: Temperature to Duration Guide
+Process
+Optimal Temp
+Range
+Duration Range
+Washed
+20–25°C
+18–28°C
+12–36 hours
+Natural
+Ambient
+20–30°C
+15–25 days
+Honey
+Ambient
+20–30°C
+10–30 days
+Anaerobic
+20–22°C
+18–25°C
+48–120 hours
+Carbonic Maceration
+20°C
+18–22°C
+72–120 hours
+Yeast (Ale)
+20°C
+18–22°C
+24–72 hours
+Yeast (Wine)
+18°C
+15–20°C
+24–72 hours
+Lactic
+30°C
+28–35°C
+12–24 hours
+Fruit Co-Ferment
+21°C
+18–24°C
+24–72 hours
+
+A.3: Sanitation Quick Guide
+Material
+Concentration
+Contact Time
+Notes
+Citric Acid Solution
+5–10g/L
+5 minutes
+Rinse thoroughly
+Hot Water
+>80°C
+10 minutes
+For tools that tolerate heat
+Sunlight (UV)
+Direct sun
+2–4 hours
+For drying beds
+
+
+Never use: Household bleach, chlorine-based sanitizers, soap (can leave residue)
+
+
+APPENDIX B: INSTRUMENT CARE & MAINTENANCE
+B.1: pH Meter
+Task
+Frequency
+How
+Calibrate
+Before each batch
+2-point calibration (4.01 and 7.01 buffers)
+Clean probe
+After each batch
+Rinse with clean water, never wipe dry
+Store
+When not in use
+Storage solution (not water)
+Replace
+When drifting
+Annually or when calibration fails
+
+B.2: Brix Refractometer
+Task
+Frequency
+How
+Calibrate
+Before each batch
+Distilled water calibration (should read 0)
+Clean
+After each batch
+Clean lens with soft cloth; dry thoroughly
+Store
+When not in use
+In protective case, upright
+
+B.3: Digital Thermometer
+Task
+Frequency
+How
+Check accuracy
+Monthly
+Ice bath test (should read 0°C)
+Battery
+As needed
+Replace when readings fluctuate
+Store
+When not in use
+In protective case, avoid moisture
+
+B.4: Moisture Meter
+Task
+Frequency
+How
+Calibrate
+Quarterly
+Known moisture standard
+Clean
+After each batch
+Wipe probes with clean cloth
+Battery
+As needed
+Replace when readings become erratic
+
+
+
+
+END OF FERMENTATION FIELD MANUAL
+
+
+
+This document is a strategic planning artifact. Market figures are drawn from third-party sources as cited; unit-economics figures marked "illustrative" are scenario models, not forecasts. Legal sections reflect general practice and do not constitute legal advice. This content is for general informational purposes only and does not constitute professional advice.
+

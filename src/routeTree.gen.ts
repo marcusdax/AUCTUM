@@ -11,19 +11,43 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AgentRouteImport } from './routes/agent'
+import { Route as BriefRouteImport } from './routes/brief'
+import { Route as CartRouteImport } from './routes/cart'
+import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as ConsumersRouteImport } from './routes/consumers'
 import { Route as CraftRouteImport } from './routes/craft'
 import { Route as CrmRouteImport } from './routes/crm'
 import { Route as EcosystemRouteImport } from './routes/ecosystem'
+import { Route as EducationRouteImport } from './routes/education'
+import { Route as EudrRouteImport } from './routes/eudr'
+import { Route as ExchangeRouteImport } from './routes/exchange'
+import { Route as FarmersRouteImport } from './routes/farmers'
 import { Route as FollowingRouteImport } from './routes/following'
+import { Route as FoundryRouteImport } from './routes/foundry'
 import { Route as MarketRouteImport } from './routes/market'
+import { Route as MaterialsRouteImport } from './routes/materials'
 import { Route as MessagesRouteImport } from './routes/messages'
+import { Route as PartnersRouteImport } from './routes/partners'
+import { Route as PaymentsRouteImport } from './routes/payments'
+import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as ScanRouteImport } from './routes/scan'
 import { Route as SpacesRouteImport } from './routes/spaces'
 import { Route as StoriesRouteImport } from './routes/stories'
+import { Route as StrategyRouteImport } from './routes/strategy'
+import { Route as SubscribeRouteImport } from './routes/subscribe'
 import { Route as TrustRouteImport } from './routes/trust'
+import { Route as AutopsyLotIdRouteImport } from './routes/autopsy_.$lotId'
 import { Route as CrmAccountIdRouteImport } from './routes/crm_.$accountId'
+import { Route as EducationProducerRouteImport } from './routes/education_.producer'
+import { Route as ExchangeListingIdRouteImport } from './routes/exchange_.$listingId'
+import { Route as HandoffClickIdRouteImport } from './routes/handoff_.$clickId'
 import { Route as MarketLotIdRouteImport } from './routes/market_.$lotId'
+import { Route as PartnersDeskRouteImport } from './routes/partners_.desk'
 import { Route as SpacesSpaceIdRouteImport } from './routes/spaces_.$spaceId'
+import { Route as EducationAssessAssessmentIdRouteImport } from './routes/education_.assess.$assessmentId'
+import { Route as EducationCredentialTypeRouteImport } from './routes/education_.credential.$type'
+import { Route as EducationLessonLessonIdRouteImport } from './routes/education_.lesson.$lessonId'
+import { Route as ExchangeSellerSellerIdRouteImport } from './routes/exchange_.seller.$sellerId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -33,6 +57,26 @@ const IndexRoute = IndexRouteImport.update({
 const AgentRoute = AgentRouteImport.update({
   id: '/agent',
   path: '/agent',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BriefRoute = BriefRouteImport.update({
+  id: '/brief',
+  path: '/brief',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartRoute = CartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConsumersRoute = ConsumersRouteImport.update({
+  id: '/consumers',
+  path: '/consumers',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CraftRoute = CraftRouteImport.update({
@@ -50,9 +94,34 @@ const EcosystemRoute = EcosystemRouteImport.update({
   path: '/ecosystem',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EducationRoute = EducationRouteImport.update({
+  id: '/education',
+  path: '/education',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EudrRoute = EudrRouteImport.update({
+  id: '/eudr',
+  path: '/eudr',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExchangeRoute = ExchangeRouteImport.update({
+  id: '/exchange',
+  path: '/exchange',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FarmersRoute = FarmersRouteImport.update({
+  id: '/farmers',
+  path: '/farmers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FollowingRoute = FollowingRouteImport.update({
   id: '/following',
   path: '/following',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FoundryRoute = FoundryRouteImport.update({
+  id: '/foundry',
+  path: '/foundry',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MarketRoute = MarketRouteImport.update({
@@ -60,9 +129,29 @@ const MarketRoute = MarketRouteImport.update({
   path: '/market',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MaterialsRoute = MaterialsRouteImport.update({
+  id: '/materials',
+  path: '/materials',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MessagesRoute = MessagesRouteImport.update({
   id: '/messages',
   path: '/messages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartnersRoute = PartnersRouteImport.update({
+  id: '/partners',
+  path: '/partners',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentsRoute = PaymentsRouteImport.update({
+  id: '/payments',
+  path: '/payments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ScanRoute = ScanRouteImport.update({
@@ -80,9 +169,24 @@ const StoriesRoute = StoriesRouteImport.update({
   path: '/stories',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StrategyRoute = StrategyRouteImport.update({
+  id: '/strategy',
+  path: '/strategy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SubscribeRoute = SubscribeRouteImport.update({
+  id: '/subscribe',
+  path: '/subscribe',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TrustRoute = TrustRouteImport.update({
   id: '/trust',
   path: '/trust',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AutopsyLotIdRoute = AutopsyLotIdRouteImport.update({
+  id: '/autopsy_/$lotId',
+  path: '/autopsy/$lotId',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CrmAccountIdRoute = CrmAccountIdRouteImport.update({
@@ -90,9 +194,29 @@ const CrmAccountIdRoute = CrmAccountIdRouteImport.update({
   path: '/crm/$accountId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EducationProducerRoute = EducationProducerRouteImport.update({
+  id: '/education_/producer',
+  path: '/education/producer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExchangeListingIdRoute = ExchangeListingIdRouteImport.update({
+  id: '/exchange_/$listingId',
+  path: '/exchange/$listingId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HandoffClickIdRoute = HandoffClickIdRouteImport.update({
+  id: '/handoff_/$clickId',
+  path: '/handoff/$clickId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MarketLotIdRoute = MarketLotIdRouteImport.update({
   id: '/market_/$lotId',
   path: '/market/$lotId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartnersDeskRoute = PartnersDeskRouteImport.update({
+  id: '/partners_/desk',
+  path: '/partners/desk',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SpacesSpaceIdRoute = SpacesSpaceIdRouteImport.update({
@@ -100,129 +224,318 @@ const SpacesSpaceIdRoute = SpacesSpaceIdRouteImport.update({
   path: '/spaces/$spaceId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EducationAssessAssessmentIdRoute =
+  EducationAssessAssessmentIdRouteImport.update({
+    id: '/education_/assess/$assessmentId',
+    path: '/education/assess/$assessmentId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const EducationCredentialTypeRoute = EducationCredentialTypeRouteImport.update({
+  id: '/education_/credential/$type',
+  path: '/education/credential/$type',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EducationLessonLessonIdRoute = EducationLessonLessonIdRouteImport.update({
+  id: '/education_/lesson/$lessonId',
+  path: '/education/lesson/$lessonId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExchangeSellerSellerIdRoute = ExchangeSellerSellerIdRouteImport.update({
+  id: '/exchange_/seller/$sellerId',
+  path: '/exchange/seller/$sellerId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/agent': typeof AgentRoute
+  '/brief': typeof BriefRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
+  '/consumers': typeof ConsumersRoute
   '/craft': typeof CraftRoute
   '/crm': typeof CrmRoute
   '/ecosystem': typeof EcosystemRoute
+  '/education': typeof EducationRoute
+  '/eudr': typeof EudrRoute
+  '/exchange': typeof ExchangeRoute
+  '/farmers': typeof FarmersRoute
   '/following': typeof FollowingRoute
+  '/foundry': typeof FoundryRoute
   '/market': typeof MarketRoute
+  '/materials': typeof MaterialsRoute
   '/messages': typeof MessagesRoute
+  '/partners': typeof PartnersRoute
+  '/payments': typeof PaymentsRoute
+  '/pricing': typeof PricingRoute
   '/scan': typeof ScanRoute
   '/spaces': typeof SpacesRoute
   '/stories': typeof StoriesRoute
+  '/strategy': typeof StrategyRoute
+  '/subscribe': typeof SubscribeRoute
   '/trust': typeof TrustRoute
+  '/autopsy/$lotId': typeof AutopsyLotIdRoute
   '/crm/$accountId': typeof CrmAccountIdRoute
+  '/education/producer': typeof EducationProducerRoute
+  '/exchange/$listingId': typeof ExchangeListingIdRoute
+  '/handoff/$clickId': typeof HandoffClickIdRoute
   '/market/$lotId': typeof MarketLotIdRoute
+  '/partners/desk': typeof PartnersDeskRoute
   '/spaces/$spaceId': typeof SpacesSpaceIdRoute
+  '/education/assess/$assessmentId': typeof EducationAssessAssessmentIdRoute
+  '/education/credential/$type': typeof EducationCredentialTypeRoute
+  '/education/lesson/$lessonId': typeof EducationLessonLessonIdRoute
+  '/exchange/seller/$sellerId': typeof ExchangeSellerSellerIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/agent': typeof AgentRoute
+  '/brief': typeof BriefRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
+  '/consumers': typeof ConsumersRoute
   '/craft': typeof CraftRoute
   '/crm': typeof CrmRoute
   '/ecosystem': typeof EcosystemRoute
+  '/education': typeof EducationRoute
+  '/eudr': typeof EudrRoute
+  '/exchange': typeof ExchangeRoute
+  '/farmers': typeof FarmersRoute
   '/following': typeof FollowingRoute
+  '/foundry': typeof FoundryRoute
   '/market': typeof MarketRoute
+  '/materials': typeof MaterialsRoute
   '/messages': typeof MessagesRoute
+  '/partners': typeof PartnersRoute
+  '/payments': typeof PaymentsRoute
+  '/pricing': typeof PricingRoute
   '/scan': typeof ScanRoute
   '/spaces': typeof SpacesRoute
   '/stories': typeof StoriesRoute
+  '/strategy': typeof StrategyRoute
+  '/subscribe': typeof SubscribeRoute
   '/trust': typeof TrustRoute
+  '/autopsy/$lotId': typeof AutopsyLotIdRoute
   '/crm/$accountId': typeof CrmAccountIdRoute
+  '/education/producer': typeof EducationProducerRoute
+  '/exchange/$listingId': typeof ExchangeListingIdRoute
+  '/handoff/$clickId': typeof HandoffClickIdRoute
   '/market/$lotId': typeof MarketLotIdRoute
+  '/partners/desk': typeof PartnersDeskRoute
   '/spaces/$spaceId': typeof SpacesSpaceIdRoute
+  '/education/assess/$assessmentId': typeof EducationAssessAssessmentIdRoute
+  '/education/credential/$type': typeof EducationCredentialTypeRoute
+  '/education/lesson/$lessonId': typeof EducationLessonLessonIdRoute
+  '/exchange/seller/$sellerId': typeof ExchangeSellerSellerIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/agent': typeof AgentRoute
+  '/brief': typeof BriefRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
+  '/consumers': typeof ConsumersRoute
   '/craft': typeof CraftRoute
   '/crm': typeof CrmRoute
   '/ecosystem': typeof EcosystemRoute
+  '/education': typeof EducationRoute
+  '/eudr': typeof EudrRoute
+  '/exchange': typeof ExchangeRoute
+  '/farmers': typeof FarmersRoute
   '/following': typeof FollowingRoute
+  '/foundry': typeof FoundryRoute
   '/market': typeof MarketRoute
+  '/materials': typeof MaterialsRoute
   '/messages': typeof MessagesRoute
+  '/partners': typeof PartnersRoute
+  '/payments': typeof PaymentsRoute
+  '/pricing': typeof PricingRoute
   '/scan': typeof ScanRoute
   '/spaces': typeof SpacesRoute
   '/stories': typeof StoriesRoute
+  '/strategy': typeof StrategyRoute
+  '/subscribe': typeof SubscribeRoute
   '/trust': typeof TrustRoute
+  '/autopsy_/$lotId': typeof AutopsyLotIdRoute
   '/crm_/$accountId': typeof CrmAccountIdRoute
+  '/education_/producer': typeof EducationProducerRoute
+  '/exchange_/$listingId': typeof ExchangeListingIdRoute
+  '/handoff_/$clickId': typeof HandoffClickIdRoute
   '/market_/$lotId': typeof MarketLotIdRoute
+  '/partners_/desk': typeof PartnersDeskRoute
   '/spaces_/$spaceId': typeof SpacesSpaceIdRoute
+  '/education_/assess/$assessmentId': typeof EducationAssessAssessmentIdRoute
+  '/education_/credential/$type': typeof EducationCredentialTypeRoute
+  '/education_/lesson/$lessonId': typeof EducationLessonLessonIdRoute
+  '/exchange_/seller/$sellerId': typeof ExchangeSellerSellerIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/agent'
+    | '/brief'
+    | '/cart'
+    | '/checkout'
+    | '/consumers'
     | '/craft'
     | '/crm'
     | '/ecosystem'
+    | '/education'
+    | '/eudr'
+    | '/exchange'
+    | '/farmers'
     | '/following'
+    | '/foundry'
     | '/market'
+    | '/materials'
     | '/messages'
+    | '/partners'
+    | '/payments'
+    | '/pricing'
     | '/scan'
     | '/spaces'
     | '/stories'
+    | '/strategy'
+    | '/subscribe'
     | '/trust'
+    | '/autopsy/$lotId'
     | '/crm/$accountId'
+    | '/education/producer'
+    | '/exchange/$listingId'
+    | '/handoff/$clickId'
     | '/market/$lotId'
+    | '/partners/desk'
     | '/spaces/$spaceId'
+    | '/education/assess/$assessmentId'
+    | '/education/credential/$type'
+    | '/education/lesson/$lessonId'
+    | '/exchange/seller/$sellerId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/agent'
+    | '/brief'
+    | '/cart'
+    | '/checkout'
+    | '/consumers'
     | '/craft'
     | '/crm'
     | '/ecosystem'
+    | '/education'
+    | '/eudr'
+    | '/exchange'
+    | '/farmers'
     | '/following'
+    | '/foundry'
     | '/market'
+    | '/materials'
     | '/messages'
+    | '/partners'
+    | '/payments'
+    | '/pricing'
     | '/scan'
     | '/spaces'
     | '/stories'
+    | '/strategy'
+    | '/subscribe'
     | '/trust'
+    | '/autopsy/$lotId'
     | '/crm/$accountId'
+    | '/education/producer'
+    | '/exchange/$listingId'
+    | '/handoff/$clickId'
     | '/market/$lotId'
+    | '/partners/desk'
     | '/spaces/$spaceId'
+    | '/education/assess/$assessmentId'
+    | '/education/credential/$type'
+    | '/education/lesson/$lessonId'
+    | '/exchange/seller/$sellerId'
   id:
     | '__root__'
     | '/'
     | '/agent'
+    | '/brief'
+    | '/cart'
+    | '/checkout'
+    | '/consumers'
     | '/craft'
     | '/crm'
     | '/ecosystem'
+    | '/education'
+    | '/eudr'
+    | '/exchange'
+    | '/farmers'
     | '/following'
+    | '/foundry'
     | '/market'
+    | '/materials'
     | '/messages'
+    | '/partners'
+    | '/payments'
+    | '/pricing'
     | '/scan'
     | '/spaces'
     | '/stories'
+    | '/strategy'
+    | '/subscribe'
     | '/trust'
+    | '/autopsy_/$lotId'
     | '/crm_/$accountId'
+    | '/education_/producer'
+    | '/exchange_/$listingId'
+    | '/handoff_/$clickId'
     | '/market_/$lotId'
+    | '/partners_/desk'
     | '/spaces_/$spaceId'
+    | '/education_/assess/$assessmentId'
+    | '/education_/credential/$type'
+    | '/education_/lesson/$lessonId'
+    | '/exchange_/seller/$sellerId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AgentRoute: typeof AgentRoute
+  BriefRoute: typeof BriefRoute
+  CartRoute: typeof CartRoute
+  CheckoutRoute: typeof CheckoutRoute
+  ConsumersRoute: typeof ConsumersRoute
   CraftRoute: typeof CraftRoute
   CrmRoute: typeof CrmRoute
   EcosystemRoute: typeof EcosystemRoute
+  EducationRoute: typeof EducationRoute
+  EudrRoute: typeof EudrRoute
+  ExchangeRoute: typeof ExchangeRoute
+  FarmersRoute: typeof FarmersRoute
   FollowingRoute: typeof FollowingRoute
+  FoundryRoute: typeof FoundryRoute
   MarketRoute: typeof MarketRoute
+  MaterialsRoute: typeof MaterialsRoute
   MessagesRoute: typeof MessagesRoute
+  PartnersRoute: typeof PartnersRoute
+  PaymentsRoute: typeof PaymentsRoute
+  PricingRoute: typeof PricingRoute
   ScanRoute: typeof ScanRoute
   SpacesRoute: typeof SpacesRoute
   StoriesRoute: typeof StoriesRoute
+  StrategyRoute: typeof StrategyRoute
+  SubscribeRoute: typeof SubscribeRoute
   TrustRoute: typeof TrustRoute
+  AutopsyLotIdRoute: typeof AutopsyLotIdRoute
   CrmAccountIdRoute: typeof CrmAccountIdRoute
+  EducationProducerRoute: typeof EducationProducerRoute
+  ExchangeListingIdRoute: typeof ExchangeListingIdRoute
+  HandoffClickIdRoute: typeof HandoffClickIdRoute
   MarketLotIdRoute: typeof MarketLotIdRoute
+  PartnersDeskRoute: typeof PartnersDeskRoute
   SpacesSpaceIdRoute: typeof SpacesSpaceIdRoute
+  EducationAssessAssessmentIdRoute: typeof EducationAssessAssessmentIdRoute
+  EducationCredentialTypeRoute: typeof EducationCredentialTypeRoute
+  EducationLessonLessonIdRoute: typeof EducationLessonLessonIdRoute
+  ExchangeSellerSellerIdRoute: typeof ExchangeSellerSellerIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -239,6 +552,34 @@ declare module '@tanstack/react-router' {
       path: '/agent'
       fullPath: '/agent'
       preLoaderRoute: typeof AgentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/brief': {
+      id: '/brief'
+      path: '/brief'
+      fullPath: '/brief'
+      preLoaderRoute: typeof BriefRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cart': {
+      id: '/cart'
+      path: '/cart'
+      fullPath: '/cart'
+      preLoaderRoute: typeof CartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/consumers': {
+      id: '/consumers'
+      path: '/consumers'
+      fullPath: '/consumers'
+      preLoaderRoute: typeof ConsumersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/craft': {
@@ -262,11 +603,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EcosystemRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/education': {
+      id: '/education'
+      path: '/education'
+      fullPath: '/education'
+      preLoaderRoute: typeof EducationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/eudr': {
+      id: '/eudr'
+      path: '/eudr'
+      fullPath: '/eudr'
+      preLoaderRoute: typeof EudrRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/exchange': {
+      id: '/exchange'
+      path: '/exchange'
+      fullPath: '/exchange'
+      preLoaderRoute: typeof ExchangeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/farmers': {
+      id: '/farmers'
+      path: '/farmers'
+      fullPath: '/farmers'
+      preLoaderRoute: typeof FarmersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/following': {
       id: '/following'
       path: '/following'
       fullPath: '/following'
       preLoaderRoute: typeof FollowingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/foundry': {
+      id: '/foundry'
+      path: '/foundry'
+      fullPath: '/foundry'
+      preLoaderRoute: typeof FoundryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/market': {
@@ -276,11 +652,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MarketRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/materials': {
+      id: '/materials'
+      path: '/materials'
+      fullPath: '/materials'
+      preLoaderRoute: typeof MaterialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/messages': {
       id: '/messages'
       path: '/messages'
       fullPath: '/messages'
       preLoaderRoute: typeof MessagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/partners': {
+      id: '/partners'
+      path: '/partners'
+      fullPath: '/partners'
+      preLoaderRoute: typeof PartnersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payments': {
+      id: '/payments'
+      path: '/payments'
+      fullPath: '/payments'
+      preLoaderRoute: typeof PaymentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/scan': {
@@ -304,11 +708,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StoriesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/strategy': {
+      id: '/strategy'
+      path: '/strategy'
+      fullPath: '/strategy'
+      preLoaderRoute: typeof StrategyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/subscribe': {
+      id: '/subscribe'
+      path: '/subscribe'
+      fullPath: '/subscribe'
+      preLoaderRoute: typeof SubscribeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/trust': {
       id: '/trust'
       path: '/trust'
       fullPath: '/trust'
       preLoaderRoute: typeof TrustRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/autopsy_/$lotId': {
+      id: '/autopsy_/$lotId'
+      path: '/autopsy/$lotId'
+      fullPath: '/autopsy/$lotId'
+      preLoaderRoute: typeof AutopsyLotIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/crm_/$accountId': {
@@ -318,11 +743,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CrmAccountIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/education_/producer': {
+      id: '/education_/producer'
+      path: '/education/producer'
+      fullPath: '/education/producer'
+      preLoaderRoute: typeof EducationProducerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/exchange_/$listingId': {
+      id: '/exchange_/$listingId'
+      path: '/exchange/$listingId'
+      fullPath: '/exchange/$listingId'
+      preLoaderRoute: typeof ExchangeListingIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/handoff_/$clickId': {
+      id: '/handoff_/$clickId'
+      path: '/handoff/$clickId'
+      fullPath: '/handoff/$clickId'
+      preLoaderRoute: typeof HandoffClickIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/market_/$lotId': {
       id: '/market_/$lotId'
       path: '/market/$lotId'
       fullPath: '/market/$lotId'
       preLoaderRoute: typeof MarketLotIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/partners_/desk': {
+      id: '/partners_/desk'
+      path: '/partners/desk'
+      fullPath: '/partners/desk'
+      preLoaderRoute: typeof PartnersDeskRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/spaces_/$spaceId': {
@@ -332,25 +785,77 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SpacesSpaceIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/education_/assess/$assessmentId': {
+      id: '/education_/assess/$assessmentId'
+      path: '/education/assess/$assessmentId'
+      fullPath: '/education/assess/$assessmentId'
+      preLoaderRoute: typeof EducationAssessAssessmentIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/education_/credential/$type': {
+      id: '/education_/credential/$type'
+      path: '/education/credential/$type'
+      fullPath: '/education/credential/$type'
+      preLoaderRoute: typeof EducationCredentialTypeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/education_/lesson/$lessonId': {
+      id: '/education_/lesson/$lessonId'
+      path: '/education/lesson/$lessonId'
+      fullPath: '/education/lesson/$lessonId'
+      preLoaderRoute: typeof EducationLessonLessonIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/exchange_/seller/$sellerId': {
+      id: '/exchange_/seller/$sellerId'
+      path: '/exchange/seller/$sellerId'
+      fullPath: '/exchange/seller/$sellerId'
+      preLoaderRoute: typeof ExchangeSellerSellerIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AgentRoute: AgentRoute,
+  BriefRoute: BriefRoute,
+  CartRoute: CartRoute,
+  CheckoutRoute: CheckoutRoute,
+  ConsumersRoute: ConsumersRoute,
   CraftRoute: CraftRoute,
   CrmRoute: CrmRoute,
   EcosystemRoute: EcosystemRoute,
+  EducationRoute: EducationRoute,
+  EudrRoute: EudrRoute,
+  ExchangeRoute: ExchangeRoute,
+  FarmersRoute: FarmersRoute,
   FollowingRoute: FollowingRoute,
+  FoundryRoute: FoundryRoute,
   MarketRoute: MarketRoute,
+  MaterialsRoute: MaterialsRoute,
   MessagesRoute: MessagesRoute,
+  PartnersRoute: PartnersRoute,
+  PaymentsRoute: PaymentsRoute,
+  PricingRoute: PricingRoute,
   ScanRoute: ScanRoute,
   SpacesRoute: SpacesRoute,
   StoriesRoute: StoriesRoute,
+  StrategyRoute: StrategyRoute,
+  SubscribeRoute: SubscribeRoute,
   TrustRoute: TrustRoute,
+  AutopsyLotIdRoute: AutopsyLotIdRoute,
   CrmAccountIdRoute: CrmAccountIdRoute,
+  EducationProducerRoute: EducationProducerRoute,
+  ExchangeListingIdRoute: ExchangeListingIdRoute,
+  HandoffClickIdRoute: HandoffClickIdRoute,
   MarketLotIdRoute: MarketLotIdRoute,
+  PartnersDeskRoute: PartnersDeskRoute,
   SpacesSpaceIdRoute: SpacesSpaceIdRoute,
+  EducationAssessAssessmentIdRoute: EducationAssessAssessmentIdRoute,
+  EducationCredentialTypeRoute: EducationCredentialTypeRoute,
+  EducationLessonLessonIdRoute: EducationLessonLessonIdRoute,
+  ExchangeSellerSellerIdRoute: ExchangeSellerSellerIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

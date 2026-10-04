@@ -1,0 +1,1418 @@
+Based on the completed work and fresh verification, here's a detailed overview of the i18n features added for Vietnamese, German, and French:
+
+i18n Locale Implementation Summary Locales Added Locale Code Language CLDR Plural Categories Vietnamese vi-VN Tiếng Việt one, many, other German de-DE Deutsch one, other French fr-FR Français one, many, other
+
+Files Modified
+
+Translation Files (localization/02-locale-files/) vi-VN.json — 21,174 bytes, 486 lines de-DE.json — 19,318 bytes, 482 lines fr-FR.json — 19,314 bytes, 486 lines
+
+Each file contains full translations across all 13 namespaces:
+
+common — app name, tagline, nav, buttons, states, labels, language switcher, a11y, units, meta dashboard — metrics, charts, benchmark, time ranges, empty states catalog — sourcing goals, filters, lot cards, attributes campaigns — email/SMS templates, automation rules growth — referral engine, churn intervention roasters — roaster profiles, relationships orders — order management, fulfillment sampleKits — sample kit workflows rules — business rules, validation webhooks — webhook configuration errors — error messages agent — AI agent interactions trust — verification, compliance
+
+i18n Configuration (app/src/i18n/index.ts) // Imports added
+
+import viVN from '../../../localization/02-locale-files/vi-VN.json';
+
+import deDE from '../../../localization/02-locale-files/de-DE.json';
+
+import frFR from '../../../localization/02-locale-files/fr-FR.json';
+
+// Supported locales updated
+
+export const SUPPORTED_LOCALES = [
+
+'en-US', 'zh-CN', 'es-MX', 'pt-BR',
+
+'vi-VN', 'de-DE', 'fr-FR'  // ← 3 new
+
+] as const;
+
+// Resources map updated
+
+resources: {
+
+'vi-VN': viVN,
+
+'de-DE': deDE,
+
+'fr-FR': frFR,
+
+// ...existing
+
+}
+
+Language Switcher (app/src/components/AppLayout.tsx) Display label (line 237):
+
+{locale === 'vi-VN' ? 'Tiếng Việt' :
+
+locale === 'de-DE' ? 'Deutsch' :
+
+locale === 'fr-FR' ? 'Français' : 'English'}
+
+Dropdown entries (lines 257–259):
+
+{lng === 'vi-VN' && 'Tiếng Việt'}
+
+{lng === 'de-DE' && 'Deutsch'}
+
+{lng === 'fr-FR' && 'Français'}
+
+Validation Script (localization/scripts/validate_locale_files.py) REQUIRED_CATEGORIES = {
+
+"vi-VN": {"one", "many", "other"},
+
+"de-DE": {"one", "other"},
+
+"fr-FR": {"one", "many", "other"}, ...existing }
+
+Validation Checks Passed All 5 validation criteria pass for all 7 locales (2,336 keys total):
+
+Check Status JSON validity (UTF-8 parseable) ✅ Key parity vs en-US (plural-aware) ✅ CLDR plural categories per locale ✅ Placeholder consistency ({{var}}, {merge_tag}) ✅ Protected tokens preserved (Greensheet, SCA, ESG, Q Grader) ✅
+
+Routing & Detection Subpath routing: /vi-VN/, /de-DE/, /fr-FR/ via App.tsx → AppLayout Detection order: path → localStorage (greensheet:locale) → navigator Auto-redirect: Invalid/missing locale → stored preference or en-US
+
+Key Implementation Notes No free-form customization: MySpace-style HTML chaos avoided — personalization constrained to design-system modules Offline-first ready: PWA architecture supports queue-sync for Tier 1 (low-end smartphones) Brand consistency: All 7 locales share the same 170-token design language (parchment/navy/gold, Compass Navy, Fraunces/Archivo/IBM Plex Mono) Right-to-left: Not needed — all 3 new locales are LTR
+
+Verification Evidence $ python scripts/validate_locale_files.py \
+
+--source 02-locale-files/en-US.json \
+
+02-locale-files/vi-VN.json 02-locale-files/de-DE.json 02-locale-files/fr-FR.json
+
+OK — 4 locales, 1336 keys total, parity/plurals/placeholders/brand all green.
+
+$ python scripts/validate_locale_files.py \
+
+--source 02-locale-files/en-US.json \
+
+02-locale-files/zh-CN.json 02-locale-files/es-MX.json \
+
+02-locale-files/pt-BR.json 02-locale-files/vi-VN.json \
+
+02-locale-files/de-DE.json 02-locale-files/fr-FR.json
+
+OK — 7 locales, 2336 keys total, parity/plurals/placeholders/brand all green.
+
+The three new locales are fully production-ready and integrated into the Greensheet/LotSpace platform's i18n infrastructure. Here's a detailed overview of the features discussed and implemented in this thread:
+
+Trust Score System (Honesty Layer) A continuous 0–100 metric attached permanently to every tier profile (Roaster, Supplier/Exporter, Counterparty, and derived Lot):
+
+Band Score Visual Platform Effect Sealed 90–100 brass-300 bg + seal glyph Fast-path settlement, fewer doc gates Verified 75–89.9 sage-600 bg + white Standard flow Established 55–74.9 oxblood-100 tint Normal review Provisional 35–54.9 neutral-700 bg Extra document gates At Risk 0–34.9 danger tint Manual review required
+
+Component Weights (v1):
+
+Document Verification (35%): Accepted OCR docs — SCA reports, contracts, phytosanitary, CoO, warehouse receipts Transaction Integrity (25%): On-time payment, no chargebacks, clean VietQR matches Quality Consistency (20%): Cup-score variance vs claimed, QC dispute rate Identity & Longevity (12%): Account age, verified business registration, completed lots Network Reputation (8%): Peer feedback weighted by other counterparties' Trust
+
+Trust Badge Atom: Height 24px (sm) / 28px (md), JetBrains Mono 700 tabular-nums, band-colored backgrounds matching Museum Folio design tokens.
+
+Document Scanner / OCR Pipeline The existing services/docintake pipeline (Claude vision + structured outputs) is the primary evidence engine for the 35% Document Verification component:
+
+Flow: Upload → confirmUpload → virus scan → enqueue → extract → propose draft → human review → accept Never auto-commits: Human-in-the-loop rule protects Trust integrity Idempotent: Re-accepting the same documentId does not double-count evidence Per-field confidence gating: Financial/quality-critical fields (cup score, moisture, defect count, unit price) always require human confirmation regardless of confidence
+
+Scanner Entry Points:
+
+Lot Detail / Lot Card expanded view — "Attach evidence" QC Audit workspace — primary capture for SCA/Q reports Contract / Offer creation — "Scan first" Counterparty profile — "Upload verification documents" Warehouse / Receiving — scan warehouse receipt or packing list Mobile-first camera capture optimized for field use
+
+Vietnam Payment & Coffee Business Manager (Sprint v2) Core Architecture Changes from v1 Issue v1 Problem v2 Fix Database PostgreSQL (uuid, jsonb, numeric) MySQL 8 with Drizzle ORM Primary Keys uuid throughout serial() PKs, bigint unsigned FKs Money columns integer (overflows in VND) bigint minor units + currency char(3) cupScore integer (destroys precision) double retained, roundScore() helper QC audits Duplicates existing cuppingSessions Extend existing cupping flow Outbox emitEvent() fires inline, no consumer Transaction-aware, claim-based consumer Webhooks tRPC procedures (wrong format) Hono routes with raw body capture Aging Stored state (drifts) Computed query over invoices Push payments Modeled as card charges Push-payment reality (VietQR)
+
+Three Vertical Slices Slice Deliverable Duration S1 — Receivables Spine Invoices, allocations, aging, manual payment recording Week 1 S2 — VietQR Settlement PayOS primary, Casso bank-feed, matching engine, exception queue Week 3 S3 — Document Intake Upload → extract → propose → human accept, wired to QC/contract flows Week 4
+
+Memo Token System Format: AUC + 7 chars Crockford base32 (excludes I, L, O, U) = 10 chars total Derived from invoice id + check character Stored on invoices.memoToken, unique Matching order: exact memoToken → PayOS orderCode → heuristic (single open invoice, exact amount) → unmatched Idempotency Scoped, fingerprinted, response-recording idempotency_records table with (principalId, key) unique Same key + same fingerprint → return cached response (200) Same key + different fingerprint → GS-PAY-1001 IdempotencyKeyReuse (422) Provider Asymmetry (ADR-03) PayOS: HMAC-SHA256 signed webhooks → may credit AR directly after verification Casso: Static shared secret only, no payload signature → treated as untrusted notification, consumer re-fetches from Casso API before allocating
+
+API Client (In-Memory Mock Backend) The src/api/client.ts provides a full in-memory API client used for testing and development:
+
+Idempotency: idempotencyKey() generates UUIDs, checkIdempotency validates replayed requests All CRUD operations: roasters, campaigns, rules, catalog, orders, sampleKits, webhooks, analytics, trust, referrals Event system: emitEvent() pushes to db.domainEvents Trust module: getByEntity, listEvidence, recordEvidence, history — full Trust Score management with snapshot history Referrals module: getCodeForAccount, createCode, listReferrals, listLedger, getStats, recordClick, qualifyReferral, clawBack
+
+Referral System Full referral engine with the following status funnel:
+
+invited → clicked → signed_up → kit_requested → kit_delivered → feedback_submitted → first_order_delivered → qualified → clawed_back
+
+Key functions:
+
+getCodeForAccount(accountId): Lazily creates a referral code matching GS-{ADJECTIVE}-{NUM} pattern createCode(accountId, customCode?): Creates code with optional custom code (validated against regex ^GS-[A-Z]{2,6}-\d{1,4}$), rejects duplicates (409) recordClick(code, channel): Finds active code, creates/updates referral to clicked status qualifyReferral(referralId): Transitions to qualified, creates referrer_credit (150_00 cents) and referee_discount (100_00 cents) ledger entries clawBack(referralId): Reverses to clawed_back, marks all related ledger entries as clawed_back getStats(accountId): Computes invites, clicks, signups, kit requests, deliveries, qualified count, earned/pending/clawed-back rewards, K-factor
+
+Reward Ledger: Tracks referrer_credit and referee_discount with statuses pending, posted, clawed_back.
+
+Design System (Museum Folio) All Trust/Scanner UI consumes only design-system tokens:
+
+Colors: brass-300, sage-600, oxblood-100, neutral-700, danger tint variants Typography: JetBrains Mono 700 (tabular-nums) for scores, text-2xl/text-3xl for large numerals Surfaces: paper-50 / surface backgrounds, hairline borders only No gradients, no saturated blue, no illustrations
+
+What Was Fixed in This Session The immediate code work resolved failing referrals API tests:
+
+Problem: seedDatabase() had no referral seed data — db.referralCodes, db.referrals, and db.rewardsLedger were empty Fix: Added pre-seeded data including: GS-RVR-001 code for r_002 kit_delivered referral for r_002 qualified referrals for both r_002 and r_001 referrer_credit ledger entry (150_00 cents) for r_001 Result: All 268 tests pass across 36 test files, build succeeds Based on the completed work and fresh verification, here's a detailed overview of the i18n features added for Vietnamese, German, and French:
+
+i18n Locale Implementation Summary Locales Added Locale Code Language CLDR Plural Categories Vietnamese vi-VN Tiếng Việt one, many, other German de-DE Deutsch one, other French fr-FR Français one, many, other
+
+Files Modified
+
+Translation Files (localization/02-locale-files/) vi-VN.json — 21,174 bytes, 486 lines de-DE.json — 19,318 bytes, 482 lines fr-FR.json — 19,314 bytes, 486 lines
+
+Each file contains full translations across all 13 namespaces:
+
+common — app name, tagline, nav, buttons, states, labels, language switcher, a11y, units, meta dashboard — metrics, charts, benchmark, time ranges, empty states catalog — sourcing goals, filters, lot cards, attributes campaigns — email/SMS templates, automation rules growth — referral engine, churn intervention roasters — roaster profiles, relationships orders — order management, fulfillment sampleKits — sample kit workflows rules — business rules, validation webhooks — webhook configuration errors — error messages agent — AI agent interactions trust — verification, compliance
+
+i18n Configuration (app/src/i18n/index.ts) // Imports added
+
+import viVN from '../../../localization/02-locale-files/vi-VN.json';
+
+import deDE from '../../../localization/02-locale-files/de-DE.json';
+
+import frFR from '../../../localization/02-locale-files/fr-FR.json';
+
+// Supported locales updated
+
+export const SUPPORTED_LOCALES = [
+
+'en-US', 'zh-CN', 'es-MX', 'pt-BR',
+
+'vi-VN', 'de-DE', 'fr-FR'  // ← 3 new
+
+] as const;
+
+// Resources map updated
+
+resources: {
+
+'vi-VN': viVN,
+
+'de-DE': deDE,
+
+'fr-FR': frFR,
+
+// ...existing
+
+}
+
+Language Switcher (app/src/components/AppLayout.tsx) Display label (line 237):
+
+{locale === 'vi-VN' ? 'Tiếng Việt' :
+
+locale === 'de-DE' ? 'Deutsch' :
+
+locale === 'fr-FR' ? 'Français' : 'English'}
+
+Dropdown entries (lines 257–259):
+
+{lng === 'vi-VN' && 'Tiếng Việt'}
+
+{lng === 'de-DE' && 'Deutsch'}
+
+{lng === 'fr-FR' && 'Français'}
+
+Validation Script (localization/scripts/validate_locale_files.py) REQUIRED_CATEGORIES = {
+
+"vi-VN": {"one", "many", "other"},
+
+"de-DE": {"one", "other"},
+
+"fr-FR": {"one", "many", "other"},
+...existing
+}
+
+Validation Checks Passed All 5 validation criteria pass for all 7 locales (2,336 keys total):
+
+Check Status JSON validity (UTF-8 parseable) ✅ Key parity vs en-US (plural-aware) ✅ CLDR plural categories per locale ✅ Placeholder consistency ({{var}}, {merge_tag}) ✅ Protected tokens preserved (Greensheet, SCA, ESG, Q Grader) ✅
+
+Routing & Detection Subpath routing: /vi-VN/, /de-DE/, /fr-FR/ via App.tsx → AppLayout Detection order: path → localStorage (greensheet:locale) → navigator Auto-redirect: Invalid/missing locale → stored preference or en-US
+
+Key Implementation Notes No free-form customization: MySpace-style HTML chaos avoided — personalization constrained to design-system modules Offline-first ready: PWA architecture supports queue-sync for Tier 1 (low-end smartphones) Brand consistency: All 7 locales share the same 170-token design language (parchment/navy/gold, Compass Navy, Fraunces/Archivo/IBM Plex Mono) Right-to-left: Not needed — all 3 new locales are LTR
+
+Verification Evidence $ python scripts/validate_locale_files.py \
+
+--source 02-locale-files/en-US.json \
+
+02-locale-files/vi-VN.json 02-locale-files/de-DE.json 02-locale-files/fr-FR.json
+
+OK — 4 locales, 1336 keys total, parity/plurals/placeholders/brand all green.
+
+$ python scripts/validate_locale_files.py \
+
+--source 02-locale-files/en-US.json \
+
+02-locale-files/zh-CN.json 02-locale-files/es-MX.json \
+
+02-locale-files/pt-BR.json 02-locale-files/vi-VN.json \
+
+02-locale-files/de-DE.json 02-locale-files/fr-FR.json
+
+OK — 7 locales, 2336 keys total, parity/plurals/placeholders/brand all green.
+
+The three new locales are fully production-ready and integrated into the Greensheet/LotSpace platform's i18n infrastructure.
+TRUST SCORE SYSTEM
+& Document Scanner Placement / Aesthetics
+Auctum Ledger (formerly Greensheet)  ·  Honesty layer that travels with every tier profile
+Source: github.com/marcusdax/greensheet  ·  services/docintake already live  ·  Design system: Museum Folio
+1. Why a Trust Score — the Honesty Check
+Auctum’s brand promise is “Verified, From Origin.” Cup score, ESG, and logistics metrics already live on every lot card. What is missing is a durable, portable honesty signal that answers: “How much should I trust the documents, claims, and counterparties behind this lot or this profile?”
+The Trust Score is that signal. It is a continuous 0–100 metric (displayed as an integer with one optional decimal) that:
+Attaches permanently to every tier profile — Roaster, Supplier/Exporter, Counterparty, and (derived) Lot.
+Is updated by verifiable actions (OCR-accepted documents, on-time payments, QC disputes resolved, audit history), never by self-reported claims alone.
+Surfaces as a first-class badge and bar alongside Cup Score and ESG on lot cards, profile headers, and contract review screens.
+Provides the checks-and-balances layer: high Trust unlocks faster settlement and lower friction; low Trust forces extra document gates and human review.
+2. Trust Score Model
+2.1 Definition & Range
+Trust Score ∈ [0, 100]. Default for a brand-new counterparty with zero history: 50 (neutral). Floor is 0; ceiling is 100. Displayed in JetBrains Mono (tabular-nums) exactly like cup scores and prices.
+2.2 Component Weights (v1)
+Component
+Weight
+Signals (examples)
+Document Verification
+35 %
+Accepted OCR docs (SCA reports, contracts, phytosanitary, CoO, warehouse receipts). Higher weight for multi-party cross-checks.
+Transaction Integrity
+25 %
+On-time payment settlement, no chargebacks, AR aging hygiene, VietQR / providerTxnId clean matches.
+Quality Consistency
+20 %
+Cup-score variance vs claimed, QC dispute rate, defect rate from accepted lab reports.
+Identity & Longevity
+12 %
+Account age, verified business registration, consistent KYC, number of completed lots.
+Network Reputation
+8 %
+Peer feedback from other verified Auctum counterparties (weighted by their own Trust).
+
+Weights are versioned. A modelVersion field is stored with every score snapshot so historical displays remain reproducible.
+2.3 Tier Bands (visual & policy)
+Band
+Score
+Visual (Museum Folio)
+Platform effect
+Sealed (highest)
+90–100
+brass-300 bg + ink text + seal glyph
+Fast-path settlement, fewer doc gates, preferred in Navigator ranking.
+Verified
+75–89.9
+sage-600 bg + white
+Standard flow; Trust badge shown on lot cards and profiles.
+Established
+55–74.9
+oxblood-100 tint + oxblood text
+Normal review; OCR still required for material claims.
+Provisional
+35–54.9
+neutral-700 bg + white
+Extra document gates; payment holds possible until more evidence.
+At Risk
+0–34.9
+danger tint + danger text
+Manual review required; limited visibility in public catalog.
+
+2.4 Attachment to Tier Profiles
+Every profile that participates in commerce carries its own Trust Score:
+Roaster (CRM aggregate) — Trust travels with the account across campaigns, sample kits, and orders.
+Supplier / Exporter / Counterparty — Trust is the primary honesty signal shown to buyers.
+Lot (derived) — Lot Trust is a blend of the supplier’s current Trust + the verification density of documents attached to that specific lot (SCA report accepted, CoO accepted, etc.).
+The score is never “reset” by tier upgrades; subscription or commercial tiers may unlock features, but Trust is earned only through evidence.
+3. How Document Scanner / OCR Feeds Trust
+The existing services/docintake pipeline (Claude vision + structured outputs, per-field confidence, human accept required) is the primary evidence engine for the Document Verification component (35 %).
+On documents.acceptOcr (or equivalent) with a successful link to a lot or counterparty:
+Increment document-verification sub-score based on document type weight (SCA lab report and signed contract > packing list).
+Cross-check extracted fields against existing lot data; large discrepancies lower Quality Consistency.
+Emit domain event trust.evidence_recorded with documentId, entityType, entityId, delta, modelVersion.
+Rejected or low-confidence documents that are never accepted do not move Trust (no negative hit for simply uploading a blurry photo).
+Repeated contradictions (e.g., claimed cup score 88 vs accepted lab report 81.5) apply a negative delta to Quality Consistency and, if severe, to overall Trust.
+Nothing auto-commits: the same human-in-the-loop rule that protects the ledger also protects Trust integrity.
+4. Where & When the OCR Scanner Appears on the Platform
+4.1 Primary entry points (when)
+Lot Detail / Lot Card expanded view — “Attach evidence” or “Scan lab report / contract” action in the document strip.
+QC Audit workspace — primary capture surface for SCA / Q reports (camera or file).
+Contract / Offer creation flow — “Scan offer sheet or signed contract” as the first step instead of blank form.
+Counterparty / Supplier profile — “Upload verification documents” in the Trust panel.
+Warehouse / Receiving — scan warehouse receipt or packing list on goods-in.
+Mobile-first field use — camera capture optimized for exporters and QC staff on origin or at port.
+4.2 Secondary / contextual
+Navigator results — subtle “Needs verification” chip when a lot has low document density; clicking opens the attach flow.
+Payment / AR screens — when settling against a contract that still lacks an accepted scanned original, prompt for document before release.
+Onboarding of a new supplier — guided Trust-building checklist that includes first OCR upload.
+4.3 What is deliberately not a scanner entry
+Marketing / campaign screens (COF flows) — keep them clean; Trust is operational.
+Public catalog browse for unauthenticated users — Trust badge may be visible, but upload is authenticated only.
+5. Aesthetic Specification (Museum Folio)
+All scanner and Trust UI must consume only design-system tokens. No arbitrary hex. Visual language stays archival, restrained, and legible.
+5.1 Trust Badge (atom)
+Parallel to CupScoreBadge. Geometry: height 24 px (sm) / 28 px (md), radius-full, JetBrains Mono 700 tabular-nums.
+Sealed 90–100 → brass-300 bg + ink-900 text + small seal/leaf glyph (earned brass, same language as Outstanding cup score).
+Verified 75–89.9 → sage-600 bg + white.
+Established 55–74.9 → oxblood-100 tint + oxblood-700 text + 1 px hairline border.
+Provisional 35–54.9 → neutral-700 bg + white.
+At Risk 0–34.9 → danger tint + danger text.
+Tooltip / title: “Trust Score 87 — Verified · 12 accepted documents · model v1.2”. Never show a score without its band color.
+5.2 Trust Panel on Profile / Lot
+Header strip: large mono numeral (text-2xl or text-3xl) + band label in overline + short “Last updated” in brass caption.
+Four thin metric bars (Document Verification, Transaction Integrity, Quality Consistency, Network) using the same bar language as Cost / Quality / ESG / Logistics on the lot card — recessed track, oxblood or sage fill.
+Document evidence list below: each accepted document as a compact row (type, date, confidence, link to original).
+Background always paper-50 / surface; hairline borders only.
+5.3 Scanner Capture Surface
+Drop zone / camera frame: surface bg, 1 px border-interactive, dashed optional only while empty, radius-md.
+Idle state copy in muted: “Photograph or drop SCA report, contract, or warehouse receipt”.
+Active upload: oxblood spinner (existing loading language), progress in mono.
+Mobile: full-width “Take Photo” primary button (oxblood) + secondary “Choose from gallery”.
+No gradients, no saturated blue, no illustration that breaks the folio tone. Optional subtle paper texture is acceptable if already in the system.
+5.4 Review Pane (side-by-side)
+Left: original page image (or PDF page) with zoom/pan, paper-like frame, hairline border.
+Right: form fields on surface. Each field shows value + confidence badge (green ≥0.85, amber 0.70–0.84, red <0.70) using status tokens.
+Low-confidence fields get a soft warning tint (warning-bg) and are auto-focused in sequence.
+Primary CTA “Accept & Link to Lot / Profile” = Button primary. Secondary “Reject” = outline or ghost. “Reprocess” = ghost.
+Keyboard: Tab cycles fields; Enter on focused primary accepts when all critical fields are above threshold or have been touched.
+5.5 Placement on Lot Card (integration)
+Extend the existing lot-card metrics row:
+After cup score and ESG, insert Trust badge (sm).
+Optional fifth metric bar “Trust” using the same bar geometry; fill color follows band (brass / sage / oxblood / neutral / danger).
+If document density is zero, show a quiet “Add evidence” text link in oxblood instead of a zero score.
+6. Domain Events & Persistence
+trust.score_updated — aggregateType Counterparty | Roaster | Lot, payload: { previous, next, components, modelVersion, evidenceIds[] }.
+trust.evidence_recorded — fired on every accepted OCR document that contributes to Trust.
+Store current score + last 30 snapshots (or Timescale hypertable) for trend lines on the Trust panel.
+Score calculation runs as a policy/handler after document.ocr.completed + accept, and after payment.received / QC events.
+Idempotent: re-accepting the same documentId does not double-count evidence.
+7. Policy Effects (Checks & Balances)
+Sealed / Verified counterparties: optional fast-path for payment release when contract + SCA report are both accepted.
+Provisional / At Risk: force additional document types before large settlements; surface warning on Navigator and order review.
+Lot with high supplier Trust + accepted lab report: higher ranking weight in Navigator composite (alongside cup score and budget).
+Trust never silently gates access without explanation — UI always shows why a gate appeared (“Trust 41 — Provisional: two more verified documents recommended”).
+8. Recommended Implementation Sequence
+Define TrustScore Zod schema + component weights in contracts; add trust_scores + trust_evidence tables.
+Wire trust.evidence_recorded and trust.score_updated into the existing outbox / event pipeline.
+On documents.acceptOcr success path, call Trust calculator and emit events.
+Ship TrustBadge atom (design-system) and place it on lot cards + profile headers.
+Build Trust panel organism (score + component bars + evidence list).
+Add scanner entry points: Lot detail “Attach evidence”, QC Audit primary capture, Contract create “Scan first”.
+Polish Review pane aesthetics to Museum Folio (confidence badges, side-by-side, primary/secondary CTAs).
+Add policy gates for Provisional / At Risk and document-density ranking signal in Navigator.
+Golden-path tests: upload → accept → Trust delta; double-accept idempotency; band visual regression.
+9. Success Metrics
+% of sourced lots that have ≥1 accepted verification document within 7 days of listing.
+Correlation of Trust Score with later dispute rate / chargeback rate (should be inverse).
+Operator time on Review pane (target: median < 90 s for a clean SCA report).
+Zero Trust updates without an evidence event or explicit admin override (audited).
+Design-system compliance: zero arbitrary colors in Trust / Scanner components (CI token check).
+10. Closing
+Trust Score turns the existing docintake pipeline into a durable honesty layer that travels with every Roaster, Supplier, and Lot profile. It respects Auctum’s human-in-the-loop rule, reuses the Museum Folio language already defined for cup-score badges and lot cards, and gives operators and buyers a single, legible signal of how much evidence stands behind a claim.
+OCR is not a side feature; it is the primary evidence intake for Trust, surfaced exactly where commercial decisions are made—lot detail, QC, contract creation, and counterparty profiles—while staying invisible on pure marketing surfaces.
+Implement in the order above; the first visible win is the TrustBadge on the lot card fed by the first accepted SCA report.Vietnam Payment & Coffee Business Manager — Sprint Specification v2
+Supersedes: Technical Specification: Vietnam Payment & Coffee Business Manager Sprint (v1) Status: Draft for engineering review · blocking issues must be resolved before Phase 0 starts Audience: AI coding agents and the humans reviewing their PRs Basis: Reconciled against marcusdax/greensheet @ main (72 commits), the Revenue Share White-Glove Farmer & Collector Partnership Agreement, and current PayOS / Casso webhook contracts
+
+
+0. Why this revision exists
+v1 is a good scaffold with a correct instinct — event-sourced, idempotent, traceable to the lot — but it cannot be built as written. It was drafted against an imagined codebase rather than the one in the repository, and it under-models the two hardest parts of the problem: Vietnamese bank transfers are push payments, not card charges, and cup score is a financial input, not a quality note.
+
+This document keeps v1's structure so the diff is legible. Sections marked Δ CHANGED replace v1. Sections marked + NEW did not exist. Everything else is inherited.
+0.1 Blocking findings — resolve before writing code
+#
+Finding
+Evidence
+Impact
+B1
+Wrong database. v1 specifies PostgreSQL (uuid, gen_random_uuid(), jsonb, numeric, timestamptz, bigserial). The application is MySQL.
+app/drizzle.config.ts → dialect: "mysql"; app/db/schema.ts imports from drizzle-orm/mysql-core; package.json has mysql2, no pg
+Every DDL statement in v1 §3 fails. Every PK type is wrong.
+B2
+Wrong primary key type. v1 uses uuid PKs throughout. Existing tables use MySQL serial (auto-increment bigint unsigned), and all foreign keys are bigint unsigned.
+coffeeLots.id: serial(), orderLineItems.lotId: bigint(...unsigned: true)
+New tables would be unjoinable to existing ones without casting.
+B3
+integer money columns overflow in VND. Signed int caps at 2,147,483,647. At ~26,000 VND/USD that is ~₫2.15bn ≈ $82k. One 19.2t container of specialty at $3.50/lb ≈ $148k ≈ ₫3.9bn.
+v1 §3.6 totalSubunits integer, §3.10 amountSubunits integer, §3.11 outstandingSubunits integer; existing orders.totalCents: int
+Silent truncation or insert failure on the first real container contract.
+B4
+cupScore integer destroys money-bearing precision. Cup score sets the Revenue Share tier (50 / 35 / 20 / 10 / 0 % of net proceeds) under the partnership agreement, and the QC tolerance bands are ±2 / ±1.5 / ±1 points.
+Agreement §5.2 & Exhibit B; cuppingSessions stores ten attributes as double at 0.5 precision; the brochure's flagship figure is CQI 82.75
+An integer cup score makes ±1 tolerance unenforceable and can move a farmer between a 35% and a 50% share.
+B5
+qc_audits duplicates an existing aggregate. The repo already has cuppingSessions (ten SCA attributes, reference delta, tolerance band, verdict, red flags) plus retainedSamples and sampleAccessLogs, with panel enforcement (GS-QC-1005) and dual-witness destruction guards (GS-QC-1003/1004).
+app/db/schema.ts L301–367; app/api/routers/qc.ts
+Two competing sources of quality truth, one of which bypasses the panel rule that protects farmer payments.
+B6
+emitEvent() is not an outbox. It inserts into domain_events and then calls evaluateRules() in the same function, outside a transaction. There is no processed column and no consumer.
+app/api/engine.ts L20–34; domainEvents has no processed / processedAt
+v1 §4 assumes an outbox consumer that does not exist. Routing money through this path risks a payment recorded but never applied, or applied twice.
+B7
+Webhooks cannot be tRPC procedures. v1 §7.2 routes providers to POST /api/trpc/payments.webhooks.casso. tRPC expects its own request envelope and consumes the body; providers post their own JSON shape.
+v1 §5.2, §7.2
+The endpoint would 400 on every real callback.
+B8
+payment_intents.orderId uuid fk → orders.id (or contracts.id) is not a valid foreign key — a column cannot reference two tables.
+v1 §3.10
+Either no referential integrity, or an arbitrary choice that breaks the other flow.
+
+0.2 Design gaps — not blocking, but expensive to retrofit
+G1 — Aging buckets are unbuildable. ar_aging stores one mutable outstandingSubunits per counterparty. Buckets (0–30 / 31–60 / 61–90 / 90+) require per-invoice dueDate. The Payments/AR page in v1 §8.2 promises buckets the schema cannot produce.
+G2 — Push-payment reality is absent. VietQR is a bank transfer. The payer controls the amount and can mistype the memo. v1 models only the happy path: exact amount, correct reference, one payment per intent. No partial payment, overpayment, unmatched payment, duplicate payment, or refund.
+G3 — No allocation model. One transfer can settle two invoices; one invoice can take three transfers. There is no join between payment and receivable.
+G4 — Foreign exchange is unmodelled. Export contracts price in USD; settlement lands in VND. No rate capture, no realized FX gain/loss, no rule about which currency a domestic contract may use.
+G5 — Inbound and outbound money are conflated. partnerPayments (money out to farmers: floor + revenue share) already exists. v1 adds AR (money in from buyers) with no statement of how they relate on a lot's P&L.
+G6 — OCR confidence gates business-record creation at ≥0.90. For a cup score, that is an OCR engine setting a farmer's revenue share percentage with no human in the loop.
+G7 — Bank details stored in plaintext. counterparties.bankAccountNumber with no encryption, no access log, no retention policy — under Vietnam's PDPD (Decree 13/2023) financial account data is sensitive personal data when the counterparty is an individual farmer.
+G8 — Build-time feature flags. VITE_ENABLE_* are inlined at build. You cannot kill a misbehaving payment flow without a redeploy.
+G9 — Nine sequential phases, nine agents. Frontend (Phase 6) is blocked on five upstream phases. First demonstrable value lands at the end. No integration risk is retired early.
+G10 — Acceptance criteria are not testable. "Idempotency: duplicate webhook does not duplicate records" has no stated observation point or tolerance.
+
+
+1. Overview & Goals Δ CHANGED
+Two capabilities, delivered as three vertical slices rather than nine horizontal phases.
+
+Slice
+Delivers
+Demonstrable at end of
+S1 — Receivables spine
+Invoices, allocations, aging buckets, manual payment recording. No provider integration.
+Week 1
+S2 — VietQR settlement
+PayOS primary, Casso as bank-feed reconciliation, matching engine, exception queue.
+Week 3
+S3 — Document intake
+Upload → extract → propose → human accept, wired to existing QC and contract aggregates.
+Week 4
+
+
+Non-goals for this sprint, stated explicitly so agents do not scope-creep: card payments, international wires, payouts to farmers via PayOS (partner payments stay on the existing partnerPayments ledger), multi-tenant partitioning, e-invoice issuance to the tax authority (tracked as R1 below), and replacing cuppingSessions.
+1.1 Definition of done (applies to every task)
+A task is done when: schema change has a reviewed migration and a rollback; every mutation input and output is Zod-validated; there is at least one test that fails without the change; the feature sits behind a runtime flag defaulting to off; new money paths emit a domain event; and the observability hooks in §13 are wired. Not when the code compiles.
+
+
+2. Architecture & Design Principles Δ CHANGED
+Monorepo, existing app/api/ (Hono + tRPC 11) and app/src/ (React 19 + Vite + Tailwind + shadcn/ui).
+Database: MySQL 8 with Drizzle ORM — matching app/drizzle.config.ts. All new tables in app/db/manager-schema.ts and app/db/payments-schema.ts, re-exported from app/db/schema.ts so drizzle-kit picks them up (the config points at a single schema file).
+Primary keys: serial(), foreign keys bigint({ mode: "number", unsigned: true }), matching every existing table.
+API: tRPC 11 for the application surface. Provider webhooks are plain Hono routes mounted before the tRPC middleware (see §7.2).
+Events: a real transactional outbox (see §4). emitEvent() is rewritten to be transaction-aware; side effects move to a consumer.
+Money: ISO 4217 minor units. Every monetary column is bigint, always paired with a currency char(3) column. Exponent is derived from the currency, never assumed: VND → 0, USD → 2. formatCents() is deprecated in favour of formatMinor(amountMinor, currency).
+Idempotency: scoped, fingerprinted, and response-recording (see §7.3). Not a bare unique index.
+Traceability: every payment resolves to an invoice; every invoice line resolves to a coffee_lots.id. This is the invariant an auditor will test.
+OCR: proposal-only. The pipeline never creates an approved record. It creates a draft with a sourceDocumentId, and a human with the right role approves it.
+2.1 Architecture decision records
+ADR-01 — MySQL, not Postgres. Rejected: migrating the platform to Postgres inside this sprint. The existing schema, seeds, and 72 commits of history are MySQL. A dialect migration is a separate, larger project with its own risk budget. Consequence: no jsonb operators; JSON columns use MySQL json type with JSON_EXTRACT for querying, and we index extracted values via generated columns where we need to filter.
+
+ADR-02 — Invoices as the single payable aggregate. Rejected: polymorphic orderId. A payment settles an invoice; an invoice is raised against an order or a contract. This gives one FK target, one place to hold dueDate (which G1 needs), and a natural home for VAT and FX. Consequence: one extra table and an invoice-issuance step; every existing orders row that needs settlement gets an invoice.
+
+ADR-03 — PayOS is the payment rail; Casso is the bank feed. PayOS signs its webhook body (HMAC-SHA256 over the data object's keys sorted alphabetically and joined k=v&k=v, compared against the signature field) and carries a first-class orderCode. Casso authenticates only with a static shared secret in a secure-token header — no payload signature, no timestamp, no replay protection. Anyone who obtains the token can forge a credit. Consequence: Casso events are treated as untrusted notifications: they trigger a re-fetch of the transaction from the Casso API, and only the re-fetched record may move AR. PayOS webhooks may credit directly after signature verification.
+
+ADR-04 — Cup score never enters the payment path from OCR. A revenue-share tier may only be set by a cuppingSessions row that satisfies the existing panel rule. OCR may pre-fill a cupping form; it may not finalise one. Consequence: the "auto-create QC audit at confidence ≥0.9" acceptance criterion in v1 §14.1 is removed.
+
+ADR-05 — Runtime feature flags. Flags are served from the API (config.flags query), cached 30s client-side, with an env-var override for local dev. Consequence: one extra endpoint, and the ability to disable settlement in under a minute without a deploy.
+
+
+3. Database Schema Δ CHANGED
+All tables MySQL, Drizzle, serial PKs, bigint unsigned FKs, timestamp with defaultNow(). Money columns are bigint in minor units and are always accompanied by a currency column. Soft delete via deletedAt where noted; note the unique-index caveat in §3.13.
+3.1 coffee_lots — existing, additive changes only
+Do not restructure. The table already carries origin, region, varietal, processMethod, elevationMeters, cupScore (double), pricePerLbCents, costPerLbCents, availableLbs, status (active | retired).
+
+Additive columns for this sprint:
+
+Column
+Type
+Notes
+farm
+varchar(255) nullable
+Farm or cooperative name; distinct from origin
+moistureContent
+decimal(5,2) nullable
+Percent at receiving; existing runbook range 11.0–12.5
+waterActivity
+decimal(4,3) nullable
+
+
+density
+decimal(5,2) nullable
+g/mL
+defectCount
+int nullable
+
+
+certifications
+json not null default '[]'
+Array of strings
+harvestYear
+smallint nullable
+
+
+arrivalDate
+date nullable
+
+
+warehouseLocation
+varchar(120) nullable
+
+
+deletedAt
+timestamp nullable
+
+
+
+
+On cupScore. Leave as double in this sprint — changing it is a separate, carefully-tested migration. But add a CHECK-equivalent guard in the Zod schema (multipleOf(0.25), range 0–100) and open a ticket to move it to decimal(5,2), because double cannot represent 82.75 exactly and tier boundaries are compared with >=. Until then, all tier comparisons must round to 2dp before comparing. Write that helper once, in contracts/constants.ts, and use it everywhere:
+
+export const roundScore = (s: number) => Math.round(s * 100) / 100;
+
+The status quo silently risks a farmer landing on the wrong side of 86.00.
+3.2 counterparties Δ CHANGED
+Column
+Type
+Constraints
+id
+serial
+pk
+name
+varchar(255)
+not null
+type
+mysqlEnum
+farmer, cooperative, exporter, importer, roaster, cafe, other
+partnerId
+bigint unsigned nullable
+FK → partners.id — links a farmer counterparty to its existing Revenue Share partner record
+roasterId
+bigint unsigned nullable
+FK → roasters.id — links a buyer counterparty to its existing CRM record
+country, province
+varchar(120)
+
+
+taxId
+varchar(40)
+Vietnamese MST, 10 or 13 digits
+bankName, bankBranch, bankAccountName
+varchar(255)
+
+
+bankAccountNumberEnc
+varbinary(512)
+encrypted — see §12.2
+bankAccountLast4
+char(4)
+plaintext, for UI display and operator matching
+contactEmail, contactPhone
+varchar(320) / varchar(40)
+
+
+kycStatus
+mysqlEnum
+none, pending, verified
+isIndividual
+boolean not null default true
+Drives PDPD sensitive-data handling
+createdAt, updatedAt, deletedAt
+timestamp
+
+
+
+
+Indexes: counterparties_type_idx, counterparties_name_idx, counterparties_partner_idx, counterparties_roaster_idx.
+
+The partnerId / roasterId links are the fix for G5. Without them there is no join from a payment received to the farmer whose revenue share it funds, and the lot P&L cannot close.
+3.3 coffee_products — as v1, with money corrected
+retailPriceMinor bigint not null, currency char(3) not null default 'VND'. lotId bigint unsigned FK → coffee_lots.id, restrict on delete. Otherwise unchanged.
+3.4 inventory_lots — as v1
+quantityGrams bigint not null. Status enum in_stock, allocated, damaged, expired.
+
+Note the unit collision: the existing catalog works in availableLbs (int), this table in grams. Do not convert ad hoc at call sites. Add lbsToGrams / gramsToLbs to contracts/constants.ts with a single rounding rule (round half-up to the nearest gram) and a property test asserting round-trip stability within 1g.
+3.5 inventory_movements — as v1
+Signed quantityGrams bigint. referenceType enum contract, sales_order, invoice, audit, manual; referenceId bigint unsigned nullable, polymorphic and deliberately un-FK'd — document that in a comment so a future migration does not "fix" it into a broken constraint.
+3.6 contracts Δ CHANGED
+As v1, with: all money bigint minor units + currency char(3) not null; quantityGrams bigint; drop the nullable lotId in favour of contract_lots only (one path, not two); add incoterm varchar(12) and fxRateLocked decimal(18,6) nullable with fxRateLockedAt timestamp nullable.
+
+Currency rule (Vietnam FX control). Under the Ordinance on Foreign Exchange, transactions between two Vietnamese residents must be denominated and settled in VND; USD/EUR are for export contracts with non-resident counterparties. Enforce in the Zod schema, not just in the UI:
+
+if (counterparty.country === 'VN' && contract.currency !== 'VND') -> reject
+
+Add a residencyOverrideNote field for the licensed exceptions, requiring ops_manager role and writing an audit event.
+
+contract_lots (contractId, lotId, quantityGrams, unitPriceMinor) — composite unique on (contractId, lotId).
+3.7 invoices + NEW
+The fix for B8, G1 and G3.
+
+Column
+Type
+Constraints
+id
+serial
+pk
+invoiceNumber
+varchar(40)
+unique, generated INV-{YYYY}-{seq}
+payableType
+mysqlEnum
+order, contract
+payableId
+bigint unsigned
+not null
+counterpartyId
+bigint unsigned
+FK → counterparties.id
+currency
+char(3)
+not null
+subtotalMinor
+bigint
+not null
+vatRateBp
+int
+not null default 0 — basis points; VN rates 0 / 500 / 800 / 1000
+vatMinor
+bigint
+not null default 0
+shippingMinor
+bigint
+not null default 0
+totalMinor
+bigint
+not null — invariant: subtotal + vat + shipping
+paidMinor
+bigint
+not null default 0 — maintained by allocation, never written directly
+issuedAt
+date
+not null
+dueAt
+date
+not null — this is what makes aging buckets possible
+status
+mysqlEnum
+draft, issued, partially_paid, paid, overpaid, void, written_off
+eInvoiceStatus
+mysqlEnum
+not_required, pending, issued, failed — see R1
+eInvoiceRef
+varchar(80) nullable
+Authority reference once issued
+memoToken
+char(10)
+unique — the bank-transfer reference; see §7.1
+createdAt, updatedAt, deletedAt
+timestamp
+
+
+
+
+Indexes: unique invoices_number_idx, unique invoices_memo_idx, invoices_counterparty_status_idx (counterpartyId, status), invoices_due_idx (dueAt), invoices_payable_idx (payableType, payableId).
+
+Invariant, enforced by test: paidMinor == SUM(payment_allocations.amountMinor WHERE invoiceId = id AND reversedAt IS NULL). Run it as a nightly reconciliation job (§13.3), not only as a unit test.
+3.8 payment_intents Δ CHANGED
+Column
+Type
+Constraints
+id
+serial
+pk
+invoiceId
+bigint unsigned
+FK → invoices.id — replaces the polymorphic orderId
+idempotencyKey
+varchar(80)
+not null
+requestFingerprint
+char(64)
+not null — SHA-256 of the canonical request body
+provider
+mysqlEnum
+payos, casso, manual
+providerOrderCode
+bigint
+not null, unique — numeric, PayOS requires a number, so a UUID cannot be used
+amountMinor
+bigint
+not null
+currency
+char(3)
+not null
+status
+mysqlEnum
+pending, awaiting_payment, paid, underpaid, overpaid, expired, cancelled, failed
+qrCodeData
+text nullable
+EMVCo payload string
+checkoutUrl
+varchar(500) nullable
+
+
+expiresAt
+timestamp
+not null — default now + 24h
+createdAt, updatedAt
+timestamp
+
+
+
+
+Unique: (idempotencyKey) scoped per authenticated principal — store createdByUserId and make the index (createdByUserId, idempotencyKey). Also unique on providerOrderCode.
+
+providerOrderCode. PayOS orderCode is a JS-safe integer, unique per merchant, and its description field is short (budget ~25 characters). Allocate from a dedicated MySQL sequence table, never from Date.now() — two concurrent intents in the same millisecond collide.
+3.9 provider_transactions + NEW
+Every inbound provider event, trusted or not, lands here before anything touches money. This is the fix for B6, G2 and ADR-03.
+
+Column
+Type
+Constraints
+id
+serial
+pk
+provider
+mysqlEnum
+payos, casso
+providerTxnId
+varchar(120)
+not null — PayOS reference, Casso tid
+rawPayload
+json
+not null — verbatim body, for audit and replay
+signatureValid
+boolean
+not null
+amountMinor
+bigint
+not null
+currency
+char(3)
+not null
+description
+varchar(255)
+not null — the bank memo, where the token lives
+bankReference
+varchar(120) nullable
+
+
+occurredAt
+timestamp nullable
+provider's timestamp; may be date-only on some banks
+receivedAt
+timestamp
+not null default now
+matchStatus
+mysqlEnum
+unmatched, matched, ambiguous, ignored, manual_matched
+matchedInvoiceId
+bigint unsigned nullable
+
+
+verifiedAt
+timestamp nullable
+set when re-fetched from provider API (Casso path)
+
+
+Unique: (provider, providerTxnId). This index is the idempotency guarantee for webhooks — a duplicate delivery hits a duplicate-key error and returns 200 without side effects.
+
+Casso's when field is date-only on some banks (ACB) and full timestamp on others (VietinBank). Never order or deduplicate on occurredAt. Use (provider, providerTxnId).
+3.10 payment_allocations + NEW
+The fix for G3. One transfer can settle several invoices; one invoice can take several transfers.
+
+Column
+Type
+Constraints
+id
+serial
+pk
+providerTransactionId
+bigint unsigned
+FK → provider_transactions.id
+invoiceId
+bigint unsigned
+FK → invoices.id
+amountMinor
+bigint
+not null, > 0
+currency
+char(3)
+not null
+fxRate
+decimal(18,6) nullable
+when payment currency ≠ invoice currency
+allocatedByUserId
+bigint unsigned nullable
+null = automatic
+reversedAt
+timestamp nullable
+allocations are never deleted, only reversed
+reversalReason
+varchar(255) nullable
+
+
+createdAt
+timestamp
+
+
+
+
+Constraint, enforced in application code inside the allocating transaction: SUM(allocations for a transaction) <= provider_transactions.amountMinor.
+3.11 ar_aging — removed Δ CHANGED
+Delete this table from the design. Aging is a query over invoices, not stored state, because stored state drifts and cannot be recomputed after a reversal.
+
+SELECT counterpartyId, currency,
+
+  SUM(CASE WHEN DATEDIFF(CURDATE(), dueAt) <=  0 THEN totalMinor - paidMinor ELSE 0 END) AS current,
+
+  SUM(CASE WHEN DATEDIFF(CURDATE(), dueAt) BETWEEN  1 AND 30 THEN totalMinor - paidMinor ELSE 0 END) AS b30,
+
+  SUM(CASE WHEN DATEDIFF(CURDATE(), dueAt) BETWEEN 31 AND 60 THEN totalMinor - paidMinor ELSE 0 END) AS b60,
+
+  SUM(CASE WHEN DATEDIFF(CURDATE(), dueAt) BETWEEN 61 AND 90 THEN totalMinor - paidMinor ELSE 0 END) AS b90,
+
+  SUM(CASE WHEN DATEDIFF(CURDATE(), dueAt) >  90 THEN totalMinor - paidMinor ELSE 0 END) AS b90plus
+
+FROM invoices
+
+WHERE status IN ('issued','partially_paid','overpaid') AND deletedAt IS NULL
+
+GROUP BY counterpartyId, currency;
+
+Day boundaries are computed in Asia/Ho_Chi_Minh, not UTC — an invoice due 31 Mar is not overdue at 00:30 ICT on 31 Mar even though that is 17:30 UTC on 30 Mar. Store all timestamps UTC; convert at the boundary. If this query becomes slow, add a materialized snapshot table refreshed nightly in addition to the live query, never instead of it.
+3.12 documents, ocr_results Δ CHANGED
+Largely as v1, with:
+
+documents.entityType gains cupping_session, invoice; drops qc_audit.
+documents.sha256 char(64) + NEW, unique — the same lab report uploaded twice should not run OCR twice or create two drafts.
+documents.scanStatus mysqlEnum('pending','clean','infected','skipped') + NEW — see §12.3.
+ocr_results.structuredData json holds extracted values only. Confidence lives solely in confidenceScores json. v1 had confidence in both places, which will drift.
+ocr_results.modelVersion varchar(80) + NEW — you cannot debug an extraction regression without knowing which model produced it.
+ocr_results.reviewedByUserId, reviewedAt, reviewOutcome mysqlEnum('accepted','edited','rejected') + NEW — the human-in-the-loop step must leave evidence.
+3.13 domain_events Δ CHANGED
+Add to the existing table:
+
+Column
+Type
+Notes
+processed
+boolean not null default false
+
+
+processedAt
+timestamp nullable
+
+
+attempts
+int not null default 0
+
+
+lastError
+text nullable
+
+
+availableAt
+timestamp not null default now
+backoff scheduling
+eventVersion
+smallint not null default 1
+payload schema version
+
+
+Index events_dispatch_idx (processed, availableAt, id).
+
+Change payload from text to MySQL json in the same migration, with a backfill validating that every existing row parses. If any row fails to parse, stop the migration — do not coerce.
+
+Do not order the consumer by id > lastSeenId. MySQL AUTO_INCREMENT values are allocated at insert but become visible at commit, so a long transaction can commit an id below one a later short transaction already exposed. A cursor-based consumer will skip it silently. Use claim-based dispatch: SELECT ... WHERE processed = 0 AND availableAt <= NOW() ORDER BY id LIMIT 50 FOR UPDATE SKIP LOCKED. That is why lastEventSequence on ar_aging in v1 §3.11 was unsafe as well as unnecessary.
+3.14 Soft-delete and unique indexes
+MySQL has no partial indexes. UNIQUE(invoiceNumber) plus deletedAt means a soft-deleted invoice permanently reserves its number. That is correct for invoice numbers (regulators expect gapless, non-reused sequences) and wrong for things like contractNumber if the business expects reuse. Decide per table, write the decision in a schema comment, and where reuse is required use a generated column: deletedFlag AS (IF(deletedAt IS NULL, 0, id)) STORED and make the unique index (contractNumber, deletedFlag).
+
+
+4. Events & the Outbox Δ CHANGED
+4.1 Rewriting emitEvent()
+Current signature ignores transactions and fires rules inline:
+
+// app/api/engine.ts — current
+
+export async function emitEvent(eventType, aggregateType, aggregateId, payload) {
+
+  await getDb().insert(domainEvents).values({...});
+
+  await evaluateRules(eventType, payload);   // side effect, outside any transaction
+
+}
+
+Target:
+
+export async function emitEvent(
+
+  tx: Transaction,                 // REQUIRED — caller's transaction, not a fresh connection
+
+  eventType: string,
+
+  aggregateType: string,
+
+  aggregateId: string | number,
+
+  payload: Payload,
+
+  opts?: { version?: number },
+
+): Promise<number> {                // returns outbox row id
+
+  const [res] = await tx.insert(domainEvents).values({
+
+    eventType, aggregateType, aggregateId: String(aggregateId),
+
+    payload, eventVersion: opts?.version ?? 1,
+
+  });
+
+  return res.insertId;
+
+}
+
+evaluateRules() moves out of emitEvent and into the consumer. This is a breaking change to every existing call site (catalog, orders, samples, CRM, campaigns, warehouse, QC, partners, growth). Do it as a mechanical refactor in its own PR, with the existing e2e flows in app/README.md §"Verified flows" as the regression suite — those fourteen flows are the acceptance test for the refactor. Do not bundle it with new features.
+
+Migration safety: run the consumer and the old inline path side by side behind a flag for one release, with the consumer's rule evaluation writing to a shadow table and a diff job asserting parity, then cut over.
+4.2 Consumer
+Single worker process, claim-based dispatch, at-least-once delivery.
+
+Poll every 500ms; claim up to 50 rows with FOR UPDATE SKIP LOCKED.
+Handlers are registered by eventType and must be idempotent, keyed on (eventType, aggregateId) or a handler-specific natural key.
+Retry with exponential backoff: 1s, 5s, 30s, 2m, 10m, 1h. After 6 attempts move to domain_events_dead and alert.
+A handler that throws must not mark the event processed. A handler that decides the event is irrelevant returns skip and the event is marked processed with a skipped reason.
+Ordering is per aggregate, not global. Where a handler needs ordering, it checks aggregate state rather than assuming arrival order.
+4.3 Event catalogue
+Event
+Aggregate
+Payload (v1)
+invoice.issued
+Invoice
+{ invoiceId, counterpartyId, totalMinor, currency, dueAt, memoToken }
+payment.transaction_received
+ProviderTransaction
+{ providerTransactionId, provider, providerTxnId, amountMinor, currency, description, signatureValid }
+payment.matched
+ProviderTransaction
+{ providerTransactionId, invoiceId, amountMinor, matchMethod }
+payment.unmatched
+ProviderTransaction
+{ providerTransactionId, amountMinor, description, reason }
+payment.allocated
+Invoice
+{ invoiceId, allocationId, amountMinor, paidMinor, totalMinor }
+payment.reversed
+Invoice
+{ invoiceId, allocationId, amountMinor, reason }
+invoice.settled
+Invoice
+{ invoiceId, counterpartyId, totalMinor, currency, settledAt }
+invoice.overpaid
+Invoice
+{ invoiceId, excessMinor, currency }
+contract.created
+Contract
+{ contractId, counterpartyId, totalMinor, currency }
+inventory.moved
+InventoryLot
+{ inventoryLotId, lotId, movementType, quantityGrams, referenceType, referenceId }
+document.ocr.completed
+Document
+{ documentId, ocrResultId, entityType, entityId, minFieldConfidence, modelVersion }
+document.draft_proposed
+Document
+{ documentId, draftType, draftId }
+
+
+Existing canonical events (sample_kit.delivered, feedback.submitted, order.created, catalog.reservation_released, …) are unchanged and must stay byte-identical — the marketing rule engine matches on the string.
+
+Versioning rule: payloads are append-only within a version. Removing or retyping a field requires eventVersion + 1 and a handler that accepts both for at least one release.
+
+
+5. API Contracts Δ CHANGED
+5.1 Manager router — app/api/routers/manager.ts
+Broadly as v1, with these corrections:
+
+Remove qcAudits.*. Extend the existing qc router instead: qc.proposeCuppingFromDocument({ documentId }) returns a draft that the existing qc.recordCupping mutation consumes after human edit. Panel enforcement (GS-QC-1005) applies unchanged.
+documents.upload returns { documentId, uploadUrl, expiresAt } for the presigned path. The client uploads directly, then calls documents.confirmUpload({ documentId, sha256, sizeBytes }). Without the confirm step you cannot distinguish "user abandoned the upload" from "upload failed".
+Add invoices.list, invoices.byId, invoices.issue, invoices.void, invoices.writeOff.
+Every list query takes { cursor?, limit? } with keyset pagination on (createdAt, id), not page/limit offset — offset pagination on a table receiving inserts skips and repeats rows.
+5.2 Payments router — app/api/routers/payments.ts
+Queries: intents.byId, intents.list, ar.aging({ counterpartyId?, currency?, asOf? }), ar.summary, transactions.list({ matchStatus? }), transactions.unmatched.
+
+Mutations: intents.create (idempotency key required), intents.cancel, allocations.create (manual match), allocations.reverse, transactions.ignore.
+
+Webhooks are not here. They are Hono routes (§7.2).
+5.3 Authorization
+Every mutation above declares a required role from the existing set (platform_admin, ops_manager, sales_csm, analyst, roaster_buyer). Specifically: allocations.create and allocations.reverse require ops_manager or platform_admin; invoices.writeOff requires platform_admin; a roaster_buyer may read only invoices whose counterpartyId maps to their own roaster. Write a single table of procedure → role in contracts/rbac.ts and a test that fails if a procedure is added without an entry.
+
+
+6. OCR Pipeline Δ CHANGED
+6.1 Flow
+Upload → confirmUpload → virus scan → enqueue → extract → propose draft → human review → accept. The pipeline never writes an approved business record.
+6.2 Confidence gating Δ CHANGED
+v1's global thresholds are replaced by per-field gating with a field criticality class:
+
+Class
+Fields
+Rule
+Financial / quality-critical
+cup score, moisture, defect count, unit price, total, quantity, counterparty bank details
+Always human-confirmed regardless of confidence. Field is pre-filled and highlighted; the accept button is disabled until each is explicitly touched.
+Standard
+sample ID, lot code, dates, delivery window, incoterm
+≥0.90 pre-filled and accepted silently; 0.70–0.89 pre-filled with a warning; <0.70 blank.
+Advisory
+sensory descriptors, free-text notes
+Pre-filled at any confidence, no gate.
+
+
+Rationale is ADR-04: an extracted cup score is an input to the revenue-share tier that determines a farmer's payment. No confidence number justifies removing a person from that decision.
+6.3 Structured data schema
+Per document type, versioned, in contracts/ocr-schemas.ts. Example, SCA lab report:
+
+{
+
+  "schemaVersion": 1,
+
+  "documentType": "sca_lab_report",
+
+  "fields": {
+
+    "sampleId": "ABC123",
+
+    "cupScore": 82.75,
+
+    "moistureContent": 10.2,
+
+    "defectCount": 3,
+
+    "sensory": ["chocolate", "berry"]
+
+  }
+
+}
+
+Confidence lives separately: { "sampleId": 0.97, "cupScore": 0.95, ... }. Any field present in fields must have a confidence entry; assert it in a test.
+6.4 Failure handling
+Retry 3 times with backoff on transport errors only. Do not retry on a parse failure — that is deterministic and will fail identically. Mark failed, store errorMessage, surface in a review queue, and let a human enter the record manually. An OCR queue that silently retries forever is how you discover a broken model three days late.
+
+
+7. Payment Integration Δ CHANGED
+This section is the largest rewrite. v1 modelled a card charge. VietQR is a push payment: the payer initiates a bank transfer, chooses the amount, and types (or scans) a memo. Everything below follows from that.
+7.1 The memo token
+Matching happens on the bank transfer description. Constraints from the field:
+
+Vietnamese banks uppercase, strip diacritics, and truncate memos; PayOS's own description budget is around 25 characters. Casso's reference integration parses a fixed prefix plus digits out of the description.
+The token must therefore be short, uppercase, alphanumeric, and unambiguous.
+
+Specification: AUC + 7 characters from Crockford base32 (excludes I, L, O, U) = 10 characters total, derived from the invoice id plus a check character. Stored on invoices.memoToken, unique. Rendered in the QR addInfo field, printed on the invoice, and shown on the payment screen with a copy button.
+
+Matching order:
+
+Exact memoToken found in description (case-insensitive, after stripping non-alphanumerics) → matched.
+PayOS orderCode maps to a payment_intents.providerOrderCode → matched.
+Exactly one open invoice for a counterparty identified by counterAccountNumber, and the amount matches exactly → matched, flagged matchMethod: 'heuristic' for review.
+Otherwise → unmatched or ambiguous; lands in the exception queue.
+
+Never match on amount alone. Two farmers paying the same round number on the same day is not a hypothetical.
+7.2 Webhook endpoints Δ CHANGED
+Mounted as Hono routes before the tRPC middleware, with express.raw-equivalent body capture:
+
+POST /webhooks/payos
+
+POST /webhooks/casso
+
+Both endpoints:
+
+Capture the raw body before JSON parsing (needed for audit and, for some providers, signature input).
+Verify authentication (below). On failure: log with request id, return 401, do not persist as a transaction.
+Insert into provider_transactions. Duplicate (provider, providerTxnId) → return 200 immediately, no side effects.
+Emit payment.transaction_received in the same transaction.
+Return 200 within 2 seconds, before matching runs. Matching happens in the consumer. Providers retry on timeout, and a slow synchronous match is how you get duplicate deliveries.
+
+PayOS. Signature is HMAC-SHA256 over the data object with keys sorted alphabetically and joined as k=v&k=v, compared to the signature field. Use crypto.timingSafeEqual. Note the webhook URL must be registered with PayOS via their confirm-webhook call — add this to the deployment runbook; a forgotten registration means silent non-delivery in production. Verified PayOS transactions may credit AR directly.
+
+Casso. Authentication is a static shared secret in a secure-token header. There is no payload signature, no timestamp, and no replay protection. Treat the callback as an untrusted notification: compare the token in constant time, persist the transaction with signatureValid = false, and then have the consumer re-fetch the transaction from the Casso API before allocating. Only a re-fetched, verifiedAt-stamped record may move money. Additionally, restrict the endpoint by source IP where the provider publishes a range, and rotate the token quarterly.
+7.3 Idempotency, properly
+A bare UNIQUE(idempotencyKey) returns a duplicate-key error on retry rather than the original result, and cannot distinguish a legitimate retry from key reuse with a different body.
+
+Implement an idempotency_records table: (principalId, key) unique, plus requestFingerprint char(64), status enum('in_flight','completed'), responseSnapshot json, lockedAt, expiresAt (24h).
+
+Same key, same fingerprint, completed → return responseSnapshot, HTTP 200.
+Same key, same fingerprint, in-flight → HTTP 409 with Retry-After.
+Same key, different fingerprint → HTTP 422 GS-PAY-1001 IdempotencyKeyReuse. Never silently return the old response for a different request.
+7.4 Under, over, and unmatched payment
+Scenario
+Handling
+Underpayment
+Allocate what arrived. invoices.status = partially_paid. Emit payment.allocated. Remaining balance keeps aging from the original dueAt.
+Overpayment
+Allocate up to totalMinor. Excess creates a credit: a provider_transactions row with residual unallocated amount, visible in the exception queue for allocation to another invoice or refund. invoices.status = paid; emit invoice.overpaid.
+Unmatched
+matchStatus = unmatched. Money is real but unassigned — this is a suspense balance and must appear in the AR summary as such, never as zero. Ops resolves via allocations.create.
+Duplicate transfer
+Distinct providerTxnId, so both persist. The second is unmatched (invoice already paid) and routed to refund. This is correct behaviour, not a bug — do not deduplicate on amount.
+Refund / reversal
+allocations.reverse writes reversedAt and a reason, recomputes invoices.paidMinor, emits payment.reversed. The outbound transfer itself is manual this sprint and recorded as a note.
+
+7.5 Foreign exchange
+When invoice currency ≠ payment currency, payment_allocations.fxRate is captured at allocation time from the counterparty's contract rate (contracts.fxRateLocked) if present, otherwise from a rate source recorded with a timestamp. Realized FX difference is computed and posted to a fx_adjustments ledger — out of scope for the sprint, but the rate must be captured now or the difference is unrecoverable later.
+
+
+8. Frontend Δ CHANGED
+8.1 Runtime feature flags
+config.flags tRPC query returns { ocrUpload: boolean, vietqrPayments: boolean, autoAllocation: boolean }, cached 30s. VITE_* variables remain only as local-dev overrides. autoAllocation is a kill switch: with it off, every matched transaction still requires a human click, which is the safe posture for the first two weeks in production.
+8.2 Pages
+Invoices + NEW — list, issue, void; per-invoice payment history with allocations and reversals.
+Payments / AR — aging buckets (now real), open intents with QR, and the exception queue: unmatched, ambiguous, overpaid, and reversal candidates. This queue is the most important screen in the sprint; design it first.
+QC Audit — replaced by extending the existing QC Lab page with an OCR review panel that pre-fills a cupping form. No new competing page.
+Contracts — list, upload, OCR-assisted draft creation.
+Lot Detail — timeline joining movements, cuppings, exceptions, contracts, invoices, payments, and the existing partnerPayments for that lot. This is the screen that proves the traceability invariant to a customer.
+Inventory — enhanced as v1.
+8.3 Components
+DocumentUpload, OCRReviewPanel (per-field confidence badges, critical fields visually distinct and requiring explicit touch), VietQRCode (QR plus copyable memo token and account details as a fallback — some payers will type the transfer manually), PaymentStatusBadge, AllocationDialog, AgingBucketBar.
+
+Follow the existing design tokens (design-system/02-design-tokens.md); do not introduce a new palette. Money is right-aligned and tabular-figured. Never render a monetary value without its currency.
+
+
+9. File Structure Δ CHANGED
+app/
+
+  api/
+
+    routers/manager.ts, payments.ts, invoices.ts
+
+    webhooks/payos.ts, casso.ts          # Hono routes, NOT tRPC
+
+    services/
+
+      ocr/{processor,vision,llm,schemas}.ts
+
+      payments/{provider,payos,casso,matching,allocation}.ts
+
+      outbox/{consumer,handlers,registry}.ts
+
+    engine.ts                             # emitEvent rewritten, rules moved out
+
+  db/
+
+    manager-schema.ts, payments-schema.ts
+
+    schema.ts                             # re-exports both; drizzle.config points here
+
+    migrations/
+
+  contracts/
+
+    manager-types.ts, payments-types.ts, events.ts, ocr-schemas.ts, rbac.ts
+
+    constants.ts                          # money, units, score rounding
+
+  src/
+
+    pages/{Invoices,Payments,Contracts,LotDetail,Inventory}.tsx
+
+    components/{DocumentUpload,OCRReviewPanel,VietQRCode,AllocationDialog,AgingBucketBar}.tsx
+
+    hooks/{usePaymentIntent,useOCR,useFlags}.ts
+
+
+10. Delivery Plan Δ CHANGED
+v1's nine sequential phases put the frontend last and retire integration risk never. Replaced with three vertical slices, each shippable behind a flag.
+Slice 0 — Foundations (2 days, blocking, one agent)
+#
+Task
+Done when
+0.1
+Correct all v1 DDL to MySQL/Drizzle, serial PKs, bigint money
+db:generate produces a migration that applies cleanly to a seeded database
+0.2
+Money helpers: formatMinor, parseMinor, currency exponent table, roundScore, lbsToGrams
+Property tests pass (§11.1)
+0.3
+domain_events gains processed, attempts, availableAt, eventVersion; payload → json
+Backfill validates 100% of existing rows
+0.4
+emitEvent() made transaction-aware; evaluateRules moved to a registry
+All fourteen existing e2e flows in app/README.md still pass
+0.5
+Outbox consumer with claim-based dispatch and backoff
+Chaos test §11.4 passes
+0.6
+Runtime flag endpoint + useFlags
+Toggling a flag changes UI within 30s, no deploy
+
+
+Gate: Slice 0 must be reviewed by a human before Slice 1 begins. It is the only part of this sprint that touches existing money paths.
+Slice 1 — Receivables spine (1 week)
+Invoices, allocations, aging query, manual payment recording, Invoices and Payments pages with the exception queue. No provider integration. At the end of this slice an ops person can run Vietnamese receivables by hand, in the product, correctly. That is real value and it de-risks everything downstream.
+Slice 2 — VietQR settlement (2 weeks)
+PayOS client and QR generation; webhook endpoints; provider_transactions; matching engine; Casso bank-feed adapter with API re-fetch; auto-allocation behind its own flag, default off. Ships to production with autoAllocation: false and a human confirming every match for the first two weeks.
+Slice 3 — Document intake (1 week)
+Upload, virus scan, presigned storage, OCR worker (mock adapter first so the frontend is unblocked on day one), review panel, draft proposal into the existing cupping and contract flows.
+Parallelisation
+Slices 1–3 each have a frontend and backend track that can run concurrently, because the tRPC contract is written first and mocked with MSW. That, not agent count, is what compresses the schedule. Nine agents on nine sequential phases is one agent's throughput with eight handoffs.
+
+
+11. Testing Δ CHANGED
+11.1 Property-based (fast-check)
+Money round-trip: parseMinor(formatMinor(n, c), c) === n for all currencies, all n in bigint range.
+No currency mixing: allocating an amount in currency X to an invoice in currency Y without an fxRate throws.
+Allocation invariant: for any sequence of allocations and reversals, invoices.paidMinor === SUM(non-reversed allocations) and 0 <= paidMinor.
+Unit conversion: gramsToLbs(lbsToGrams(x)) within 1g for all realistic x.
+Tier boundary: qualityTierForScore(roundScore(s)) is monotonic in s and stable across the float representations of 79.995, 85.995, 86.0.
+11.2 Integration
+Real MySQL in a container, not a mock. Per test: intents.create twice with the same key and body returns the same intent; same key with a different body returns GS-PAY-1001; concurrent duplicate creates produce exactly one row (run 20 concurrent requests, assert COUNT = 1); webhook with a valid signature credits once; the same webhook delivered five times credits once; a webhook with an invalid signature returns 401 and writes no transaction; a Casso callback with a valid token but a failing API re-fetch does not allocate.
+11.3 Contract tests
+Pact-style against recorded provider fixtures for PayOS and Casso, including at least one real sandbox capture per provider. Include the awkward shapes: Casso when as date-only, PayOS description truncated, amount as string vs number, missing counterAccountNumber.
+11.4 Chaos
+Kill the outbox consumer mid-batch → on restart, no event is lost and none is processed twice (assert handler-level idempotency counters).
+Database connection drop during allocation → invoice paidMinor matches the allocation sum afterwards.
+Provider webhook delivered while the matching consumer is down → transaction persists, matches on recovery.
+Clock skew: provider timestamp one hour in the future → no crash, no reordering.
+11.5 End-to-end (Playwright)
+Create lot → issue invoice → display QR with memo token → simulate PayOS webhook at 90% of the amount → assert partially_paid and the correct aging bucket → simulate the remainder → assert paid, invoice.settled emitted once, aging bucket empty, and the lot detail timeline shows both allocations.
+11.6 Load
+100 webhooks/second for 60 seconds against the matching path. Assert p99 webhook response < 2s (the provider timeout budget) and zero duplicate allocations. Bank settlement batches arrive in bursts; a matching engine that is fine at 1/s and falls over at 50/s will fail on its first busy Friday.
+
+
+12. Security, Privacy & Compliance + NEW
+12.1 Threat model, briefly
+The valuable attacks here are: forging a Casso webhook to mark an invoice paid (mitigated by ADR-03's API re-fetch); replaying a legitimate webhook to double-credit (mitigated by the (provider, providerTxnId) unique index); exfiltrating farmer bank details (§12.2); and uploading a malicious file through document intake (§12.3).
+12.2 Bank details and PDPD
+Vietnam's Decree 13/2023 (PDPD) treats an individual's financial account information as sensitive personal data, requiring explicit consent, purpose limitation, and a record of processing. Since many counterparties are individual farmers:
+
+Encrypt bankAccountNumberEnc with AES-256-GCM using a KMS-managed key, per-row IV. Store bankAccountLast4 in plaintext for display.
+Decryption is available only to ops_manager and platform_admin, and every decryption writes an access-log row — mirroring the sampleAccessLogs pattern already used for retained samples.
+Consent capture on counterparty onboarding, with a consentedAt timestamp and the consent text version.
+Confirm data-residency requirements with counsel before choosing a storage region. Flag as R2 below.
+12.3 Document upload
+Content-type allowlist (image/jpeg, image/png, image/heic, application/pdf); 25MB cap; presigned URLs expiring in 15 minutes; ClamAV or equivalent scan before OCR, with scanStatus = infected quarantining the document and alerting; never serve an uploaded file from the application origin — use a separate domain or signed CDN URLs to avoid stored-XSS via SVG or crafted PDF.
+12.4 Secrets
+WEBHOOK_SECRET, PAYOS_CHECKSUM_KEY, CASSO_API_KEY are provided by the secret manager, never in .env outside local dev. Add a CI check that fails the build if a high-entropy string matching the provider key formats appears in a diff.
+
+
+13. Observability & Rollout Δ CHANGED
+13.1 SLOs
+Metric
+Target
+Alert
+Webhook endpoint response, p99
+< 2s
+> 2s for 5 min
+Webhook → allocation latency, p95
+< 30s
+> 5 min
+Outbox lag (oldest unprocessed event age)
+< 60s
+> 5 min
+Dead-lettered events
+0
+any, page on-call
+Unmatched transaction value
+< 2% of daily inbound
+> 5% for 24h
+OCR success rate
+> 90%
+< 80% over 100 documents
+Invoice paidMinor reconciliation drift
+0
+any, page on-call
+
+13.2 Structured logging
+Every webhook logs { requestId, provider, providerTxnId, signatureValid, amountMinor, currency, matchStatus, latencyMs }. Never log the raw memo description at info level — it can contain a counterparty name and account fragment. Log its hash; the full value lives in provider_transactions.rawPayload behind role-gated access.
+13.3 Nightly reconciliation
+A job asserts, for every invoice: paidMinor == SUM(non-reversed allocations); SUM(allocations per transaction) <= transaction.amountMinor; every matched transaction has at least one allocation; no allocation crosses currencies without an fxRate. Any failure pages on-call and posts the offending invoice ids. This is the control that catches the bug the tests missed.
+13.4 Rollout
+Slice 2 goes to production with vietqrPayments: true, autoAllocation: false, restricted to two pilot counterparties by an allowlist. Graduate to auto-allocation only after 14 consecutive days with zero reconciliation failures and zero manual reversals.
+13.5 Rollback
+Every migration ships with a tested down. Migrations are expand-then-contract: add columns nullable, backfill, switch reads, switch writes, drop old columns in a later release. No release both adds and removes a column that the previous version reads. Feature flags are the first line of rollback; migrations are the last.
+
+
+14. Acceptance Criteria Δ CHANGED
+Rewritten so each is independently observable and has a stated tolerance.
+
+Aging is correct. Given invoices due 5, 40, 70 and 120 days ago with partial payments, ar.aging returns exactly the current/30/60/90/90+ split, computed in Asia/Ho_Chi_Minh, matching a hand-calculated fixture to the minor unit.
+Webhook idempotency. The same PayOS payload delivered 10 times concurrently produces exactly one provider_transactions row, one allocation, and one invoice.settled event.
+Casso is not trusted. A Casso callback with a valid secure-token but a stubbed API re-fetch that returns 404 leaves paidMinor unchanged and raises an exception-queue entry.
+Underpayment. A transfer of 90% of the invoice total sets partially_paid, leaves the remainder in the original aging bucket, and emits no invoice.settled.
+Overpayment. A transfer of 110% sets paid, emits invoice.overpaid, and leaves the excess visible as unallocated in the exception queue and in ar.summary.
+Unmatched money is never invisible. A transfer with an unrecognised memo appears in the exception queue within 60s and is included in the AR summary as suspense, not omitted.
+No money overflow. An invoice of ₫5,000,000,000 (≈$190k) round-trips through create, QR generation, webhook, allocation and display without loss.
+OCR proposes, humans dispose. Uploading a lab report at 0.99 confidence creates a draft cupping form and no approved cuppingSessions row; the tier used for revenue share is unchanged until a qualified user submits the form, and panel enforcement still rejects a single-cupper Tier 2 session.
+Idempotency key reuse is refused. Same key, different body returns GS-PAY-1001, not the original response.
+Traceability. For any allocation, a single query resolves payment → invoice → order or contract → lot → partner, and the Lot Detail page renders that chain.
+Flags work at runtime. Setting autoAllocation: false stops automatic allocation within 30s with no deploy and no restart.
+The refactor is safe. All fourteen pre-existing verified flows in app/README.md pass unchanged after emitEvent is rewritten.
+
+
+15. Risks & Open Questions + NEW
+#
+Item
+Owner
+Needed by
+R1
+E-invoice obligation. Vietnam requires electronic invoices issued through an authorised provider and registered with the tax authority (Decree 123/2020 and successors). Our invoices table is an internal AR record, not a compliant e-invoice. Confirm whether ODASI is issuing VN-domestic invoices this quarter and, if so, which provider integrates. eInvoiceStatus is the placeholder.
+Finance + counsel
+Before Slice 1 ships
+R2
+Data residency. Whether counterparty KYC and bank data must be stored in Vietnam under PDPD / Decree 53/2022. Affects hosting region and therefore Slice 0's storage decisions.
+Counsel
+Before Slice 0
+R3
+Who is the payer? The spec assumes buyers pay us in VND. If the primary VietQR flow is actually us paying farmers (the existing partnerPayments direction), the entire receivables model is the wrong shape and this becomes a payouts sprint. This must be answered before Slice 0.
+Product
+Immediately
+R4
+VAT rate determination. Green coffee export vs domestic sale carries different VAT treatment. vatRateBp is per-invoice; who sets it, and from what rule?
+Finance
+Slice 1
+R5
+cupScore as double. Currently exact-comparison-unsafe at tier boundaries. Migration to decimal(5,2) is deferred but should be scheduled.
+Engineering
+Next sprint
+R6
+Provider contracts may have moved. PayOS and Casso API shapes were verified at the time of writing but change. Every provider integration task begins with re-reading the current docs and recording a fixture, not with trusting this document.
+Slice 2 lead
+Slice 2 start
+
+
+
+Appendix A — Currency handling
+Currency
+ISO exponent
+Minor unit
+₫/$ sanity
+bigint headroom
+VND
+0
+1 đồng
+—
+~9.2 × 10¹⁸ đồng
+USD
+2
+1 cent
+—
+~9.2 × 10¹⁶ dollars
+
+
+Never infer the exponent from the value. Never store a rate as a float. Never add two amounts without first asserting equal currency — write addMoney(a, b) so it throws on mismatch, and forbid raw + on money in review.
+Appendix B — v1 → v2 change index
+v1 §
+Disposition
+§2 Postgres/uuid
+Replaced — MySQL/serial (B1, B2, ADR-01)
+§3.1 cupScore integer
+Replaced — double retained, roundScore mandated (B4)
+§3.6/3.10/3.11 integer money
+Replaced — bigint minor units (B3)
+§3.7 qc_audits
+Removed — extend existing cuppingSessions (B5, ADR-04)
+§3.10 polymorphic orderId
+Replaced — invoices aggregate (B8, ADR-02)
+§3.11 ar_aging
+Removed — computed query (G1)
+§4 outbox
+Rewritten — emitEvent is not currently an outbox (B6)
+§5.2 tRPC webhooks
+Replaced — Hono routes (B7)
+§6.2 global confidence thresholds
+Replaced — per-field criticality classes (G6, ADR-04)
+§7.2 webhook handling
+Rewritten — provider asymmetry, push-payment cases (ADR-03, G2)
+§8.1 VITE_ flags
+Replaced — runtime flags (G8, ADR-05)
+§10 nine phases
+Replaced — three vertical slices (G9)
+§14 acceptance criteria
+Rewritten as observable assertions (G10)
+§12 environment
+Extended — secret manager, CI secret scan
+—
+Added §12 security/PDPD, §13 SLOs and reconciliation, §15 risks
+
+
+
+
+Prepared for the Auctum Ledger engineering team. v1 remains useful as the statement of intent; this document is the buildable version. Where the two conflict, this one governs.
+
